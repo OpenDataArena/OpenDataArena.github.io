@@ -47,7 +47,31 @@ fi
 
 # 推送到GitHub
 echo -e "${YELLOW}推送到GitHub...${NC}"
-git push -u origin $BRANCH --force
+echo -e "${YELLOW}这可能需要几分钟时间，请耐心等待...${NC}"
 
-echo -e "${GREEN}部署完成!${NC}"
-echo -e "${GREEN}网站将在几分钟内可通过https://briefmind-daily.github.io/Data_Leaderboard/访问${NC}"
+# 使用-v参数获取更详细的输出
+if git push -v -u origin $BRANCH --force; then
+    echo -e "${GREEN}部署完成!${NC}"
+    echo -e "${GREEN}网站将在几分钟内可通过https://briefmind-daily.github.io/Data_Leaderboard/访问${NC}"
+else
+    echo -e "${YELLOW}推送失败，尝试使用更详细的方式...${NC}"
+    
+    # 检查配置和认证
+    echo -e "${YELLOW}检查Git配置...${NC}"
+    git config --get user.name
+    git config --get user.email
+    
+    # 检查远程仓库
+    echo -e "${YELLOW}检查远程仓库...${NC}"
+    git remote -v
+    
+    echo -e "${YELLOW}请检查以下几点：${NC}"
+    echo "1. 确保已配置Git用户名和邮箱"
+    echo "2. 确保有权限访问${REPO_URL}仓库"
+    echo "3. 如果使用HTTPS协议，可能需要输入GitHub用户名和密码（或个人访问令牌）"
+    echo "4. 使用SSH密钥认证可能更方便"
+    echo "5. 网络连接是否稳定"
+    
+    echo -e "${YELLOW}尝试重新推送...${NC}"
+    GIT_TRACE=1 git push -u origin $BRANCH --force
+fi
