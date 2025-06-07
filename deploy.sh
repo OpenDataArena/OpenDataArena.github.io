@@ -7,9 +7,50 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}开始部署到GitHub Pages...${NC}"
 
-# 设置GitHub仓库URL
-REPO_URL="https://github.com/BriefMind-Daily/Data_Leaderboard.git"
+# 设置GitHub仓库URL（支持HTTPS和SSH两种方式）
+REPO_URL_HTTPS="https://github.com/BriefMind-Daily/Data_Leaderboard.git"
+REPO_URL_SSH="git@github.com:BriefMind-Daily/Data_Leaderboard.git"
+
+# 默认使用HTTPS
+REPO_URL="$REPO_URL_HTTPS"
 BRANCH="gh-pages"  # GitHub Pages分支
+
+# 询问用户选择推送协议
+echo -e "${YELLOW}请选择Git推送协议:${NC}"
+echo "1) HTTPS (需要输入用户名密码或个人访问令牌)"
+echo "2) SSH (需要已配置SSH密钥)"
+read -p "请选择 [1/2] (默认: 1): " protocol_choice
+
+if [ "$protocol_choice" = "2" ]; then
+    REPO_URL="$REPO_URL_SSH"
+    echo -e "${GREEN}已选择SSH协议${NC}"
+else
+    echo -e "${GREEN}已选择HTTPS协议${NC}"
+    
+    # 提醒用户关于个人访问令牌的使用
+    echo -e "${YELLOW}注意: 使用HTTPS协议时，GitHub可能要求使用个人访问令牌(PAT)而非密码${NC}"
+    echo -e "${YELLOW}如何创建个人访问令牌: https://github.com/settings/tokens${NC}"
+fi
+
+# 检查Git配置
+if [ -z "$(git config --get user.name)" ] || [ -z "$(git config --get user.email)" ]; then
+    echo -e "${YELLOW}Git用户名或邮箱未配置，请配置：${NC}"
+    echo "git config --global user.name \"您的名字\""
+    echo "git config --global user.email \"您的邮箱\""
+    
+    # 询问是否继续
+    read -p "是否要配置Git用户名和邮箱并继续？(y/n) " answer
+    if [ "$answer" = "y" ]; then
+        read -p "请输入Git用户名: " git_username
+        git config --global user.name "$git_username"
+        read -p "请输入Git邮箱: " git_email
+        git config --global user.email "$git_email"
+        echo -e "${GREEN}Git配置已更新${NC}"
+    else
+        echo -e "${YELLOW}部署已取消${NC}"
+        exit 1
+    fi
+fi
 
 # 检查是否已经初始化Git仓库
 if [ ! -d .git ]; then
