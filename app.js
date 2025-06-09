@@ -19,8 +19,8 @@ const app = createApp({
 
         // 模型配置
         const models = ref([
-            { id: 'llama', name: 'LLaMA 系列', icon: 'fas fa-robot' },
-            { id: 'qwen', name: 'Qwen 系列', icon: 'fas fa-microchip' }
+            { id: 'llama', name: 'LLaMA Family', icon: 'fas fa-robot' },
+            { id: 'qwen', name: 'Qwen Family', icon: 'fas fa-microchip' }
         ])
 
         // 加载数据
@@ -646,6 +646,52 @@ const app = createApp({
                 highlightedColumn.value = columnKey;
             }
         };
+
+        // 订阅弹窗逻辑
+        function setupSubscribeModal() {
+            const btn = document.getElementById('subscribe-btn');
+            const modal = document.getElementById('subscribe-modal');
+            const close = modal.querySelector('.close-modal');
+            const form = document.getElementById('subscribe-form');
+            const emailInput = document.getElementById('subscribe-email');
+            const successMsg = document.getElementById('subscribe-success');
+            const errorMsg = document.getElementById('subscribe-error');
+            if (!btn || !modal || !close || !form) return;
+            btn.onclick = () => { modal.classList.add('show'); successMsg.style.display = 'none'; errorMsg.style.display = 'none'; emailInput.value = ''; };
+            close.onclick = () => { modal.classList.remove('show'); };
+            window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+            form.onsubmit = async function(e) {
+                e.preventDefault();
+                successMsg.style.display = 'none';
+                errorMsg.style.display = 'none';
+                const email = emailInput.value.trim();
+                if (!email) return;
+                // Google Sheets API 端点（需替换为你的 Apps Script 部署地址）
+                const endpoint = 'https://script.google.com/macros/s/AKfycbw0AQD1p9wet2wowaC1rxmjo-Aw-bpyRkTMMRq4KXgqvak84CD7BSgEmVfKYcPQHSPR/exec';
+                try {
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: 'email=' + encodeURIComponent(email)
+                    });
+                    if (res.ok) {
+                        successMsg.style.display = 'block';
+                        errorMsg.style.display = 'none';
+                        emailInput.value = '';
+                    } else {
+                        throw new Error('Network error');
+                    }
+                } catch (err) {
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                }
+            };
+        }
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(setupSubscribeModal, 500);
+        } else {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(setupSubscribeModal, 500));
+        }
 
         // 挂载时加载数据
         onMounted(() => {

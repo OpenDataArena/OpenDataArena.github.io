@@ -66,8 +66,8 @@ body {
 }
 
 .header h1 {
-    font-size: 2.4rem; /* Further increased font size for impact */
-    font-weight: 700; /* Bolder for a stronger presence */
+    font-size: 3.2rem; /* 更大字号 */
+    font-weight: 700;
     /* Simple left-to-right blue gradient */
     background: linear-gradient(to right, #00BFFF, #000080); /* More contrasting blues: Deep Sky Blue to Navy */
     -webkit-background-clip: text;
@@ -1278,33 +1278,16 @@ CSS
     text-align: center; /* 文本居中 */
 }
 
-CSS
-/* Domain Badge */
-.domain-badge {
-    display: inline-block;
-    padding: 8px 16px; /* 统一内边距，使其大小更固定 */
-    border-radius: 4px; /* 稍微减少圆角，使其更规整 */
-    font-size: 14px; /* 统一字体大小 */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    min-width: 80px; /* 设置最小宽度，避免内容过少时标签过窄 */
-    text-align: center; /* 文本居中 */
-}
-
-/* 通用 - 经典灰色 */
 .domain-general {
     background: #f0f0f0; /* 极浅灰色，更明亮纯净 */
     color: #555555;     /* 中等深度的灰色文字 */
 }
 
-/* 数学 - 纯净蓝 */
 .domain-math {
     background: #e3f2fd; /* 非常浅的纯蓝色 */
     color: #1a73e8;     /* 亮眼的蓝色文字 */
 }
 
-/* 代码 - 纯净绿 */
 .domain-code {
     background: #e8f5e9; /* 非常浅的纯绿色 */
     color: #34a853;     /* 亮眼的绿色文字 */
@@ -1499,4 +1482,200 @@ CSS
         font-size: 0.9rem;
         padding: 0.6rem 1rem 0.6rem 2.2rem;
     }
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border-top: 1px solid var(--border-light);
+    margin-top: 50px;
+    padding: 40px 0 20px 0;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-links {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-links h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.links-container a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--background-primary);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+}
+
+.links-container a:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-light);
+    background: var(--background-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.links-container a i {
+    font-size: 1rem;
+    width: 16px;
+}
+
+.github-repo-link {
+    position: relative;
+}
+
+.github-repo-link::after {
+    content: '(To be updated)';
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-left: 5px;
+    font-style: italic;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* 订阅按钮样式 */
+.subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--background-primary);
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    margin-left: 16px;
+    transition: all 0.2s;
+}
+.subscribe-btn i {
+    font-size: 1.1em;
+}
+.subscribe-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-primary);
+    box-shadow: var(--shadow-md);
+}
+
+/* 订阅弹窗样式 */
+.subscribe-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.25);
+    align-items: center;
+    justify-content: center;
+}
+.subscribe-modal.show {
+    display: flex;
+}
+.subscribe-modal-content {
+    background: var(--background-primary);
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+    position: relative;
+}
+.subscribe-modal-content h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+.subscribe-modal-content input[type="email"] {
+    width: 80%;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+.subscribe-modal-content input[type="email"]:focus {
+    border: 1.5px solid var(--primary-color);
+}
+.subscribe-modal-content button[type="submit"] {
+    padding: 0.6rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--background-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.subscribe-modal-content button[type="submit"]:hover {
+    background: var(--primary-dark);
+}
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: var(--error-color);
+}
+.subscribe-success {
+    color: var(--success-color);
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.subscribe-error {
+    color: var(--error-color);
+    margin-top: 1rem;
+    font-size: 1rem;
 }
