@@ -7,15 +7,12 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}开始部署到GitHub Pages...${NC}"
 
-# 设置GitHub仓库URL（支持HTTPS和SSH两种方式）
 REPO_URL_HTTPS="https://github.com/BriefMind-Daily/Data_Leaderboard.git"
 REPO_URL_SSH="git@github.com:BriefMind-Daily/Data_Leaderboard.git"
 
-# 默认使用HTTPS
 REPO_URL="$REPO_URL_HTTPS"
-BRANCH="gh-pages"  # GitHub Pages分支
+BRANCH="gh-pages" 
 
-# 询问用户选择推送协议
 echo -e "${YELLOW}请选择Git推送协议:${NC}"
 echo "1) HTTPS (需要输入用户名密码或个人访问令牌)"
 echo "2) SSH (需要已配置SSH密钥)"
@@ -27,7 +24,6 @@ if [ "$protocol_choice" = "2" ]; then
 else
     echo -e "${GREEN}已选择HTTPS协议${NC}"
     
-    # 提醒用户关于个人访问令牌的使用
     echo -e "${YELLOW}注意: 使用HTTPS协议时，GitHub可能要求使用个人访问令牌(PAT)而非密码${NC}"
     echo -e "${YELLOW}如何创建个人访问令牌: https://github.com/settings/tokens${NC}"
 fi

@@ -1,0 +1,213 @@
+/* 下拉框和多选框样式 */
+.dropdown,
+.multiselect-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 4px; /* 进一步减少底部边距 */
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    height: 14px; /* 进一步减少label高度 */
+}
+
+.select-dropdown,
+.multiselect-dropdown {
+    width: 100%;
+    padding: 8px 0;
+    padding-right: 25px; /* 减少右侧内边距 */
+    border: none;
+    background-color: transparent;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.select-dropdown:focus,
+.multiselect-dropdown:focus {
+    outline: none;
+    color: var(--primary-color);
+}
+
+/* 多选下拉框特有样式 */
+.multiselect-container {
+    position: relative;
+    margin-bottom: 4px; /* 进一步减少底部边距 */
+    width: 100%;
+}
+
+.multiselect-dropdown {
+    height: auto;
+    min-height: 42px;
+    padding: 8px 12px;
+    padding-right: 40px; /* 增加右侧内边距，避免箭头和文字重叠 */
+    width: 100%; /* 确保宽度与容器一致 */
+    opacity: 0; /* 初始隐藏，由JS控制显示 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-height: 200px; /* 限制下拉框最大高度 */
+    overflow-y: auto; /* 添加滚动条 */
+}
+
+.multiselect-dropdown option {
+    padding: 8px;
+    font-size: 1rem;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+.multiselect-dropdown option:hover,
+.multiselect-dropdown option:focus {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+/* 显示选定选项的容器 */
+.selected-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 8px 0;
+    min-height: 42px;
+    border: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    cursor: pointer;
+    padding-right: 25px; /* 为下拉箭头留出空间 */
+    position: relative;
+    z-index: 2; /* 确保显示在下拉框上方 */
+}
+
+.selected-option {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    gap: 5px; /* 控制图标和文字之间的间距 */
+}
+
+.selected-option i.fa-times {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.selected-option i.fa-times:hover {
+    opacity: 1;
+}
+
+.placeholder {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* 筛选部分样式 */
+.filter-section {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.filter-dropdowns-row {
+    display: flex;
+    gap: 0.5rem; /* 进一步减少间距 */
+    align-items: flex-start; /* 改为flex-start，让所有元素从顶部开始对齐 */
+    width: 100%;
+}
+
+.filter-dropdown-group {
+    flex: 2; /* 数据领域占2份 */
+    min-width: 0; /* 允许缩小 */
+}
+
+.filter-dropdown-group.type-dropdown {
+    flex: 1.5; /* 榜单领域占1.5份 */
+    min-width: 0; /* 允许缩小 */
+}
+
+.reset-btn {
+    flex: 0 0 auto; /* 不伸展，只占用内容宽度 */
+    padding: 8px 0; /* 与下拉框padding匹配 */
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px; /* 进一步减少图标和文字间距 */
+    height: 38px; /* 与新的下拉框高度对齐 */
+    margin-top: 18px; /* 18px = label高度14px + margin-bottom 4px，与下拉框对齐 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+.reset-btn:hover {
+    color: var(--primary-color);
+}
+
+/* 自定义下拉框选项样式 */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--background-primary);
+    border: 1px solid var(--border-light);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-option {
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.dropdown-option:hover {
+    background-color: var(--background-secondary);
+}
+
+.dropdown-option.active {
+    background-color: var(--background-accent);
+    color: var(--primary-color);
+}
+
+.dropdown-option i:first-child {
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.dropdown-option .fa-check {
+    margin-left: auto;
+    margin-right: 0;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.dropdown-option.active .fa-check {
+    color: var(--primary-color);
+}

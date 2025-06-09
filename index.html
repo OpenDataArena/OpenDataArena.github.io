@@ -6,6 +6,7 @@
     <title>Data Leaderboard</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dropdown-styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -30,100 +31,97 @@
         <div class="main-container" v-show="!loading">
             <!-- 简洁头部 -->
             <header class="header">
-                <h1 class="main-title">Data Leaderboard</h1>
+                <h1>Data Leaderboard</h1>
+                <!-- LikeBtn.com BEGIN -->
+                <span class="likebtn-wrapper" data-theme="sku" data-i18n_like="Like!" data-ef_voting="heartbeat" data-identifier="item_1" data-dislike_enabled="false" data-icon_dislike_show="false" data-counter_frmt="comma" data-site_id="6846a7c7fa8fdf0a1e5d3145"></span>
+                <!-- LikeBtn.com END -->
             </header>
 
             <!-- 控制区域 -->
             <div class="controls-section">
-                <!-- 顶部行：模型切换和搜索框 -->
-                <div class="top-controls-row">
-                    <!-- 模型切换 -->
-                    <div class="model-switcher">
-                        <div class="switch-buttons">
-                            <button 
-                                v-for="model in models" 
+                <!-- 第一行：模型系列 和 搜索框 -->
+                <div class="control-row">
+                    <!-- 模型切换按钮组 -->
+                    <div class="model-switcher model-buttons-section">
+                        <label>模型系列：</label>
+                        <div class="model-buttons-container">
+                            <button
+                                v-for="model in models"
                                 :key="model.id"
-                                @click="switchModel(model.id)"
-                                class="switch-btn"
+                                class="model-button"
                                 :class="{ active: currentModel === model.id }"
-                            >
+                                @click="currentModel = model.id">
                                 {{ model.name }}
                             </button>
                         </div>
                     </div>
-                    
                     <!-- 搜索框 -->
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input 
-                            type="text" 
-                            v-model="searchQuery" 
-                            placeholder="搜索数据集名称..."
-                            class="search-input"
-                        >
+                    <div class="search-box-container">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input 
+                                id="search-input-main"
+                                type="text" 
+                                v-model="searchQuery" 
+                                placeholder="搜索数据集名称..."
+                                class="search-input"
+                            >
+                        </div>
                     </div>
                 </div>
 
-                <!-- 筛选区域 - 重新设计为一行 -->
-                <div class="filter-section">
-                    <div class="filter-tags-row">
-                        <!-- 数据领域标签 -->
-                        <div class="filter-tag-group">
-                            <div 
-                                class="filter-tag primary-tag"
-                                :class="{ active: selectedDomain === '' }"
-                                @click="selectDomain('')"
-                            >
-                                <i class="fas fa-globe-asia"></i> 数据领域
-                            </div>
-                            
-                            <div 
-                                v-for="domain in orderedDomains" 
-                                :key="domain" 
-                                class="filter-tag" 
-                                :class="[
-                                    'domain-tag-' + domain.toLowerCase(),
-                                    { active: selectedDomain === domain }
-                                ]"
-                                @click="selectDomain(domain)"
-                            >
+                <!-- 第二行：数据领域 和 榜单领域 -->
+                <div class="control-row">
+                    <!-- 数据领域按钮组 -->
+                    <div class="filter-dropdown-group data-domain-buttons-section">
+                        <label>数据领域：</label>
+                        <div class="domain-buttons-container">
+                            <button
+                                class="domain-button"
+                                :class="{ active: selectedDomains.length === 0 }"
+                                @click="selectedDomains = []"> <!-- Assuming empty array means 'All' -->
+                                全部
+                            </button>
+                            <button
+                                v-for="domain in orderedDomains"
+                                :key="domain"
+                                class="domain-button"
+                                :class="{ active: selectedDomains.includes(domain) }"
+                                @click="toggleDomain(domain)"> <!-- Assuming toggleDomain handles multi-select logic -->
                                 <i :class="getDomainIcon(domain)"></i> {{ domain }}
-                            </div>
+                            </button>
                         </div>
-                        
-                        <!-- 榜单类型标签 -->
-                        <div class="filter-tag-group">
-                            <div 
-                                class="filter-tag primary-tag"
-                                :class="{ active: selectedType === '' }"
-                                @click="selectType('')"
-                            >
-                                <i class="fas fa-list-ol"></i> 榜单领域
-                            </div>
-                            
-                            <div class="filter-tag type-tag-general" :class="{ active: selectedType === 'general' }" @click="selectType('general')">
-                                <i class="fas fa-book"></i> general
-                            </div>
-                            <div class="filter-tag type-tag-math" :class="{ active: selectedType === 'math' }" @click="selectType('math')">
-                                <i class="fas fa-calculator"></i> math
-                            </div>
-                            <div class="filter-tag type-tag-code" :class="{ active: selectedType === 'code' }" @click="selectType('code')">
-                                <i class="fas fa-code"></i> code
-                            </div>
-                            <div class="filter-tag type-tag-reasoning" :class="{ active: selectedType === 'reasoning' }" @click="selectType('reasoning')">
-                                <i class="fas fa-brain"></i> reasoning
-                            </div>
+                    </div>
+                    <!-- 榜单领域按钮组 -->
+                    <div class="filter-dropdown-group type-buttons-section">
+                        <label>榜单领域：</label>
+                        <div class="type-buttons-container">
+                            <button 
+                                class="type-button"
+                                :class="{ active: !selectedType }"
+                                @click="selectType('')">
+                                全部
+                            </button>
+                            <button 
+                                v-for="type in ['general', 'math', 'code', 'reasoning']" 
+                                :key="type"
+                                class="type-button"
+                                :class="{ active: selectedType === type }"
+                                @click="selectType(type)">
+                                <i :class="getTypeIcon(type)"></i> {{ type.charAt(0).toUpperCase() + type.slice(1) }}
+                            </button>
                         </div>
-                        
-                        <!-- 重置筛选按钮 -->
+                    </div>
+                    <!-- 重置筛选按钮 (Removed) -->
+                    <!--
+                    <div class="reset-button-container">
                         <button @click="resetFilters" class="reset-btn">
                             <i class="fas fa-redo"></i>
                             重置
                         </button>
                     </div>
+                    -->
                 </div>
-
-                <!-- 搜索框已移动到顶部 -->
             </div>
 
             <!-- 主要排行榜表格 -->
@@ -138,25 +136,25 @@
                                     <i :class="getSortIcon('name')" class="sort-icon"></i>
                                 </th>
                                 <th class="domain-col">领域</th>
-                                <th class="score-col sortable" @click="sortBy('general_avg')">
+                                <th class="score-col sortable" @click="sortBy('overall_avg'); highlightColumn('overall_avg')">
+                                    均分
+                                    <i :class="getSortIcon('overall_avg')" class="sort-icon"></i>
+                                </th>
+                                <th class="score-col sortable" @click="sortBy('general_avg'); highlightColumn('general_avg')">
                                     General
                                     <i :class="getSortIcon('general_avg')" class="sort-icon"></i>
                                 </th>
-                                <th class="score-col sortable" @click="sortBy('math_avg')">
+                                <th class="score-col sortable" @click="sortBy('math_avg'); highlightColumn('math_avg')">
                                     Math
                                     <i :class="getSortIcon('math_avg')" class="sort-icon"></i>
                                 </th>
-                                <th class="score-col sortable" @click="sortBy('code_avg')">
+                                <th class="score-col sortable" @click="sortBy('code_avg'); highlightColumn('code_avg')">
                                     Code
                                     <i :class="getSortIcon('code_avg')" class="sort-icon"></i>
                                 </th>
-                                <th class="score-col sortable" @click="sortBy('reasoning_avg')">
+                                <th class="score-col sortable" @click="sortBy('reasoning_avg'); highlightColumn('reasoning_avg')">
                                     Reasoning
                                     <i :class="getSortIcon('reasoning_avg')" class="sort-icon"></i>
-                                </th>
-                                <th class="score-col sortable" @click="sortBy('overall_avg')">
-                                    综合得分
-                                    <i :class="getSortIcon('overall_avg')" class="sort-icon"></i>
                                 </th>
                             </tr>
                         </thead>
@@ -167,8 +165,8 @@
                                 class="table-row"
                             >
                                 <td class="rank-col">
-                                    <div class="rank-badge" :class="getRankClass(index)">
-                                        {{ index + 1 }}
+                                    <div class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, sortColumn) - 1)">
+                                        {{ getRank(dataset, filteredDataForRanking, sortColumn) }}
                                     </div>
                                 </td>
                                 <td class="name-col">
@@ -178,25 +176,25 @@
                                     <span 
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
-                                        @click="selectDomain(dataset.domain)"
+                                        @click="selectedDomains = [dataset.domain]"
                                     >
                                         {{ dataset.domain || 'Unknown' }}
                                     </span>
                                 </td>
-                                <td class="score-col">
+                                <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedColumn === 'overall_avg' }">
+                                    <span class="score-value overall">{{ formatScore(dataset.overall_avg) }}</span>
+                                </td>
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'general_avg' }">
                                     <span class="score-value">{{ formatScore(dataset.general_avg) }}</span>
                                 </td>
-                                <td class="score-col">
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
                                     <span class="score-value">{{ formatScore(dataset.math_avg) }}</span>
                                 </td>
-                                <td class="score-col">
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
                                     <span class="score-value">{{ formatScore(dataset.code_avg) }}</span>
                                 </td>
-                                <td class="score-col">
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
                                     <span class="score-value">{{ formatScore(dataset.reasoning_avg) }}</span>
-                                </td>
-                                <td class="score-col overall-score">
-                                    <span class="score-value overall">{{ formatScore(dataset.overall_avg) }}</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -230,7 +228,11 @@
                                     领域
                                     <i :class="getSortIcon('domain', true)" class="sort-icon"></i>
                                 </th>
-                                <th v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col sortable" @click="sortDetailedBy(header.taskName + '_' + header.metricName)">
+                                <th class="score-col overall-score sortable" @click="sortDetailedBy('average'); highlightColumn('average', true)">
+                                    均分
+                                    <i :class="getSortIcon('average', true)" class="sort-icon"></i>
+                                </th>
+                                <th v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col sortable" @click="sortDetailedBy(header.taskName + '_' + header.metricName); highlightColumn(header.taskName + '_' + header.metricName, true)">
                                     <div class="task-header">
                                         <div class="task-name">
                                             {{ header.displayName }}
@@ -238,10 +240,6 @@
                                         </div>
                                         <div class="metric-name">{{ header.metricDisplayName }}</div>
                                     </div>
-                                </th>
-                                <th class="score-col overall-score sortable" @click="sortDetailedBy('average')">
-                                    平均分
-                                    <i :class="getSortIcon('average', true)" class="sort-icon"></i>
                                 </th>
                             </tr>
                         </thead>
@@ -252,8 +250,8 @@
                                 class="table-row"
                             >
                                 <td class="rank-col">
-                                    <div class="rank-badge" :class="getRankClass(index)">
-                                        {{ index + 1 }}
+                                    <div class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) - 1)">
+                                        {{ getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) }}
                                     </div>
                                 </td>
                                 <td class="name-col">
@@ -263,16 +261,16 @@
                                     <span 
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
-                                        @click="selectDomain(dataset.domain)"
+                                        @click="selectedDomains = [dataset.domain]"
                                     >
                                         {{ dataset.domain || 'Unknown' }}
                                     </span>
                                 </td>
-                                <td v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col">
-                                    <span class="score-value">{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName) }}</span>
-                                </td>
-                                <td class="score-col overall-score">
+                                <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedDetailedColumn === 'average' }">
                                     <span class="score-value overall">{{ getTypeAverage(dataset, selectedType) }}</span>
+                                </td>
+                                <td v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col" :class="{ 'highlighted-col': highlightedDetailedColumn === (header.taskName + '_' + header.metricName) }">
+                                    <span class="score-value">{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName) }}</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -282,5 +280,9 @@
         </div>
     </div>
     <script src="app.js"></script>
+    <script src="multiselect.js"></script>
+    <!-- LikeBtn.com BEGIN -->
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+    <!-- LikeBtn.com END -->
 </body>
 </html>

@@ -6,10 +6,16 @@ const app = createApp({
         const rawData = ref({})
         const currentModel = ref('llama')
         const searchQuery = ref('')
-        const selectedDomain = ref('')
-        const selectedType = ref('')
+        const selectedDomains = ref([]) // 数组支持多选
+        const selectedType = ref('') // 改回单选
+        const showDomainDropdown = ref(false) // 控制数据领域下拉框显示
+        const showTypeDropdown = ref(false) // 控制榜单领域下拉框显示
         const loading = ref(true)
         const error = ref(null)
+
+        // 新增：用于列高亮的状态
+        const highlightedColumn = ref(null) // 主表格高亮列
+        const highlightedDetailedColumn = ref(null) // 详细表格高亮列
 
         // 模型配置
         const models = ref([
@@ -135,9 +141,55 @@ const app = createApp({
                 )
             }
 
-            // 领域过滤
-            if (selectedDomain.value) {
-                filtered = filtered.filter(dataset => dataset.domain === selectedDomain.value)
+            // 数据领域多选过滤
+            if (selectedDomains.value.length > 0) {
+                filtered = filtered.filter(dataset => 
+                    selectedDomains.value.includes(dataset.domain)
+                )
+            }
+
+            return filtered
+        })
+
+        // 计算属性：未排序的过滤数据（用于排名计算）
+        const filteredDataForRanking = computed(() => {
+            let filtered = currentData.value
+
+            // 搜索过滤
+            if (searchQuery.value) {
+                filtered = filtered.filter(dataset => 
+                    dataset.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+                )
+            }
+
+            // 数据领域多选过滤
+            if (selectedDomains.value.length > 0) {
+                filtered = filtered.filter(dataset => 
+                    selectedDomains.value.includes(dataset.domain)
+                )
+            }
+
+            return filtered
+        })
+
+        // 计算属性：详细表格的未排序过滤数据（用于排名计算）
+        const detailedFilteredDataForRanking = computed(() => {
+            if (!selectedType.value) return []
+            
+            let filtered = currentData.value
+
+            // 搜索过滤
+            if (searchQuery.value) {
+                filtered = filtered.filter(dataset => 
+                    dataset.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+                )
+            }
+
+            // 数据领域多选过滤
+            if (selectedDomains.value.length > 0) {
+                filtered = filtered.filter(dataset => 
+                    selectedDomains.value.includes(dataset.domain)
+                )
             }
 
             return filtered
@@ -147,6 +199,8 @@ const app = createApp({
         const detailedFilteredData = computed(() => {
             if (!selectedType.value) return []
             
+            // 使用选中的类型作为详细视图的展示
+            const primaryType = selectedType.value
             let filtered = [...currentData.value]
             
             // 排序逻辑
@@ -155,11 +209,11 @@ const app = createApp({
                     // 如果是特定任务的排序
                     if (detailedSortColumn.value.includes('_')) {
                         // 更安全的分解方式：从任务头信息中查找匹配
-                        const taskHeaders = getTaskHeaders(selectedType.value)
+                        const taskHeaders = getTaskHeaders(primaryType)
                         const header = taskHeaders.find(h => h.taskName + '_' + h.metricName === detailedSortColumn.value)
                         if (header) {
-                            const scoreA = getTaskScore(a, selectedType.value, header.taskName, header.metricName, true) || 0
-                            const scoreB = getTaskScore(b, selectedType.value, header.taskName, header.metricName, true) || 0
+                            const scoreA = getTaskScore(a, primaryType, header.taskName, header.metricName, true) || 0
+                            const scoreB = getTaskScore(b, primaryType, header.taskName, header.metricName, true) || 0
                             return detailedSortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
                         }
                     } else if (detailedSortColumn.value === 'name') {
@@ -176,19 +230,19 @@ const app = createApp({
                             domainB.localeCompare(domainA)
                     } else if (detailedSortColumn.value === 'average') {
                         // 按平均分排序
-                        const scoreA = getTypeAverageValue(a, selectedType.value)
-                        const scoreB = getTypeAverageValue(b, selectedType.value)
+                        const scoreA = getTypeAverageValue(a, primaryType)
+                        const scoreB = getTypeAverageValue(b, primaryType)
                         return detailedSortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
                     } else {
                         // 其他情况按平均分排序
-                        const scoreA = getTypeAverageValue(a, selectedType.value)
-                        const scoreB = getTypeAverageValue(b, selectedType.value)
+                        const scoreA = getTypeAverageValue(a, primaryType)
+                        const scoreB = getTypeAverageValue(b, primaryType)
                         return detailedSortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
                     }
                 } else {
                     // 默认按平均分降序排序
-                    const scoreA = getTypeAverageValue(a, selectedType.value)
-                    const scoreB = getTypeAverageValue(b, selectedType.value)
+                    const scoreA = getTypeAverageValue(a, primaryType)
+                    const scoreB = getTypeAverageValue(b, primaryType)
                     return scoreB - scoreA
                 }
             })
@@ -200,9 +254,11 @@ const app = createApp({
                 )
             }
 
-            // 领域过滤
-            if (selectedDomain.value) {
-                filtered = filtered.filter(dataset => dataset.domain === selectedDomain.value)
+            // 数据领域多选过滤
+            if (selectedDomains.value.length > 0) {
+                filtered = filtered.filter(dataset => 
+                    selectedDomains.value.includes(dataset.domain)
+                )
             }
 
             return filtered
@@ -221,18 +277,76 @@ const app = createApp({
         // 方法：重置筛选
         const resetFilters = () => {
             searchQuery.value = ''
-            selectedDomain.value = ''
+            selectedDomains.value = []
             selectedType.value = ''
+            showDomainDropdown.value = false
+            showTypeDropdown.value = false
         }
         
-        // 方法：选择领域
-        const selectDomain = (domain) => {
-            selectedDomain.value = domain
+        // 方法：移除所选领域
+        const removeDomain = (domain) => {
+            selectedDomains.value = selectedDomains.value.filter(d => d !== domain)
         }
         
-        // 方法：选择类型
+        // 方法：选择类型（单选）
         const selectType = (type) => {
             selectedType.value = type
+            showTypeDropdown.value = false
+        }
+        
+        // 方法：清除类型选择
+        const clearType = () => {
+            selectedType.value = ''
+            showTypeDropdown.value = false
+        }
+        
+        // 方法：切换数据领域下拉框显示
+        const toggleDomainDropdown = () => {
+            showDomainDropdown.value = !showDomainDropdown.value
+            showTypeDropdown.value = false // 关闭其他下拉框
+        }
+        
+        // 方法：切换榜单领域下拉框显示
+        const toggleTypeDropdown = () => {
+            showTypeDropdown.value = !showTypeDropdown.value
+            showDomainDropdown.value = false // 关闭其他下拉框
+        }
+        
+        // 方法：切换数据领域选择（多选）
+        const toggleDomain = (domain) => {
+            const index = selectedDomains.value.indexOf(domain)
+            if (index > -1) {
+                selectedDomains.value.splice(index, 1)
+            } else {
+                selectedDomains.value.push(domain)
+            }
+        }
+        
+        // 方法：类型改变时的处理
+        const onTypeChange = () => {
+            // 当选择类型时，可以添加额外的逻辑
+            console.log('Type changed to:', selectedType.value)
+            // 如果选择了类型，滚动到详细表格
+            if (selectedType.value) {
+                setTimeout(() => {
+                    const detailedContainer = document.querySelector('.detailed-leaderboard-container');
+                    if (detailedContainer) {
+                        detailedContainer.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        }
+        
+        // 方法：获取类型对应的图标
+        const getTypeIcon = (type) => {
+            const typeIcons = {
+                'general': 'fas fa-book',
+                'math': 'fas fa-calculator',
+                'code': 'fas fa-code',
+                'reasoning': 'fas fa-brain'
+            }
+            
+            return typeIcons[type.toLowerCase()] || 'fas fa-list-ol'
         }
         
         // 方法：获取领域对应的图标
@@ -260,12 +374,20 @@ const app = createApp({
             return domainDescriptions[domain.toLowerCase()] || domain
         }
 
-        // 方法：格式化分数
+        // 方法：格式化分数（四舍五入到一位小数）
         const formatScore = (score) => {
             if (typeof score === 'number') {
-                return score.toFixed(1)
+                return roundToOneDecimal(score).toFixed(1)
             }
             return '0.0'
+        }
+
+        // 方法：四舍五入到一位小数
+        const roundToOneDecimal = (score) => {
+            if (typeof score === 'number') {
+                return Math.round(score * 10) / 10
+            }
+            return 0
         }
 
         // 方法：获取分数等级类名
@@ -387,6 +509,84 @@ const app = createApp({
             return dataset[avgKey] || 0
         }
 
+        // 方法：计算排名（考虑相同分数）
+        const calculateRanks = (data, scoreKey, isDetailed = false, selectedType = null) => {
+            let dataWithRoundedScores
+
+            if (isDetailed && scoreKey && scoreKey !== 'name' && scoreKey !== 'domain') {
+                if (scoreKey === 'average') {
+                    // 详细表格的平均分排名
+                    dataWithRoundedScores = data.map(item => ({
+                        ...item,
+                        roundedScore: roundToOneDecimal(getTypeAverageValue(item, selectedType))
+                    }))
+                } else if (scoreKey.includes('_')) {
+                    // 特定任务的排名
+                    const taskHeaders = getTaskHeaders(selectedType)
+                    const header = taskHeaders.find(h => h.taskName + '_' + h.metricName === scoreKey)
+                    if (header) {
+                        dataWithRoundedScores = data.map(item => ({
+                            ...item,
+                            roundedScore: roundToOneDecimal(getTaskScore(item, selectedType, header.taskName, header.metricName, true))
+                        }))
+                    } else {
+                        // 默认使用平均分
+                        dataWithRoundedScores = data.map(item => ({
+                            ...item,
+                            roundedScore: roundToOneDecimal(getTypeAverageValue(item, selectedType))
+                        }))
+                    }
+                } else {
+                    // 默认使用平均分
+                    dataWithRoundedScores = data.map(item => ({
+                        ...item,
+                        roundedScore: roundToOneDecimal(getTypeAverageValue(item, selectedType))
+                    }))
+                }
+            } else {
+                // 主表格的排名逻辑
+                dataWithRoundedScores = data.map(item => ({
+                    ...item,
+                    roundedScore: roundToOneDecimal(item[scoreKey] || 0)
+                }))
+            }
+
+            // 按照四舍五入后的分数排序
+            const sorted = [...dataWithRoundedScores].sort((a, b) => {
+                if (scoreKey === 'name') {
+                    return a.name.localeCompare(b.name)
+                } else if (scoreKey === 'domain') {
+                    return (a.domain || '').localeCompare(b.domain || '')
+                }
+                return b.roundedScore - a.roundedScore // 降序排列
+            })
+
+            // 计算排名
+            const ranks = {}
+            let currentRank = 1
+            let previousScore = null
+
+            sorted.forEach((item, index) => {
+                if (scoreKey === 'name' || scoreKey === 'domain') {
+                    ranks[item.id] = index + 1
+                } else {
+                    if (previousScore !== null && item.roundedScore !== previousScore) {
+                        currentRank = index + 1
+                    }
+                    ranks[item.id] = currentRank
+                    previousScore = item.roundedScore
+                }
+            })
+
+            return ranks
+        }
+
+        // 方法：获取排名
+        const getRank = (dataset, data, scoreKey, isDetailed = false, selectedType = null) => {
+            const ranks = calculateRanks(data, scoreKey, isDetailed, selectedType)
+            return ranks[dataset.id] || 1
+        }
+
         // 排序状态
         const sortColumn = ref('overall_avg') // 当前排序列
         const sortDirection = ref('desc') // 排序方向：'asc' 或 'desc'
@@ -403,6 +603,10 @@ const app = createApp({
                 sortColumn.value = column
                 sortDirection.value = 'desc'
             }
+            // 触发高亮
+            if (column !== 'domain') { //不对domain列进行高亮
+                highlightColumn(column, false);
+            }
         }
 
         // 方法：详细表格排序功能
@@ -414,6 +618,10 @@ const app = createApp({
                 // 如果是新的排序列，设置为降序
                 detailedSortColumn.value = column
                 detailedSortDirection.value = 'desc'
+            }
+            // 触发高亮
+            if (column !== 'domain') { //不对domain列进行高亮
+                highlightColumn(column, true);
             }
         }
 
@@ -428,9 +636,37 @@ const app = createApp({
             return 'fas fa-sort'
         }
 
+        // 方法：高亮列
+        const highlightColumn = (columnKey, isDetailed = false) => {
+            if (columnKey === 'domain') return; // 如果是domain列，则不进行高亮
+
+            if (isDetailed) {
+                highlightedDetailedColumn.value = columnKey;
+            } else {
+                highlightedColumn.value = columnKey;
+            }
+        };
+
         // 挂载时加载数据
         onMounted(() => {
             loadData()
+            
+            // 添加全局点击事件来关闭下拉框
+            document.addEventListener('click', (event) => {
+                const multiselectContainers = document.querySelectorAll('.multiselect-container')
+                let clickedInsideDropdown = false
+                
+                multiselectContainers.forEach(container => {
+                    if (container.contains(event.target)) {
+                        clickedInsideDropdown = true
+                    }
+                })
+                
+                if (!clickedInsideDropdown) {
+                    showDomainDropdown.value = false
+                    showTypeDropdown.value = false
+                }
+            })
         })
 
         return {
@@ -439,15 +675,26 @@ const app = createApp({
             error,
             currentModel,
             searchQuery,
-            selectedDomain,
+            selectedDomains,
             selectedType,
+            showDomainDropdown,
+            showTypeDropdown,
+            sortColumn,
+            sortDirection,
+            detailedSortColumn,
+            detailedSortDirection,
+            highlightedColumn, // 导出
+            highlightedDetailedColumn, // 导出
             
             // 配置数据
             models,
             
             // 计算属性
+            currentData,
             filteredData,
+            filteredDataForRanking,
             detailedFilteredData,
+            detailedFilteredDataForRanking,
             currentModelInfo,
             availableDomains,
             orderedDomains,
@@ -455,14 +702,23 @@ const app = createApp({
             // 方法
             switchModel,
             resetFilters,
-            selectDomain,
+            removeDomain,
             selectType,
+            clearType,
+            toggleDomainDropdown,
+            toggleTypeDropdown,
+            toggleDomain,
+            onTypeChange,
             getDomainIcon,
+            getTypeIcon,
             getDomainDescription,
             sortBy,
             sortDetailedBy,
             getSortIcon,
             formatScore,
+            roundToOneDecimal,
+            calculateRanks,
+            getRank,
             getScoreClass,
             getRankClass,
             getDomainClass,
@@ -471,7 +727,8 @@ const app = createApp({
             getTasksForDomain,
             getTaskScore,
             getTypeAverage,
-            getTypeAverageValue
+            getTypeAverageValue,
+            highlightColumn // 导出
         }
     }
 })
