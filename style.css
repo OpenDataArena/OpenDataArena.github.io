@@ -590,11 +590,46 @@ body {
 
 .name-col {
     min-width: 200px;
+    vertical-align: top;
 }
 
-.domain-col {
-    width: 120px;
+.year-col {
+    width: 80px;
     text-align: center;
+    min-width: 60px;
+}
+
+.size-col {
+    width: 90px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.dataset-name-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.dataset-link {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: underline dotted;
+    word-break: break-all;
+}
+.dataset-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline solid;
+}
+
+.dataset-affiliation {
+    font-size: 0.92em;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    font-style: italic;
+    line-height: 1.2;
+    word-break: break-all;
 }
 
 .score-col {
@@ -664,6 +699,10 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 左对齐 */
+    justify-content: flex-start; /* 顶部对齐 */
 }
 
 /* Domain Badge */
@@ -734,28 +773,29 @@ body {
     opacity: 1;
 }
 
-.score-value {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--text-primary);
+.score-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-end;  /* Align items (score and diff) to the right */
 }
 
-.score-value.overall {
-    color: var(--primary-color);
-    font-size: 1.125rem;
-    font-weight: 700;
+.score-diff {
+    margin-left: 0; /* Removed original margin-left: 8px; */
+    margin-top: 3px;  /* Add space below the score value */
+    font-size: 0.75em; /* Make font smaller, was 0.9em */
+    padding: 2px 6px; /* Existing padding */
+    border-radius: 4px; /* Existing border-radius */
+    font-weight: bold; /* Existing font-weight */
 }
 
-.score-high {
-    color: #2e7d32;
+.score-diff-positive {
+    color: #28a745; /* 绿色表示提升 */
+    background-color: rgba(40, 167, 69, 0.1); /* 淡绿色背景 */
 }
 
-.score-medium {
-    color: #ef6c00;
-}
-
-.score-low {
-    color: #d32f2f;
+.score-diff-negative {
+    color: #dc3545; /* 红色表示下降 */
+    background-color: rgba(220, 53, 69, 0.1); /* 淡红色背景 */
 }
 
 /* Loading and Error States */
@@ -1042,17 +1082,16 @@ body {
 }
 
 .detailed-table .name-col {
-    text-align: left;
-    min-width: 200px;
+    text-align: left !important;
+    vertical-align: middle !important;
+    min-height: 50px;
 }
 
-.detailed-table .domain-col {
-    text-align: center;
-    min-width: 120px;
-}
-
-.detailed-table .score-col {
-    min-width: 100px;
+.detailed-table .name-col.sortable {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    padding: 1rem 0.75rem !important;
+    line-height: normal !important;
 }
 
 /* 排序功能样式 */
@@ -1113,6 +1152,14 @@ body {
 .detailed-table .task-header .task-name .sort-icon.fas.fa-sort-up,
 .detailed-table .task-header .task-name .sort-icon.fas.fa-sort-down {
     color: var(--primary-color);
+}
+
+/* 详细表格任务列指标名样式（更浅色、更小字体） */
+.detailed-table .task-header .metric-name {
+    font-size: 0.75em;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-top: 2px;
 }
 
 /* 响应式优化 */
@@ -1678,4 +1725,26 @@ footer {
     color: var(--error-color);
     margin-top: 1rem;
     font-size: 1rem;
+}
+
+/* 保证主榜单和详细榜单所有分数、diff、属性等都居中 */
+.leaderboard-table th, .leaderboard-table td {
+  justify-content: center;
+  align-items: center;
+}
+
+/* 让分数和diff垂直居中显示 */
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 数据集名字和属性居中 */
+.dataset-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左对齐 */
+  justify-content: flex-start; /* 顶部对齐 */
 }

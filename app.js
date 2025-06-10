@@ -382,6 +382,25 @@ const app = createApp({
             return '0.0'
         }
 
+        // 方法：格式化分数并显示改进值 (主榜单)
+        const formatScoreWithImprovement = (score, improvementValue) => {
+            const formattedScore = formatScore(score)
+            let diffText = null;
+            let diffClass = '';
+
+            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+                const diff = roundToOneDecimal(improvementValue);
+                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+            }
+            
+            return { 
+                score: formattedScore, 
+                diffText: diffText,
+                diffClass: diffClass
+            };
+        }
+
         // 方法：四舍五入到一位小数
         const roundToOneDecimal = (score) => {
             if (typeof score === 'number') {
@@ -475,32 +494,99 @@ const app = createApp({
         }
 
         // 方法：获取特定任务的分数
-        const getTaskScore = (dataset, type, taskName, metricName = null, raw = false) => {
-            // 直接从 task_details 中获取分数
+        const getTaskScore = (dataset, type, taskNameFromHeader, metricNameFromHeader, raw = false) => {
+            if (!dataset || !type || !taskNameFromHeader) {
+                return raw ? 0 : { score: '0.0', diffText: null, diffClass: '' };
+            }
+
+            // 1. 从 task_details 获取基础分数
+            let scoreValue = 0;
             if (dataset.task_details) {
-                const domainKey = type + '_tasks'
-                const tasks = dataset.task_details[domainKey] || []
-                const task = tasks.find(t => t.task_name === taskName)
-                if (task && task.metrics && task.metrics.length > 0) {
-                    if (metricName) {
-                        // 如果指定了指标名称，找到对应的指标
-                        const metric = task.metrics.find(m => m.metric === metricName)
-                        if (metric) {
-                            return raw ? metric.score : formatScore(metric.score)
-                        }
-                    } else {
-                        // 如果没有指定指标名称，返回第一个指标的分数
-                        return raw ? task.metrics[0].score : formatScore(task.metrics[0].score)
+                const domainTasksKey = type + '_tasks';
+                const tasksInDomain = dataset.task_details[domainTasksKey] || [];
+                const currentTaskObject = tasksInDomain.find(t => t.task_name === taskNameFromHeader);
+                if (currentTaskObject && currentTaskObject.metrics) {
+                    const metricData = currentTaskObject.metrics.find(m => m.metric === metricNameFromHeader);
+                    if (metricData) {
+                        scoreValue = metricData.score;
                     }
                 }
             }
-            return raw ? 0 : '0.0'
-        }
+            if (raw) return scoreValue;
+
+            // 2. 使用 improvement[type + '_task_scores'] 数组确定 improvementValue
+            let improvementValue = null;
+            const improvementArrayKey = type + '_task_scores';
+            // 生成当前数据集的指标序列，用于查找正确的索引
+            const currentDatasetMetricSequence = [];
+            if (dataset.task_details) {
+                const domainKey = type + '_tasks';
+                const tasksInCurrentDataset = dataset.task_details[domainKey] || [];
+                tasksInCurrentDataset.forEach(task => {
+                    if (task.metrics && task.metrics.length > 1) {
+                        task.metrics.forEach(metricObj => {
+                            currentDatasetMetricSequence.push({
+                                taskName: task.task_name,
+                                metricName: metricObj.metric
+                            });
+                        });
+                    } else {
+                        currentDatasetMetricSequence.push({
+                            taskName: task.task_name,
+                            metricName: (task.metrics && task.metrics[0]?.metric) || 'accuracy'
+                        });
+                    }
+                });
+            }
+            const indexInCurrentDatasetScores = currentDatasetMetricSequence.findIndex(item =>
+                item.taskName === taskNameFromHeader && item.metricName === metricNameFromHeader
+            );
+            if (
+                dataset.improvement &&
+                dataset.improvement[improvementArrayKey] &&
+                indexInCurrentDatasetScores !== -1 &&
+                dataset.improvement[improvementArrayKey].length > indexInCurrentDatasetScores
+            ) {
+                improvementValue = dataset.improvement[improvementArrayKey][indexInCurrentDatasetScores];
+            }
+
+            // 3. 格式化并返回
+            const formattedScore = formatScore(scoreValue);
+            let diffText = null;
+            let diffClass = '';
+            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+                const diff = roundToOneDecimal(improvementValue);
+                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+            }
+            return {
+                score: formattedScore,
+                diffText: diffText,
+                diffClass: diffClass
+            };
+        };
 
         // 方法：获取类型平均分
         const getTypeAverage = (dataset, type) => {
-            const avgKey = type + '_avg'
-            return formatScore(dataset[avgKey] || 0)
+            const avgKey = type + '_avg';
+            const scoreValue = dataset[avgKey] || 0;
+            const improvementValue = dataset.improvement ? dataset.improvement[avgKey] : null; // 假设 improvement 在 dataset.improvement 对象中
+
+            const formattedScore = formatScore(scoreValue);
+            let diffText = null;
+            let diffClass = '';
+
+            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+                const diff = roundToOneDecimal(improvementValue);
+                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+            }
+
+            return {
+                score: formattedScore,
+                diffText: diffText,
+                diffClass: diffClass
+            };
         }
 
         // 方法：获取类型平均分数值（用于排序）
@@ -593,34 +679,28 @@ const app = createApp({
         const detailedSortColumn = ref('') // 详细表格的排序列
         const detailedSortDirection = ref('desc') // 详细表格的排序方向
 
-        // 方法：排序功能
+        // 新增：支持 year 和 size 排序
         const sortBy = (column) => {
+            if (column === 'year' || column === 'size') return; // 禁止 year/size 排序
             if (sortColumn.value === column) {
-                // 如果已经是当前排序列，切换排序方向
                 sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
-                // 如果是新的排序列，设置为降序
                 sortColumn.value = column
                 sortDirection.value = 'desc'
             }
-            // 触发高亮
-            if (column !== 'domain') { //不对domain列进行高亮
+            if (column !== 'domain') {
                 highlightColumn(column, false);
             }
         }
-
-        // 方法：详细表格排序功能
         const sortDetailedBy = (column) => {
+            if (column === 'year' || column === 'size') return; // 禁止 year/size 排序
             if (detailedSortColumn.value === column) {
-                // 如果已经是当前排序列，切换排序方向
                 detailedSortDirection.value = detailedSortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
-                // 如果是新的排序列，设置为降序
                 detailedSortColumn.value = column
                 detailedSortDirection.value = 'desc'
             }
-            // 触发高亮
-            if (column !== 'domain') { //不对domain列进行高亮
+            if (column !== 'domain') {
                 highlightColumn(column, true);
             }
         }
@@ -762,6 +842,7 @@ const app = createApp({
             sortDetailedBy,
             getSortIcon,
             formatScore,
+            formatScoreWithImprovement,
             roundToOneDecimal,
             calculateRanks,
             getRank,

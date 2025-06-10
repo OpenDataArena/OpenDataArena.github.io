@@ -4,17 +4,35 @@ import numpy as np
 
 def parse_excel_advanced():
     try:
-        excel_file = pd.ExcelFile('DLB.xlsx')
+        excel_file = pd.ExcelFile('00.xlsx')
         
         # 只处理llama和qwen工作表
         sheets_to_process = ['llama', 'qwen']
         processed_data = {}
-        
+
+        # 读取dataset sheet，构建名称到属性的映射
+        df_dataset = pd.read_excel('00.xlsx', sheet_name='dataset', header=None)
+        dataset_attr_map = {}
+        for idx in range(3, len(df_dataset)):
+            name = df_dataset.iloc[idx, 1] if idx < len(df_dataset) else None
+            if pd.notna(name):
+                name_str = str(name).strip()
+                affiliation = df_dataset.iloc[idx, 2] if idx < len(df_dataset) else None
+                year = df_dataset.iloc[idx, 3] if idx < len(df_dataset) else None
+                size = df_dataset.iloc[idx, 4] if idx < len(df_dataset) else None
+                link = df_dataset.iloc[idx, 5] if idx < len(df_dataset) else None
+                dataset_attr_map[name_str] = {
+                    'affiliation': str(affiliation).strip() if pd.notna(affiliation) else '',
+                    'year': str(year).strip() if pd.notna(year) else '',
+                    'size': str(size).strip() if pd.notna(size) else '',
+                    'link': str(link).strip() if pd.notna(link) else ''
+                }
+
         for sheet_name in sheets_to_process:
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
             # 读取原始数据，不跳过任何行
-            df_raw = pd.read_excel('DLB.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('00.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
@@ -36,6 +54,54 @@ def parse_excel_advanced():
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
             
+            # ========== 修正：提取base行为单行（第232行，索引231） ==========
+            base_row_idx = 231  # 第232行对应索引231（0-based）
+            if base_row_idx < len(df_raw):
+                base_row = df_raw.iloc[base_row_idx]
+                print(f"找到base行: 第{base_row_idx+1}行")
+            else:
+                print("警告: 未找到base行")
+                base_row = None
+            
+            if base_row is not None:
+                # 提取base行的各领域分数
+                def extract_base_task_scores(row, col_indices):
+                    """从base行提取各列的分数，值为0参与计算，空值不参与计算"""
+                    task_scores = []
+                    for col_idx in col_indices:
+                        if col_idx < len(row):
+                            val = row.iloc[col_idx]
+                            if pd.notna(val):  # 只有非空值才添加（包括0）
+                                try:
+                                    task_scores.append(float(val))
+                                except (ValueError, TypeError):
+                                    # 无法转换为数字的值跳过
+                                    pass
+                    return task_scores
+                
+                base_general_task_scores = extract_base_task_scores(base_row, general_cols)
+                base_math_task_scores = extract_base_task_scores(base_row, math_cols)
+                base_code_task_scores = extract_base_task_scores(base_row, code_cols)
+                base_reasoning_task_scores = extract_base_task_scores(base_row, reasoning_cols)
+                
+                # 计算base行的各领域平均分（包括0值）
+                base_general_avg = np.mean(base_general_task_scores) if base_general_task_scores else 0
+                base_math_avg = np.mean(base_math_task_scores) if base_math_task_scores else 0
+                base_code_avg = np.mean(base_code_task_scores) if base_code_task_scores else 0
+                base_reasoning_avg = np.mean(base_reasoning_task_scores) if base_reasoning_task_scores else 0
+                
+                base_valid_averages = [avg for avg in [base_general_avg, base_math_avg, base_code_avg, base_reasoning_avg] if avg > 0]
+                base_overall_avg = np.mean(base_valid_averages) if base_valid_averages else 0
+                
+                print(f"Base行分数 - General: {base_general_avg:.2f}, Math: {base_math_avg:.2f}, Code: {base_code_avg:.2f}, Reasoning: {base_reasoning_avg:.2f}, Overall: {base_overall_avg:.2f}")
+            else:
+                # 如果没有base行，设置为空列表，长度与各领域列数相同
+                base_general_task_scores = [0] * len(general_cols)
+                base_math_task_scores = [0] * len(math_cols)  
+                base_code_task_scores = [0] * len(code_cols)
+                base_reasoning_task_scores = [0] * len(reasoning_cols)
+                base_general_avg = base_math_avg = base_code_avg = base_reasoning_avg = base_overall_avg = 0
+            # ...existing code...
             # 遍历每个数据集（每4行为一组）
             datasets = []
             dataset_start_row = 3  # B4对应索引3 (0-based)
@@ -50,7 +116,7 @@ def parse_excel_advanced():
                     dataset_name = str(dataset_name_cell).strip()
                     
                     # 跳过表头或无效行
-                    if (dataset_name.lower() in ['model', 'dataset', 'accuracy', 'general', 'math', 'code', 'reasoning', ''] or 
+                    if (dataset_name.lower() in ['model', 'dataset', 'accuracy', 'general', 'math', 'code', 'reasoning', 'base', ''] or 
                         len(dataset_name) == 0):
                         current_row += 1
                         continue
@@ -90,24 +156,24 @@ def parse_excel_advanced():
                         return scores
                     
                     def extract_task_scores(rows, col_indices):
-                        """为每个小任务提取分数（按列计算平均值）"""
+                        """为每个小任务提取分数（按列计算平均值），空值不参与计算"""
                         task_scores = []
                         for col_idx in col_indices:
                             col_values = []
                             for row in rows:
                                 if col_idx < len(row):
                                     val = row.iloc[col_idx]
-                                    if pd.notna(val):
+                                    if pd.notna(val):  # 只有非空值才处理
                                         try:
                                             num_val = float(val)
                                             col_values.append(num_val)
                                         except (ValueError, TypeError):
                                             continue
-                            # 计算该列的平均值
+                            # 如果该列有有效数据，计算平均值；否则返回None表示该任务无数据
                             if col_values:
                                 task_scores.append(round(np.mean(col_values), 2))
                             else:
-                                task_scores.append(0)
+                                task_scores.append(None)  # 用None表示无数据
                         return task_scores
                     
                     # 提取各领域分数
@@ -141,9 +207,13 @@ def parse_excel_advanced():
                     task_details = {}
                     
                     def organize_tasks_by_name(tasks, metrics, scores):
-                        """将相同任务名称的不同指标组织在一起"""
+                        """将相同任务名称的不同指标组织在一起，跳过无数据的任务"""
                         organized_tasks = {}
                         for task_name, metric_name, score in zip(tasks, metrics, scores):
+                            # 跳过无数据的任务（score为None）
+                            if score is None:
+                                continue
+                                
                             if task_name not in organized_tasks:
                                 organized_tasks[task_name] = {
                                     'task_name': task_name,
@@ -187,6 +257,31 @@ def parse_excel_advanced():
                             reasoning_task_scores
                         )
                     
+                    # 计算提升/下降
+                    def safe_list_subtract(list1, list2):
+                        """安全的列表减法，处理长度不一致和None值的情况"""
+                        result = []
+                        min_len = min(len(list1), len(list2))
+                        for i in range(min_len):
+                            # 如果任一值为None，跳过该项
+                            if list1[i] is None or list2[i] is None:
+                                continue
+                            result.append(round(list1[i] - list2[i], 2))
+                        return result
+                    
+                    improvement = {
+                        'general_avg': round(general_avg - base_general_avg, 2),
+                        'math_avg': round(math_avg - base_math_avg, 2),
+                        'code_avg': round(code_avg - base_code_avg, 2),
+                        'reasoning_avg': round(reasoning_avg - base_reasoning_avg, 2),
+                        'overall_avg': round(overall_avg - base_overall_avg, 2),
+                        'general_task_scores': safe_list_subtract(general_task_scores, base_general_task_scores),
+                        'math_task_scores': safe_list_subtract(math_task_scores, base_math_task_scores),
+                        'code_task_scores': safe_list_subtract(code_task_scores, base_code_task_scores),
+                        'reasoning_task_scores': safe_list_subtract(reasoning_task_scores, base_reasoning_task_scores)
+                    }
+                    
+                    # 构建dataset_info时，增加属性
                     dataset_info = {
                         'id': dataset_id,
                         'name': dataset_name,
@@ -200,8 +295,12 @@ def parse_excel_advanced():
                         'math_scores': math_scores,
                         'code_scores': code_scores,
                         'reasoning_scores': reasoning_scores,
-                        'task_details': task_details  # 新增：小任务详细信息
+                        'task_details': task_details,  # 新增：小任务详细信息
+                        'improvement': improvement   # 新增：提升/下降
                     }
+                    # 合并属性
+                    attr = dataset_attr_map.get(dataset_name, {})
+                    dataset_info.update(attr)
                     
                     # 只添加有有效数据的数据集
                     if overall_avg > 0:
@@ -283,13 +382,13 @@ def detect_column_layout(df_raw):
             print(f"表头内容: {[str(cell) for cell in row[:25] if pd.notna(cell)]}")
             break
     
-    # 默认列配置（基于B4开始的假设）
-    # B列=数据集名称(索引1)，D列开始为数据(索引3)
+    # 默认列配置（基于用户指定的列范围）
+    # General: D-G (索引3-6), Math: H-L (索引7-11), Code: M-S (索引12-18), Reasoning: T-X (索引19-23)
     default_config = {
-        'general_cols': list(range(3, 7)),      
-        'math_cols': list(range(7, 12)),         
-        'code_cols': list(range(12, 19)),       
-        'reasoning_cols': list(range(19, 24))   
+        'general_cols': list(range(3, 7)),      # D,E,F,G
+        'math_cols': list(range(7, 12)),        # H,I,J,K,L  
+        'code_cols': list(range(12, 19)),       # M,N,O,P,Q,R,S
+        'reasoning_cols': [19,20,22,23]   # T,U,V,W,X
     }
     
     print("使用默认列配置:")

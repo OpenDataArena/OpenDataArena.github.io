@@ -149,9 +149,11 @@
                                     Dataset
                                     <i :class="getSortIcon('name')" class="sort-icon"></i>
                                 </th>
+                                <th class="year-col">Year</th>
+                                <th class="size-col">Size</th>
                                 <th class="domain-col">Domain</th>
                                 <th class="score-col sortable" @click="sortBy('overall_avg'); highlightColumn('overall_avg')">
-                                    均分
+                                    Avg Score
                                     <i :class="getSortIcon('overall_avg')" class="sort-icon"></i>
                                 </th>
                                 <th class="score-col sortable" @click="sortBy('general_avg'); highlightColumn('general_avg')">
@@ -184,8 +186,14 @@
                                     </div>
                                 </td>
                                 <td class="name-col">
-                                    <span class="dataset-name">{{ dataset.name }}</span>
+                                    <div class="dataset-name-cell">
+                                        <a v-if="dataset.link" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
+                                        <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                        <div v-if="dataset.affiliation" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                    </div>
                                 </td>
+                                <td class="year-col">{{ dataset.year }}</td>
+                                <td class="size-col">{{ dataset.size }}</td>
                                 <td class="domain-col">
                                     <span 
                                         class="domain-badge clickable" 
@@ -196,19 +204,54 @@
                                     </span>
                                 </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedColumn === 'overall_avg' }">
-                                    <span class="score-value overall">{{ formatScore(dataset.overall_avg) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value overall">{{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).score }}</span>
+                                        <span v-if="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).diffText"
+                                              class="score-diff"
+                                              :class="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).diffClass">
+                                            {{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'general_avg' }">
-                                    <span class="score-value">{{ formatScore(dataset.general_avg) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg).score }}</span>
+                                        <span v-if="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg).diffText"
+                                              class="score-diff"
+                                              :class="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg).diffClass">
+                                            {{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
-                                    <span class="score-value">{{ formatScore(dataset.math_avg) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg).score }}</span>
+                                        <span v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg).diffText"
+                                              class="score-diff"
+                                              :class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg).diffClass">
+                                            {{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
-                                    <span class="score-value">{{ formatScore(dataset.code_avg) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg).score }}</span>
+                                        <span v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg).diffText"
+                                              class="score-diff"
+                                              :class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg).diffClass">
+                                            {{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
-                                    <span class="score-value">{{ formatScore(dataset.reasoning_avg) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg).score }}</span>
+                                        <span v-if="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg).diffText"
+                                              class="score-diff"
+                                              :class="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg).diffClass">
+                                            {{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -221,11 +264,11 @@
                 <div class="detailed-header">
                     <h2 class="detailed-title">
                         <i class="fas fa-chart-line"></i>
-                        {{ getTypeDisplayName(selectedType) }} 详细排行榜
+                        {{ getTypeDisplayName(selectedType) }} Leaderboard
                     </h2>
                     <button @click="selectedType = ''" class="back-btn">
                         <i class="fas fa-arrow-left"></i>
-                        返回总览
+                        Back to Main Leaderboard
                     </button>
                 </div>
                 
@@ -233,17 +276,18 @@
                     <table class="ranking-table detailed-table">
                         <thead>
                             <tr>
-                                <th class="rank-col">排名</th>
+                                <th class="rank-col">Rank</th>
                                 <th class="name-col sortable" @click="sortDetailedBy('name')">
-                                    数据集名称
-                                    <i :class="getSortIcon('name', true)" class="sort-icon"></i>
+                                    Dataset<i :class="getSortIcon('name', true)" class="sort-icon"></i>
                                 </th>
+                                <th class="year-col">Year</th>
+                                <th class="size-col">Size</th>
                                 <th class="domain-col sortable" @click="sortDetailedBy('domain')">
-                                    领域
+                                    Domain
                                     <i :class="getSortIcon('domain', true)" class="sort-icon"></i>
                                 </th>
                                 <th class="score-col overall-score sortable" @click="sortDetailedBy('average'); highlightColumn('average', true)">
-                                    均分
+                                    Avg Score
                                     <i :class="getSortIcon('average', true)" class="sort-icon"></i>
                                 </th>
                                 <th v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col sortable" @click="sortDetailedBy(header.taskName + '_' + header.metricName); highlightColumn(header.taskName + '_' + header.metricName, true)">
@@ -269,8 +313,14 @@
                                     </div>
                                 </td>
                                 <td class="name-col">
-                                    <span class="dataset-name">{{ dataset.name }}</span>
+                                    <div class="dataset-name-cell">
+                                        <a v-if="dataset.link" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
+                                        <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                        <div v-if="dataset.affiliation" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                    </div>
                                 </td>
+                                <td class="year-col">{{ dataset.year }}</td>
+                                <td class="size-col">{{ dataset.size }}</td>
                                 <td class="domain-col">
                                     <span 
                                         class="domain-badge clickable" 
@@ -281,10 +331,24 @@
                                     </span>
                                 </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedDetailedColumn === 'average' }">
-                                    <span class="score-value overall">{{ getTypeAverage(dataset, selectedType) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value overall">{{ getTypeAverage(dataset, selectedType).score }}</span>
+                                        <span v-if="getTypeAverage(dataset, selectedType).diffText"
+                                              class="score-diff"
+                                              :class="getTypeAverage(dataset, selectedType).diffClass">
+                                            {{ getTypeAverage(dataset, selectedType).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col" :class="{ 'highlighted-col': highlightedDetailedColumn === (header.taskName + '_' + header.metricName) }">
-                                    <span class="score-value">{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName) }}</span>
+                                    <div class="score-container">
+                                        <span class="score-value">{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName).score }}</span>
+                                        <span v-if="getTaskScore(dataset, selectedType, header.taskName, header.metricName).diffText"
+                                              class="score-diff"
+                                              :class="getTaskScore(dataset, selectedType, header.taskName, header.metricName).diffClass">
+                                            {{ getTaskScore(dataset, selectedType, header.taskName, header.metricName).diffText }}
+                                        </span>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
