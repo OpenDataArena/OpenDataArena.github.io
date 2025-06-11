@@ -1787,3 +1787,126 @@ footer {
     vertical-align: middle; /* Helps align with other inline-flex items */
     margin-left: 15px;
 }
+
+.header .subscribe-btn {
+    vertical-align: middle;
+    margin-left: 5px; /* Reduced margin-left to bring it closer to the like button */
+    padding: 4px 12px; 
+    font-family: Verdana, sans-serif; 
+    font-size: 15px; 
+    line-height: 1.2; 
+    color: #1039a2; 
+    background-color: #ffffff; 
+    border: 1.5px solid #1039a2; 
+    border-radius: 5px; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    height: 29px; 
+    box-sizing: border-box; 
+}
+
+.header .subscribe-btn:hover {
+    background-color: #f0f0f0; 
+    color: #0d2c7a;
+    border-color: #0d2c7a;
+}
+
+.header .subscribe-btn i.fas.fa-envelope {
+    margin-right: 6px; 
+    font-size: 16px; 
+    color: #1039a2; 
+}
+
+.header .rules-link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px; /* Slightly adjusted padding */
+    margin-left: 10px; /* Adjusted margin */
+    background-color: #ffffff;
+    color: #1039a2 !important; /* Ensure text color is applied */
+    text-decoration: none !important;
+    border: 1.5px solid #1039a2;
+    border-radius: 20px; /* Adjusted border-radius */
+    font-size: 0.95em; /* Adjusted font size */
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    vertical-align: middle;
+}
+
+.rules-link-btn:hover,
+.rules-link-btn:focus {
+    background-color: #1039a2;
+    color: #ffffff !important; /* Ensure text color changes on hover */
+    text-decoration: none !important;
+}
+
+.rules-link-btn i.fas.fa-gavel {
+    margin-right: 6px; /* Adjusted space */
+    font-size: 0.9em; /* Adjusted icon size */
+}
+
+/* Adjustments for header items alignment */
+.header .likebtn-wrapper,
+.header .subscribe-btn {
+    vertical-align: middle; /* Helps align with other inline-flex items */
+    margin-left: 15px;
+}
+
+.header .subscribe-btn {
+    vertical-align: middle;
+    margin-left: 5px; /* Reduced margin-left to bring it closer to the like button */
+    padding: 4px 12px; 
+    font-family: Verdana, sans-serif; 
+    font-size: 15px; 
+    line-height: 1.2; 
+    color: #1039a2; 
+    background-color: #ffffff; 
+    border: 1.5px solid #1039a2; 
+    border-radius: 5px; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    height: 29px; 
+    box-sizing: border-box; 
+}
+
+.header .subscribe-btn:hover {
+    background-color: #f0f0f0; 
+    color: #0d2c7a;
+    border-color: #0d2c7a;
+}
+
+.header .subscribe-btn i.fas.fa-envelope {
+    margin-right: 6px; 
+    font-size: 16px; 
+    color: #1039a2; 
+}
+
+.header .rules-link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px; /* Slightly adjusted padding */
+    margin-left: 10px; /* Adjusted margin */
+    background-color: #ffffff;
+    color: #1039a2 !important; /* Ensure text color is applied */
+    text-decoration: none !important;
+    border: 1.5px solid #1039a2;
+    border-radius: 20px; /* Adjusted border-radius */
+    font-size: 0.95em; /* Adjusted font size */
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    vertical-align: middle;
+}
+
+.rules-link-btn:hover,
+.rules-link-btn:focus {
+    background-color: #1039a2;
+    color: #ffffff !important; /* Ensure text color changes on hover */
+    text-decoration: none !important;
+}
+
+.rules-link-btn i.fas.fa-gavel {
+    margin-right: 6px; /* Adjusted space */
+    font-size: 0.9em; /* Adjusted icon size */
+}
