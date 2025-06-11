@@ -31,7 +31,7 @@
     <div class="rules-container">
         <header class="rules-header">
             <h1>Leaderboard Rules</h1>
-            <p>Detailed Training and Testing Settings for our benchmarks.</p>
+            <p>Detailed Training and Testing Settings</p>
             <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i>Back to Main Leaderboard</a>
         </header>
 
@@ -94,6 +94,97 @@
                 </tbody>
             </table>
         </section>
+
+        <section class="rules-section">
+            <h2><i class="fas fa-database"></i>Dataset Selection Rules</h2>
+            <p>To ensure fairness and effectiveness in evaluation, we have established strict dataset selection criteria. All datasets used for training and evaluation are sourced from the Hugging Face platform and must meet the following screening conditions:</p>
+            
+            <h3 style="color: #1039a2; font-size: 1.3em; margin-top: 25px; margin-bottom: 15px;">
+                <i class="fas fa-filter" style="margin-right: 8px;"></i>Selection Criteria
+            </h3>
+            
+            <table class="rules-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Criteria</th>
+                        <th style="width: 75%;">Requirements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Impact Metrics</strong></td>
+                        <td><code>likes</code> or <code>downloads</code> count greater than <strong>10</strong> on Hugging Face platform, ensuring community recognition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Priority Ranking</strong></td>
+                        <td>In domains with abundant training data (e.g., general dialogue, mathematical reasoning, code generation), prioritize datasets with higher <code>likes</code> counts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recency Requirement</strong></td>
+                        <td>Dataset last updated after <strong>January 2023</strong>, ensuring data timeliness and relevance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Size Limitation</strong></td>
+                        <td>Dataset size limited to <strong>under 1M</strong>, balancing training effectiveness with computational resource consumption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suitability Assessment</strong></td>
+                        <td>Dataset purpose or content must be suitable for <strong>SFT (Supervised Fine-Tuning)</strong> training, containing high-quality instruction-response pairs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: #1039a2; font-size: 1.3em; margin-top: 25px; margin-bottom: 15px;">
+                <i class="fas fa-layer-group" style="margin-right: 8px;"></i>Dataset Classification
+            </h3>
+            
+            <p>Datasets selected according to the above criteria are classified and organized by the following domains:</p>
+            
+            <table class="rules-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Domain</th>
+                        <th style="width: 40%;">Dataset Types</th>
+                        <th style="width: 40%;">Selection Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>General Dialogue</strong></td>
+                        <td>Multi-turn conversations, instruction following, general Q&A</td>
+                        <td>Prioritize comprehensive dialogue datasets with high likes count</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mathematical Reasoning</strong></td>
+                        <td>Math problem solving, logical reasoning, computational problems</td>
+                        <td>Focus on high-quality datasets with detailed solution processes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Code Generation</strong></td>
+                        <td>Programming instructions, code explanations, algorithm implementations</td>
+                        <td>Select practical code datasets covering multiple programming languages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logical Reasoning</strong></td>
+                        <td>Logical analysis, causal reasoning, critical thinking</td>
+                        <td>Prioritize datasets with clear structured reasoning processes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: #1039a2; font-size: 1.3em; margin-top: 25px; margin-bottom: 15px;">
+                <i class="fas fa-check-circle" style="margin-right: 8px;"></i>Quality Assurance
+            </h3>
+            
+            <p>To ensure training data quality, we conduct the following additional validations:</p>
+            <ul style="font-size: 1.1em; line-height: 1.6; margin-left: 20px;">
+                <li><strong>Content Review:</strong> Check datasets for harmful, biased, or inappropriate content</li>
+                <li><strong>Format Standardization:</strong> Ensure all datasets conform to unified input-output format requirements</li>
+                <li><strong>Diversity Balance:</strong> Maintain diversity and balance across different domains</li>
+                <li><strong>Regular Updates:</strong> Periodically update selections based on community feedback and newly released high-quality datasets</li>
+            </ul>
+        </section>
+        
         <nav class="footer-nav">
             <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i>Back to Main Leaderboard</a>
         </nav>
