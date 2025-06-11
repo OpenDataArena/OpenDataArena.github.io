@@ -57,9 +57,12 @@ body {
 
 /* Header Styles */
 .header {
+    display: flex;
+    align-items: center; /* This will help vertically align all items in the header */
+    justify-content: space-between; /* This will space out the title and the button group */
+    padding: 15px 30px; /* Adjust padding as needed */
     text-align: center;
     margin-bottom: 1.5rem;
-    padding: 1rem 0;
     background: var(--background-primary); /* Ensure header background is plain */
     border-bottom: 1px solid var(--border-light);
     /* Removed any backdrop-filter, box-shadow from header if they were there */
@@ -76,7 +79,7 @@ body {
     color: transparent; /* Fallback for browsers that don't support background-clip: text */
     letter-spacing: 0.03em; /* Adds a touch of modern sophistication */
     padding: 5px 0; /* Adds a bit of breathing room around the text */
-    margin-bottom: 0;
+    margin: 0; /* Ensure no extra margin */
     position: relative; /* For potential pseudo-elements if needed for more complex effects */
 }
 
@@ -1747,4 +1750,40 @@ footer {
   flex-direction: column;
   align-items: flex-start; /* 左对齐 */
   justify-content: flex-start; /* 顶部对齐 */
+}
+
+/* Styles for the Leaderboard Rules button */
+.rules-link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px; /* Slightly adjusted padding */
+    margin-left: 10px; /* Adjusted margin */
+    background-color: #ffffff;
+    color: #1039a2 !important; /* Ensure text color is applied */
+    text-decoration: none !important;
+    border: 1.5px solid #1039a2;
+    border-radius: 20px; /* Adjusted border-radius */
+    font-size: 0.95em; /* Adjusted font size */
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    vertical-align: middle;
+}
+
+.rules-link-btn:hover,
+.rules-link-btn:focus {
+    background-color: #1039a2;
+    color: #ffffff !important; /* Ensure text color changes on hover */
+    text-decoration: none !important;
+}
+
+.rules-link-btn i.fas.fa-gavel {
+    margin-right: 6px; /* Adjusted space */
+    font-size: 0.9em; /* Adjusted icon size */
+}
+
+/* Adjustments for header items alignment */
+.header .likebtn-wrapper,
+.header .subscribe-btn {
+    vertical-align: middle; /* Helps align with other inline-flex items */
+    margin-left: 15px;
 }
