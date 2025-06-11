@@ -61,11 +61,17 @@ body {
     align-items: center; /* This will help vertically align all items in the header */
     justify-content: space-between; /* This will space out the title and the button group */
     padding: 15px 30px; /* Adjust padding as needed */
-    text-align: center;
     margin-bottom: 1.5rem;
     background: var(--background-primary); /* Ensure header background is plain */
     border-bottom: 1px solid var(--border-light);
     /* Removed any backdrop-filter, box-shadow from header if they were there */
+}
+
+/* Group the Like and Subscribe buttons */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between Like and Subscribe buttons */
 }
 
 .header h1 {
@@ -1752,161 +1758,62 @@ footer {
   justify-content: flex-start; /* 顶部对齐 */
 }
 
-/* Styles for the Leaderboard Rules button */
-.rules-link-btn {
+/* Header buttons unified styling */
+.header .likebtn-wrapper {
+    margin-left: 15px;
+    margin-right: -5px; /* 使用负边距强制让subscribe按钮更靠近 */
+    height: 30px;
     display: inline-flex;
     align-items: center;
-    padding: 8px 15px; /* Slightly adjusted padding */
-    margin-left: 10px; /* Adjusted margin */
-    background-color: #ffffff;
-    color: #1039a2 !important; /* Ensure text color is applied */
-    text-decoration: none !important;
-    border: 1.5px solid #1039a2;
-    border-radius: 20px; /* Adjusted border-radius */
-    font-size: 0.95em; /* Adjusted font size */
+}
+
+.header .subscribe-btn {
+    padding: 5px 12px;
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
     font-weight: 500;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    vertical-align: middle;
-}
-
-.rules-link-btn:hover,
-.rules-link-btn:focus {
-    background-color: #1039a2;
-    color: #ffffff !important; /* Ensure text color changes on hover */
-    text-decoration: none !important;
-}
-
-.rules-link-btn i.fas.fa-gavel {
-    margin-right: 6px; /* Adjusted space */
-    font-size: 0.9em; /* Adjusted icon size */
-}
-
-/* Adjustments for header items alignment */
-.header .likebtn-wrapper,
-.header .subscribe-btn {
-    vertical-align: middle; /* Helps align with other inline-flex items */
-    margin-left: 15px;
-}
-
-.header .subscribe-btn {
-    vertical-align: middle;
-    margin-left: 5px; /* Reduced margin-left to bring it closer to the like button */
-    padding: 4px 12px; 
-    font-family: Verdana, sans-serif; 
-    font-size: 15px; 
-    line-height: 1.2; 
-    color: #1039a2; 
-    background-color: #ffffff; 
-    border: 1.5px solid #1039a2; 
-    border-radius: 5px; 
+    line-height: 1.2;
+    color: #1039a2;
+    background-color: #ffffff;
+    border: 1.5px solid #1039a2;
+    border-radius: 6px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    height: 29px; 
-    box-sizing: border-box; 
+    height: 30px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
 }
 
 .header .subscribe-btn:hover {
-    background-color: #f0f0f0; 
-    color: #0d2c7a;
-    border-color: #0d2c7a;
+    background-color: #1039a2;
+    color: #ffffff;
 }
 
 .header .subscribe-btn i.fas.fa-envelope {
-    margin-right: 6px; 
-    font-size: 16px; 
-    color: #1039a2; 
+    margin-right: 6px;
+    font-size: 14px;
 }
 
-.header .rules-link-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 15px; /* Slightly adjusted padding */
-    margin-left: 10px; /* Adjusted margin */
-    background-color: #ffffff;
-    color: #1039a2 !important; /* Ensure text color is applied */
-    text-decoration: none !important;
-    border: 1.5px solid #1039a2;
-    border-radius: 20px; /* Adjusted border-radius */
-    font-size: 0.95em; /* Adjusted font size */
-    font-weight: 500;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    vertical-align: middle;
+/* Title container to hold main title and rules link */
+.title-container {
+    display: flex;
+    align-items: baseline; /* Align text baselines */
+    gap: 1rem; /* Space between title and rules link */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-.rules-link-btn:hover,
-.rules-link-btn:focus {
-    background-color: #1039a2;
-    color: #ffffff !important; /* Ensure text color changes on hover */
-    text-decoration: none !important;
+/* Rules link styled as small text */
+.rules-link-text {
+    font-size: 0.875rem; /* Small text size */
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s ease-in-out;
+    white-space: nowrap; /* Prevent breaking */
 }
 
-.rules-link-btn i.fas.fa-gavel {
-    margin-right: 6px; /* Adjusted space */
-    font-size: 0.9em; /* Adjusted icon size */
-}
-
-/* Adjustments for header items alignment */
-.header .likebtn-wrapper,
-.header .subscribe-btn {
-    vertical-align: middle; /* Helps align with other inline-flex items */
-    margin-left: 15px;
-}
-
-.header .subscribe-btn {
-    vertical-align: middle;
-    margin-left: 5px; /* Reduced margin-left to bring it closer to the like button */
-    padding: 4px 12px; 
-    font-family: Verdana, sans-serif; 
-    font-size: 15px; 
-    line-height: 1.2; 
-    color: #1039a2; 
-    background-color: #ffffff; 
-    border: 1.5px solid #1039a2; 
-    border-radius: 5px; 
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    height: 29px; 
-    box-sizing: border-box; 
-}
-
-.header .subscribe-btn:hover {
-    background-color: #f0f0f0; 
-    color: #0d2c7a;
-    border-color: #0d2c7a;
-}
-
-.header .subscribe-btn i.fas.fa-envelope {
-    margin-right: 6px; 
-    font-size: 16px; 
-    color: #1039a2; 
-}
-
-.header .rules-link-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 15px; /* Slightly adjusted padding */
-    margin-left: 10px; /* Adjusted margin */
-    background-color: #ffffff;
-    color: #1039a2 !important; /* Ensure text color is applied */
-    text-decoration: none !important;
-    border: 1.5px solid #1039a2;
-    border-radius: 20px; /* Adjusted border-radius */
-    font-size: 0.95em; /* Adjusted font size */
-    font-weight: 500;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    vertical-align: middle;
-}
-
-.rules-link-btn:hover,
-.rules-link-btn:focus {
-    background-color: #1039a2;
-    color: #ffffff !important; /* Ensure text color changes on hover */
-    text-decoration: none !important;
-}
-
-.rules-link-btn i.fas.fa-gavel {
-    margin-right: 6px; /* Adjusted space */
-    font-size: 0.9em; /* Adjusted icon size */
+.rules-link-text:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }

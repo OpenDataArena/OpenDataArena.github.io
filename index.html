@@ -31,12 +31,16 @@
         <div class="main-container" v-show="!loading">
             <!-- 简洁头部 -->
             <header class="header">
-                <h1>Data Leaderboard</h1>
-                <a href="rules.html" class="rules-link-btn"><i class="fas fa-gavel"></i> Leaderboard Rules</a>
-                <!-- LikeBtn.com BEGIN -->
-                <span class="likebtn-wrapper" data-theme="custom" data-btn_size="29" data-f_size="17" data-icon_size="20" data-icon_l="thmb7-u" data-icon_l_c="#1039a2" data-icon_l_c_v="#980d19" data-icon_d_c_v="#d9fb05" data-label_c="#1039a2" data-label_c_v="1039a2" data-counter_l_c="#1039a2" data-bg_c="#ffffff" data-bg_c_v="#ffffff" data-brdr_c="#1039a2" data-f_family="Verdana" data-ef_voting="heartbeat" data-identifier="item_1" data-dislike_enabled="false" data-icon_dislike_show="false" data-counter_frmt="comma" data-site_id="6846a6e06fd08b204ee8cf38"></span>
-                <!-- LikeBtn.com END -->
-                <button id="subscribe-btn" class="subscribe-btn"><i class="fas fa-envelope"></i> Subscribe</button>
+                <div class="title-container">
+                    <h1>Data Leaderboard</h1>
+                    <a href="rules.html" class="rules-link-text">Leaderboard Rules</a>
+                </div>
+                <div class="header-buttons">
+                    <!-- LikeBtn.com BEGIN -->
+                    <span class="likebtn-wrapper" data-theme="custom" data-btn_size="29" data-f_size="17" data-icon_size="20" data-icon_l="thmb7-u" data-icon_l_c="#1039a2" data-icon_l_c_v="#980d19" data-icon_d_c_v="#d9fb05" data-label_c="#1039a2" data-label_c_v="1039a2" data-counter_l_c="#1039a2" data-bg_c="#ffffff" data-bg_c_v="#ffffff" data-brdr_c="#1039a2" data-f_family="Verdana" data-ef_voting="heartbeat" data-identifier="item_1" data-dislike_enabled="false" data-icon_dislike_show="false" data-counter_frmt="comma" data-site_id="6846a6e06fd08b204ee8cf38"></span>
+                    <!-- LikeBtn.com END -->
+                    <button id="subscribe-btn" class="subscribe-btn"><i class="fas fa-envelope"></i> Subscribe</button>
+                </div>
                 <div id="subscribe-modal" class="subscribe-modal">
                   <div class="subscribe-modal-content">
                     <span class="close-modal">&times;</span>
