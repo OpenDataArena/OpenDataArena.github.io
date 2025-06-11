@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Rules - Training and Testing Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dropdown-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        .rules-container { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 8px; }
+        .rules-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #e0e0e0; }
+        .rules-header h1 { color: #1039a2; font-size: 2.2em; margin-bottom: 10px; }
+        .rules-header .back-link { display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: #1039a2; color: white; text-decoration: none; border-radius: 5px; font-size: 1em; transition: background-color 0.3s ease; }
+        .rules-header .back-link:hover { background-color: #0d2c7a; }
+        .rules-header .back-link i { margin-right: 8px; }
+        .rules-section { margin-bottom: 40px; }
+        .rules-section h2 { font-size: 1.8em; color: #333; margin-top: 30px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .rules-section h2 i { margin-right: 10px; color: #1039a2; }
+        .rules-section p { font-size: 1.1em; margin-bottom: 15px; line-height: 1.6; }
+        .rules-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.95em; table-layout: fixed; }
+        .rules-table th, .rules-table td { border: 1px solid #ddd; padding: 12px; text-align: left; vertical-align: top; word-wrap: break-word; }
+        .rules-table th { background-color: #f7f9fa; font-weight: 600; color: #333; }
+        .rules-table td:first-child { font-weight: 500; width: 20%; background-color: #fcfdff; }
+        .dataset-cell { white-space: pre-wrap; word-break: break-word; line-height: 1.5; }
+        .footer-nav { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;}
+    </style>
+</head>
+<body>
+    <div class="rules-container">
+        <header class="rules-header">
+            <h1>Leaderboard Rules</h1>
+            <p>Detailed Training and Testing Settings for our benchmarks.</p>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i>Back to Main Leaderboard</a>
+        </header>
+
+        <section class="rules-section">
+            <h2><i class="fas fa-cogs"></i>Training Settings</h2>
+            <p><strong>Framework:</strong> Llama Factory version 0.9.2</p>
+            <table class="rules-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Llama</th>
+                        <th>Llama for reasoning</th>
+                        <th>Qwen</th>
+                        <th>Qwen for reasoning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>GPU</td><td>8*A100</td><td>8*A100</td><td>8*A100</td><td>8*A100</td></tr>
+                    <tr><td>Base model</td><td>Meta-Llama-3.1-8B</td><td>Meta-Llama-3.1-8B</td><td>Qwen2.5-7B</td><td>Qwen2.5-7B</td></tr>
+                    <tr><td>deepspeed</td><td>ds_z2_config</td><td>ds_z2_config</td><td>ds_z2_config</td><td>ds_z2_config</td></tr>
+                    <tr><td>template</td><td>default</td><td>default</td><td>default</td><td>default</td></tr>
+                    <tr><td>cutoff_len</td><td>4096</td><td>32768</td><td>4096</td><td>32768</td></tr>
+                    <tr><td>preprocessing_num_workers</td><td>16</td><td>16</td><td>true</td><td>true</td></tr>
+                    <tr><td>per_device_train_batch_size</td><td>4</td><td>1</td><td>4</td><td>1</td></tr>
+                    <tr><td>per_device_train_batch_size</td><td>4</td><td>2</td><td>4</td><td>2</td></tr>
+                    <tr><td>learning_rate</td><td>2.0e-5</td><td>3.0e-5</td><td>5.0e-6</td><td>5.0e-5</td></tr>
+                    <tr><td>use_liger_kernel</td><td>true</td><td>true</td><td>true</td><td>true</td></tr>
+                    <tr><td>num_train_epochs</td><td>3.0</td><td>3.0</td><td>3.0</td><td>3.0</td></tr>
+                    <tr><td>lr_scheduler_type</td><td>cosine</td><td>cosine</td><td>cosine</td><td>cosine</td></tr>
+                    <tr><td>warmup_ratio</td><td>0.03</td><td>0.03</td><td>0.1</td><td>0.1</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="rules-section">
+            <h2><i class="fas fa-vial"></i>Testing Settings</h2>
+            <p><strong>Framework:</strong> OpenCompass version 0.4.2</p>
+            <table class="rules-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Llama</th>
+                        <th>Llama for reasoning</th>
+                        <th>Qwen</th>
+                        <th>Qwen for reasoning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>max-out-len</td><td>4096</td><td>32768</td><td>4096</td><td>32768</td></tr>
+                    <tr>
+                        <td>datasets</td>
+                        <td class="dataset-cell">drop_gen<br>IFEval_gen agieval_gen<br>mmlu_pro_gen gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff<br>livecodebench_gen<br>ARC_c_gen<br>bbh_gen<br>korbench_gen<br>calm<br>gpqa_gen<br>gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff livecodebench_gen</td>
+                        <td class="dataset-cell">drop_gen<br>IFEval_gen agieval_gen<br>mmlu_pro_gen gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff<br>livecodebench_gen<br>ARC_c_gen<br>bbh_gen<br>korbench_gen<br>calm<br>gpqa_gen<br>gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff livecodebench_gen</td>
+                        <td class="dataset-cell">drop_gen<br>IFEval_gen agieval_gen<br>mmlu_pro_gen gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff<br>livecodebench_gen<br>ARC_c_gen<br>bbh_gen<br>korbench_gen<br>calm<br>gpqa_gen<br>gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff livecodebench_gen</td>
+                        <td class="dataset-cell">drop_gen<br>IFEval_gen agieval_gen<br>mmlu_pro_gen gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff<br>livecodebench_gen<br>ARC_c_gen<br>bbh_gen<br>korbench_gen<br>calm<br>gpqa_gen<br>gsm8k_0shot_v2_gen_a58960 math_0shot_gen_393424 math_prm800k_500_gen aime2024_llmverify_repeat8_gen_e8fcee<br>omni_math_gen<br>humaneval_gen sanitized_mbpp_mdblock_gen_a447ff livecodebench_gen</td>
+                    </tr>
+                    <tr><td>hf-type</td><td>chat</td><td>chat</td><td>chat</td><td>chat</td></tr>
+                    <tr><td>models</td><td>hf_llama3_1_8b_instruct</td><td>hf_llama3_1_8b_instruct</td><td>hf_qwen2_5_7b_instruct</td><td>hf_qwen2_5_7b_instruct</td></tr>
+                    <tr><td>accelerator</td><td>lmdeploy</td><td>lmdeploy</td><td>lmdeploy</td><td>lmdeploy</td></tr>
+                </tbody>
+            </table>
+        </section>
+        <nav class="footer-nav">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i>Back to Main Leaderboard</a>
+        </nav>
+    </div>
+</body>
+</html>
