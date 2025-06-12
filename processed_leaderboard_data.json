@@ -3,7 +3,7 @@
     {
       "id": 0,
       "name": "base",
-      "domain": "general",
+      "domain": "",
       "general_avg": 16.01,
       "math_avg": 13.45,
       "code_avg": 15.68,
