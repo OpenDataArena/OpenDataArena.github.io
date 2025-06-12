@@ -108,7 +108,10 @@ const app = createApp({
         // 计算属性：可用的领域列表
         const availableDomains = computed(() => {
             if (!currentData.value.length) return []
-            const domains = [...new Set(currentData.value.map(item => item.domain).filter(Boolean))]
+            const domains = [...new Set(currentData.value
+                .filter(item => item.name !== 'base') // 排除 base 模型
+                .map(item => item.domain)
+                .filter(Boolean))]
             return domains.sort()
         })
         
