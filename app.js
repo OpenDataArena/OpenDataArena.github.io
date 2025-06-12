@@ -403,10 +403,15 @@ const app = createApp({
             let diffText = null;
             let diffClass = '';
 
-            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+            if (typeof improvementValue === 'number') { // Always show if improvementValue is a number
                 const diff = roundToOneDecimal(improvementValue);
-                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
-                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                if (diff === 0) {
+                    diffText = '0.0';
+                    diffClass = 'score-diff-positive'; // Changed to positive for 0.0
+                } else {
+                    diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                    diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                }
             }
             
             return { 
@@ -599,10 +604,15 @@ const app = createApp({
             const formattedScore = formatScore(scoreValue);
             let diffText = null;
             let diffClass = '';
-            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+            if (typeof improvementValue === 'number') { // Always show if improvementValue is a number
                 const diff = roundToOneDecimal(improvementValue);
-                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
-                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                if (diff === 0) {
+                    diffText = '0.0';
+                    diffClass = 'score-diff-positive'; // Changed to positive for 0.0
+                } else {
+                    diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                    diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                }
             }
             return {
                 score: formattedScore,
@@ -621,10 +631,15 @@ const app = createApp({
             let diffText = null;
             let diffClass = '';
 
-            if (typeof improvementValue === 'number' && improvementValue !== 0) {
+            if (typeof improvementValue === 'number') { // Always show if improvementValue is a number
                 const diff = roundToOneDecimal(improvementValue);
-                diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
-                diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                if (diff === 0) {
+                    diffText = '0.0';
+                    diffClass = 'score-diff-positive'; // Changed to positive for 0.0
+                } else {
+                    diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
+                    diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
+                }
             }
 
             return {

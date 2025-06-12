@@ -225,7 +225,6 @@ body {
 }
 
 /* Reset button styles (Removed) */
-/*
 .reset-button-container {
     margin-left: auto; /* Pushes reset button to the far right in its row */
     align-self: flex-end; /* Align with the bottom of other elements in the row */
