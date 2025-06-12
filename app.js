@@ -82,7 +82,10 @@ const app = createApp({
         const sortedData = computed(() => {
             if (!currentData.value.length) return []
             
-            return [...currentData.value].sort((a, b) => {
+            const baseModel = currentData.value.find(item => item.name === 'base');
+            const otherModels = currentData.value.filter(item => item.name !== 'base');
+
+            const sortedOtherModels = [...otherModels].sort((a, b) => {
                 let scoreA = a[sortColumn.value] || 0
                 let scoreB = b[sortColumn.value] || 0
                 
@@ -97,7 +100,9 @@ const app = createApp({
                 
                 // 数值比较
                 return sortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
-            })
+            });
+
+            return baseModel ? [baseModel, ...sortedOtherModels] : sortedOtherModels;
         })
 
         // 计算属性：可用的领域列表
@@ -132,7 +137,14 @@ const app = createApp({
 
         // 计算属性：过滤后的数据（主表格）
         const filteredData = computed(() => {
-            let filtered = sortedData.value
+            let dataToFilter = sortedData.value; // 使用已经将base置顶的数据
+            let baseModel = null;
+            if (dataToFilter.length > 0 && dataToFilter[0].name === 'base') {
+                baseModel = dataToFilter[0];
+                dataToFilter = dataToFilter.slice(1);
+            }
+
+            let filtered = dataToFilter;
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -147,13 +159,13 @@ const app = createApp({
                     selectedDomains.value.includes(dataset.domain)
                 )
             }
-
-            return filtered
+            
+            return baseModel ? [baseModel, ...filtered] : filtered;
         })
 
         // 计算属性：未排序的过滤数据（用于排名计算）
         const filteredDataForRanking = computed(() => {
-            let filtered = currentData.value
+            let filtered = currentData.value.filter(item => item.name !== 'base'); // 排除 base
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -176,7 +188,7 @@ const app = createApp({
         const detailedFilteredDataForRanking = computed(() => {
             if (!selectedType.value) return []
             
-            let filtered = currentData.value
+            let filtered = currentData.value.filter(item => item.name !== 'base'); // 排除 base
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -199,9 +211,12 @@ const app = createApp({
         const detailedFilteredData = computed(() => {
             if (!selectedType.value) return []
             
+            const baseModel = currentData.value.find(item => item.name === 'base');
+            let otherModels = currentData.value.filter(item => item.name !== 'base');
+            
             // 使用选中的类型作为详细视图的展示
             const primaryType = selectedType.value
-            let filtered = [...currentData.value]
+            let filtered = [...otherModels]
             
             // 排序逻辑
             filtered.sort((a, b) => {
@@ -261,7 +276,7 @@ const app = createApp({
                 )
             }
 
-            return filtered
+            return baseModel ? [baseModel, ...filtered] : filtered;
         })
 
         // 计算属性：当前模型信息
@@ -444,10 +459,12 @@ const app = createApp({
         const getTaskHeaders = (type) => {
             // 从实际数据中获取任务列表
             if (currentData.value.length > 0) {
-                const firstModel = currentData.value[0]
-                if (firstModel.task_details) {
+                // Find the first non-base model with task_details to use as a template
+                const modelForHeaders = currentData.value.find(item => item.name !== 'base' && item.task_details);
+
+                if (modelForHeaders) {
                     const domainKey = type + '_tasks'
-                    const tasks = firstModel.task_details[domainKey] || []
+                    const tasks = modelForHeaders.task_details[domainKey] || []
                     const headers = []
                     
                     tasks.forEach(task => {
@@ -476,7 +493,7 @@ const app = createApp({
                 }
             }
             
-            // 如果没有数据，返回空数组
+            // 如果没有数据或没有合适的模型来提取表头，返回空数组
             return []
         }
 
@@ -497,6 +514,34 @@ const app = createApp({
         const getTaskScore = (dataset, type, taskNameFromHeader, metricNameFromHeader, raw = false) => {
             if (!dataset || !type || !taskNameFromHeader) {
                 return raw ? 0 : { score: '0.0', diffText: null, diffClass: '' };
+            }
+
+            if (dataset.name === 'base') {
+                const taskScoresKey = type + '_task_scores';
+                if (dataset[taskScoresKey] && Array.isArray(dataset[taskScoresKey])) {
+                    const headers = getTaskHeaders(type); // These headers are derived from a non-base model
+                    let scoreIndex = -1;
+
+                    // Find the index of the current task/metric in the dynamically generated headers
+                    for (let i = 0; i < headers.length; i++) {
+                        if (headers[i].taskName === taskNameFromHeader && headers[i].metricName === metricNameFromHeader) {
+                            scoreIndex = i;
+                            break;
+                        }
+                    }
+
+                    if (scoreIndex !== -1 && scoreIndex < dataset[taskScoresKey].length) {
+                        const scoreValue = dataset[taskScoresKey][scoreIndex];
+                        if (raw) return scoreValue;
+                        return {
+                            score: formatScore(scoreValue), // Use existing formatScore
+                            diffText: null, // Base model does not have improvement scores for sub-tasks
+                            diffClass: ''
+                        };
+                    }
+                }
+                // Fallback if scores are not found or mapping fails
+                return raw ? 0 : { score: '-', diffText: null, diffClass: '' };
             }
 
             // 1. 从 task_details 获取基础分数
@@ -597,6 +642,7 @@ const app = createApp({
 
         // 方法：计算排名（考虑相同分数）
         const calculateRanks = (data, scoreKey, isDetailed = false, selectedType = null) => {
+            let dataToRank = data.filter(item => item.name !== 'base'); // 排除 base
             let dataWithRoundedScores
 
             if (isDetailed && scoreKey && scoreKey !== 'name' && scoreKey !== 'domain') {
@@ -669,7 +715,8 @@ const app = createApp({
 
         // 方法：获取排名
         const getRank = (dataset, data, scoreKey, isDetailed = false, selectedType = null) => {
-            const ranks = calculateRanks(data, scoreKey, isDetailed, selectedType)
+            if (dataset.name === 'base') return '-'; // base 不参与排名
+            const ranks = calculateRanks(data.filter(item => item.name !== 'base'), scoreKey, isDetailed, selectedType)
             return ranks[dataset.id] || 1
         }
 

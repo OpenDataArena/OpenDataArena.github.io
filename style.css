@@ -554,6 +554,15 @@ body {
     background: var(--background-accent);
 }
 
+/* Add a specific background color for the base row */
+.table-row.base-row {
+    background-color: #f0f8ff; /* AliceBlue, a light and distinct color */
+}
+
+.table-row.base-row:hover {
+    background-color: #e6f2ff; /* A slightly darker shade for hover on base row */
+}
+
 .table tbody tr {
     transition: all 0.2s ease;
 }

@@ -62,7 +62,8 @@ def parse_excel_advanced():
             else:
                 print("警告: 未找到base行")
                 base_row = None
-            
+            # 提前定义 base_info
+            base_info = None
             if base_row is not None:
                 # 提取base行的各领域分数
                 def extract_base_task_scores(row, col_indices):
@@ -78,30 +79,53 @@ def parse_excel_advanced():
                                     # 无法转换为数字的值跳过
                                     pass
                     return task_scores
-                
                 base_general_task_scores = extract_base_task_scores(base_row, general_cols)
                 base_math_task_scores = extract_base_task_scores(base_row, math_cols)
                 base_code_task_scores = extract_base_task_scores(base_row, code_cols)
                 base_reasoning_task_scores = extract_base_task_scores(base_row, reasoning_cols)
-                
                 # 计算base行的各领域平均分（包括0值）
                 base_general_avg = np.mean(base_general_task_scores) if base_general_task_scores else 0
                 base_math_avg = np.mean(base_math_task_scores) if base_math_task_scores else 0
                 base_code_avg = np.mean(base_code_task_scores) if base_code_task_scores else 0
                 base_reasoning_avg = np.mean(base_reasoning_task_scores) if base_reasoning_task_scores else 0
-                
                 base_valid_averages = [avg for avg in [base_general_avg, base_math_avg, base_code_avg, base_reasoning_avg] if avg > 0]
                 base_overall_avg = np.mean(base_valid_averages) if base_valid_averages else 0
-                
                 print(f"Base行分数 - General: {base_general_avg:.2f}, Math: {base_math_avg:.2f}, Code: {base_code_avg:.2f}, Reasoning: {base_reasoning_avg:.2f}, Overall: {base_overall_avg:.2f}")
+                # 构建base_info对象
+                base_info = {
+                    'id': 0,
+                    'name': 'base',
+                    'domain': 'base',
+                    'general_avg': round(base_general_avg, 2),
+                    'math_avg': round(base_math_avg, 2),
+                    'code_avg': round(base_code_avg, 2),
+                    'reasoning_avg': round(base_reasoning_avg, 2),
+                    'overall_avg': round(base_overall_avg, 2),
+                    'general_task_scores': base_general_task_scores,
+                    'math_task_scores': base_math_task_scores,
+                    'code_task_scores': base_code_task_scores,
+                    'reasoning_task_scores': base_reasoning_task_scores
+                }
             else:
-                # 如果没有base行，设置为空列表，长度与各领域列数相同
                 base_general_task_scores = [0] * len(general_cols)
-                base_math_task_scores = [0] * len(math_cols)  
+                base_math_task_scores = [0] * len(math_cols)
                 base_code_task_scores = [0] * len(code_cols)
                 base_reasoning_task_scores = [0] * len(reasoning_cols)
                 base_general_avg = base_math_avg = base_code_avg = base_reasoning_avg = base_overall_avg = 0
-            # ...existing code...
+                base_info = {
+                    'id': 0,
+                    'name': 'base',
+                    'domain': 'base',
+                    'general_avg': 0,
+                    'math_avg': 0,
+                    'code_avg': 0,
+                    'reasoning_avg': 0,
+                    'overall_avg': 0,
+                    'general_task_scores': base_general_task_scores,
+                    'math_task_scores': base_math_task_scores,
+                    'code_task_scores': base_code_task_scores,
+                    'reasoning_task_scores': base_reasoning_task_scores
+                }
             # 遍历每个数据集（每4行为一组）
             datasets = []
             dataset_start_row = 3  # B4对应索引3 (0-based)
@@ -213,7 +237,7 @@ def parse_excel_advanced():
                             # 跳过无数据的任务（score为None）
                             if score is None:
                                 continue
-                                
+                            
                             if task_name not in organized_tasks:
                                 organized_tasks[task_name] = {
                                     'task_name': task_name,
@@ -298,6 +322,7 @@ def parse_excel_advanced():
                         'task_details': task_details,  # 新增：小任务详细信息
                         'improvement': improvement   # 新增：提升/下降
                     }
+                    
                     # 合并属性
                     attr = dataset_attr_map.get(dataset_name, {})
                     dataset_info.update(attr)
@@ -315,6 +340,10 @@ def parse_excel_advanced():
                 else:
                     # 如果B列为空，移动到下一行
                     current_row += 1
+            
+            # 在每个系列的datasets最前面插入base_info
+            if base_info:
+                datasets.insert(0, base_info)
             
             processed_data[sheet_name] = datasets
             print(f"\n{sheet_name} 工作表处理完成: {len(datasets)} 个数据集")

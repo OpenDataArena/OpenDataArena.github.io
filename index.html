@@ -184,29 +184,32 @@
                                 v-for="(dataset, index) in filteredData" 
                                 :key="dataset.id"
                                 class="table-row"
+                                :class="{ 'base-row': dataset.name === 'base' }"
                             >
                                 <td class="rank-col">
-                                    <div class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, sortColumn) - 1)">
+                                    <div v-if="dataset.name !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, sortColumn) - 1)">
                                         {{ getRank(dataset, filteredDataForRanking, sortColumn) }}
                                     </div>
+                                    <!-- For base model, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.link" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
+                                        <a v-if="dataset.link && dataset.name !== 'base'" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
-                                        <div v-if="dataset.affiliation" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                        <div v-if="dataset.affiliation && dataset.name !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
-                                <td class="year-col">{{ dataset.year }}</td>
-                                <td class="size-col">{{ dataset.size }}</td>
+                                <td class="year-col">{{ dataset.name === 'base' ? '-' : dataset.year }}</td>
+                                <td class="size-col">{{ dataset.name === 'base' ? '-' : dataset.size }}</td>
                                 <td class="domain-col">
-                                    <span 
+                                    <span v-if="dataset.name !== 'base'"
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
                                         @click="selectedDomains = [dataset.domain]"
                                     >
                                         {{ dataset.domain || 'Unknown' }}
                                     </span>
+                                    <span v-else>-</span>
                                 </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedColumn === 'overall_avg' }">
                                     <div class="score-container">
@@ -311,29 +314,32 @@
                                 v-for="(dataset, index) in detailedFilteredData" 
                                 :key="dataset.id"
                                 class="table-row"
+                                :class="{ 'base-row': dataset.name === 'base' }"
                             >
                                 <td class="rank-col">
-                                    <div class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) - 1)">
+                                    <div v-if="dataset.name !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) - 1)">
                                         {{ getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) }}
                                     </div>
+                                    <!-- For base model, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.link" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
+                                        <a v-if="dataset.link && dataset.name !== 'base'" :href="dataset.link" class="dataset-link" target="_blank" rel="noopener noreferrer">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
-                                        <div v-if="dataset.affiliation" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                        <div v-if="dataset.affiliation && dataset.name !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
-                                <td class="year-col">{{ dataset.year }}</td>
-                                <td class="size-col">{{ dataset.size }}</td>
+                                <td class="year-col">{{ dataset.name === 'base' ? '-' : dataset.year }}</td>
+                                <td class="size-col">{{ dataset.name === 'base' ? '-' : dataset.size }}</td>
                                 <td class="domain-col">
-                                    <span 
+                                    <span v-if="dataset.name !== 'base'"
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
                                         @click="selectedDomains = [dataset.domain]"
                                     >
                                         {{ dataset.domain || 'Unknown' }}
                                     </span>
+                                    <span v-else>-</span>
                                 </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedDetailedColumn === 'average' }">
                                     <div class="score-container">

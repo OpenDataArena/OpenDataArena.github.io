@@ -1,6 +1,42 @@
 {
   "llama": [
     {
+      "id": 0,
+      "name": "base",
+      "domain": "base",
+      "general_avg": 16.01,
+      "math_avg": 13.45,
+      "code_avg": 15.68,
+      "reasoning_avg": 41.32,
+      "overall_avg": 21.62,
+      "general_task_scores": [
+        21.83,
+        20.3375,
+        17.97,
+        3.92071429
+      ],
+      "math_task_scores": [
+        55.8,
+        5.5,
+        1.6,
+        4.34,
+        0.0
+      ],
+      "code_task_scores": [
+        20.12,
+        54.47,
+        3.58,
+        0.21,
+        0.0
+      ],
+      "reasoning_task_scores": [
+        80.34,
+        62.56,
+        0.312,
+        22.08
+      ]
+    },
+    {
       "id": 1,
       "name": "GPT4All",
       "domain": "general",
@@ -12101,6 +12137,42 @@
     }
   ],
   "qwen": [
+    {
+      "id": 0,
+      "name": "base",
+      "domain": "base",
+      "general_avg": 43.31,
+      "math_avg": 50.47,
+      "code_avg": 38.72,
+      "reasoning_avg": 34.93,
+      "overall_avg": 41.86,
+      "general_task_scores": [
+        66.99,
+        35.49,
+        44.86,
+        25.91
+      ],
+      "math_task_scores": [
+        87.34,
+        64.88,
+        67.4,
+        26.04,
+        6.67
+      ],
+      "code_task_scores": [
+        75.61,
+        71.6,
+        8.24,
+        1.04,
+        37.1
+      ],
+      "reasoning_task_scores": [
+        36.6,
+        69.46,
+        0.392,
+        33.28
+      ]
+    },
     {
       "id": 1,
       "name": "GPT4All",
