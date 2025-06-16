@@ -91,10 +91,19 @@ def parse_excel_advanced():
                 base_valid_averages = [avg for avg in [base_general_avg, base_math_avg, base_code_avg, base_reasoning_avg] if avg > 0]
                 base_overall_avg = np.mean(base_valid_averages) if base_valid_averages else 0
                 print(f"Base行分数 - General: {base_general_avg:.2f}, Math: {base_math_avg:.2f}, Code: {base_code_avg:.2f}, Reasoning: {base_reasoning_avg:.2f}, Overall: {base_overall_avg:.2f}")
+                
+                # 根据工作表名称设置base模型名称
+                if sheet_name == 'llama':
+                    base_name = 'meta-llama/Llama-3.1-8B'
+                elif sheet_name == 'qwen':
+                    base_name = 'Qwen/Qwen2.5-7B'
+                else:
+                    base_name = 'base'  # 默认名称
+                
                 # 构建base_info对象
                 base_info = {
                     'id': 0,
-                    'name': 'base',
+                    'name': base_name,
                     'domain': 'base',
                     'general_avg': round(base_general_avg, 2),
                     'math_avg': round(base_math_avg, 2),
@@ -112,9 +121,18 @@ def parse_excel_advanced():
                 base_code_task_scores = [0] * len(code_cols)
                 base_reasoning_task_scores = [0] * len(reasoning_cols)
                 base_general_avg = base_math_avg = base_code_avg = base_reasoning_avg = base_overall_avg = 0
+                
+                # 根据工作表名称设置base模型名称
+                if sheet_name == 'llama':
+                    base_name = 'meta-llama/Llama-3.1-8B'
+                elif sheet_name == 'qwen':
+                    base_name = 'Qwen/Qwen2.5-7B'
+                else:
+                    base_name = 'base'  # 默认名称
+                
                 base_info = {
                     'id': 0,
-                    'name': 'base',
+                    'name': base_name,
                     'domain': 'base',
                     'general_avg': 0,
                     'math_avg': 0,

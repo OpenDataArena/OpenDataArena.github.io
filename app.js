@@ -82,8 +82,8 @@ const app = createApp({
         const sortedData = computed(() => {
             if (!currentData.value.length) return []
             
-            const baseModel = currentData.value.find(item => item.name === 'base');
-            const otherModels = currentData.value.filter(item => item.name !== 'base');
+            const baseModel = currentData.value.find(item => isBaseModel(item));
+            const otherModels = currentData.value.filter(item => !isBaseModel(item));
 
             const sortedOtherModels = [...otherModels].sort((a, b) => {
                 let scoreA = a[sortColumn.value] || 0
@@ -109,7 +109,7 @@ const app = createApp({
         const availableDomains = computed(() => {
             if (!currentData.value.length) return []
             const domains = [...new Set(currentData.value
-                .filter(item => item.name !== 'base') // 排除 base 模型
+                .filter(item => !isBaseModel(item)) // 排除 base 模型
                 .map(item => item.domain)
                 .filter(Boolean))]
             return domains.sort()
@@ -142,7 +142,7 @@ const app = createApp({
         const filteredData = computed(() => {
             let dataToFilter = sortedData.value; // 使用已经将base置顶的数据
             let baseModel = null;
-            if (dataToFilter.length > 0 && dataToFilter[0].name === 'base') {
+            if (dataToFilter.length > 0 && isBaseModel(dataToFilter[0])) {
                 baseModel = dataToFilter[0];
                 dataToFilter = dataToFilter.slice(1);
             }
@@ -168,7 +168,7 @@ const app = createApp({
 
         // 计算属性：未排序的过滤数据（用于排名计算）
         const filteredDataForRanking = computed(() => {
-            let filtered = currentData.value.filter(item => item.name !== 'base'); // 排除 base
+            let filtered = currentData.value.filter(item => !isBaseModel(item)); // 排除 base
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -191,7 +191,7 @@ const app = createApp({
         const detailedFilteredDataForRanking = computed(() => {
             if (!selectedType.value) return []
             
-            let filtered = currentData.value.filter(item => item.name !== 'base'); // 排除 base
+            let filtered = currentData.value.filter(item => !isBaseModel(item)); // 排除 base
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -214,8 +214,8 @@ const app = createApp({
         const detailedFilteredData = computed(() => {
             if (!selectedType.value) return []
             
-            const baseModel = currentData.value.find(item => item.name === 'base');
-            let otherModels = currentData.value.filter(item => item.name !== 'base');
+            const baseModel = currentData.value.find(item => isBaseModel(item));
+            let otherModels = currentData.value.filter(item => !isBaseModel(item));
             
             // 使用选中的类型作为详细视图的展示
             const primaryType = selectedType.value
@@ -432,6 +432,11 @@ const app = createApp({
             return 0
         }
 
+        // 方法：检查是否是base模型
+        const isBaseModel = (dataset) => {
+            return dataset.domain === 'base'
+        }
+
         // 方法：获取分数等级类名
         const getScoreClass = (score) => {
             if (score >= 70) return 'score-high'
@@ -468,7 +473,7 @@ const app = createApp({
             // 从实际数据中获取任务列表
             if (currentData.value.length > 0) {
                 // Find the first non-base model with task_details to use as a template
-                const modelForHeaders = currentData.value.find(item => item.name !== 'base' && item.task_details);
+                const modelForHeaders = currentData.value.find(item => !isBaseModel(item) && item.task_details);
 
                 if (modelForHeaders) {
                     const domainKey = type + '_tasks'
@@ -524,7 +529,7 @@ const app = createApp({
                 return raw ? 0 : { score: '0.0', diffText: null, diffClass: '' };
             }
 
-            if (dataset.name === 'base') {
+            if (isBaseModel(dataset)) {
                 const taskScoresKey = type + '_task_scores';
                 if (dataset[taskScoresKey] && Array.isArray(dataset[taskScoresKey])) {
                     const headers = getTaskHeaders(type); // These headers are derived from a non-base model
@@ -660,7 +665,7 @@ const app = createApp({
 
         // 方法：计算排名（考虑相同分数）
         const calculateRanks = (data, scoreKey, isDetailed = false, selectedType = null) => {
-            let dataToRank = data.filter(item => item.name !== 'base'); // 排除 base
+            let dataToRank = data.filter(item => !isBaseModel(item)); // 排除 base
             let dataWithRoundedScores
 
             if (isDetailed && scoreKey && scoreKey !== 'name' && scoreKey !== 'domain') {
@@ -733,8 +738,8 @@ const app = createApp({
 
         // 方法：获取排名
         const getRank = (dataset, data, scoreKey, isDetailed = false, selectedType = null) => {
-            if (dataset.name === 'base') return '-'; // base 不参与排名
-            const ranks = calculateRanks(data.filter(item => item.name !== 'base'), scoreKey, isDetailed, selectedType)
+            if (isBaseModel(dataset)) return '-'; // base 不参与排名
+            const ranks = calculateRanks(data.filter(item => !isBaseModel(item)), scoreKey, isDetailed, selectedType)
             return ranks[dataset.id] || 1
         }
 
@@ -891,6 +896,7 @@ const app = createApp({
             orderedDomains,
             
             // 方法
+            isBaseModel,
             switchModel,
             resetFilters,
             removeDomain,

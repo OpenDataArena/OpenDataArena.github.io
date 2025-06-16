@@ -2,7 +2,7 @@
   "llama": [
     {
       "id": 0,
-      "name": "base",
+      "name": "meta-llama/Llama-3.1-8B",
       "domain": "base",
       "general_avg": 16.01,
       "math_avg": 13.45,
@@ -12139,7 +12139,7 @@
   "qwen": [
     {
       "id": 0,
-      "name": "base",
+      "name": "Qwen/Qwen2.5-7B",
       "domain": "base",
       "general_avg": 43.31,
       "math_avg": 50.47,
