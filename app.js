@@ -379,6 +379,12 @@ const app = createApp({
             return domainIcons[domain.toLowerCase()] || 'fas fa-tag'
         }
         
+        // 方法：获取领域显示名称（首字母大写）
+        const getDomainDisplayName = (domain) => {
+            if (!domain) return ''
+            return domain.charAt(0).toUpperCase() + domain.slice(1).toLowerCase()
+        }
+        
         // 方法：获取领域的描述
         // 方法：获取领域的详细描述（用于工具提示）
         const getDomainDescription = (domain) => {
@@ -907,6 +913,7 @@ const app = createApp({
             toggleDomain,
             onTypeChange,
             getDomainIcon,
+            getDomainDisplayName,
             getTypeIcon,
             getDomainDescription,
             sortBy,

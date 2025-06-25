@@ -107,7 +107,7 @@
                                 class="domain-button"
                                 :class="{ active: selectedDomains.includes(domain) }"
                                 @click="toggleDomain(domain)"> <!-- Assuming toggleDomain handles multi-select logic -->
-                                <i :class="getDomainIcon(domain)"></i> {{ domain }}
+                                <i :class="getDomainIcon(domain)"></i> {{ getDomainDisplayName(domain) }}
                             </button>
                         </div>
                     </div>
