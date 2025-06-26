@@ -4,7 +4,7 @@ import numpy as np
 
 def parse_excel_advanced():
     try:
-        excel_file = pd.ExcelFile('00.xlsx')
+        excel_file = pd.ExcelFile('01.xlsx')
         
         # 只处理llama和qwen工作表
         sheets_to_process = ['llama', 'qwen']
@@ -32,7 +32,7 @@ def parse_excel_advanced():
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
             # 读取原始数据，不跳过任何行
-            df_raw = pd.read_excel('00.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('01.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
@@ -53,9 +53,9 @@ def parse_excel_advanced():
             print(f"Math列范围: {math_cols}")
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
-            
-            # ========== 修正：提取base行为单行（第232行，索引231） ==========
-            base_row_idx = 231  # 第232行对应索引231（0-based）
+
+            # ========== 修正：提取base行为单行 ==========
+            base_row_idx = 379  # 第380行对应索引379（0-based）
             if base_row_idx < len(df_raw):
                 base_row = df_raw.iloc[base_row_idx]
                 print(f"找到base行: 第{base_row_idx+1}行")
