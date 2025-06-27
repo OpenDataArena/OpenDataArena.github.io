@@ -1366,7 +1366,7 @@
     },
     {
       "id": 6,
-      "name": "WizardLM_evol_instruct_V2_196k (实际只有143k)",
+      "name": "WizardLM_evol_instruct_V2_196k",
       "domain": "general",
       "general_avg": 38.04,
       "math_avg": 15.47,
@@ -1629,7 +1629,11 @@
           0.02,
           3.23
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2023",
+      "size": "143k",
+      "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_V2_196k"
     },
     {
       "id": 7,
@@ -1904,7 +1908,7 @@
     },
     {
       "id": 8,
-      "name": "microsoft/orca-agentinstruct-1M-v1",
+      "name": "orca-agentinstruct-1M-v1",
       "domain": "general",
       "general_avg": 47.35,
       "math_avg": 24.72,
@@ -2167,7 +2171,11 @@
           0.04,
           9.52
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2024",
+      "size": "1M",
+      "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1"
     },
     {
       "id": 9,
@@ -3479,7 +3487,11 @@
           0.04,
           -16.0
         ]
-      }
+      },
+      "affiliation": "cognitivecomputations",
+      "year": "2023",
+      "size": "892k",
+      "link": "https://huggingface.co/datasets/cognitivecomputations/dolphin"
     },
     {
       "id": 14,
@@ -3746,7 +3758,11 @@
           -0.04,
           7.49
         ]
-      }
+      },
+      "affiliation": "Mxode",
+      "year": "2024",
+      "size": "10k",
+      "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini"
     },
     {
       "id": 15,
@@ -4013,7 +4029,11 @@
           0.01,
           -7.2
         ]
-      }
+      },
+      "affiliation": "hakurei",
+      "year": "2023",
+      "size": "499k",
+      "link": "https://huggingface.co/datasets/hakurei/open-instruct-v1"
     },
     {
       "id": 16,
@@ -4264,7 +4284,11 @@
           -0.13,
           -18.6
         ]
-      }
+      },
+      "affiliation": "cyzhh",
+      "year": "2024",
+      "size": "135k",
+      "link": "https://huggingface.co/datasets/cyzhh/MMOS/viewer/default/train?row=0"
     },
     {
       "id": 17,
@@ -4797,7 +4821,7 @@
     },
     {
       "id": 19,
-      "name": "AI-MO/NuminaMath-CoT",
+      "name": "NuminaMath-CoT",
       "domain": "math",
       "general_avg": 26.68,
       "math_avg": 40.16,
@@ -5060,11 +5084,15 @@
           -0.14,
           -7.95
         ]
-      }
+      },
+      "affiliation": "Numina",
+      "year": "2024",
+      "size": "859k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT"
     },
     {
       "id": 20,
-      "name": "AI-MO/NuminaMath-TIR",
+      "name": "NuminaMath-TIR",
       "domain": "math",
       "general_avg": 33.08,
       "math_avg": 25.01,
@@ -5314,7 +5342,11 @@
           -0.13,
           -18.21
         ]
-      }
+      },
+      "affiliation": "Numina",
+      "year": "2024",
+      "size": "72.4k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-TIR"
     },
     {
       "id": 21,
@@ -6401,7 +6433,7 @@
     },
     {
       "id": 25,
-      "name": "allenai/math_qa",
+      "name": "MathQA",
       "domain": "math",
       "general_avg": 17.66,
       "math_avg": 2.27,
@@ -6664,11 +6696,15 @@
           -0.16,
           -19.57
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2019",
+      "size": "29.8k",
+      "link": "https://huggingface.co/datasets/allenai/math_qa"
     },
     {
       "id": 26,
-      "name": "camel-ai/math",
+      "name": "CAMEL-Math",
       "domain": "math",
       "general_avg": 30.01,
       "math_avg": 17.26,
@@ -6931,11 +6967,15 @@
           -0.15,
           -14.85
         ]
-      }
+      },
+      "affiliation": "CAMEL-AI",
+      "year": "2023",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/camel-ai/math"
     },
     {
       "id": 27,
-      "name": "SkunkworksAI/reasoning-0.01",
+      "name": "reasoning-0.01",
       "domain": "math",
       "general_avg": 32.93,
       "math_avg": 10.81,
@@ -7198,11 +7238,15 @@
           -0.02,
           -2.27
         ]
-      }
+      },
+      "affiliation": "SkunkworksAI",
+      "year": "2025",
+      "size": "29.9k",
+      "link": "https://huggingface.co/datasets/SkunkworksAI/reasoning-0.01"
     },
     {
       "id": 28,
-      "name": "allenai/tulu-3-sft-personas-math",
+      "name": "tulu-3-sft-personas-math",
       "domain": "math",
       "general_avg": 26.03,
       "math_avg": 27.55,
@@ -7465,11 +7509,15 @@
           -0.05,
           -0.99
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "150k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math"
     },
     {
       "id": 29,
-      "name": "allenai/tulu-3-sft-personas-algebra",
+      "name": "tulu-3-sft-personas-algebra",
       "domain": "math",
       "general_avg": 25.29,
       "math_avg": 26.6,
@@ -7730,11 +7778,15 @@
           -0.07,
           -3.41
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "20k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-algebra"
     },
     {
       "id": 30,
-      "name": "allenai/tulu-3-sft-personas-math-grade",
+      "name": "tulu-3-sft-personas-math-grade",
       "domain": "math",
       "general_avg": 26.03,
       "math_avg": 27.55,
@@ -7997,11 +8049,15 @@
           -0.05,
           -0.99
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math-grade"
     },
     {
       "id": 31,
-      "name": "dyyyyyyyy/ScaleQuest-Math",
+      "name": "ScaleQuest-Math",
       "domain": "math",
       "general_avg": 34.8,
       "math_avg": 48.35,
@@ -8263,7 +8319,11 @@
           -0.13,
           -21.87
         ]
-      }
+      },
+      "affiliation": "Soochow Univ",
+      "year": "2024",
+      "size": "1M",
+      "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math"
     },
     {
       "id": 32,
@@ -8530,7 +8590,11 @@
           -0.1,
           -9.39
         ]
-      }
+      },
+      "affiliation": "rubenroy",
+      "year": "2025",
+      "size": "170k",
+      "link": "https://huggingface.co/datasets/rubenroy/GammaCorpus-CoT-Math-170k/viewer/default/train?row=0"
     },
     {
       "id": 33,
@@ -8797,7 +8861,11 @@
           -0.09,
           -7.15
         ]
-      }
+      },
+      "affiliation": "microsoft",
+      "year": "2024",
+      "size": "200k",
+      "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k"
     },
     {
       "id": 34,
@@ -9064,7 +9132,11 @@
           -0.11,
           -2.59
         ]
-      }
+      },
+      "affiliation": "hkust-nlp",
+      "year": "2024",
+      "size": "585k",
+      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
     },
     {
       "id": 35,
@@ -9331,7 +9403,11 @@
           -0.13,
           -19.84
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "23.6k",
+      "link": "https://huggingface.co/datasets/gretelai/gretel-math-gsm8k-v1"
     },
     {
       "id": 36,
@@ -9598,7 +9674,11 @@
           0.02,
           7.12
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "970k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College"
     },
     {
       "id": 37,
@@ -9865,7 +9945,11 @@
           -0.09,
           0.56
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "98k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-Grade-School"
     },
     {
       "id": 38,
@@ -10132,7 +10216,11 @@
           -0.07,
           -5.15
         ]
-      }
+      },
+      "affiliation": "TIGER-Lab",
+      "year": "2025",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT"
     },
     {
       "id": 39,
@@ -10399,7 +10487,11 @@
           -0.03,
           -9.09
         ]
-      }
+      },
+      "affiliation": "TIGER-Lab",
+      "year": "2024",
+      "size": "894k",
+      "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus"
     },
     {
       "id": 40,
@@ -10666,7 +10758,11 @@
           -0.04,
           -0.27
         ]
-      }
+      },
+      "affiliation": "PawanKrd",
+      "year": "2024",
+      "size": "200k",
+      "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k"
     },
     {
       "id": 41,
@@ -10933,7 +11029,11 @@
           -0.1,
           -11.36
         ]
-      }
+      },
+      "affiliation": "EricLu",
+      "year": "2025",
+      "size": "274k",
+      "link": "https://huggingface.co/datasets/EricLu/SCP-116K"
     },
     {
       "id": 42,
@@ -11170,7 +11270,11 @@
           -0.03,
           3.32
         ]
-      }
+      },
+      "affiliation": "AI-MO",
+      "year": "2025",
+      "size": "896k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5"
     },
     {
       "id": 43,
@@ -11437,7 +11541,11 @@
           0.06,
           8.93
         ]
-      }
+      },
+      "affiliation": "Locutusque",
+      "year": "2024",
+      "size": "463k",
+      "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true"
     },
     {
       "id": 44,
@@ -14151,7 +14259,7 @@
     },
     {
       "id": 54,
-      "name": "allenai/tulu-3-sft-personas-code",
+      "name": "tulu-3-sft-personas-code",
       "domain": "code",
       "general_avg": 21.49,
       "math_avg": 4.36,
@@ -14414,11 +14522,15 @@
           -0.21,
           -8.91
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "35k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code"
     },
     {
       "id": 55,
-      "name": "KodCode/KodCode-V1",
+      "name": "KodCode-V1",
       "domain": "code",
       "general_avg": 20.84,
       "math_avg": 3.44,
@@ -14681,11 +14793,15 @@
           -0.16,
           -16.56
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2025",
+      "size": "444k",
+      "link": "https://huggingface.co/datasets/KodCode/KodCode-V1"
     },
     {
       "id": 56,
-      "name": "codeparrot/self-instruct-starcoder",
+      "name": "self-instruct-starcoder",
       "domain": "code",
       "general_avg": 27.09,
       "math_avg": 4.74,
@@ -14948,11 +15064,15 @@
           -0.06,
           -3.55
         ]
-      }
+      },
+      "affiliation": "CodeParrot",
+      "year": "2023",
+      "size": "5k",
+      "link": "https://huggingface.co/datasets/codeparrot/self-instruct-starcoder"
     },
     {
       "id": 57,
-      "name": "nickrosh/Evol-Instruct-Code-80k-v1",
+      "name": "Evol-Instruct-Code-80k-v1",
       "domain": "code",
       "general_avg": 36.01,
       "math_avg": 11.62,
@@ -15215,11 +15335,15 @@
           0.05,
           -0.75
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2023",
+      "size": "78.3k",
+      "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1"
     },
     {
       "id": 58,
-      "name": "TokenBender/code_instructions_122k_alpaca_style",
+      "name": "code_instructions_122k_alpaca_style",
       "domain": "code",
       "general_avg": 35.01,
       "math_avg": 5.56,
@@ -15482,11 +15606,15 @@
           -0.03,
           -1.47
         ]
-      }
+      },
+      "affiliation": "TokenBender",
+      "year": "2024",
+      "size": "122k",
+      "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca"
     },
     {
       "id": 59,
-      "name": "iamtarun/python_code_instructions_18k_alpaca",
+      "name": "python_code_instructions_18k_alpaca",
       "domain": "code",
       "general_avg": 39.97,
       "math_avg": 7.14,
@@ -15749,11 +15877,15 @@
           -0.0,
           1.47
         ]
-      }
+      },
+      "affiliation": "independent",
+      "year": "2023",
+      "size": "18.6k",
+      "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca"
     },
     {
       "id": 60,
-      "name": "ajibawa-2023/Python-Code-23k-ShareGPT",
+      "name": "Python-Code-23k-ShareGPT",
       "domain": "code",
       "general_avg": 42.16,
       "math_avg": 9.34,
@@ -16016,7 +16148,11 @@
           -0.01,
           3.89
         ]
-      }
+      },
+      "affiliation": "independent",
+      "year": "2023",
+      "size": "22.6k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT"
     },
     {
       "id": 61,
@@ -16283,7 +16419,11 @@
           -0.1,
           -16.72
         ]
-      }
+      },
+      "affiliation": "smcleod",
+      "year": "2024",
+      "size": "305k",
+      "link": "https://huggingface.co/datasets/smcleod/golang-coder/viewer/default/train?row=93"
     },
     {
       "id": 62,
@@ -16550,7 +16690,11 @@
           -0.18,
           -15.92
         ]
-      }
+      },
+      "affiliation": "microsoft",
+      "year": "2025",
+      "size": "380k",
+      "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k"
     },
     {
       "id": 63,
@@ -16817,7 +16961,11 @@
           -0.14,
           -0.64
         ]
-      }
+      },
+      "affiliation": "likaixin",
+      "year": "2023",
+      "size": "108k",
+      "link": "https://huggingface.co/datasets/likaixin/InstructCoder"
     },
     {
       "id": 64,
@@ -17084,7 +17232,11 @@
           -0.29,
           -14.08
         ]
-      }
+      },
+      "affiliation": "likaixin",
+      "year": "2024",
+      "size": "1043k",
+      "link": "https://huggingface.co/datasets/likaixin/TACO-verified"
     },
     {
       "id": 65,
@@ -17333,7 +17485,11 @@
           -0.28,
           -21.88
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "100k",
+      "link": "https://huggingface.co/datasets/gretelai/synthetic_text_to_sql"
     },
     {
       "id": 66,
@@ -17600,7 +17756,11 @@
           -0.23,
           -16.24
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "22.5k",
+      "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1"
     },
     {
       "id": 67,
@@ -17867,7 +18027,11 @@
           -0.19,
           -21.01
         ]
-      }
+      },
+      "affiliation": "glaiveai",
+      "year": "2024",
+      "size": "51.4k",
+      "link": "https://huggingface.co/datasets/glaiveai/RAG-v1"
     },
     {
       "id": 68,
@@ -18134,7 +18298,11 @@
           0.02,
           6.77
         ]
-      }
+      },
+      "affiliation": "cognitivecomputations",
+      "year": "2024",
+      "size": "289k",
+      "link": "https://huggingface.co/datasets/cognitivecomputations/Code-290k-ShareGPT-Vicuna"
     },
     {
       "id": 69,
@@ -18401,7 +18569,11 @@
           -0.18,
           -18.53
         ]
-      }
+      },
+      "affiliation": "b-mc2",
+      "year": "2023",
+      "size": "78.6k",
+      "link": "https://huggingface.co/datasets/arviii/sql-create-context/viewer/default/train?row=0"
     },
     {
       "id": 70,
@@ -18651,7 +18823,11 @@
           -0.31,
           -22.08
         ]
-      }
+      },
+      "affiliation": "argilla",
+      "year": "2024",
+      "size": "109k",
+      "link": "https://huggingface.co/datasets/argilla/apigen-function-calling"
     },
     {
       "id": 71,
@@ -18918,7 +19094,11 @@
           0.02,
           6.77
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "290k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT"
     },
     {
       "id": 72,
@@ -19184,7 +19364,11 @@
           -0.04,
           0.35
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "74k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Code-74k-ShareGPT"
     },
     {
       "id": 73,
@@ -19451,7 +19635,11 @@
           -0.13,
           -19.01
         ]
-      }
+      },
+      "affiliation": "Tensoic",
+      "year": "2023",
+      "size": "45k",
+      "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook"
     },
     {
       "id": 74,
@@ -19705,11 +19893,15 @@
           -0.12,
           -18.88
         ]
-      }
+      },
+      "affiliation": "Nan-Do",
+      "year": "2023",
+      "size": "418",
+      "link": "https://huggingface.co/datasets/Nan-Do/instructional_code-search-net-python"
     },
     {
       "id": 75,
-      "name": "open-r1/OpenR1-Math-220k(default)",
+      "name": "OpenR1-Math-220k(default)",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 58.15,
@@ -19842,11 +20034,15 @@
           1.36
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Huggingface",
+      "year": "2025",
+      "size": "94k",
+      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k"
     },
     {
       "id": 76,
-      "name": "amphora/QwQ-LongCoT-130K",
+      "name": "QwQ-LongCoT-130K",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 53.58,
@@ -19968,11 +20164,15 @@
           2.49
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Yonsei University",
+      "year": "2025",
+      "size": "130k",
+      "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K"
     },
     {
       "id": 77,
-      "name": "amphora/QwQ-LongCoT-130K-2",
+      "name": "QwQ-LongCoT-130K-2",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 34.52,
@@ -20094,11 +20294,15 @@
           0.9
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Yonsei University",
+      "year": "2025",
+      "size": "138k",
+      "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K-2"
     },
     {
       "id": 78,
-      "name": "bespokelabs/Bespoke-Stratos-17k",
+      "name": "Bespoke-Stratos-17k",
       "domain": "reasoning",
       "general_avg": 21.46,
       "math_avg": 20.94,
@@ -20361,11 +20565,15 @@
           -0.14,
           -15.23
         ]
-      }
+      },
+      "affiliation": "Bespoke Labs",
+      "year": "2025",
+      "size": "17k",
+      "link": "https://huggingface.co/datasets/bespokelabs/Bespoke-Stratos-17k"
     },
     {
       "id": 79,
-      "name": "open-thoughts/OpenThoughts-114k",
+      "name": "OpenThoughts-114k",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 66.02,
@@ -20487,11 +20695,15 @@
           0.0
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Open Thoughts",
+      "year": "2025",
+      "size": "114k",
+      "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k"
     },
     {
       "id": 80,
-      "name": "ServiceNow-AI/R1-Distill-SFT",
+      "name": "R1-Distill-SFT",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 32.04,
@@ -20613,11 +20825,15 @@
           0.0
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "ServiceNow-AI",
+      "year": "2025",
+      "size": "172k",
+      "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT"
     },
     {
       "id": 81,
-      "name": "O1-OPEN/OpenO1-SFT",
+      "name": "OpenO1-SFT",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 38.88,
@@ -20739,7 +20955,11 @@
           24.66
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "O1-OPEN",
+      "year": "2025",
+      "size": "77.7k",
+      "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT"
     },
     {
       "id": 82,
@@ -20996,9 +21216,9 @@
         ],
         "reasoning_task_scores": []
       },
-      "affiliation": "Tencent & SJTU",
+      "affiliation": "zwhe99",
       "year": "2025",
-      "size": "103k",
+      "size": "309k",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K"
     },
     {
@@ -21125,7 +21345,11 @@
           7.69
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "sequelbox",
+      "year": "2025",
+      "size": "62.9K",
+      "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1/viewer/default/train"
     },
     {
       "id": 85,
@@ -21392,7 +21616,11 @@
           0.03,
           10.83
         ]
-      }
+      },
+      "affiliation": "Magpie-Align",
+      "year": "2024",
+      "size": "150k",
+      "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K"
     },
     {
       "id": 86,
@@ -21518,7 +21746,11 @@
           4.52
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Magpie-Align",
+      "year": "2025",
+      "size": "250k",
+      "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ"
     },
     {
       "id": 87,
@@ -21644,7 +21876,11 @@
           2.71
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "KingNish",
+      "year": "2024",
+      "size": "19.9k",
+      "link": "https://huggingface.co/datasets/KingNish/reasoning-base-20k"
     },
     {
       "id": 88,
@@ -21911,7 +22147,11 @@
           -0.11,
           -22.08
         ]
-      }
+      },
+      "affiliation": "FreedomIntelligence",
+      "year": "2024",
+      "size": "19.7k",
+      "link": "https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT"
     }
   ],
   "qwen": [
@@ -23295,7 +23535,7 @@
     },
     {
       "id": 6,
-      "name": "WizardLM_evol_instruct_V2_196k (实际只有143k)",
+      "name": "WizardLM_evol_instruct_V2_196k",
       "domain": "general",
       "general_avg": 55.43,
       "math_avg": 39.17,
@@ -23558,7 +23798,11 @@
           0.02,
           2.43
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2023",
+      "size": "143k",
+      "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_V2_196k"
     },
     {
       "id": 7,
@@ -23833,7 +24077,7 @@
     },
     {
       "id": 8,
-      "name": "microsoft/orca-agentinstruct-1M-v1",
+      "name": "orca-agentinstruct-1M-v1",
       "domain": "general",
       "general_avg": 58.36,
       "math_avg": 47.62,
@@ -24096,7 +24340,11 @@
           -0.01,
           9.09
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2024",
+      "size": "1M",
+      "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1"
     },
     {
       "id": 9,
@@ -25424,7 +25672,11 @@
           0.05,
           -6.8
         ]
-      }
+      },
+      "affiliation": "cognitivecomputations",
+      "year": "2023",
+      "size": "892k",
+      "link": "https://huggingface.co/datasets/cognitivecomputations/dolphin"
     },
     {
       "id": 14,
@@ -25691,7 +25943,11 @@
           0.05,
           2.11
         ]
-      }
+      },
+      "affiliation": "Mxode",
+      "year": "2024",
+      "size": "10k",
+      "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini"
     },
     {
       "id": 15,
@@ -25940,7 +26196,11 @@
           0.02,
           -0.28
         ]
-      }
+      },
+      "affiliation": "hakurei",
+      "year": "2023",
+      "size": "499k",
+      "link": "https://huggingface.co/datasets/hakurei/open-instruct-v1"
     },
     {
       "id": 16,
@@ -26207,7 +26467,11 @@
           -0.07,
           -16.99
         ]
-      }
+      },
+      "affiliation": "cyzhh",
+      "year": "2024",
+      "size": "135k",
+      "link": "https://huggingface.co/datasets/cyzhh/MMOS/viewer/default/train?row=0"
     },
     {
       "id": 17,
@@ -26740,7 +27004,7 @@
     },
     {
       "id": 19,
-      "name": "AI-MO/NuminaMath-CoT",
+      "name": "NuminaMath-CoT",
       "domain": "math",
       "general_avg": 45.01,
       "math_avg": 48.64,
@@ -27003,11 +27267,15 @@
           -0.0,
           0.91
         ]
-      }
+      },
+      "affiliation": "Numina",
+      "year": "2024",
+      "size": "859k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT"
     },
     {
       "id": 20,
-      "name": "AI-MO/NuminaMath-TIR",
+      "name": "NuminaMath-TIR",
       "domain": "math",
       "general_avg": 56.0,
       "math_avg": 45.72,
@@ -27257,7 +27525,11 @@
           -0.01,
           -5.17
         ]
-      }
+      },
+      "affiliation": "Numina",
+      "year": "2024",
+      "size": "72.4k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-TIR"
     },
     {
       "id": 21,
@@ -28345,7 +28617,7 @@
     },
     {
       "id": 25,
-      "name": "allenai/math_qa",
+      "name": "MathQA",
       "domain": "math",
       "general_avg": 50.77,
       "math_avg": 29.53,
@@ -28608,11 +28880,15 @@
           0.03,
           -9.07
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2019",
+      "size": "29.8k",
+      "link": "https://huggingface.co/datasets/allenai/math_qa"
     },
     {
       "id": 26,
-      "name": "camel-ai/math",
+      "name": "CAMEL-Math",
       "domain": "math",
       "general_avg": 51.69,
       "math_avg": 34.4,
@@ -28875,11 +29151,15 @@
           0.03,
           -0.03
         ]
-      }
+      },
+      "affiliation": "CAMEL-AI",
+      "year": "2023",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/camel-ai/math"
     },
     {
       "id": 27,
-      "name": "SkunkworksAI/reasoning-0.01",
+      "name": "reasoning-0.01",
       "domain": "math",
       "general_avg": 38.26,
       "math_avg": 10.48,
@@ -29142,11 +29422,15 @@
           -0.08,
           -6.69
         ]
-      }
+      },
+      "affiliation": "SkunkworksAI",
+      "year": "2025",
+      "size": "29.9k",
+      "link": "https://huggingface.co/datasets/SkunkworksAI/reasoning-0.01"
     },
     {
       "id": 28,
-      "name": "allenai/tulu-3-sft-personas-math",
+      "name": "tulu-3-sft-personas-math",
       "domain": "math",
       "general_avg": 43.67,
       "math_avg": 41.51,
@@ -29409,11 +29693,15 @@
           -0.02,
           -7.49
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "150k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math"
     },
     {
       "id": 29,
-      "name": "allenai/tulu-3-sft-personas-algebra",
+      "name": "tulu-3-sft-personas-algebra",
       "domain": "math",
       "general_avg": 48.62,
       "math_avg": 43.07,
@@ -29674,11 +29962,15 @@
           -0.02,
           -16.88
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "20k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-algebra"
     },
     {
       "id": 30,
-      "name": "allenai/tulu-3-sft-personas-math-grade",
+      "name": "tulu-3-sft-personas-math-grade",
       "domain": "math",
       "general_avg": 43.68,
       "math_avg": 41.51,
@@ -29941,11 +30233,15 @@
           -0.02,
           -7.49
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math-grade"
     },
     {
       "id": 31,
-      "name": "dyyyyyyyy/ScaleQuest-Math",
+      "name": "ScaleQuest-Math",
       "domain": "math",
       "general_avg": 42.36,
       "math_avg": 54.56,
@@ -30208,7 +30504,11 @@
           -0.17,
           -32.13
         ]
-      }
+      },
+      "affiliation": "Soochow Univ",
+      "year": "2024",
+      "size": "1M",
+      "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math"
     },
     {
       "id": 32,
@@ -30475,7 +30775,11 @@
           -0.06,
           -13.73
         ]
-      }
+      },
+      "affiliation": "rubenroy",
+      "year": "2025",
+      "size": "170k",
+      "link": "https://huggingface.co/datasets/rubenroy/GammaCorpus-CoT-Math-170k/viewer/default/train?row=0"
     },
     {
       "id": 33,
@@ -30742,7 +31046,11 @@
           0.02,
           5.57
         ]
-      }
+      },
+      "affiliation": "microsoft",
+      "year": "2024",
+      "size": "200k",
+      "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k"
     },
     {
       "id": 34,
@@ -31009,7 +31317,11 @@
           0.05,
           3.12
         ]
-      }
+      },
+      "affiliation": "hkust-nlp",
+      "year": "2024",
+      "size": "585k",
+      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
     },
     {
       "id": 35,
@@ -31276,7 +31588,11 @@
           -0.07,
           -24.77
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "23.6k",
+      "link": "https://huggingface.co/datasets/gretelai/gretel-math-gsm8k-v1"
     },
     {
       "id": 36,
@@ -31543,7 +31859,11 @@
           -0.0,
           1.12
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "970k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College"
     },
     {
       "id": 37,
@@ -31810,7 +32130,11 @@
           0.09,
           1.65
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "98k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-Grade-School"
     },
     {
       "id": 38,
@@ -32077,7 +32401,11 @@
           0.03,
           1.36
         ]
-      }
+      },
+      "affiliation": "TIGER-Lab",
+      "year": "2025",
+      "size": "50k",
+      "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT"
     },
     {
       "id": 39,
@@ -32326,7 +32654,11 @@
           0.03,
           1.48
         ]
-      }
+      },
+      "affiliation": "TIGER-Lab",
+      "year": "2024",
+      "size": "894k",
+      "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus"
     },
     {
       "id": 40,
@@ -32593,7 +32925,11 @@
           0.03,
           4.56
         ]
-      }
+      },
+      "affiliation": "PawanKrd",
+      "year": "2024",
+      "size": "200k",
+      "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k"
     },
     {
       "id": 41,
@@ -32860,7 +33196,11 @@
           -0.01,
           -3.68
         ]
-      }
+      },
+      "affiliation": "EricLu",
+      "year": "2025",
+      "size": "274k",
+      "link": "https://huggingface.co/datasets/EricLu/SCP-116K"
     },
     {
       "id": 42,
@@ -33114,7 +33454,11 @@
           0.04,
           3.23
         ]
-      }
+      },
+      "affiliation": "AI-MO",
+      "year": "2025",
+      "size": "896k",
+      "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5"
     },
     {
       "id": 43,
@@ -33363,7 +33707,11 @@
           0.05,
           0.88
         ]
-      }
+      },
+      "affiliation": "Locutusque",
+      "year": "2024",
+      "size": "463k",
+      "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true"
     },
     {
       "id": 44,
@@ -36059,7 +36407,7 @@
     },
     {
       "id": 54,
-      "name": "allenai/tulu-3-sft-personas-code",
+      "name": "tulu-3-sft-personas-code",
       "domain": "code",
       "general_avg": 54.71,
       "math_avg": 51.5,
@@ -36322,11 +36670,15 @@
           0.03,
           -3.17
         ]
-      }
+      },
+      "affiliation": "AllenAI",
+      "year": "2024",
+      "size": "35k",
+      "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code"
     },
     {
       "id": 55,
-      "name": "KodCode/KodCode-V1",
+      "name": "KodCode-V1",
       "domain": "code",
       "general_avg": 53.94,
       "math_avg": 48.18,
@@ -36589,11 +36941,15 @@
           -0.2,
           -24.4
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2025",
+      "size": "444k",
+      "link": "https://huggingface.co/datasets/KodCode/KodCode-V1"
     },
     {
       "id": 56,
-      "name": "codeparrot/self-instruct-starcoder",
+      "name": "self-instruct-starcoder",
       "domain": "code",
       "general_avg": 34.86,
       "math_avg": 19.28,
@@ -36856,11 +37212,15 @@
           -0.08,
           -10.75
         ]
-      }
+      },
+      "affiliation": "CodeParrot",
+      "year": "2023",
+      "size": "5k",
+      "link": "https://huggingface.co/datasets/codeparrot/self-instruct-starcoder"
     },
     {
       "id": 57,
-      "name": "nickrosh/Evol-Instruct-Code-80k-v1",
+      "name": "Evol-Instruct-Code-80k-v1",
       "domain": "code",
       "general_avg": 56.32,
       "math_avg": 44.84,
@@ -37126,11 +37486,15 @@
           0.02,
           0.12
         ]
-      }
+      },
+      "affiliation": "Microsoft",
+      "year": "2023",
+      "size": "78.3k",
+      "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1"
     },
     {
       "id": 58,
-      "name": "TokenBender/code_instructions_122k_alpaca_style",
+      "name": "code_instructions_122k_alpaca_style",
       "domain": "code",
       "general_avg": 54.09,
       "math_avg": 40.41,
@@ -37393,11 +37757,15 @@
           -0.01,
           -3.47
         ]
-      }
+      },
+      "affiliation": "TokenBender",
+      "year": "2024",
+      "size": "122k",
+      "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca"
     },
     {
       "id": 59,
-      "name": "iamtarun/python_code_instructions_18k_alpaca",
+      "name": "python_code_instructions_18k_alpaca",
       "domain": "code",
       "general_avg": 56.57,
       "math_avg": 46.13,
@@ -37660,11 +38028,15 @@
           -0.01,
           -0.96
         ]
-      }
+      },
+      "affiliation": "independent",
+      "year": "2023",
+      "size": "18.6k",
+      "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca"
     },
     {
       "id": 60,
-      "name": "ajibawa-2023/Python-Code-23k-ShareGPT",
+      "name": "Python-Code-23k-ShareGPT",
       "domain": "code",
       "general_avg": 57.46,
       "math_avg": 49.84,
@@ -37927,7 +38299,11 @@
           -0.01,
           4.51
         ]
-      }
+      },
+      "affiliation": "independent",
+      "year": "2023",
+      "size": "22.6k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT"
     },
     {
       "id": 61,
@@ -38194,7 +38570,11 @@
           -0.02,
           -24.08
         ]
-      }
+      },
+      "affiliation": "smcleod",
+      "year": "2024",
+      "size": "305k",
+      "link": "https://huggingface.co/datasets/smcleod/golang-coder/viewer/default/train?row=93"
     },
     {
       "id": 62,
@@ -38460,7 +38840,11 @@
           -0.05,
           -13.47
         ]
-      }
+      },
+      "affiliation": "microsoft",
+      "year": "2025",
+      "size": "380k",
+      "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k"
     },
     {
       "id": 63,
@@ -38727,7 +39111,11 @@
           0.06,
           -0.72
         ]
-      }
+      },
+      "affiliation": "likaixin",
+      "year": "2023",
+      "size": "108k",
+      "link": "https://huggingface.co/datasets/likaixin/InstructCoder"
     },
     {
       "id": 64,
@@ -38994,7 +39382,11 @@
           -0.02,
           -17.55
         ]
-      }
+      },
+      "affiliation": "likaixin",
+      "year": "2024",
+      "size": "1043k",
+      "link": "https://huggingface.co/datasets/likaixin/TACO-verified"
     },
     {
       "id": 65,
@@ -39266,7 +39658,11 @@
           0.03,
           -5.8
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "100k",
+      "link": "https://huggingface.co/datasets/gretelai/synthetic_text_to_sql"
     },
     {
       "id": 66,
@@ -39533,7 +39929,11 @@
           0.05,
           -5.15
         ]
-      }
+      },
+      "affiliation": "gretelai",
+      "year": "2024",
+      "size": "22.5k",
+      "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1"
     },
     {
       "id": 67,
@@ -39800,7 +40200,11 @@
           0.03,
           -1.68
         ]
-      }
+      },
+      "affiliation": "glaiveai",
+      "year": "2024",
+      "size": "51.4k",
+      "link": "https://huggingface.co/datasets/glaiveai/RAG-v1"
     },
     {
       "id": 68,
@@ -40067,7 +40471,11 @@
           -0.0,
           1.15
         ]
-      }
+      },
+      "affiliation": "cognitivecomputations",
+      "year": "2024",
+      "size": "289k",
+      "link": "https://huggingface.co/datasets/cognitivecomputations/Code-290k-ShareGPT-Vicuna"
     },
     {
       "id": 69,
@@ -40334,7 +40742,11 @@
           0.04,
           -0.64
         ]
-      }
+      },
+      "affiliation": "b-mc2",
+      "year": "2023",
+      "size": "78.6k",
+      "link": "https://huggingface.co/datasets/arviii/sql-create-context/viewer/default/train?row=0"
     },
     {
       "id": 70,
@@ -40583,7 +40995,11 @@
           -0.1,
           -30.04
         ]
-      }
+      },
+      "affiliation": "argilla",
+      "year": "2024",
+      "size": "109k",
+      "link": "https://huggingface.co/datasets/argilla/apigen-function-calling"
     },
     {
       "id": 71,
@@ -40850,7 +41266,11 @@
           -0.0,
           1.15
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "290k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT"
     },
     {
       "id": 72,
@@ -41117,7 +41537,11 @@
           -0.0,
           0.21
         ]
-      }
+      },
+      "affiliation": "ajibawa-2023",
+      "year": "2024",
+      "size": "74k",
+      "link": "https://huggingface.co/datasets/ajibawa-2023/Code-74k-ShareGPT"
     },
     {
       "id": 73,
@@ -41384,7 +41808,11 @@
           -0.03,
           -12.35
         ]
-      }
+      },
+      "affiliation": "Tensoic",
+      "year": "2023",
+      "size": "45k",
+      "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook"
     },
     {
       "id": 74,
@@ -41638,11 +42066,15 @@
           0.02,
           -8.03
         ]
-      }
+      },
+      "affiliation": "Nan-Do",
+      "year": "2023",
+      "size": "418",
+      "link": "https://huggingface.co/datasets/Nan-Do/instructional_code-search-net-python"
     },
     {
       "id": 75,
-      "name": "open-r1/OpenR1-Math-220k(default)",
+      "name": "OpenR1-Math-220k(default)",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 61.46,
@@ -41794,11 +42226,15 @@
           -22.92
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Huggingface",
+      "year": "2025",
+      "size": "94k",
+      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k"
     },
     {
       "id": 76,
-      "name": "amphora/QwQ-LongCoT-130K",
+      "name": "QwQ-LongCoT-130K",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 65.18,
@@ -41920,11 +42356,15 @@
           -32.12
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Yonsei University",
+      "year": "2025",
+      "size": "130k",
+      "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K"
     },
     {
       "id": 77,
-      "name": "amphora/QwQ-LongCoT-130K-2",
+      "name": "QwQ-LongCoT-130K-2",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 65.18,
@@ -42046,11 +42486,15 @@
           -32.12
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Yonsei University",
+      "year": "2025",
+      "size": "138k",
+      "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K-2"
     },
     {
       "id": 78,
-      "name": "bespokelabs/Bespoke-Stratos-17k",
+      "name": "Bespoke-Stratos-17k",
       "domain": "reasoning",
       "general_avg": 43.79,
       "math_avg": 37.24,
@@ -42313,11 +42757,15 @@
           -0.13,
           -21.17
         ]
-      }
+      },
+      "affiliation": "Bespoke Labs",
+      "year": "2025",
+      "size": "17k",
+      "link": "https://huggingface.co/datasets/bespokelabs/Bespoke-Stratos-17k"
     },
     {
       "id": 79,
-      "name": "open-thoughts/OpenThoughts-114k",
+      "name": "OpenThoughts-114k",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 69.03,
@@ -42439,11 +42887,15 @@
           -17.42
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Open Thoughts",
+      "year": "2025",
+      "size": "114k",
+      "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k"
     },
     {
       "id": 80,
-      "name": "ServiceNow-AI/R1-Distill-SFT",
+      "name": "R1-Distill-SFT",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 53.02,
@@ -42565,11 +43017,15 @@
           6.34
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "ServiceNow-AI",
+      "year": "2025",
+      "size": "172k",
+      "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT"
     },
     {
       "id": 81,
-      "name": "O1-OPEN/OpenO1-SFT",
+      "name": "OpenO1-SFT",
       "domain": "reasoning",
       "general_avg": 0,
       "math_avg": 61.27,
@@ -42691,7 +43147,11 @@
           -11.31
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "O1-OPEN",
+      "year": "2025",
+      "size": "77.7k",
+      "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT"
     },
     {
       "id": 82,
@@ -42948,9 +43408,9 @@
         ],
         "reasoning_task_scores": []
       },
-      "affiliation": "Tencent & SJTU",
+      "affiliation": "zwhe99",
       "year": "2025",
-      "size": "103k",
+      "size": "309k",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K"
     },
     {
@@ -43077,7 +43537,11 @@
           -28.05
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "sequelbox",
+      "year": "2025",
+      "size": "62.9K",
+      "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1/viewer/default/train"
     },
     {
       "id": 85,
@@ -43344,7 +43808,11 @@
           -0.01,
           5.95
         ]
-      }
+      },
+      "affiliation": "Magpie-Align",
+      "year": "2024",
+      "size": "150k",
+      "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K"
     },
     {
       "id": 86,
@@ -43470,7 +43938,11 @@
           -32.8
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "Magpie-Align",
+      "year": "2025",
+      "size": "250k",
+      "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ"
     },
     {
       "id": 87,
@@ -43596,7 +44068,11 @@
           0.0
         ],
         "reasoning_task_scores": []
-      }
+      },
+      "affiliation": "KingNish",
+      "year": "2024",
+      "size": "19.9k",
+      "link": "https://huggingface.co/datasets/KingNish/reasoning-base-20k"
     },
     {
       "id": 88,
@@ -43863,7 +44339,11 @@
           -0.01,
           -0.64
         ]
-      }
+      },
+      "affiliation": "FreedomIntelligence",
+      "year": "2024",
+      "size": "19.7k",
+      "link": "https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT"
     }
   ]
 }

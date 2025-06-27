@@ -3,15 +3,13 @@ import json
 import numpy as np
 
 def parse_excel_advanced():
-    try:
-        excel_file = pd.ExcelFile('01.xlsx')
-        
+    try:        
         # 只处理llama和qwen工作表
         sheets_to_process = ['llama', 'qwen']
         processed_data = {}
 
         # 读取dataset sheet，构建名称到属性的映射
-        df_dataset = pd.read_excel('00.xlsx', sheet_name='dataset', header=None)
+        df_dataset = pd.read_excel('02.xlsx', sheet_name='dataset', header=None)
         dataset_attr_map = {}
         for idx in range(3, len(df_dataset)):
             name = df_dataset.iloc[idx, 1] if idx < len(df_dataset) else None
@@ -32,7 +30,7 @@ def parse_excel_advanced():
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
             # 读取原始数据，不跳过任何行
-            df_raw = pd.read_excel('01.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('02.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
