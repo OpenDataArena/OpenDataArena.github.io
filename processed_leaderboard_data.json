@@ -6428,8 +6428,8 @@
       },
       "affiliation": "HKUST-NLP",
       "year": "2024",
-      "size": "585k",
-      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-uniform https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
+      "size": "591k",
+      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-uniform"
     },
     {
       "id": 25,
@@ -9133,7 +9133,7 @@
           -2.59
         ]
       },
-      "affiliation": "hkust-nlp",
+      "affiliation": "HKUST-NLP",
       "year": "2024",
       "size": "585k",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
@@ -28612,8 +28612,8 @@
       },
       "affiliation": "HKUST-NLP",
       "year": "2024",
-      "size": "585k",
-      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-uniform https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
+      "size": "591k",
+      "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-uniform"
     },
     {
       "id": 25,
@@ -31318,7 +31318,7 @@
           3.12
         ]
       },
-      "affiliation": "hkust-nlp",
+      "affiliation": "HKUST-NLP",
       "year": "2024",
       "size": "585k",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard"
