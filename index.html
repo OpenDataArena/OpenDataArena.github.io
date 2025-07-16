@@ -141,6 +141,48 @@
                     </div>
                     -->
                 </div>
+
+                <!-- 第三行：数据量区间滑动条 -->
+                <div class="control-row">
+                    <div class="size-range-section">
+                        <label>Dataset Size Range:</label>
+                        <div class="size-slider-container">
+                            <div class="size-slider-wrapper">
+                                <div class="size-slider-track">
+                                    <div class="size-slider-range" :style="getRangeStyle()"></div>
+                                    <input 
+                                        ref="minSlider"
+                                        type="range" 
+                                        class="size-slider size-slider-min"
+                                        :min="0" 
+                                        :max="7"
+                                        :value="sizeRangeMin"
+                                        @input="updateSizeRangeMin($event)"
+                                        @change="updateSizeRangeMin($event)"
+                                        @mousedown="onSliderMouseDown"
+                                        @touchstart="onSliderMouseDown"
+                                    >
+                                    <input 
+                                        ref="maxSlider"
+                                        type="range" 
+                                        class="size-slider size-slider-max"
+                                        :min="0" 
+                                        :max="7"
+                                        :value="sizeRangeMax"
+                                        @input="updateSizeRangeMax($event)"
+                                        @change="updateSizeRangeMax($event)"
+                                        @mousedown="onSliderMouseDown"
+                                        @touchstart="onSliderMouseDown"
+                                    >
+                                </div>
+                                <div class="size-slider-labels">
+                                    <span class="size-label-min">{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMin)) }}</span>
+                                    <span class="size-label-max">{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMax)) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- 主要排行榜表格 -->
@@ -154,7 +196,10 @@
                                     Dataset
                                     <i :class="getSortIcon('name')" class="sort-icon"></i>
                                 </th>
-                                <th class="year-col">Year</th>
+                                <th class="year-col sortable" @click="sortBy('year')">
+                                    Year
+                                    <i :class="getSortIcon('year')" class="sort-icon"></i>
+                                </th>
                                 <th class="size-col">Size</th>
                                 <th class="domain-col">Domain</th>
                                 <th class="score-col sortable" @click="sortBy('overall_avg'); highlightColumn('overall_avg')">
@@ -187,8 +232,8 @@
                                 :class="{ 'base-row': dataset.domain === 'base' }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, sortColumn) - 1)">
-                                        {{ getRank(dataset, filteredDataForRanking, sortColumn) }}
+                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
+                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
                                     </div>
                                     <!-- For base model, this cell will be empty -->
                                 </td>
@@ -288,7 +333,10 @@
                                 <th class="name-col sortable" @click="sortDetailedBy('name')">
                                     Dataset<i :class="getSortIcon('name', true)" class="sort-icon"></i>
                                 </th>
-                                <th class="year-col">Year</th>
+                                <th class="year-col sortable" @click="sortDetailedBy('year')">
+                                    Year
+                                    <i :class="getSortIcon('year', true)" class="sort-icon"></i>
+                                </th>
                                 <th class="size-col">Size</th>
                                 <th class="domain-col sortable" @click="sortDetailedBy('domain')">
                                     Domain
@@ -317,8 +365,8 @@
                                 :class="{ 'base-row': dataset.domain === 'base' }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) - 1)">
-                                        {{ getRank(dataset, detailedFilteredDataForRanking, detailedSortColumn || 'average', true, selectedType) }}
+                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) - 1)">
+                                        {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) }}
                                     </div>
                                     <!-- For base model, this cell will be empty -->
                                 </td>
@@ -369,7 +417,6 @@
         </div>
     </div>
     <script src="app.js"></script>
-    <script src="multiselect.js"></script>
     <!-- LikeBtn.com BEGIN -->
     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- LikeBtn.com END -->

@@ -224,6 +224,137 @@ body {
     border-color: var(--primary-dark);
 }
 
+/* 数据量区间滑动条样式 */
+.size-range-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 400px;
+}
+
+.size-slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.size-slider-wrapper {
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.size-slider-track {
+    position: relative;
+    height: 6px;
+    background-color: var(--border-light);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.size-slider-range {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    border-radius: 3px;
+    transition: all 0.1s ease;
+}
+
+.size-slider {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border: 2px solid var(--background-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+    margin: 0;
+}
+
+.size-slider::-webkit-slider-thumb:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.size-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border: 2px solid var(--background-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+    -moz-appearance: none;
+    margin: 0;
+}
+
+.size-slider::-moz-range-thumb:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.size-slider::-moz-range-track {
+    background: transparent;
+    border: none;
+    height: 6px;
+    outline: none;
+}
+
+.size-slider::-webkit-slider-track {
+    background: transparent;
+    border: none;
+    height: 6px;
+    outline: none;
+}
+
+.size-slider:focus {
+    outline: none;
+}
+
+.size-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.size-label-min,
+.size-label-max {
+    padding: 4px 8px;
+    background: var(--background-accent);
+    border-radius: var(--radius-sm);
+    color: var(--primary-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+
 /* Reset button styles (Removed) */
 .reset-button-container {
     margin-left: auto; /* Pushes reset button to the far right in its row */

@@ -8,6 +8,10 @@ const app = createApp({
         const searchQuery = ref('')
         const selectedDomains = ref([]) // 数组支持多选
         const selectedType = ref('') // 改回单选
+        const sizeRangeMin = ref(0) // 数据量区间最小值索引
+        const sizeRangeMax = ref(7) // 数据量区间最大值索引
+        const minSlider = ref(null) // 最小值滑动条引用
+        const maxSlider = ref(null) // 最大值滑动条引用
         const showDomainDropdown = ref(false) // 控制数据领域下拉框显示
         const showTypeDropdown = ref(false) // 控制榜单领域下拉框显示
         const loading = ref(true)
@@ -22,6 +26,13 @@ const app = createApp({
             { id: 'llama', name: 'LLaMA Family', icon: 'fas fa-robot' },
             { id: 'qwen', name: 'Qwen Family', icon: 'fas fa-microchip' }
         ])
+
+        // 数据量刻度配置（对数刻度）
+        const sizeValues = ref([
+            0, 1000, 10000, 50000, 100000, 500000, 1000000, Infinity
+        ])
+        
+        const sizeSliderMax = ref(7) // 最大索引值
 
         // 加载数据
         const loadData = async () => {
@@ -44,6 +55,36 @@ const app = createApp({
                 }
             } finally {
                 loading.value = false
+            }
+        }
+
+        // 解析size字符串为数值（用于区间筛选）
+        const parseSizeToNumber = (sizeStr) => {
+            if (!sizeStr || sizeStr === '-' || sizeStr === '') return 0
+            
+            // 移除空格并转为小写
+            const size = sizeStr.toString().toLowerCase().trim()
+            
+            // 提取数字部分
+            const match = size.match(/^([0-9.]+)\s*([a-z]*)$/)
+            if (!match) return 0
+            
+            const number = parseFloat(match[1])
+            const unit = match[2]
+            
+            // 根据单位转换为实际数值
+            switch(unit) {
+                case 'k':
+                    return number * 1000
+                case 'm':
+                    return number * 1000000
+                case 'b':
+                    return number * 1000000000
+                case '':
+                case 'b': // 有些数据可能直接是数字
+                    return number
+                default:
+                    return number
             }
         }
 
@@ -96,6 +137,19 @@ const app = createApp({
                     return sortDirection.value === 'asc' ? 
                         scoreA.localeCompare(scoreB) : 
                         scoreB.localeCompare(scoreA)
+                }
+                
+                // 如果是年份列，使用数值比较，年份相同时按平均分排序
+                if (sortColumn.value === 'year') {
+                    const yearA = parseInt(a.year) || 0
+                    const yearB = parseInt(b.year) || 0
+                    if (yearA === yearB) {
+                        // 年份相同时，按平均分降序排序
+                        const avgA = a.overall_avg || 0
+                        const avgB = b.overall_avg || 0
+                        return avgB - avgA
+                    }
+                    return sortDirection.value === 'asc' ? yearA - yearB : yearB - yearA
                 }
                 
                 // 数值比较
@@ -162,6 +216,11 @@ const app = createApp({
                     selectedDomains.value.includes(dataset.domain)
                 )
             }
+
+            // 数据量区间过滤
+            if (!(sizeRangeMin.value === 0 && sizeRangeMax.value === sizeSliderMax.value)) {
+                filtered = filtered.filter(dataset => isInSizeRange(dataset))
+            }
             
             return baseModel ? [baseModel, ...filtered] : filtered;
         })
@@ -182,6 +241,11 @@ const app = createApp({
                 filtered = filtered.filter(dataset => 
                     selectedDomains.value.includes(dataset.domain)
                 )
+            }
+
+            // 数据量区间过滤
+            if (!(sizeRangeMin.value === 0 && sizeRangeMax.value === sizeSliderMax.value)) {
+                filtered = filtered.filter(dataset => isInSizeRange(dataset))
             }
 
             return filtered
@@ -205,6 +269,11 @@ const app = createApp({
                 filtered = filtered.filter(dataset => 
                     selectedDomains.value.includes(dataset.domain)
                 )
+            }
+
+            // 数据量区间过滤
+            if (!(sizeRangeMin.value === 0 && sizeRangeMax.value === sizeSliderMax.value)) {
+                filtered = filtered.filter(dataset => isInSizeRange(dataset))
             }
 
             return filtered
@@ -246,6 +315,17 @@ const app = createApp({
                         return detailedSortDirection.value === 'asc' ? 
                             domainA.localeCompare(domainB) : 
                             domainB.localeCompare(domainA)
+                    } else if (detailedSortColumn.value === 'year') {
+                        // 按年份排序，年份相同时按该类型的平均分排序
+                        const yearA = parseInt(a.year) || 0
+                        const yearB = parseInt(b.year) || 0
+                        if (yearA === yearB) {
+                            // 年份相同时，按该类型的平均分降序排序
+                            const avgA = getTypeAverageValue(a, primaryType)
+                            const avgB = getTypeAverageValue(b, primaryType)
+                            return avgB - avgA
+                        }
+                        return detailedSortDirection.value === 'asc' ? yearA - yearB : yearB - yearA
                     } else if (detailedSortColumn.value === 'average') {
                         // 按平均分排序
                         const scoreA = getTypeAverageValue(a, primaryType)
@@ -277,6 +357,11 @@ const app = createApp({
                 filtered = filtered.filter(dataset => 
                     selectedDomains.value.includes(dataset.domain)
                 )
+            }
+
+            // 数据量区间过滤
+            if (!(sizeRangeMin.value === 0 && sizeRangeMax.value === sizeSliderMax.value)) {
+                filtered = filtered.filter(dataset => isInSizeRange(dataset))
             }
 
             return baseModel ? [baseModel, ...filtered] : filtered;
@@ -316,6 +401,107 @@ const app = createApp({
         const clearType = () => {
             selectedType.value = ''
             showTypeDropdown.value = false
+        }
+
+        // 方法：更新数据量区间最小值
+        const updateSizeRangeMin = (event) => {
+            const value = parseInt(event.target.value)
+            // 只有当新值不超过右端点时才更新
+            if (value <= sizeRangeMax.value) {
+                sizeRangeMin.value = value
+            } else {
+                // 强制重置到有效值
+                event.preventDefault()
+                event.target.value = sizeRangeMin.value
+                // 确保DOM同步
+                setTimeout(() => {
+                    if (minSlider.value) {
+                        minSlider.value.value = sizeRangeMin.value
+                    }
+                }, 0)
+            }
+        }
+
+        // 方法：更新数据量区间最大值
+        const updateSizeRangeMax = (event) => {
+            const value = parseInt(event.target.value)
+            // 只有当新值不小于左端点时才更新
+            if (value >= sizeRangeMin.value) {
+                sizeRangeMax.value = value
+            } else {
+                // 强制重置到有效值
+                event.preventDefault()
+                event.target.value = sizeRangeMax.value
+                // 确保DOM同步
+                setTimeout(() => {
+                    if (maxSlider.value) {
+                        maxSlider.value.value = sizeRangeMax.value
+                    }
+                }, 0)
+            }
+        }
+
+        // 方法：处理滑动条鼠标按下事件
+        const onSliderMouseDown = (event) => {
+            // 记录当前值，以便在需要时恢复
+            const currentMinValue = sizeRangeMin.value
+            const currentMaxValue = sizeRangeMax.value
+            
+            // 添加全局鼠标释放监听器
+            const onMouseUp = () => {
+                // 最终验证和修正
+                if (minSlider.value) {
+                    minSlider.value.value = sizeRangeMin.value
+                }
+                if (maxSlider.value) {
+                    maxSlider.value.value = sizeRangeMax.value
+                }
+                document.removeEventListener('mouseup', onMouseUp)
+                document.removeEventListener('touchend', onMouseUp)
+            }
+            
+            document.addEventListener('mouseup', onMouseUp)
+            document.addEventListener('touchend', onMouseUp)
+        }
+
+        // 方法：根据索引获取数据量数值
+        const getSizeValueFromIndex = (index) => {
+            return sizeValues.value[index] || 0
+        }
+
+        // 方法：格式化数据量标签
+        const formatSizeLabel = (size) => {
+            if (size === 0) return '0'
+            if (size === Infinity || size >= 1000000) {
+                if (size === Infinity) return '1M+'
+                return (size / 1000000).toFixed(0) + 'M'
+            }
+            if (size >= 1000) return (size / 1000).toFixed(0) + 'K'
+            return size.toString()
+        }
+
+        // 方法：获取滑动条范围样式
+        const getRangeStyle = () => {
+            const minPercent = (sizeRangeMin.value / 7) * 100
+            const maxPercent = (sizeRangeMax.value / 7) * 100
+            return {
+                left: minPercent + '%',
+                width: (maxPercent - minPercent) + '%'
+            }
+        }
+
+        // 方法：检查数据集是否在选中的大小范围内
+        const isInSizeRange = (dataset) => {
+            const sizeNum = parseSizeToNumber(dataset.size)
+            const minSize = getSizeValueFromIndex(sizeRangeMin.value)
+            const maxSize = getSizeValueFromIndex(sizeRangeMax.value)
+            
+            // 如果是完整范围，不过滤
+            if (sizeRangeMin.value === 0 && sizeRangeMax.value === sizeSliderMax.value) {
+                return true
+            }
+            
+            return sizeNum >= minSize && (maxSize === Infinity ? true : sizeNum <= maxSize)
         }
         
         // 方法：切换数据领域下拉框显示
@@ -757,7 +943,7 @@ const app = createApp({
 
         // 新增：支持 year 和 size 排序
         const sortBy = (column) => {
-            if (column === 'year' || column === 'size') return; // 禁止 year/size 排序
+            if (column === 'size') return; // 只禁止 size 排序，允许 year 排序
             if (sortColumn.value === column) {
                 sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
@@ -769,7 +955,7 @@ const app = createApp({
             }
         }
         const sortDetailedBy = (column) => {
-            if (column === 'year' || column === 'size') return; // 禁止 year/size 排序
+            if (column === 'size') return; // 只禁止 size 排序，允许 year 排序
             if (detailedSortColumn.value === column) {
                 detailedSortDirection.value = detailedSortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
@@ -879,6 +1065,10 @@ const app = createApp({
             searchQuery,
             selectedDomains,
             selectedType,
+            sizeRangeMin,
+            sizeRangeMax,
+            minSlider,
+            maxSlider,
             showDomainDropdown,
             showTypeDropdown,
             sortColumn,
@@ -890,6 +1080,8 @@ const app = createApp({
             
             // 配置数据
             models,
+            sizeValues,
+            sizeSliderMax,
             
             // 计算属性
             currentData,
@@ -908,6 +1100,13 @@ const app = createApp({
             removeDomain,
             selectType,
             clearType,
+            updateSizeRangeMin,
+            updateSizeRangeMax,
+            onSliderMouseDown,
+            getSizeValueFromIndex,
+            formatSizeLabel,
+            getRangeStyle,
+            isInSizeRange,
             toggleDomainDropdown,
             toggleTypeDropdown,
             toggleDomain,
