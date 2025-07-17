@@ -1029,6 +1029,31 @@ const app = createApp({
                 }
             };
         }
+
+        // 打开反馈表单
+        const openFeedbackForm = () => {
+            console.log('Feedback button clicked!') // 调试信息
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe2Mh4L3e-1TvlCl-Qfl_WasFk2dPO2mFcbmfMG4iF9IgKuIQ/viewform?usp=dialog'
+            
+            try {
+                // 尝试打开新窗口
+                const newWindow = window.open(googleFormUrl, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes')
+                
+                // 检查是否被阻止
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    console.log('Popup blocked, trying alternative method')
+                    // 如果弹窗被阻止，直接在当前窗口打开
+                    window.location.href = googleFormUrl
+                } else {
+                    console.log('Popup opened successfully')
+                }
+            } catch (error) {
+                console.error('Error opening feedback form:', error)
+                // 备用方案：直接跳转
+                window.location.href = googleFormUrl
+            }
+        }
+
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             setTimeout(setupSubscribeModal, 500);
         } else {
@@ -1132,7 +1157,8 @@ const app = createApp({
             getTaskScore,
             getTypeAverage,
             getTypeAverageValue,
-            highlightColumn // 导出
+            highlightColumn, // 导出
+            openFeedbackForm // 反馈功能
         }
     }
 })
