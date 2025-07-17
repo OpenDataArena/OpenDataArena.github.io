@@ -249,15 +249,21 @@
             height: 450px;
         }
         
-        .chart-tabs {
+        .domain-selection {
+            margin-bottom: 20px;
+        }
+        
+        .domain-tabs {
             display: flex;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 20px;
             flex-wrap: wrap;
         }
         
-        .chart-tab {
+        .domain-tab {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             padding: 0.6rem 1rem;
             border: 1px solid #cbd5e1;
             background: #ffffff;
@@ -269,30 +275,22 @@
             font-weight: 500;
         }
         
-        .chart-tab:hover {
+        .domain-tab:hover {
             border-color: #1e40af;
             color: #1e40af;
             background: #f1f5f9;
         }
         
-        .chart-tab.active {
+        .domain-tab.active {
             background: #1e40af;
             color: #ffffff;
             border-color: #1e40af;
-            position: relative;
-            overflow: hidden;
         }
         
-        .chart-tab.active::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px);
-            pointer-events: none;
+        .domain-tab input[type="checkbox"] {
+            margin: 0;
+            width: 14px;
+            height: 14px;
         }
         
         .dynamic-chart-title {
@@ -640,42 +638,64 @@
                     </h2>
                 </div>
                 <div class="section-content">
-                    <!-- Chart Tabs -->
-                    <div class="chart-tabs">
-                        <button 
-                            class="chart-tab"
-                            :class="{ active: activeTab === 'overall' }"
-                            @click="switchTab('overall')">
-                            Overall
-                        </button>
-                        <button 
-                            v-if="llamaDataset.task_details && llamaDataset.task_details.general_tasks"
-                            class="chart-tab"
-                            :class="{ active: activeTab === 'general' }"
-                            @click="switchTab('general')">
-                            General
-                        </button>
-                        <button 
-                            v-if="llamaDataset.task_details && llamaDataset.task_details.math_tasks"
-                            class="chart-tab"
-                            :class="{ active: activeTab === 'math' }"
-                            @click="switchTab('math')">
-                            Math
-                        </button>
-                        <button 
-                            v-if="llamaDataset.task_details && llamaDataset.task_details.code_tasks"
-                            class="chart-tab"
-                            :class="{ active: activeTab === 'code' }"
-                            @click="switchTab('code')">
-                            Code
-                        </button>
-                        <button 
-                            v-if="llamaDataset.task_details && llamaDataset.task_details.reasoning_tasks"
-                            class="chart-tab"
-                            :class="{ active: activeTab === 'reasoning' }"
-                            @click="switchTab('reasoning')">
-                            Reasoning
-                        </button>
+                    <!-- Domain Selection -->
+                    <div class="domain-selection">
+                        <div class="domain-tabs">
+                            <div 
+                                class="domain-tab"
+                                :class="{ active: selectedDomains.includes('overall') }"
+                                @click="toggleDomain('overall')">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="selectedDomains.includes('overall')"
+                                    @change="toggleDomain('overall')">
+                                <span>Overall</span>
+                            </div>
+                            <div 
+                                v-if="llamaDataset.task_details && llamaDataset.task_details.general_tasks"
+                                class="domain-tab"
+                                :class="{ active: selectedDomains.includes('general') }"
+                                @click="toggleDomain('general')">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="selectedDomains.includes('general')"
+                                    @change="toggleDomain('general')">
+                                <span>General</span>
+                            </div>
+                            <div 
+                                v-if="llamaDataset.task_details && llamaDataset.task_details.math_tasks"
+                                class="domain-tab"
+                                :class="{ active: selectedDomains.includes('math') }"
+                                @click="toggleDomain('math')">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="selectedDomains.includes('math')"
+                                    @change="toggleDomain('math')">
+                                <span>Math</span>
+                            </div>
+                            <div 
+                                v-if="llamaDataset.task_details && llamaDataset.task_details.code_tasks"
+                                class="domain-tab"
+                                :class="{ active: selectedDomains.includes('code') }"
+                                @click="toggleDomain('code')">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="selectedDomains.includes('code')"
+                                    @change="toggleDomain('code')">
+                                <span>Code</span>
+                            </div>
+                            <div 
+                                v-if="llamaDataset.task_details && llamaDataset.task_details.reasoning_tasks"
+                                class="domain-tab"
+                                :class="{ active: selectedDomains.includes('reasoning') }"
+                                @click="toggleDomain('reasoning')">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="selectedDomains.includes('reasoning')"
+                                    @change="toggleDomain('reasoning')">
+                                <span>Reasoning</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Dual Model Charts -->
@@ -713,6 +733,7 @@
                 const llamaDataset = ref(null)
                 const qwenDataset = ref(null)
                 const activeTab = ref('overall')
+                const selectedDomains = ref(['overall']) // 多选领域
                 let llamaChart = null
                 let qwenChart = null
                 
@@ -837,16 +858,37 @@
                     createDualRadarCharts()
                 }
 
+                // 多选领域功能
+                const toggleDomain = (domain) => {
+                    const index = selectedDomains.value.indexOf(domain)
+                    if (index > -1) {
+                        selectedDomains.value.splice(index, 1)
+                    } else {
+                        selectedDomains.value.push(domain)
+                    }
+                    updateCharts()
+                }
+
+
+
+                const updateCharts = () => {
+                    if (selectedDatasets.value.length > 0) {
+                        updateComparison()
+                    } else {
+                        createDualRadarCharts()
+                    }
+                }
+
                 const updateComparison = () => {
                     if (selectedDatasets.value.length === 0) return
                     
-                    // 获取当前数据集的图表数据作为基准
-                    const baseChartData = getChartDataForDataset(llamaDataset.value, activeTab.value)
+                    // 获取当前数据集的多领域图表数据作为基准
+                    const baseChartData = getMultiDomainChartData(llamaDataset.value)
                     if (baseChartData.labels.length === 0) return
 
                     // 收集Llama模型的所有数据集数据
                     const llamaDataArrays = [baseChartData.data]
-                    const qwenDataArrays = [getChartDataForDataset(qwenDataset.value, activeTab.value).data]
+                    const qwenDataArrays = [getMultiDomainChartData(qwenDataset.value).data]
                     const names = [llamaDataset.value.name]
 
                     // 添加选中的数据集
@@ -858,8 +900,8 @@
                         const compareQwenDataset = qwenModelData.find(d => d.id.toString() === id.toString())
                         
                         if (compareLlamaDataset && compareQwenDataset) {
-                            const llamaCompareData = getChartDataForDataset(compareLlamaDataset, activeTab.value)
-                            const qwenCompareData = getChartDataForDataset(compareQwenDataset, activeTab.value)
+                            const llamaCompareData = getMultiDomainChartData(compareLlamaDataset)
+                            const qwenCompareData = getMultiDomainChartData(compareQwenDataset)
                             
                             llamaDataArrays.push(llamaCompareData.data)
                             qwenDataArrays.push(qwenCompareData.data)
@@ -870,6 +912,32 @@
                     // 创建比较图表
                     llamaChart = createRadarChart('llamaRadarChart', baseChartData.labels, llamaDataArrays, baseChartData.title, names, llamaChart)
                     qwenChart = createRadarChart('qwenRadarChart', baseChartData.labels, qwenDataArrays, baseChartData.title, names, qwenChart)
+                }
+
+                // 为指定数据集获取多领域组合图表数据
+                const getMultiDomainChartData = (datasetObj) => {
+                    if (selectedDomains.value.length === 0) {
+                        return { labels: [], data: [], title: 'No domains selected' }
+                    }
+
+                    const allLabels = []
+                    const allData = []
+                    let title = ''
+
+                    selectedDomains.value.forEach(domain => {
+                        const domainData = getChartDataForDataset(datasetObj, domain)
+                        if (domainData.labels.length > 0) {
+                            allLabels.push(...domainData.labels)
+                            allData.push(...domainData.data)
+                            if (!title) title = domainData.title
+                        }
+                    })
+
+                    return {
+                        labels: allLabels,
+                        data: allData,
+                        title: selectedDomains.value.length > 1 ? 'Multi-Domain Performance' : title
+                    }
                 }
 
                 // 为指定数据集获取图表数据
@@ -1050,12 +1118,12 @@
                                     },
                                     pointLabels: {
                                         font: {
-                                            size: 14,
+                                            size: 12,
                                             weight: '600',
                                             family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
                                         },
                                         color: '#000000',
-                                        padding: 25,
+                                        padding: 20,
                                         centerPointLabels: false,
                                         display: true
                                     },
@@ -1086,14 +1154,14 @@
                 const createDualRadarCharts = () => {
                     if (!llamaDataset.value || !qwenDataset.value) return
                     
-                    const chartData = getChartDataForDataset(llamaDataset.value, activeTab.value)
+                    const chartData = getMultiDomainChartData(llamaDataset.value)
                     if (chartData.labels.length === 0) return
                     
                     // 创建Llama图表
                     llamaChart = createRadarChart('llamaRadarChart', chartData.labels, chartData.data, chartData.title, null, llamaChart)
                     
                     // 创建Qwen图表
-                    const qwenChartData = getChartDataForDataset(qwenDataset.value, activeTab.value)
+                    const qwenChartData = getMultiDomainChartData(qwenDataset.value)
                     qwenChart = createRadarChart('qwenRadarChart', qwenChartData.labels, qwenChartData.data, qwenChartData.title, null, qwenChart)
                 }
 
@@ -1103,29 +1171,10 @@
                     return getChartDataForDataset(llamaDataset.value, tabType)
                 }
 
-                // 切换标签
-                const switchTab = (tabType) => {
-                    activeTab.value = tabType
-                    
-                    // 如果有比较数据，则更新比较视图
-                    if (selectedDatasets.value.length > 0) {
-                        updateComparison()
-                    } else {
-                        // 否则显示单个数据集
-                        createDualRadarCharts()
-                    }
-                }
-
-                // 获取当前图表标题
-                const getChartTitle = () => {
-                    const chartData = getChartData(activeTab.value)
-                    return chartData.title
-                }
-
                 // 初始化图表
                 const initializeChart = () => {
                     // 默认显示总体能力
-                    switchTab('overall')
+                    createDualRadarCharts()
                 }
 
                 onMounted(() => {
@@ -1143,11 +1192,12 @@
                     llamaDataset,
                     qwenDataset,
                     activeTab,
+                    selectedDomains,
                     formatScore,
                     formatImprovement,
                     getDomainDisplayName,
-                    switchTab,
-                    getChartTitle,
+                    // 多选领域功能
+                    toggleDomain,
                     // 比较功能
                     compareMode,
                     selectedDatasets,
