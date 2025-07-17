@@ -756,8 +756,11 @@ body {
 .dataset-name-cell {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+    gap: 4px;
+    max-width: 100%;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
 }
 
 .dataset-link {
@@ -1229,17 +1232,34 @@ body {
     white-space: nowrap;
 }
 
-.detailed-table .name-col {
+.detailed-table .name-col, .detailed-table .name-col.sortable {
     text-align: left !important;
     vertical-align: middle !important;
     min-height: 50px;
+    max-width: 200px;
+    width: 200px;
+    white-space: normal !important;
+    word-break: break-all;
 }
 
-.detailed-table .name-col.sortable {
-    display: table-cell !important;
-    vertical-align: middle !important;
-    padding: 1rem 0.75rem !important;
-    line-height: normal !important;
+.dataset-name-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 100%;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.detailed-table .domain-col {
+    min-width: 100px;
+    max-width: 150px;
+    width: 150px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* 排序功能样式 */

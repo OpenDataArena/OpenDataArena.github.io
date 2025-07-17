@@ -331,6 +331,11 @@ const app = createApp({
                         const scoreA = getTypeAverageValue(a, primaryType)
                         const scoreB = getTypeAverageValue(b, primaryType)
                         return detailedSortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
+                    } else if (detailedSortColumn.value === 'efficiency') {
+                        // 按性价比排序
+                        const efficiencyA = getTypeEfficiency(a, primaryType)
+                        const efficiencyB = getTypeEfficiency(b, primaryType)
+                        return detailedSortDirection.value === 'asc' ? efficiencyA - efficiencyB : efficiencyB - efficiencyA
                     } else {
                         // 其他情况按平均分排序
                         const scoreA = getTypeAverageValue(a, primaryType)
@@ -849,6 +854,12 @@ const app = createApp({
             };
         }
 
+        // 方法：获取类型性价比分数
+        const getTypeEfficiency = (dataset, type) => {
+            const efficiencyKey = type + '_efficiency';
+            return dataset[efficiencyKey] || 0;
+        }
+
         // 方法：获取类型平均分数值（用于排序）
         const getTypeAverageValue = (dataset, type) => {
             const avgKey = type + '_avg'
@@ -866,6 +877,12 @@ const app = createApp({
                     dataWithRoundedScores = data.map(item => ({
                         ...item,
                         roundedScore: roundToOneDecimal(getTypeAverageValue(item, selectedType))
+                    }))
+                } else if (scoreKey === 'efficiency') {
+                    // 详细表格的性价比排名
+                    dataWithRoundedScores = data.map(item => ({
+                        ...item,
+                        roundedScore: getTypeEfficiency(item, selectedType)
                     }))
                 } else if (scoreKey.includes('_')) {
                     // 特定任务的排名
@@ -892,10 +909,18 @@ const app = createApp({
                 }
             } else {
                 // 主表格的排名逻辑
-                dataWithRoundedScores = data.map(item => ({
-                    ...item,
-                    roundedScore: roundToOneDecimal(item[scoreKey] || 0)
-                }))
+                if (scoreKey.includes('_efficiency')) {
+                    // 对于所有数据性价比列，直接使用原始值进行排序
+                    dataWithRoundedScores = data.map(item => ({
+                        ...item,
+                        roundedScore: item[scoreKey] || 0
+                    }))
+                } else {
+                    dataWithRoundedScores = data.map(item => ({
+                        ...item,
+                        roundedScore: roundToOneDecimal(item[scoreKey] || 0)
+                    }))
+                }
             }
 
             // 按照四舍五入后的分数排序
@@ -987,6 +1012,52 @@ const app = createApp({
             } else {
                 highlightedColumn.value = columnKey;
             }
+        };
+
+        // 方法：格式化数据性价比分数
+        const formatEfficiencyScore = (efficiency) => {
+            if (typeof efficiency !== 'number' || efficiency === 0) {
+                return '-';
+            }
+            
+            // 智能格式化：根据数值大小调整小数位数
+            const absValue = Math.abs(efficiency);
+            let precision;
+            
+            if (absValue >= 0.001) {
+                precision = 3; // 大于等于0.001，显示3位小数
+            } else if (absValue >= 0.0001) {
+                precision = 4; // 大于等于0.0001，显示4位小数
+            } else if (absValue >= 0.00001) {
+                precision = 5; // 大于等于0.00001，显示5位小数
+            } else {
+                precision = 6; // 小于0.00001，显示6位小数
+            }
+            
+            // 显示涨跌值，添加正负号
+            return (efficiency > 0 ? '+' : '') + efficiency.toFixed(precision);
+        };
+
+        // 方法：格式化数据性价比涨跌
+        const formatEfficiencyDiff = (efficiencyDiff) => {
+            if (typeof efficiencyDiff !== 'number') {
+                return '';
+            }
+            if (efficiencyDiff === 0) {
+                return '0.000000';
+            }
+            return (efficiencyDiff > 0 ? '+' : '') + efficiencyDiff.toFixed(6);
+        };
+
+        // 方法：获取数据性价比涨跌的CSS类
+        const getEfficiencyDiffClass = (efficiencyDiff) => {
+            if (typeof efficiencyDiff !== 'number') {
+                return '';
+            }
+            if (efficiencyDiff === 0) {
+                return 'score-diff-positive'; // 0值显示为绿色
+            }
+            return efficiencyDiff > 0 ? 'score-diff-positive' : 'score-diff-negative';
         };
 
         // 订阅弹窗逻辑
@@ -1156,8 +1227,12 @@ const app = createApp({
             getTasksForDomain,
             getTaskScore,
             getTypeAverage,
+            getTypeEfficiency,
             getTypeAverageValue,
             highlightColumn, // 导出
+            formatEfficiencyScore,
+            formatEfficiencyDiff,
+            getEfficiencyDiffClass,
             openFeedbackForm // 反馈功能
         }
     }

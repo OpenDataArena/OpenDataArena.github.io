@@ -9,7 +9,7 @@ def parse_excel_advanced():
         processed_data = {}
 
         # 读取dataset sheet，构建名称到属性的映射
-        df_dataset = pd.read_excel('02.xlsx', sheet_name='dataset', header=None)
+        df_dataset = pd.read_excel('new.xlsx', sheet_name='dataset', header=None)
         dataset_attr_map = {}
         for idx in range(3, len(df_dataset)):
             name = df_dataset.iloc[idx, 1] if idx < len(df_dataset) else None
@@ -18,11 +18,13 @@ def parse_excel_advanced():
                 affiliation = df_dataset.iloc[idx, 2] if idx < len(df_dataset) else None
                 year = df_dataset.iloc[idx, 3] if idx < len(df_dataset) else None
                 size = df_dataset.iloc[idx, 4] if idx < len(df_dataset) else None
-                link = df_dataset.iloc[idx, 5] if idx < len(df_dataset) else None
+                size_precise = df_dataset.iloc[idx, 5] if idx < len(df_dataset) else None
+                link = df_dataset.iloc[idx, 6] if idx < len(df_dataset) else None
                 dataset_attr_map[name_str] = {
                     'affiliation': str(affiliation).strip() if pd.notna(affiliation) else '',
                     'year': str(year).strip() if pd.notna(year) else '',
                     'size': str(size).strip() if pd.notna(size) else '',
+                    'size_precise': str(size_precise).strip() if pd.notna(size_precise) else '',
                     'link': str(link).strip() if pd.notna(link) else ''
                 }
 
@@ -30,7 +32,7 @@ def parse_excel_advanced():
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
             # 读取原始数据，不跳过任何行
-            df_raw = pd.read_excel('02.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('new.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
@@ -53,7 +55,7 @@ def parse_excel_advanced():
             print(f"Reasoning列范围: {reasoning_cols}")
 
             # ========== 修正：提取base行为单行 ==========
-            base_row_idx = 379  # 第380行对应索引379（0-based）
+            base_row_idx = 387  # 第388行对应索引387（0-based）
             if base_row_idx < len(df_raw):
                 base_row = df_raw.iloc[base_row_idx]
                 print(f"找到base行: 第{base_row_idx+1}行")
@@ -108,6 +110,11 @@ def parse_excel_advanced():
                     'code_avg': round(base_code_avg, 2),
                     'reasoning_avg': round(base_reasoning_avg, 2),
                     'overall_avg': round(base_overall_avg, 2),
+                    'overall_efficiency': 0,  # base模型无数据量信息，设为0
+                    'general_efficiency': 0,
+                    'math_efficiency': 0,
+                    'code_efficiency': 0,
+                    'reasoning_efficiency': 0,
                     'general_task_scores': base_general_task_scores,
                     'math_task_scores': base_math_task_scores,
                     'code_task_scores': base_code_task_scores,
@@ -137,6 +144,11 @@ def parse_excel_advanced():
                     'code_avg': 0,
                     'reasoning_avg': 0,
                     'overall_avg': 0,
+                    'overall_efficiency': 0,  # base模型无数据量信息，设为0
+                    'general_efficiency': 0,
+                    'math_efficiency': 0,
+                    'code_efficiency': 0,
+                    'reasoning_efficiency': 0,
                     'general_task_scores': base_general_task_scores,
                     'math_task_scores': base_math_task_scores,
                     'code_task_scores': base_code_task_scores,
@@ -243,6 +255,57 @@ def parse_excel_advanced():
                     valid_averages = [avg for avg in [general_avg, math_avg, code_avg, reasoning_avg] if avg > 0]
                     overall_avg = np.mean(valid_averages) if valid_averages else 0
                     
+                    # 计算数据性价比分数
+                    def calculate_efficiency_score(avg_score, size_precise_str):
+                        """计算数据性价比分数：平均分数 / 数据量"""
+                        if not size_precise_str or avg_score <= 0:
+                            return 0
+                        
+                        try:
+                            # 尝试解析数据量字符串
+                            size_str = str(size_precise_str).strip().lower()
+                            
+                            # 处理常见的数字格式
+                            if 'k' in size_str:
+                                size = float(size_str.replace('k', '')) * 1000
+                            elif 'm' in size_str:
+                                size = float(size_str.replace('m', '')) * 1000000
+                            elif 'b' in size_str:
+                                size = float(size_str.replace('b', '')) * 1000000000
+                            else:
+                                # 尝试直接转换为数字
+                                size = float(size_str)
+                            
+                            if size > 0:
+                                efficiency = avg_score / size
+                                return round(efficiency, 6)  # 保留6位小数
+                            else:
+                                return 0
+                        except (ValueError, TypeError):
+                            # 如果无法解析数据量，返回0
+                            return 0
+                    
+                    # 计算各领域的数据性价比分数
+                    overall_efficiency_absolute = calculate_efficiency_score(overall_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    general_efficiency_absolute = calculate_efficiency_score(general_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    math_efficiency_absolute = calculate_efficiency_score(math_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    code_efficiency_absolute = calculate_efficiency_score(code_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    reasoning_efficiency_absolute = calculate_efficiency_score(reasoning_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    
+                    # 计算base模型在各领域的性价比分数（使用相同的数据量）
+                    base_overall_efficiency_absolute = calculate_efficiency_score(base_overall_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    base_general_efficiency_absolute = calculate_efficiency_score(base_general_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    base_math_efficiency_absolute = calculate_efficiency_score(base_math_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    base_code_efficiency_absolute = calculate_efficiency_score(base_code_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    base_reasoning_efficiency_absolute = calculate_efficiency_score(base_reasoning_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
+                    
+                    # 计算相对于base模型的性价比涨跌
+                    overall_efficiency = round(overall_efficiency_absolute - base_overall_efficiency_absolute, 6)
+                    general_efficiency = round(general_efficiency_absolute - base_general_efficiency_absolute, 6)
+                    math_efficiency = round(math_efficiency_absolute - base_math_efficiency_absolute, 6)
+                    code_efficiency = round(code_efficiency_absolute - base_code_efficiency_absolute, 6)
+                    reasoning_efficiency = round(reasoning_efficiency_absolute - base_reasoning_efficiency_absolute, 6)
+                    
                     # 构建小任务详细信息
                     task_details = {}
                     
@@ -315,6 +378,11 @@ def parse_excel_advanced():
                         'code_avg': round(code_avg - base_code_avg, 2),
                         'reasoning_avg': round(reasoning_avg - base_reasoning_avg, 2),
                         'overall_avg': round(overall_avg - base_overall_avg, 2),
+                        'overall_efficiency': overall_efficiency,  # 已经是相对于base模型的性价比涨跌
+                        'general_efficiency': general_efficiency,
+                        'math_efficiency': math_efficiency,
+                        'code_efficiency': code_efficiency,
+                        'reasoning_efficiency': reasoning_efficiency,
                         'general_task_scores': safe_list_subtract(general_task_scores, base_general_task_scores),
                         'math_task_scores': safe_list_subtract(math_task_scores, base_math_task_scores),
                         'code_task_scores': safe_list_subtract(code_task_scores, base_code_task_scores),
@@ -331,6 +399,11 @@ def parse_excel_advanced():
                         'code_avg': round(code_avg, 2),
                         'reasoning_avg': round(reasoning_avg, 2),
                         'overall_avg': round(overall_avg, 2),
+                        'overall_efficiency': overall_efficiency,  # 新增：数据性价比分数
+                        'general_efficiency': general_efficiency,
+                        'math_efficiency': math_efficiency,
+                        'code_efficiency': code_efficiency,
+                        'reasoning_efficiency': reasoning_efficiency,
                         'general_scores': general_scores,
                         'math_scores': math_scores,
                         'code_scores': code_scores,
@@ -374,7 +447,7 @@ def parse_excel_advanced():
         for sheet_name, data in processed_data.items():
             print(f"\n{sheet_name} 示例数据 (前3个):")
             for i, item in enumerate(data[:3]):
-                print(f"{i+1}. {item['name']} [{item['domain']}]: 综合 {item['overall_avg']}, General {item['general_avg']}, Math {item['math_avg']}, Code {item['code_avg']}, Reasoning {item['reasoning_avg']}")
+                print(f"{i+1}. {item['name']} [{item['domain']}]: 综合 {item['overall_avg']} (性价比涨跌: {item.get('overall_efficiency', 0):+.6f}), General {item['general_avg']} (性价比: {item.get('general_efficiency', 0):+.6f}), Math {item['math_avg']} (性价比: {item.get('math_efficiency', 0):+.6f}), Code {item['code_avg']} (性价比: {item.get('code_efficiency', 0):+.6f}), Reasoning {item['reasoning_avg']} (性价比: {item.get('reasoning_efficiency', 0):+.6f})")
                 
                 # 显示小任务详情
                 if 'task_details' in item:
@@ -428,12 +501,11 @@ def detect_column_layout(df_raw):
             break
     
     # 默认列配置（基于用户指定的列范围）
-    # General: D-G (索引3-6), Math: H-L (索引7-11), Code: M-S (索引12-18), Reasoning: T-X (索引19-23)
     default_config = {
         'general_cols': list(range(3, 7)),      # D,E,F,G
         'math_cols': list(range(7, 12)),        # H,I,J,K,L  
-        'code_cols': list(range(12, 19)),       # M,N,O,P,Q,R,S
-        'reasoning_cols': [19,20,22,23]   # T,U,V,W,X
+        'code_cols': list(range(12, 20)),       # M,N,O,P,Q,R,S,T
+        'reasoning_cols': [20,21,22,23,24]   # U,V,W,X,Y
     }
     
     print("使用默认列配置:")

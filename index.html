@@ -206,6 +206,10 @@
                                     Avg Score
                                     <i :class="getSortIcon('overall_avg')" class="sort-icon"></i>
                                 </th>
+                                <th class="score-col sortable" @click="sortBy('overall_efficiency'); highlightColumn('overall_efficiency')">
+                                    Efficiency
+                                    <i :class="getSortIcon('overall_efficiency')" class="sort-icon"></i>
+                                </th>
                                 <th class="score-col sortable" @click="sortBy('general_avg'); highlightColumn('general_avg')">
                                     General
                                     <i :class="getSortIcon('general_avg')" class="sort-icon"></i>
@@ -232,8 +236,8 @@
                                 :class="{ 'base-row': dataset.domain === 'base' }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
-                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
+                                                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
+                                    {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
                                     </div>
                                     <!-- For base model, this cell will be empty -->
                                 </td>
@@ -264,6 +268,11 @@
                                               :class="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).diffClass">
                                             {{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).diffText }}
                                         </span>
+                                    </div>
+                                </td>
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'overall_efficiency' }">
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatEfficiencyScore(dataset.overall_efficiency) }}</span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'general_avg' }">
@@ -346,6 +355,10 @@
                                     Avg Score
                                     <i :class="getSortIcon('average', true)" class="sort-icon"></i>
                                 </th>
+                                <th class="score-col sortable" @click="sortDetailedBy('efficiency'); highlightColumn('efficiency', true)">
+                                    Efficiency
+                                    <i :class="getSortIcon('efficiency', true)" class="sort-icon"></i>
+                                </th>
                                 <th v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col sortable" @click="sortDetailedBy(header.taskName + '_' + header.metricName); highlightColumn(header.taskName + '_' + header.metricName, true)">
                                     <div class="task-header">
                                         <div class="task-name">
@@ -397,6 +410,11 @@
                                               :class="getTypeAverage(dataset, selectedType).diffClass">
                                             {{ getTypeAverage(dataset, selectedType).diffText }}
                                         </span>
+                                    </div>
+                                </td>
+                                <td class="score-col" :class="{ 'highlighted-col': highlightedDetailedColumn === 'efficiency' }">
+                                    <div class="score-container">
+                                        <span class="score-value">{{ formatEfficiencyScore(getTypeEfficiency(dataset, selectedType)) }}</span>
                                     </div>
                                 </td>
                                 <td v-for="header in getTaskHeaders(selectedType)" :key="header.taskName + '_' + header.metricName" class="score-col" :class="{ 'highlighted-col': highlightedDetailedColumn === (header.taskName + '_' + header.metricName) }">
