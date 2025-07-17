@@ -239,7 +239,7 @@
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}&model=${currentModel}`" class="dataset-link">{{ dataset.name }}</a>
+                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
                                         <div v-if="dataset.affiliation && dataset.domain !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
@@ -372,7 +372,7 @@
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}&model=${currentModel}`" class="dataset-link">{{ dataset.name }}</a>
+                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
                                         <div v-if="dataset.affiliation && dataset.domain !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>

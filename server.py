@@ -4,7 +4,7 @@ import os
 import webbrowser
 from pathlib import Path
 
-PORT = 8063
+PORT = 8064
 DIRECTORY = Path(__file__).parent
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
