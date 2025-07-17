@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Details - Data Leaderboard</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dropdown-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .dataset-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-to-leaderboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1e40af;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #ffffff;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+        
+        .back-to-leaderboard:hover {
+            color: #1e40af;
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .dataset-header {
+            background: #1e40af;
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dataset-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0),
+                linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+            background-size: 20px 20px, 40px 40px;
+            animation: textureMove 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes textureMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(20px) translateY(20px); }
+        }
+        
+        .dataset-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .dataset-affiliation {
+            font-size: 1.2rem;
+            opacity: 1;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.95);
+            font-weight: 500;
+        }
+        
+        .dataset-basic-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 15px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .external-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .external-link {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .external-link:hover {
+            background: rgba(255,255,255,0.35);
+            color: white;
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .content-section {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .content-section:hover {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.12), 0 15px 20px -5px rgb(0 0 0 / 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .section-header {
+            background: #f8fafc;
+            padding: 25px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(30, 64, 175, 0.03) 2px, rgba(30, 64, 175, 0.03) 4px);
+            pointer-events: none;
+        }
+        
+
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+
+
+        
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .error-message {
+            text-align: center;
+            padding: 40px;
+            color: #dc3545;
+        }
+        
+
+        
+        .chart-container {
+            margin-bottom: 30px;
+        }
+        
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1d4ed8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .chart-wrapper {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            height: 520px;
+        }
+        
+        .chart-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .chart-tab {
+            padding: 0.6rem 1rem;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #6b7280;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .chart-tab:hover {
+            border-color: #1e40af;
+            color: #1e40af;
+            background: #f1f5f9;
+        }
+        
+        .chart-tab.active {
+            background: #1e40af;
+            color: #ffffff;
+            border-color: #1e40af;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-tab.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px);
+            pointer-events: none;
+        }
+        
+        .dynamic-chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 10px;
+            text-align: center;
+            min-height: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .dataset-title {
+                font-size: 2rem;
+            }
+            
+            .external-links {
+                justify-content: center;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+
+            
+            .chart-wrapper {
+                height: 400px;
+                max-width: 450px;
+            }
+            
+            .chart-tabs {
+                gap: 4px;
+            }
+            
+            .chart-tab {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Loading State -->
+        <div v-if="loading" class="loading-spinner">
+            <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+            <p>Loading dataset information...</p>
+        </div>
+
+        <!-- Error State -->
+        <div v-if="error" class="error-message">
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <h3>{{ error }}</h3>
+            <p>
+                <a href="index.html" class="back-to-leaderboard">
+                    <i class="fas fa-arrow-left"></i> Back to Leaderboard
+                </a>
+            </p>
+        </div>
+
+        <!-- Dataset Detail Content -->
+        <div v-if="!loading && !error && dataset" class="dataset-detail-container">
+            <!-- Back Link -->
+            <a href="index.html" class="back-to-leaderboard">
+                <i class="fas fa-arrow-left"></i> Back to Leaderboard
+            </a>
+
+            <!-- Dataset Header Information -->
+            <div class="dataset-header">
+                <h1 class="dataset-title">{{ dataset.name }}</h1>
+                <div v-if="dataset.affiliation" class="dataset-affiliation">
+                    <i class="fas fa-building"></i> {{ dataset.affiliation }}
+                </div>
+                
+                <div class="dataset-basic-info">
+                    <div class="info-item">
+                        <div class="info-label">Release Year</div>
+                        <div class="info-value">{{ dataset.year || 'N/A' }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Dataset Size</div>
+                        <div class="info-value">{{ dataset.size || 'N/A' }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Domain</div>
+                        <div class="info-value">{{ getDomainDisplayName(dataset.domain) }}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Overall Average</div>
+                        <div class="info-value">{{ formatScore(dataset.overall_avg) }}</div>
+                    </div>
+                </div>
+
+                <!-- 外部链接 -->
+                <div class="external-links">
+                    <a v-if="dataset.link" :href="dataset.link" target="_blank" rel="noopener noreferrer" class="external-link">
+                        <i class="fab fa-github"></i> Hugging Face Dataset
+                    </a>
+                    <a href="index.html" class="external-link">
+                        <i class="fas fa-chart-line"></i> View Leaderboard
+                    </a>
+                </div>
+            </div>
+
+            <!-- Performance Scores -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-bar"></i> Performance Overview
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <!-- Chart Tabs -->
+                    <div class="chart-tabs">
+                        <button 
+                            class="chart-tab"
+                            :class="{ active: activeTab === 'overall' }"
+                            @click="switchTab('overall')">
+                            Overall
+                        </button>
+                        <button 
+                            v-if="dataset.task_details && dataset.task_details.general_tasks"
+                            class="chart-tab"
+                            :class="{ active: activeTab === 'general' }"
+                            @click="switchTab('general')">
+                            General
+                        </button>
+                        <button 
+                            v-if="dataset.task_details && dataset.task_details.math_tasks"
+                            class="chart-tab"
+                            :class="{ active: activeTab === 'math' }"
+                            @click="switchTab('math')">
+                            Math
+                        </button>
+                        <button 
+                            v-if="dataset.task_details && dataset.task_details.code_tasks"
+                            class="chart-tab"
+                            :class="{ active: activeTab === 'code' }"
+                            @click="switchTab('code')">
+                            Code
+                        </button>
+                        <button 
+                            v-if="dataset.task_details && dataset.task_details.reasoning_tasks"
+                            class="chart-tab"
+                            :class="{ active: activeTab === 'reasoning' }"
+                            @click="switchTab('reasoning')">
+                            Reasoning
+                        </button>
+                    </div>
+                    
+                    <!-- Dynamic Chart -->
+                    <div class="chart-container">
+                        <h3 class="dynamic-chart-title">{{ getChartTitle() }}</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="dynamicRadarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue
+
+        const app = createApp({
+            setup() {
+                const loading = ref(true)
+                const error = ref(null)
+                const dataset = ref(null)
+                const model = ref('llama')
+                const activeTab = ref('overall')
+                let currentChart = null
+
+                // 从URL参数获取数据集ID和模型
+                const getUrlParams = () => {
+                    const urlParams = new URLSearchParams(window.location.search)
+                    const datasetId = urlParams.get('id')
+                    const modelParam = urlParams.get('model') || 'llama'
+                    return { datasetId, model: modelParam }
+                }
+
+                // 加载数据集详情
+                const loadDatasetDetail = async () => {
+                    try {
+                        loading.value = true
+                        const { datasetId, model: modelParam } = getUrlParams()
+                        
+                        if (!datasetId) {
+                            throw new Error('Dataset ID not specified')
+                        }
+
+                        model.value = modelParam
+                        
+                        const response = await fetch('./processed_leaderboard_data.json')
+                        if (!response.ok) {
+                            throw new Error('Failed to load data')
+                        }
+                        
+                        const data = await response.json()
+                        const modelData = data[model.value]
+                        
+                        if (!modelData) {
+                            throw new Error('Model data not found')
+                        }
+                        
+                        const datasetData = modelData.find(d => d.id.toString() === datasetId.toString())
+                        
+                        if (!datasetData) {
+                            throw new Error('Dataset not found')
+                        }
+                        
+                        dataset.value = datasetData
+                        
+                        // 更新页面标题
+                        document.title = `${datasetData.name} - Dataset Details`
+                        
+                        return Promise.resolve()
+                        
+                    } catch (err) {
+                        console.error('Error loading dataset:', err)
+                        error.value = err.message
+                        return Promise.reject(err)
+                    } finally {
+                        loading.value = false
+                    }
+                }
+
+                // 格式化分数
+                const formatScore = (score) => {
+                    if (typeof score === 'number') {
+                        return (Math.round(score * 10) / 10).toFixed(1)
+                    }
+                    return '0.0'
+                }
+
+                // 格式化改进值
+                const formatImprovement = (improvement) => {
+                    if (typeof improvement === 'number') {
+                        const diff = Math.round(improvement * 10) / 10
+                        return diff > 0 ? `+${diff.toFixed(1)}` : `${diff.toFixed(1)}`
+                    }
+                    return ''
+                }
+
+                // 获取领域显示名称
+                const getDomainDisplayName = (domain) => {
+                    const domainNames = {
+                        'general': 'General',
+                        'math': 'Math',
+                        'code': 'Code',
+                        'reasoning': 'Reasoning',
+                        'base': 'Base Model'
+                    }
+                    return domainNames[domain] || domain
+                }
+
+                // 创建或更新雷达图
+                const createOrUpdateRadarChart = (labels, data, title) => {
+                    const ctx = document.getElementById('dynamicRadarChart')
+                    if (!ctx) return
+
+                    // 如果已存在图表，先销毁
+                    if (currentChart) {
+                        currentChart.destroy()
+                    }
+
+                    // 注册datalabels插件
+                    Chart.register(ChartDataLabels);
+                    
+                    currentChart = new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: title,
+                                data: data,
+                                backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                                borderColor: 'rgba(30, 64, 175, 0.8)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                                pointBorderColor: '#ffffff',
+                                pointBorderWidth: 2,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                datalabels: {
+                                    display: true,
+                                    align: 'end',
+                                    anchor: 'end',
+                                    color: '#000000',
+                                    font: {
+                                        size: 12,
+                                        weight: '600'
+                                    },
+                                    formatter: (value) => {
+                                        return value.toFixed(1)
+                                    },
+                                    offset: 8
+                                }
+                            },
+                            scales: {
+                                r: {
+                                    beginAtZero: true,
+                                    max: 100,
+                                    grid: {
+                                        color: 'rgba(30, 64, 175, 0.1)'
+                                    },
+                                    angleLines: {
+                                        color: 'rgba(30, 64, 175, 0.15)'
+                                    },
+                                    pointLabels: {
+                                        font: {
+                                            size: 14,
+                                            weight: '600',
+                                            family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                                        },
+                                        color: '#000000',
+                                        padding: 25,
+                                        centerPointLabels: false,
+                                        display: true
+                                    },
+                                    ticks: {
+                                        stepSize: 20,
+                                        color: '#94a3b8',
+                                        backdrop: {
+                                            color: 'transparent'
+                                        }
+                                    }
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    top: 70,
+                                    bottom: 70,
+                                    left: 70,
+                                    right: 70
+                                }
+                            }
+                        }
+                    })
+                }
+
+                // 获取图表数据
+                const getChartData = (tabType) => {
+                    if (!dataset.value) return { labels: [], data: [], title: '' }
+
+                    switch (tabType) {
+                        case 'overall':
+                            return {
+                                labels: ['General', 'Math', 'Code', 'Reasoning'],
+                                data: [
+                                    dataset.value.general_avg || 0,
+                                    dataset.value.math_avg || 0,
+                                    dataset.value.code_avg || 0,
+                                    dataset.value.reasoning_avg || 0
+                                ],
+                                title: 'Overall Performance'
+                            }
+                        
+                        case 'general':
+                            if (dataset.value.task_details?.general_tasks) {
+                                return {
+                                    labels: dataset.value.task_details.general_tasks.map(task => task.task_name),
+                                    data: dataset.value.task_details.general_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'General Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'math':
+                            if (dataset.value.task_details?.math_tasks) {
+                                return {
+                                    labels: dataset.value.task_details.math_tasks.map(task => task.task_name),
+                                    data: dataset.value.task_details.math_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'Math Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'code':
+                            if (dataset.value.task_details?.code_tasks) {
+                                const labels = []
+                                const data = []
+                                
+                                dataset.value.task_details.code_tasks.forEach(task => {
+                                    if (task.metrics && task.metrics.length > 1) {
+                                        task.metrics.forEach(metric => {
+                                            // 进一步简化标签，保持一致的长度
+                                            let shortTask = task.task_name
+                                            if (shortTask === 'LiveCodeBench') shortTask = 'LCB'
+                                            if (shortTask === 'humaneval') shortTask = 'HE'
+                                            
+                                            let shortMetric = metric.metric.replace('lcb_', '').replace('_', ' ')
+                                            if (shortMetric === 'code generation') shortMetric = 'gen'
+                                            if (shortMetric === 'code execution') shortMetric = 'exec'
+                                            if (shortMetric === 'test output') shortMetric = 'test'
+                                            if (shortMetric === 'pass@1') shortMetric = 'pass'
+                                            if (shortMetric === 'score 3shot') shortMetric = 'score'
+                                            
+                                            labels.push(`${shortTask}\n${shortMetric}`)
+                                            data.push(metric.score || 0)
+                                        })
+                                    } else {
+                                        let shortTask = task.task_name
+                                        if (shortTask === 'humaneval') shortTask = 'HE'
+                                        labels.push(shortTask)
+                                        data.push(task.metrics[0]?.score || 0)
+                                    }
+                                })
+                                
+                                return {
+                                    labels,
+                                    data,
+                                    title: 'Code Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'reasoning':
+                            if (dataset.value.task_details?.reasoning_tasks) {
+                                return {
+                                    labels: dataset.value.task_details.reasoning_tasks.map(task => task.task_name),
+                                    data: dataset.value.task_details.reasoning_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'Reasoning Tasks Performance'
+                                }
+                            }
+                            break
+                    }
+                    
+                    return { labels: [], data: [], title: '' }
+                }
+
+                // 切换标签
+                const switchTab = (tabType) => {
+                    activeTab.value = tabType
+                    const chartData = getChartData(tabType)
+                    if (chartData.labels.length > 0) {
+                        createOrUpdateRadarChart(chartData.labels, chartData.data, chartData.title)
+                    }
+                }
+
+                // 获取当前图表标题
+                const getChartTitle = () => {
+                    const chartData = getChartData(activeTab.value)
+                    return chartData.title
+                }
+
+                // 初始化图表
+                const initializeChart = () => {
+                    // 默认显示总体能力
+                    switchTab('overall')
+                }
+
+                onMounted(() => {
+                    loadDatasetDetail().then(() => {
+                        // 等待 DOM 更新后创建图表
+                        setTimeout(() => {
+                            initializeChart()
+                        }, 100)
+                    })
+                })
+
+                return {
+                    loading,
+                    error,
+                    dataset,
+                    activeTab,
+                    formatScore,
+                    formatImprovement,
+                    getDomainDisplayName,
+                    switchTab,
+                    getChartTitle
+                }
+            }
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+</html> 
