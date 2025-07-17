@@ -291,9 +291,173 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: #1e40af;
-            margin-bottom: 10px;
+            margin-bottom: 0px;
             text-align: center;
             min-height: 30px;
+        }
+        
+        /* Compare Section Styles */
+        .compare-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .compare-toggle-btn {
+            background: none;
+            border: none;
+            color: #1e40af;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+        }
+        
+        .compare-toggle-btn:hover {
+            color: #1d4ed8;
+        }
+        
+        .compare-toggle-btn .icon-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #6b7280;
+            transition: all 0.2s ease;
+        }
+        
+        .compare-toggle-btn:hover .icon-circle {
+            background: #1e40af;
+            color: white;
+        }
+        
+        .compare-toggle-btn.active .icon-circle {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .compare-selection {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .compare-dropdown label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .compare-dataset-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .compare-dataset-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .compare-dataset-item:last-child {
+            border-bottom: none;
+        }
+        
+        .compare-dataset-item:hover {
+            background: #f1f5f9;
+        }
+        
+        .compare-dataset-item.selected {
+            background: #dbeafe;
+            border-left: 4px solid #1e40af;
+        }
+        
+        .compare-dataset-item input[type="checkbox"] {
+            margin: 0;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .compare-dataset-item .dataset-name {
+            flex: 1;
+            font-weight: 500;
+            color: #111827;
+        }
+        
+        .compare-dataset-item .dataset-domain {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .compare-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .compare-update-btn {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .compare-update-btn:hover:not(:disabled) {
+            background: #047857;
+            transform: translateY(-1px);
+        }
+        
+        .compare-update-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .compare-clear-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .compare-clear-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
         }
         
         @media (max-width: 768px) {
@@ -390,6 +554,58 @@
                 </div>
             </div>
 
+            <!-- Compare Controls (no section wrapper) -->
+            <div class="compare-controls" style="margin-bottom: 30px;">
+                <button 
+                    @click="toggleCompareMode" 
+                    class="compare-toggle-btn"
+                    :class="{ active: compareMode }">
+                    <span class="icon-circle">
+                        <i class="fas fa-plus" v-if="!compareMode"></i>
+                        <i class="fas fa-minus" v-if="compareMode"></i>
+                    </span>
+                    {{ compareMode ? 'Hide Comparison' : 'Compare with Other Datasets' }}
+                </button>
+                
+                <div v-if="compareMode" class="compare-selection">
+                    <div class="compare-dropdown">
+                        <label>Select datasets to compare:</label>
+                        <div class="compare-dataset-list">
+                            <div 
+                                v-for="ds in availableDatasets" 
+                                :key="ds.id"
+                                class="compare-dataset-item"
+                                :class="{ selected: isDatasetSelected(ds.id) }"
+                                @click="toggleDatasetSelection(ds.id)">
+                                <input 
+                                    type="checkbox" 
+                                    :checked="isDatasetSelected(ds.id)"
+                                    @change="toggleDatasetSelection(ds.id)">
+                                <span class="dataset-name">{{ ds.name }}</span>
+                                <span class="dataset-domain">{{ getDomainDisplayName(ds.domain) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="compare-actions">
+                        <button 
+                            @click="updateComparison" 
+                            class="compare-update-btn"
+                            :disabled="selectedDatasets.length === 0">
+                            <i class="fas fa-sync"></i>
+                            Update Comparison ({{ selectedDatasets.length }} selected)
+                        </button>
+                        <button 
+                            @click="clearComparison" 
+                            class="compare-clear-btn"
+                            v-if="selectedDatasets.length > 0">
+                            <i class="fas fa-times"></i>
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Performance Scores -->
             <div class="content-section">
                 <div class="section-header">
@@ -461,6 +677,12 @@
                 const model = ref('llama')
                 const activeTab = ref('overall')
                 let currentChart = null
+                
+                // 比较功能相关数据
+                const compareMode = ref(false)
+                const selectedDatasets = ref([])
+                const availableDatasets = ref([])
+                const allDatasetsData = ref({})
 
                 // 从URL参数获取数据集ID和模型
                 const getUrlParams = () => {
@@ -488,11 +710,15 @@
                         }
                         
                         const data = await response.json()
+                        allDatasetsData.value = data // 保存所有数据用于比较
                         const modelData = data[model.value]
                         
                         if (!modelData) {
                             throw new Error('Model data not found')
                         }
+                        
+                        // 设置可用于比较的数据集（排除当前数据集）
+                        availableDatasets.value = modelData.filter(d => d.id.toString() !== datasetId.toString())
                         
                         const datasetData = modelData.find(d => d.id.toString() === datasetId.toString())
                         
@@ -545,8 +771,152 @@
                     return domainNames[domain] || domain
                 }
 
-                // 创建或更新雷达图
-                const createOrUpdateRadarChart = (labels, data, title) => {
+                // 比较功能方法
+                const toggleCompareMode = () => {
+                    compareMode.value = !compareMode.value
+                    if (!compareMode.value) {
+                        clearComparison()
+                    }
+                }
+
+                const isDatasetSelected = (datasetId) => {
+                    return selectedDatasets.value.includes(datasetId)
+                }
+
+                const toggleDatasetSelection = (datasetId) => {
+                    const index = selectedDatasets.value.indexOf(datasetId)
+                    if (index > -1) {
+                        selectedDatasets.value.splice(index, 1)
+                    } else {
+                        selectedDatasets.value.push(datasetId)
+                    }
+                }
+
+                const clearComparison = () => {
+                    selectedDatasets.value = []
+                    // 更新图表回到单个数据集
+                    const chartData = getChartData(activeTab.value)
+                    if (chartData.labels.length > 0) {
+                        createOrUpdateRadarChart(chartData.labels, [chartData.data], [chartData.title], [dataset.value.name])
+                    }
+                }
+
+                const updateComparison = () => {
+                    if (selectedDatasets.value.length === 0) return
+                    
+                    const chartData = getChartData(activeTab.value)
+                    if (chartData.labels.length === 0) return
+
+                    // 收集所有要比较的数据集数据
+                    const datasets = [dataset.value] // 当前数据集
+                    const dataArrays = [chartData.data]
+                    const titles = [chartData.title]
+                    const names = [dataset.value.name]
+
+                    // 添加选中的数据集
+                    const modelData = allDatasetsData.value[model.value]
+                    selectedDatasets.value.forEach(id => {
+                        const compareDataset = modelData.find(d => d.id.toString() === id.toString())
+                        if (compareDataset) {
+                            datasets.push(compareDataset)
+                            const compareChartData = getChartDataForDataset(compareDataset, activeTab.value)
+                            dataArrays.push(compareChartData.data)
+                            names.push(compareDataset.name)
+                        }
+                    })
+
+                    createOrUpdateRadarChart(chartData.labels, dataArrays, chartData.title, names)
+                }
+
+                // 为指定数据集获取图表数据
+                const getChartDataForDataset = (datasetObj, tabType) => {
+                    switch (tabType) {
+                        case 'overall':
+                            return {
+                                labels: ['General', 'Math', 'Code', 'Reasoning'],
+                                data: [
+                                    datasetObj.general_avg || 0,
+                                    datasetObj.math_avg || 0,
+                                    datasetObj.code_avg || 0,
+                                    datasetObj.reasoning_avg || 0
+                                ],
+                                title: 'Overall Performance'
+                            }
+                        
+                        case 'general':
+                            if (datasetObj.task_details?.general_tasks) {
+                                return {
+                                    labels: datasetObj.task_details.general_tasks.map(task => task.task_name),
+                                    data: datasetObj.task_details.general_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'General Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'math':
+                            if (datasetObj.task_details?.math_tasks) {
+                                return {
+                                    labels: datasetObj.task_details.math_tasks.map(task => task.task_name),
+                                    data: datasetObj.task_details.math_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'Math Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'code':
+                            if (datasetObj.task_details?.code_tasks) {
+                                const labels = []
+                                const data = []
+                                
+                                datasetObj.task_details.code_tasks.forEach(task => {
+                                    if (task.metrics && task.metrics.length > 1) {
+                                        task.metrics.forEach(metric => {
+                                            let shortTask = task.task_name
+                                            if (shortTask === 'LiveCodeBench') shortTask = 'LCB'
+                                            if (shortTask === 'humaneval') shortTask = 'HE'
+                                            
+                                            let shortMetric = metric.metric.replace('lcb_', '').replace('_', ' ')
+                                            if (shortMetric === 'code generation') shortMetric = 'gen'
+                                            if (shortMetric === 'code execution') shortMetric = 'exec'
+                                            if (shortMetric === 'test output') shortMetric = 'test'
+                                            if (shortMetric === 'pass@1') shortMetric = 'pass'
+                                            if (shortMetric === 'score 3shot') shortMetric = 'score'
+                                            
+                                            labels.push(`${shortTask}\n${shortMetric}`)
+                                            data.push(metric.score || 0)
+                                        })
+                                    } else {
+                                        let shortTask = task.task_name
+                                        if (shortTask === 'humaneval') shortTask = 'HE'
+                                        labels.push(shortTask)
+                                        data.push(task.metrics[0]?.score || 0)
+                                    }
+                                })
+                                
+                                return {
+                                    labels,
+                                    data,
+                                    title: 'Code Tasks Performance'
+                                }
+                            }
+                            break
+                        
+                        case 'reasoning':
+                            if (datasetObj.task_details?.reasoning_tasks) {
+                                return {
+                                    labels: datasetObj.task_details.reasoning_tasks.map(task => task.task_name),
+                                    data: datasetObj.task_details.reasoning_tasks.map(task => task.metrics[0]?.score || 0),
+                                    title: 'Reasoning Tasks Performance'
+                                }
+                            }
+                            break
+                    }
+                    
+                    return { labels: [], data: [], title: '' }
+                }
+
+                // 创建或更新雷达图 (支持多数据集比较)
+                const createOrUpdateRadarChart = (labels, dataArrays, title, names = null) => {
                     const ctx = document.getElementById('dynamicRadarChart')
                     if (!ctx) return
 
@@ -558,32 +928,59 @@
                     // 注册datalabels插件
                     Chart.register(ChartDataLabels);
                     
+                    // 如果只有一个数据集，保持原有格式
+                    if (!Array.isArray(dataArrays[0])) {
+                        dataArrays = [dataArrays]
+                        names = names || [title]
+                    }
+                    
+                    // 定义颜色方案
+                    const colors = [
+                        { bg: 'rgba(30, 64, 175, 0.1)', border: 'rgba(30, 64, 175, 0.8)', point: 'rgba(30, 64, 175, 1)' },
+                        { bg: 'rgba(220, 38, 38, 0.1)', border: 'rgba(220, 38, 38, 0.8)', point: 'rgba(220, 38, 38, 1)' },
+                        { bg: 'rgba(34, 197, 94, 0.1)', border: 'rgba(34, 197, 94, 0.8)', point: 'rgba(34, 197, 94, 1)' },
+                        { bg: 'rgba(251, 146, 60, 0.1)', border: 'rgba(251, 146, 60, 0.8)', point: 'rgba(251, 146, 60, 1)' },
+                        { bg: 'rgba(168, 85, 247, 0.1)', border: 'rgba(168, 85, 247, 0.8)', point: 'rgba(168, 85, 247, 1)' }
+                    ]
+                    
+                    // 创建数据集
+                    const datasets = dataArrays.map((data, index) => ({
+                        label: names[index] || `Dataset ${index + 1}`,
+                        data: data,
+                        backgroundColor: colors[index % colors.length].bg,
+                        borderColor: colors[index % colors.length].border,
+                        borderWidth: 2,
+                        pointBackgroundColor: colors[index % colors.length].point,
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }))
+                    
                     currentChart = new Chart(ctx, {
                         type: 'radar',
                         data: {
                             labels: labels,
-                            datasets: [{
-                                label: title,
-                                data: data,
-                                backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                                borderColor: 'rgba(30, 64, 175, 0.8)',
-                                borderWidth: 2,
-                                pointBackgroundColor: 'rgba(30, 64, 175, 1)',
-                                pointBorderColor: '#ffffff',
-                                pointBorderWidth: 2,
-                                pointRadius: 4,
-                                pointHoverRadius: 6
-                            }]
+                            datasets: datasets
                         },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
                             plugins: {
                                 legend: {
-                                    display: false
+                                    display: datasets.length > 1,
+                                    position: 'bottom',
+                                    labels: {
+                                        padding: 20,
+                                        usePointStyle: true,
+                                        font: {
+                                            size: 12,
+                                            weight: '500'
+                                        }
+                                    }
                                 },
                                 datalabels: {
-                                    display: true,
+                                    display: datasets.length === 1, // 只有单个数据集时显示
                                     align: 'end',
                                     anchor: 'end',
                                     color: '#000000',
@@ -732,9 +1129,16 @@
                 // 切换标签
                 const switchTab = (tabType) => {
                     activeTab.value = tabType
-                    const chartData = getChartData(tabType)
-                    if (chartData.labels.length > 0) {
-                        createOrUpdateRadarChart(chartData.labels, chartData.data, chartData.title)
+                    
+                    // 如果有比较数据，则更新比较视图
+                    if (selectedDatasets.value.length > 0) {
+                        updateComparison()
+                    } else {
+                        // 否则显示单个数据集
+                        const chartData = getChartData(tabType)
+                        if (chartData.labels.length > 0) {
+                            createOrUpdateRadarChart(chartData.labels, chartData.data, chartData.title)
+                        }
                     }
                 }
 
@@ -768,7 +1172,16 @@
                     formatImprovement,
                     getDomainDisplayName,
                     switchTab,
-                    getChartTitle
+                    getChartTitle,
+                    // 比较功能
+                    compareMode,
+                    selectedDatasets,
+                    availableDatasets,
+                    toggleCompareMode,
+                    isDatasetSelected,
+                    toggleDatasetSelection,
+                    updateComparison,
+                    clearComparison
                 }
             }
         })
