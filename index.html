@@ -432,6 +432,50 @@
                     </table>
                 </div>
             </div>
+            
+            <!-- 贡献者展示板块 -->
+            <div class="contributors-section">
+                <div class="contributors-header">
+                    <h2 class="contributors-title">
+                        <i class="fas fa-users"></i>
+                        Our Contributors
+                    </h2>
+                    <p class="contributors-subtitle">
+                        Thanks to these outstanding researchers and developers for their contributions to OpenDataArena
+                    </p>
+                </div>
+                
+                <div class="contributors-grid">
+                    <div class="contributor-avatar" v-for="contributor in contributors" :key="contributor.id">
+                        <img :src="contributor.avatar" :alt="contributor.name" :title="contributor.name">
+                        <div class="contributor-tooltip">
+                            <strong>{{ contributor.name }}</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="become-contributor">
+                    <div class="contributor-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">{{ contributors.length }}+</div>
+                            <div class="stat-label">Active Contributors</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Datasets</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Evaluations</div>
+                        </div>
+                    </div>
+                    
+                    <button class="become-contributor-btn" @click="openContributionGuide">
+                        <i class="fas fa-plus-circle"></i>
+                        Become a Contributor
+                    </button>
+                </div>
+            </div>
         </div>
 
         <!-- Feedback Button -->

@@ -257,7 +257,7 @@ def parse_excel_advanced():
                     
                     # 计算数据性价比分数
                     def calculate_efficiency_score(avg_score, size_precise_str):
-                        """计算数据性价比分数：平均分数 / 数据量"""
+                        """计算数据性价比分数：平均分数 / 数据量 * 1000（每1k数据的性价比）"""
                         if not size_precise_str or avg_score <= 0:
                             return 0
                         
@@ -277,7 +277,7 @@ def parse_excel_advanced():
                                 size = float(size_str)
                             
                             if size > 0:
-                                efficiency = avg_score / size
+                                efficiency = (avg_score / size) * 1000  # 每1k数据的性价比
                                 return round(efficiency, 6)  # 保留6位小数
                             else:
                                 return 0

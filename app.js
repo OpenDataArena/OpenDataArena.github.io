@@ -1079,7 +1079,7 @@ const app = createApp({
                 errorMsg.style.display = 'none';
                 const email = emailInput.value.trim();
                 if (!email) return;
-                // Google Sheets API 端点（需替换为你的 Apps Script 部署地址）
+                // Google Sheets API 端点
                 const endpoint = 'https://script.google.com/macros/s/AKfycbw0AQD1p9wet2wowaC1rxmjo-Aw-bpyRkTMMRq4KXgqvak84CD7BSgEmVfKYcPQHSPR/exec';
                 try {
                     const res = await fetch(endpoint, {
@@ -1099,6 +1099,76 @@ const app = createApp({
                     successMsg.style.display = 'none';
                 }
             };
+        }
+
+        // 贡献者数据
+        const contributors = ref([
+            {
+                id: 1,
+                name: "Dr. Sarah Chen",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 2,
+                name: "Prof. Michael Rodriguez",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 3,
+                name: "Dr. Emily Johnson",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 4,
+                name: "Prof. David Kim",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 5,
+                name: "Dr. Lisa Wang",
+                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 6,
+                name: "Prof. James Wilson",
+                avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 7,
+                name: "Dr. Maria Garcia",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 8,
+                name: "Prof. Robert Taylor",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 9,
+                name: "Dr. Anna Lee",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 10,
+                name: "Prof. Thomas Brown",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 11,
+                name: "Dr. Jennifer Davis",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face"
+            },
+            {
+                id: 12,
+                name: "Prof. Christopher Miller",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face"
+            }
+        ])
+
+        // 打开贡献指南页面
+        const openContributionGuide = () => {
+            const guideUrl = 'contribution-guide.html'
+            window.open(guideUrl, '_blank')
         }
 
         // 打开反馈表单
@@ -1233,7 +1303,9 @@ const app = createApp({
             formatEfficiencyScore,
             formatEfficiencyDiff,
             getEfficiencyDiffClass,
-            openFeedbackForm // 反馈功能
+            openFeedbackForm, // 反馈功能
+            contributors, // 贡献者数据
+            openContributionGuide // 打开贡献指南
         }
     }
 })

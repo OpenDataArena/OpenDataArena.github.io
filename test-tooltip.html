@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Test</title>
+    <style>
+        .contributor-avatar {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: visible;
+            border: 3px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .contributor-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-color: #3b82f6;
+        }
+
+        .contributor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .contributor-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #111827;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            pointer-events: none;
+        }
+
+        .contributor-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #111827;
+        }
+
+        .contributor-avatar:hover .contributor-tooltip {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Tooltip Test</h1>
+    
+    <div class="contributor-avatar">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=120&h=120&fit=crop&crop=face" alt="Dr. Sarah Chen">
+        <div class="contributor-tooltip">
+            <strong>Dr. Sarah Chen</strong>
+        </div>
+    </div>
+    
+    <div class="contributor-avatar">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="Prof. Michael Rodriguez">
+        <div class="contributor-tooltip">
+            <strong>Prof. Michael Rodriguez</strong>
+        </div>
+    </div>
+    
+    <div class="contributor-avatar">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt="Dr. Emily Johnson">
+        <div class="contributor-tooltip">
+            <strong>Dr. Emily Johnson</strong>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Guide - OpenDataArena</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-accent) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+        }
+        
+        .guide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .guide-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .guide-sections {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .guide-section {
+            background: var(--background-primary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--background-secondary);
+            border-radius: var(--radius-md);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .requirements {
+            background: var(--background-accent);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .requirements h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .requirements ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .code-block {
+            background: var(--background-accent);
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--background-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .copy-btn.copied {
+            background: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+        
+        .code-block code {
+            display: block;
+            padding: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .step-content ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .step-content ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .step-content ul ul {
+            margin: 0.25rem 0;
+            padding-left: 1rem;
+        }
+        
+        .step-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .step-content a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        /* 提交信息按钮样式 */
+        .submit-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .submit-info-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        /* 提交信息弹窗样式 */
+        .submit-info-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.25);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .submit-info-modal.show {
+            display: flex;
+        }
+        
+        .submit-info-modal-content {
+            background: var(--background-primary);
+            padding: 2rem 2.5rem 1.5rem 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            min-width: 400px;
+            max-width: 90vw;
+            text-align: center;
+            position: relative;
+        }
+        
+        .submit-info-modal-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            background: var(--background-primary);
+        }
+        
+        .form-group input:hover {
+            border-color: var(--border-dark);
+        }
+        
+        .input-hint {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+        
+        .form-group input:focus {
+            border: 1.5px solid var(--primary-color);
+        }
+        
+
+        
+        .submit-info-modal-content button[type="submit"] {
+            padding: 0.6rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--background-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+        
+        .submit-info-modal-content button[type="submit"]:hover {
+            background: var(--primary-dark);
+        }
+        
+        .submit-info-modal-content button[type="submit"]:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .submit-info-modal-content button[type="submit"]:disabled:hover {
+            background: var(--text-light);
+        }
+        
+        .btn-loading {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .submit-success {
+            color: var(--success-color);
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        
+        .submit-error {
+            color: var(--error-color);
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 1rem;
+            }
+            
+            .guide-title {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-btn {
+                position: static;
+                margin-bottom: 1rem;
+            }
+            
+            .submit-info-modal-content {
+                min-width: 320px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+    
+    <div class="guide-container">
+        <div class="guide-header">
+            <h1 class="guide-title">
+                <i class="fas fa-book-open"></i>
+                Contribution Guide
+            </h1>
+            <p class="guide-subtitle">
+                Welcome to the OpenDataArena community! This guide will help you understand how to contribute to OpenDataArena, whether by uploading datasets, submitting evaluation results, or providing improvement suggestions.
+            </p>
+        </div>
+        
+        <div class="guide-sections">
+            <div class="guide-section">
+                <div class="section-content">
+                    <p>To upload your dataset, please follow these steps:</p>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Prepare Your Dataset</h4>
+                                <p>Your dataset should be uploaded to Hugging Face, ideally with the following columns:</p>
+                                <ul>
+                                    <li><strong>instruction:</strong> A clear and concise instruction for each data point.</li>
+                                    <li><strong>input:</strong> The input data relevant to the instruction.</li>
+                                    <li><strong>output:</strong> The expected output based on instruction and input.</li>
+                                    <li><strong>Scores (if applicable):</strong> Columns for various normalized scores, which can be efficiently calculated using our open-source scoring tool [Tool Name]. Common score metrics include:
+                                        <ul>
+                                            <li>fail_rate</li>
+                                            <li>IFD</li>
+                                            <li>Length</li>
+                                            <li>...</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Upload Your Dataset</h4>
+                                <p>You will upload your dataset directly to the Hugging Face Hub. For a detailed, step-by-step guide on the upload process, please refer to the official Hugging Face documentation:</p>
+                                <p style="margin: 0.5rem 0;"><a href="https://huggingface.co/docs/hub/datasets-adding" target="_blank">https://huggingface.co/docs/hub/datasets-adding</a></p>
+                                <p>A simple guide for uploading a JSONL file is provided below:</p>
+                                <p>First, install the required packages and login to Hugging Face:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>Bash Commands</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <code id="bash-commands">
+pip install huggingface_hub datasets
+huggingface-cli login # login your huggingface account
+python upload_your_ds.py
+                                    </code>
+                                </div>
+                                
+                                <p>Then, create your Python script:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>Python Code</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <code id="upload-code">
+from datasets import load_dataset
+from utils_jsonl import read_jsonl
+
+# --- Configuration ---
+# Your Hugging Face username or organization name and desired dataset name.
+# Replace 'your-username' with your actual username or organization.
+repo_id = "your-username/my-awesome-viewable-dataset"
+
+# The path to your local JSONL file.
+local_file_path = "my_dataset.jsonl"
+
+# --- Load the local JSONL file into a Dataset ---
+dataset = load_dataset('json', data_files=local_file_path, split='train')
+print(f"Dataset loaded from {local_file_path}:")
+print(dataset)
+print(dataset[0])
+
+# --- Push the dataset to Hugging Face Hub ---
+print(f"Attempting to push dataset to {repo_id}...")
+dataset.push_to_hub(repo_id)
+
+print(f"Successfully pushed dataset to '{repo_id}'")
+print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id}")
+                                    </code>
+                                </div>
+                                <p>We provide an example Hugging Face datasets for your reference. These examples will help you understand the expected structure and content.</p>
+                                <p style="margin: 0.5rem 0;"><strong>Example link:</strong> <a href="#">[图片]</a></p>
+                            </div>
+                        </li>
+                        <li class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Submit Your Information</h4>
+                                <p>After uploading your dataset to Hugging Face, please provide your information:</p>
+                                <div style="margin: 1rem 0;">
+                                    <button id="submit-info-btn" class="submit-info-btn">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Submit Dataset Information
+                                    </button>
+                                </div>
+                                
+                                <!-- 信息提交弹窗 -->
+                                <div id="submit-info-modal" class="submit-info-modal">
+                                    <div class="submit-info-modal-content">
+                                        <span class="close-modal">&times;</span>
+                                        <h3>Submit Your Dataset Information</h3>
+                                        <form id="submit-info-form">
+                                            <div class="form-group">
+                                                <label for="dataset-link">HuggingFace Dataset Link:</label>
+                                                <input type="url" id="dataset-link" name="dataset-link" required />
+                                                <div class="input-hint">https://huggingface.co/datasets/your-username/your-dataset</div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="user-email">Email:</label>
+                                                <input type="email" id="user-email" name="user-email" required />
+                                                <div class="input-hint">your.email@example.com</div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="user-name">User Name:</label>
+                                                <input type="text" id="user-name" name="user-name" required />
+                                                <div class="input-hint">Your preferred username</div>
+                                            </div>
+                                            <button type="submit" id="submit-btn">
+                                                <span class="btn-text">Submit Information</span>
+                                                <span class="btn-loading" style="display: none;">
+                                                    <i class="fas fa-spinner fa-spin"></i>
+                                                    Submitting...
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <div id="submit-success" class="submit-success" style="display:none;">Thank you for your submission!</div>
+                                        <div id="submit-error" class="submit-error" style="display:none;">Submission failed, please try again.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+
+        </div>
+        
+        <!-- 联系方式 -->
+        <div class="contact-info">
+            <h3>Need Help?</h3>
+            <p>If you encounter any issues during the contribution process or need more detailed guidance, please feel free to contact us.</p>
+            <div class="contact-buttons">
+                <a href="mailto:opendataarena@163.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Send Email
+                </a>
+                <a href="https://github.com/opendataarena/opendataarena/issues" class="contact-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub Issues
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2Mh4L3e-1TvlCl-Qfl_WasFk2dPO2mFcbmfMG4iF9IgKuIQ/viewform" class="contact-btn" target="_blank">
+                    <i class="fas fa-comment"></i>
+                    Feedback Form
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('code');
+            const textToCopy = code.textContent;
+            
+            // 复制到剪贴板
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                // 更新按钮状态
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.classList.add('copied');
+                
+                // 2秒后恢复原状态
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                // 备用方案：使用传统方法
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // 更新按钮状态
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        // 提交信息弹窗逻辑
+        function setupSubmitInfoModal() {
+            const btn = document.getElementById('submit-info-btn');
+            const modal = document.getElementById('submit-info-modal');
+            const close = modal.querySelector('.close-modal');
+            const form = document.getElementById('submit-info-form');
+            const successMsg = document.getElementById('submit-success');
+            const errorMsg = document.getElementById('submit-error');
+            
+            if (!btn || !modal || !close || !form) return;
+            
+            // 打开弹窗
+            btn.onclick = () => { 
+                modal.classList.add('show'); 
+                successMsg.style.display = 'none'; 
+                errorMsg.style.display = 'none'; 
+                form.reset();
+            };
+            
+            // 关闭弹窗
+            close.onclick = () => { modal.classList.remove('show'); };
+            
+            // 点击背景关闭弹窗
+            window.addEventListener('click', (e) => { 
+                if (e.target === modal) modal.classList.remove('show'); 
+            });
+            
+            // 表单提交
+            form.onsubmit = async function(e) {
+                e.preventDefault();
+                successMsg.style.display = 'none';
+                errorMsg.style.display = 'none';
+                
+                const submitBtn = document.getElementById('submit-btn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+                
+                // 防止重复提交
+                if (submitBtn.disabled) return;
+                
+                const datasetLink = document.getElementById('dataset-link').value.trim();
+                const userEmail = document.getElementById('user-email').value.trim();
+                const userName = document.getElementById('user-name').value.trim();
+                
+                if (!datasetLink || !userEmail || !userName) return;
+                
+                // 显示加载状态
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'flex';
+                
+                // Google Sheets API 端点
+                const endpoint = 'https://script.google.com/macros/s/AKfycbyQySADHHdtfs2E7AATp2DioSUhB3tYyWjyfD7_OG_4DaMPeBXw-bUc3ke_RkF_saSUiA/exec';
+                
+                try {
+                    const formData = new FormData();
+                    formData.append('dataset-link', datasetLink);
+                    formData.append('user-email', userEmail);
+                    formData.append('user-name', userName);
+                    
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (res.ok) {
+                        successMsg.style.display = 'block';
+                        errorMsg.style.display = 'none';
+                        form.reset();
+                        
+                        // 3秒后关闭弹窗
+                        setTimeout(() => {
+                            modal.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        throw new Error('Network error');
+                    }
+                } catch (err) {
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                } finally {
+                    // 恢复按钮状态
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                }
+            };
+        }
+        
+        // 页面加载完成后初始化弹窗
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(setupSubmitInfoModal, 500);
+        } else {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(setupSubmitInfoModal, 500));
+        }
+    </script>
+</body>
+</html> 
