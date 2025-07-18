@@ -7,8 +7,8 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}开始部署到GitHub Pages...${NC}"
 
-REPO_URL_HTTPS="https://github.com/BriefMind-Daily/Data_Leaderboard.git"
-REPO_URL_SSH="git@github.com:BriefMind-Daily/Data_Leaderboard.git"
+REPO_URL_HTTPS="https://github.com/OpenDataArena/OpenDataArena.github.io.git"
+REPO_URL_SSH="git@github.com:OpenDataArena/OpenDataArena.github.io.git"
 
 REPO_URL="$REPO_URL_HTTPS"
 BRANCH="gh-pages" 
@@ -89,7 +89,7 @@ echo -e "${YELLOW}这可能需要几分钟时间，请耐心等待...${NC}"
 # 使用-v参数获取更详细的输出
 if git push -v -u origin $BRANCH --force; then
     echo -e "${GREEN}部署完成!${NC}"
-    echo -e "${GREEN}网站将在几分钟内可通过https://briefmind-daily.github.io/Data_Leaderboard/访问${NC}"
+    echo -e "${GREEN}网站将在几分钟内可访问"
 else
     echo -e "${YELLOW}推送失败，尝试使用更详细的方式...${NC}"
     
