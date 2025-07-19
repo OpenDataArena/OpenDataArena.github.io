@@ -9,7 +9,7 @@ def parse_excel_advanced():
         processed_data = {}
 
         # 读取dataset sheet，构建名称到属性的映射
-        df_dataset = pd.read_excel('new.xlsx', sheet_name='dataset', header=None)
+        df_dataset = pd.read_excel('0719.xlsx', sheet_name='dataset', header=None)
         dataset_attr_map = {}
         for idx in range(3, len(df_dataset)):
             name = df_dataset.iloc[idx, 1] if idx < len(df_dataset) else None
@@ -20,6 +20,8 @@ def parse_excel_advanced():
                 size = df_dataset.iloc[idx, 4] if idx < len(df_dataset) else None
                 size_precise = df_dataset.iloc[idx, 5] if idx < len(df_dataset) else None
                 link = df_dataset.iloc[idx, 6] if idx < len(df_dataset) else None
+                paper_link = df_dataset.iloc[idx, 7] if idx < len(df_dataset) else None
+                tag = df_dataset.iloc[idx, 8] if idx < len(df_dataset) else None
                 dataset_attr_map[name_str] = {
                     'affiliation': str(affiliation).strip() if pd.notna(affiliation) else '',
                     'year': str(year).strip() if pd.notna(year) else '',
@@ -32,7 +34,7 @@ def parse_excel_advanced():
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
             # 读取原始数据，不跳过任何行
-            df_raw = pd.read_excel('new.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('0719.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
@@ -54,16 +56,27 @@ def parse_excel_advanced():
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
 
-            # ========== 修正：提取base行为单行 ==========
+            # ========== 修正：提取base和instruct行为单行 ==========
             base_row_idx = 387  # 第388行对应索引387（0-based）
+            instruct_row_idx = 388  # 第389行对应索引388（0-based），base行的下一行
+            
             if base_row_idx < len(df_raw):
                 base_row = df_raw.iloc[base_row_idx]
                 print(f"找到base行: 第{base_row_idx+1}行")
             else:
                 print("警告: 未找到base行")
                 base_row = None
-            # 提前定义 base_info
+                
+            if instruct_row_idx < len(df_raw):
+                instruct_row = df_raw.iloc[instruct_row_idx]
+                print(f"找到instruct行: 第{instruct_row_idx+1}行")
+            else:
+                print("警告: 未找到instruct行")
+                instruct_row = None
+                
+            # 提前定义 base_info 和 instruct_info
             base_info = None
+            instruct_info = None
             if base_row is not None:
                 # 提取base行的各领域分数
                 def extract_base_task_scores(row, col_indices):
@@ -120,6 +133,63 @@ def parse_excel_advanced():
                     'code_task_scores': base_code_task_scores,
                     'reasoning_task_scores': base_reasoning_task_scores
                 }
+                
+                # 为base模型生成task_details
+                def organize_tasks_by_name(tasks, metrics, scores):
+                    """将相同任务名称的不同指标组织在一起，跳过无数据的任务"""
+                    organized_tasks = {}
+                    for task_name, metric_name, score in zip(tasks, metrics, scores):
+                        # 跳过无数据的任务（score为None）
+                        if score is None:
+                            continue
+                        
+                        if task_name not in organized_tasks:
+                            organized_tasks[task_name] = {
+                                'task_name': task_name,
+                                'metrics': []
+                            }
+                        organized_tasks[task_name]['metrics'].append({
+                            'metric': metric_name,
+                            'score': score
+                        })
+                    return list(organized_tasks.values())
+                
+                # 构建小任务详细信息
+                task_details = {}
+                
+                # General领域小任务
+                if 'general_tasks' in column_layout and base_general_task_scores:
+                    task_details['general_tasks'] = organize_tasks_by_name(
+                        column_layout.get('general_tasks', []),
+                        column_layout.get('general_metrics', []),
+                        base_general_task_scores
+                    )
+                
+                # Math领域小任务
+                if 'math_tasks' in column_layout and base_math_task_scores:
+                    task_details['math_tasks'] = organize_tasks_by_name(
+                        column_layout.get('math_tasks', []),
+                        column_layout.get('math_metrics', []),
+                        base_math_task_scores
+                    )
+                
+                # Code领域小任务
+                if 'code_tasks' in column_layout and base_code_task_scores:
+                    task_details['code_tasks'] = organize_tasks_by_name(
+                        column_layout.get('code_tasks', []),
+                        column_layout.get('code_metrics', []),
+                        base_code_task_scores
+                    )
+                
+                # Reasoning领域小任务
+                if 'reasoning_tasks' in column_layout and base_reasoning_task_scores:
+                    task_details['reasoning_tasks'] = organize_tasks_by_name(
+                        column_layout.get('reasoning_tasks', []),
+                        column_layout.get('reasoning_metrics', []),
+                        base_reasoning_task_scores
+                    )
+                
+                base_info['task_details'] = task_details
             else:
                 base_general_task_scores = [0] * len(general_cols)
                 base_math_task_scores = [0] * len(math_cols)
@@ -152,7 +222,145 @@ def parse_excel_advanced():
                     'general_task_scores': base_general_task_scores,
                     'math_task_scores': base_math_task_scores,
                     'code_task_scores': base_code_task_scores,
-                    'reasoning_task_scores': base_reasoning_task_scores
+                    'reasoning_task_scores': base_reasoning_task_scores,
+                    'task_details': {}  # 空的任务详情
+                }
+            
+            # ========== 处理instruct模型 ==========
+            if instruct_row is not None:
+                # 提取instruct行的各领域分数
+                instruct_general_task_scores = extract_base_task_scores(instruct_row, general_cols)
+                instruct_math_task_scores = extract_base_task_scores(instruct_row, math_cols)
+                instruct_code_task_scores = extract_base_task_scores(instruct_row, code_cols)
+                instruct_reasoning_task_scores = extract_base_task_scores(instruct_row, reasoning_cols)
+                # 计算instruct行的各领域平均分（包括0值）
+                instruct_general_avg = np.mean(instruct_general_task_scores) if instruct_general_task_scores else 0
+                instruct_math_avg = np.mean(instruct_math_task_scores) if instruct_math_task_scores else 0
+                instruct_code_avg = np.mean(instruct_code_task_scores) if instruct_code_task_scores else 0
+                instruct_reasoning_avg = np.mean(instruct_reasoning_task_scores) if instruct_reasoning_task_scores else 0
+                instruct_valid_averages = [avg for avg in [instruct_general_avg, instruct_math_avg, instruct_code_avg, instruct_reasoning_avg] if avg > 0]
+                instruct_overall_avg = np.mean(instruct_valid_averages) if instruct_valid_averages else 0
+                print(f"Instruct行分数 - General: {instruct_general_avg:.2f}, Math: {instruct_math_avg:.2f}, Code: {instruct_code_avg:.2f}, Reasoning: {instruct_reasoning_avg:.2f}, Overall: {instruct_overall_avg:.2f}")
+                
+                # 根据工作表名称设置instruct模型名称
+                if sheet_name == 'llama':
+                    instruct_name = 'meta-llama/Llama-3.1-8B-Instruct'
+                elif sheet_name == 'qwen':
+                    instruct_name = 'Qwen/Qwen2.5-7B-Instruct'
+                else:
+                    instruct_name = 'instruct'  # 默认名称
+                
+                # 构建instruct_info对象
+                instruct_info = {
+                    'id': 1,
+                    'name': instruct_name,
+                    'domain': 'instruct',
+                    'general_avg': round(instruct_general_avg, 2),
+                    'math_avg': round(instruct_math_avg, 2),
+                    'code_avg': round(instruct_code_avg, 2),
+                    'reasoning_avg': round(instruct_reasoning_avg, 2),
+                    'overall_avg': round(instruct_overall_avg, 2),
+                    'overall_efficiency': 0,  # instruct模型无数据量信息，设为0
+                    'general_efficiency': 0,
+                    'math_efficiency': 0,
+                    'code_efficiency': 0,
+                    'reasoning_efficiency': 0,
+                    'general_task_scores': instruct_general_task_scores,
+                    'math_task_scores': instruct_math_task_scores,
+                    'code_task_scores': instruct_code_task_scores,
+                    'reasoning_task_scores': instruct_reasoning_task_scores
+                }
+                
+                # 为instruct模型生成task_details（与base模型相同的方式）
+                def organize_tasks_by_name(tasks, metrics, scores):
+                    """将相同任务名称的不同指标组织在一起，跳过无数据的任务"""
+                    organized_tasks = {}
+                    for task_name, metric_name, score in zip(tasks, metrics, scores):
+                        # 跳过无数据的任务（score为None）
+                        if score is None:
+                            continue
+                        
+                        if task_name not in organized_tasks:
+                            organized_tasks[task_name] = {
+                                'task_name': task_name,
+                                'metrics': []
+                            }
+                        organized_tasks[task_name]['metrics'].append({
+                            'metric': metric_name,
+                            'score': score
+                        })
+                    return list(organized_tasks.values())
+                
+                # 构建小任务详细信息
+                task_details = {}
+                
+                # General领域小任务
+                if 'general_tasks' in column_layout and instruct_general_task_scores:
+                    task_details['general_tasks'] = organize_tasks_by_name(
+                        column_layout.get('general_tasks', []),
+                        column_layout.get('general_metrics', []),
+                        instruct_general_task_scores
+                    )
+                
+                # Math领域小任务
+                if 'math_tasks' in column_layout and instruct_math_task_scores:
+                    task_details['math_tasks'] = organize_tasks_by_name(
+                        column_layout.get('math_tasks', []),
+                        column_layout.get('math_metrics', []),
+                        instruct_math_task_scores
+                    )
+                
+                # Code领域小任务
+                if 'code_tasks' in column_layout and instruct_code_task_scores:
+                    task_details['code_tasks'] = organize_tasks_by_name(
+                        column_layout.get('code_tasks', []),
+                        column_layout.get('code_metrics', []),
+                        instruct_code_task_scores
+                    )
+                
+                # Reasoning领域小任务
+                if 'reasoning_tasks' in column_layout and instruct_reasoning_task_scores:
+                    task_details['reasoning_tasks'] = organize_tasks_by_name(
+                        column_layout.get('reasoning_tasks', []),
+                        column_layout.get('reasoning_metrics', []),
+                        instruct_reasoning_task_scores
+                    )
+                
+                instruct_info['task_details'] = task_details
+            else:
+                instruct_general_task_scores = [0] * len(general_cols)
+                instruct_math_task_scores = [0] * len(math_cols)
+                instruct_code_task_scores = [0] * len(code_cols)
+                instruct_reasoning_task_scores = [0] * len(reasoning_cols)
+                instruct_general_avg = instruct_math_avg = instruct_code_avg = instruct_reasoning_avg = instruct_overall_avg = 0
+                
+                # 根据工作表名称设置instruct模型名称
+                if sheet_name == 'llama':
+                    instruct_name = 'meta-llama/Llama-3.1-8B-Instruct'
+                elif sheet_name == 'qwen':
+                    instruct_name = 'Qwen/Qwen2.5-7B-Instruct'
+                else:
+                    instruct_name = 'instruct'  # 默认名称
+                
+                instruct_info = {
+                    'id': 1,
+                    'name': instruct_name,
+                    'domain': 'instruct',
+                    'general_avg': 0,
+                    'math_avg': 0,
+                    'code_avg': 0,
+                    'reasoning_avg': 0,
+                    'overall_avg': 0,
+                    'overall_efficiency': 0,  # instruct模型无数据量信息，设为0
+                    'general_efficiency': 0,
+                    'math_efficiency': 0,
+                    'code_efficiency': 0,
+                    'reasoning_efficiency': 0,
+                    'general_task_scores': instruct_general_task_scores,
+                    'math_task_scores': instruct_math_task_scores,
+                    'code_task_scores': instruct_code_task_scores,
+                    'reasoning_task_scores': instruct_reasoning_task_scores,
+                    'task_details': {}  # 空的任务详情
                 }
             # 遍历每个数据集（每4行为一组）
             datasets = []
@@ -299,6 +507,8 @@ def parse_excel_advanced():
                     base_code_efficiency_absolute = calculate_efficiency_score(base_code_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
                     base_reasoning_efficiency_absolute = calculate_efficiency_score(base_reasoning_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
                     
+
+                    
                     # 计算相对于base模型的性价比涨跌
                     overall_efficiency = round(overall_efficiency_absolute - base_overall_efficiency_absolute, 6)
                     general_efficiency = round(general_efficiency_absolute - base_general_efficiency_absolute, 6)
@@ -430,9 +640,11 @@ def parse_excel_advanced():
                     # 如果B列为空，移动到下一行
                     current_row += 1
             
-            # 在每个系列的datasets最前面插入base_info
+            # 在每个系列的datasets最前面插入instruct_info和base_info
+            if instruct_info:
+                datasets.insert(0, instruct_info)  # instruct模型排第一
             if base_info:
-                datasets.insert(0, base_info)
+                datasets.insert(1, base_info)  # base模型排第二
             
             processed_data[sheet_name] = datasets
             print(f"\n{sheet_name} 工作表处理完成: {len(datasets)} 个数据集")
@@ -504,8 +716,8 @@ def detect_column_layout(df_raw):
     default_config = {
         'general_cols': list(range(3, 7)),      # D,E,F,G
         'math_cols': list(range(7, 12)),        # H,I,J,K,L  
-        'code_cols': list(range(12, 20)),       # M,N,O,P,Q,R,S,T
-        'reasoning_cols': [20,21,22,23,24]   # U,V,W,X,Y
+        'code_cols': list(range(12, 18)),       # M,N,O,P,Q,R,S
+        'reasoning_cols': [18,19,20,21,22]   # T,U,V,W,X
     }
     
     print("使用默认列配置:")

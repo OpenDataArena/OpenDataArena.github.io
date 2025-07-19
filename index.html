@@ -233,25 +233,28 @@
                                 v-for="(dataset, index) in filteredData" 
                                 :key="dataset.id"
                                 class="table-row"
-                                :class="{ 'base-row': dataset.domain === 'base' }"
+                                :class="{ 
+                                    'base-row': dataset.domain === 'base',
+                                    'instruct-row': dataset.domain === 'instruct'
+                                }"
                             >
                                 <td class="rank-col">
-                                                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
-                                    {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
+                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
                                     </div>
-                                    <!-- For base model, this cell will be empty -->
+                                    <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                        <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
-                                        <div v-if="dataset.affiliation && dataset.domain !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                        <div v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
-                                <td class="year-col">{{ dataset.domain === 'base' ? '-' : dataset.year }}</td>
-                                <td class="size-col">{{ dataset.domain === 'base' ? '-' : dataset.size }}</td>
+                                <td class="year-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}</td>
+                                <td class="size-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}</td>
                                 <td class="domain-col">
-                                    <span v-if="dataset.domain !== 'base'"
+                                    <span v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
                                         @click="selectedDomains = [dataset.domain]"
@@ -375,25 +378,28 @@
                                 v-for="(dataset, index) in detailedFilteredData" 
                                 :key="dataset.id"
                                 class="table-row"
-                                :class="{ 'base-row': dataset.domain === 'base' }"
+                                :class="{ 
+                                    'base-row': dataset.domain === 'base',
+                                    'instruct-row': dataset.domain === 'instruct'
+                                }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) - 1)">
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) - 1)">
                                         {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) }}
                                     </div>
-                                    <!-- For base model, this cell will be empty -->
+                                    <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                        <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                         <span v-else class="dataset-name">{{ dataset.name }}</span>
-                                        <div v-if="dataset.affiliation && dataset.domain !== 'base'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
+                                        <div v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
-                                <td class="year-col">{{ dataset.domain === 'base' ? '-' : dataset.year }}</td>
-                                <td class="size-col">{{ dataset.domain === 'base' ? '-' : dataset.size }}</td>
+                                <td class="year-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}</td>
+                                <td class="size-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}</td>
                                 <td class="domain-col">
-                                    <span v-if="dataset.domain !== 'base'"
+                                    <span v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
                                         class="domain-badge clickable" 
                                         :class="'domain-' + (dataset.domain || 'unknown')"
                                         @click="selectedDomains = [dataset.domain]"

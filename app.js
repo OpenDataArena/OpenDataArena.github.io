@@ -124,7 +124,8 @@ const app = createApp({
             if (!currentData.value.length) return []
             
             const baseModel = currentData.value.find(item => isBaseModel(item));
-            const otherModels = currentData.value.filter(item => !isBaseModel(item));
+            const instructModel = currentData.value.find(item => isInstructModel(item));
+            const otherModels = currentData.value.filter(item => !isBaseModel(item) && !isInstructModel(item));
 
             const sortedOtherModels = [...otherModels].sort((a, b) => {
                 let scoreA = a[sortColumn.value] || 0
@@ -156,7 +157,13 @@ const app = createApp({
                 return sortDirection.value === 'asc' ? scoreA - scoreB : scoreB - scoreA
             });
 
-            return baseModel ? [baseModel, ...sortedOtherModels] : sortedOtherModels;
+            // 构建结果数组：instruct模型 -> base模型 -> 其他模型
+            const result = [];
+            if (instructModel) result.push(instructModel);
+            if (baseModel) result.push(baseModel);
+            result.push(...sortedOtherModels);
+            
+            return result;
         })
 
         // 计算属性：可用的领域列表
@@ -194,8 +201,17 @@ const app = createApp({
 
         // 计算属性：过滤后的数据（主表格）
         const filteredData = computed(() => {
-            let dataToFilter = sortedData.value; // 使用已经将base置顶的数据
+            let dataToFilter = sortedData.value; // 使用已经将base和instruct置顶的数据
             let baseModel = null;
+            let instructModel = null;
+            
+            // 提取instruct模型
+            if (dataToFilter.length > 0 && isInstructModel(dataToFilter[0])) {
+                instructModel = dataToFilter[0];
+                dataToFilter = dataToFilter.slice(1);
+            }
+            
+            // 提取base模型
             if (dataToFilter.length > 0 && isBaseModel(dataToFilter[0])) {
                 baseModel = dataToFilter[0];
                 dataToFilter = dataToFilter.slice(1);
@@ -222,12 +238,18 @@ const app = createApp({
                 filtered = filtered.filter(dataset => isInSizeRange(dataset))
             }
             
-            return baseModel ? [baseModel, ...filtered] : filtered;
+            // 构建结果数组：instruct模型 -> base模型 -> 过滤后的其他模型
+            const result = [];
+            if (instructModel) result.push(instructModel);
+            if (baseModel) result.push(baseModel);
+            result.push(...filtered);
+            
+            return result;
         })
 
         // 计算属性：未排序的过滤数据（用于排名计算）
         const filteredDataForRanking = computed(() => {
-            let filtered = currentData.value.filter(item => !isBaseModel(item)); // 排除 base
+            let filtered = currentData.value.filter(item => !isBaseModel(item) && !isInstructModel(item)); // 排除 base 和 instruct
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -255,7 +277,7 @@ const app = createApp({
         const detailedFilteredDataForRanking = computed(() => {
             if (!selectedType.value) return []
             
-            let filtered = currentData.value.filter(item => !isBaseModel(item)); // 排除 base
+            let filtered = currentData.value.filter(item => !isBaseModel(item) && !isInstructModel(item)); // 排除 base 和 instruct
 
             // 搜索过滤
             if (searchQuery.value) {
@@ -284,7 +306,8 @@ const app = createApp({
             if (!selectedType.value) return []
             
             const baseModel = currentData.value.find(item => isBaseModel(item));
-            let otherModels = currentData.value.filter(item => !isBaseModel(item));
+            const instructModel = currentData.value.find(item => isInstructModel(item));
+            let otherModels = currentData.value.filter(item => !isBaseModel(item) && !isInstructModel(item));
             
             // 使用选中的类型作为详细视图的展示
             const primaryType = selectedType.value
@@ -369,7 +392,13 @@ const app = createApp({
                 filtered = filtered.filter(dataset => isInSizeRange(dataset))
             }
 
-            return baseModel ? [baseModel, ...filtered] : filtered;
+            // 构建结果数组：instruct模型 -> base模型 -> 过滤后的其他模型
+            const result = [];
+            if (instructModel) result.push(instructModel);
+            if (baseModel) result.push(baseModel);
+            result.push(...filtered);
+            
+            return result;
         })
 
         // 计算属性：当前模型信息
@@ -634,6 +663,11 @@ const app = createApp({
             return dataset.domain === 'base'
         }
 
+        // 方法：检查是否是instruct模型
+        const isInstructModel = (dataset) => {
+            return dataset.domain === 'instruct'
+        }
+
         // 方法：获取分数等级类名
         const getScoreClass = (score) => {
             if (score >= 70) return 'score-high'
@@ -669,8 +703,8 @@ const app = createApp({
         const getTaskHeaders = (type) => {
             // 从实际数据中获取任务列表
             if (currentData.value.length > 0) {
-                // Find the first non-base model with task_details to use as a template
-                const modelForHeaders = currentData.value.find(item => !isBaseModel(item) && item.task_details);
+                // Find the first model with task_details to use as a template (excluding base and instruct for consistency)
+                const modelForHeaders = currentData.value.find(item => !isBaseModel(item) && !isInstructModel(item) && item.task_details);
 
                 if (modelForHeaders) {
                     const domainKey = type + '_tasks'
@@ -726,7 +760,7 @@ const app = createApp({
                 return raw ? 0 : { score: '0.0', diffText: null, diffClass: '' };
             }
 
-            if (isBaseModel(dataset)) {
+            if (isBaseModel(dataset) || isInstructModel(dataset)) {
                 const taskScoresKey = type + '_task_scores';
                 if (dataset[taskScoresKey] && Array.isArray(dataset[taskScoresKey])) {
                     const headers = getTaskHeaders(type); // These headers are derived from a non-base model
@@ -745,7 +779,7 @@ const app = createApp({
                         if (raw) return scoreValue;
                         return {
                             score: formatScore(scoreValue), // Use existing formatScore
-                            diffText: null, // Base model does not have improvement scores for sub-tasks
+                            diffText: null, // Base and instruct models do not have improvement scores for sub-tasks
                             diffClass: ''
                         };
                     }
@@ -1261,6 +1295,7 @@ const app = createApp({
             
             // 方法
             isBaseModel,
+            isInstructModel,
             switchModel,
             resetFilters,
             removeDomain,

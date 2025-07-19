@@ -907,6 +907,15 @@ body {
     background-color: #e6f2ff; /* A slightly darker shade for hover on base row */
 }
 
+/* Add a specific background color for the instruct row */
+.table-row.instruct-row {
+    background-color: #f0f8ff; /* Same as base row - AliceBlue */
+}
+
+.table-row.instruct-row:hover {
+    background-color: #e6f2ff; /* Same as base row hover - A slightly darker shade */
+}
+
 .table tbody tr {
     transition: all 0.2s ease;
 }
