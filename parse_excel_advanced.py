@@ -4,7 +4,6 @@ import numpy as np
 
 def parse_excel_advanced():
     try:        
-        # 只处理llama和qwen工作表
         sheets_to_process = ['llama', 'qwen']
         processed_data = {}
 
@@ -30,10 +29,7 @@ def parse_excel_advanced():
                         # 解析tag字段中的标签（假设用逗号分隔）
                         tags.extend([t.strip() for t in tag_str.split(',') if t.strip()])
                 
-                # 从domain字段推断标签（如果没有tag字段或tag为空）
                 if not tags:
-                    # 这里可以根据数据集名称或其他信息推断标签
-                    # 暂时保持domain作为标签
                     pass
                 
                 dataset_attr_map[name_str] = {
