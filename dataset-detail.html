@@ -197,6 +197,30 @@
             gap: 10px;
         }
         
+        .tag-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tag-badge.small {
+            padding: 2px 6px;
+            font-size: 0.7rem;
+        }
+        
+        .tag-badge i {
+            font-size: 0.7rem;
+        }
+        
         .section-content {
             padding: 30px;
         }
@@ -556,8 +580,13 @@
                         <div class="info-value">{{ llamaDataset.size || 'N/A' }}</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label">Domain</div>
-                        <div class="info-value">{{ getDomainDisplayName(llamaDataset.domain) }}</div>
+                        <div class="info-label">Tags</div>
+                        <div class="info-value">
+                            <span v-for="tag in getDatasetTags(llamaDataset)" :key="tag" class="tag-badge">
+                                <i :class="getTagIcon(tag)"></i>
+                                {{ getTagDisplayName(tag) }}
+                            </span>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-label">Overall Average (Llama)</div>
@@ -572,10 +601,10 @@
                 <!-- 外部链接 -->
                 <div class="external-links">
                     <a v-if="llamaDataset.link" :href="llamaDataset.link" target="_blank" rel="noopener noreferrer" class="external-link">
-                        <i class="fab fa-github"></i> Hugging Face Dataset
+                        <i class="fas fa-database"></i> Hugging Face Dataset
                     </a>
-                    <a href="index.html" class="external-link">
-                        <i class="fas fa-chart-line"></i> View Leaderboard
+                    <a v-if="llamaDataset.paper_link" :href="llamaDataset.paper_link" target="_blank" rel="noopener noreferrer" class="external-link">
+                        <i class="fas fa-file-alt"></i> Paper Link
                     </a>
                 </div>
             </div>
@@ -608,7 +637,12 @@
                                     :checked="isDatasetSelected(ds.id)"
                                     @change="toggleDatasetSelection(ds.id)">
                                 <span class="dataset-name">{{ ds.name }}</span>
-                                <span class="dataset-domain">{{ getDomainDisplayName(ds.domain) }}</span>
+                                <span class="dataset-tags">
+                                    <span v-for="tag in getDatasetTags(ds)" :key="tag" class="tag-badge small">
+                                        <i :class="getTagIcon(tag)"></i>
+                                        {{ getTagDisplayName(tag) }}
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1192,6 +1226,40 @@
                     })
                 })
 
+                // 获取数据集的标签列表
+                const getDatasetTags = (dataset) => {
+                    const tags = []
+                    
+                    // 只从tag字段解析标签
+                    const tagStr = dataset.tag || ''
+                    if (tagStr) {
+                        // 假设标签用逗号分隔
+                        const parsedTags = tagStr.split(',').map(t => t.trim()).filter(t => t)
+                        tags.push(...parsedTags)
+                    }
+                    
+                    return tags
+                }
+                
+                // 获取标签对应的图标
+                const getTagIcon = (tag) => {
+                    const tagIcons = {
+                        'general': 'fas fa-book',
+                        'math': 'fas fa-calculator',
+                        'code': 'fas fa-code',
+                        'science': 'fas fa-flask',
+                        'reasoning': 'fas fa-brain'
+                    }
+                    
+                    return tagIcons[tag.toLowerCase()] || 'fas fa-tag'
+                }
+                
+                // 获取标签显示名称（首字母大写）
+                const getTagDisplayName = (tag) => {
+                    if (!tag) return ''
+                    return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
+                }
+
                 return {
                     loading,
                     error,
@@ -1212,7 +1280,11 @@
                     isDatasetSelected,
                     toggleDatasetSelection,
                     updateComparison,
-                    clearComparison
+                    clearComparison,
+                    // 标签功能
+                    getDatasetTags,
+                    getTagIcon,
+                    getTagDisplayName
                 }
             }
         })

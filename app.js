@@ -6,7 +6,8 @@ const app = createApp({
         const rawData = ref({})
         const currentModel = ref('llama')
         const searchQuery = ref('')
-        const selectedDomains = ref([]) // 数组支持多选
+        const selectedTags = ref([]) // 数组支持多选
+        const tagFilterMode = ref('include') // 'include' 或 'exclusive'
         const selectedType = ref('') // 改回单选
         const sizeRangeMin = ref(0) // 数据量区间最小值索引
         const sizeRangeMax = ref(7) // 数据量区间最大值索引
@@ -20,6 +21,12 @@ const app = createApp({
         // 新增：用于列高亮的状态
         const highlightedColumn = ref(null) // 主表格高亮列
         const highlightedDetailedColumn = ref(null) // 详细表格高亮列
+
+        // 排序状态
+        const sortColumn = ref('overall_avg') // 当前排序列
+        const sortDirection = ref('desc') // 排序方向：'asc' 或 'desc'
+        const detailedSortColumn = ref('') // 详细表格的排序列
+        const detailedSortDirection = ref('desc') // 详细表格的排序方向
 
         // 模型配置
         const models = ref([
@@ -166,33 +173,43 @@ const app = createApp({
             return result;
         })
 
-        // 计算属性：可用的领域列表
-        const availableDomains = computed(() => {
+        // 计算属性：可用的标签列表
+        const availableTags = computed(() => {
             if (!currentData.value.length) return []
-            const domains = [...new Set(currentData.value
-                .filter(item => !isBaseModel(item)) // 排除 base 模型
-                .map(item => item.domain)
-                .filter(Boolean))]
-            return domains.sort()
+            const allTags = new Set()
+            
+            currentData.value
+                .filter(item => !isBaseModel(item) && !isInstructModel(item)) // 排除 base 和 instruct 模型
+                .forEach(item => {
+                    // 只从tag字段解析标签
+                    const tagStr = item.tag || ''
+                    if (tagStr) {
+                        // 假设标签用逗号分隔
+                        const tags = tagStr.split(',').map(t => t.trim()).filter(t => t)
+                        tags.forEach(tag => allTags.add(tag))
+                    }
+                })
+            
+            return Array.from(allTags).sort()
         })
         
-        // 计算属性：有序的领域列表（确保general、math、code、reasoning顺序）
-        const orderedDomains = computed(() => {
-            const domains = availableDomains.value
-            const orderedDomainsPriority = ['general', 'math', 'code', 'reasoning']
+        // 计算属性：有序的标签列表（确保general、math、code、science、reasoning顺序）
+        const orderedTags = computed(() => {
+            const tags = availableTags.value
+            const orderedTagsPriority = ['general', 'math', 'code', 'science', 'reasoning']
             
-            // 先添加按照优先级排序的常见领域
+            // 先添加按照优先级排序的常见标签
             const result = []
-            orderedDomainsPriority.forEach(domain => {
-                if (domains.includes(domain)) {
-                    result.push(domain)
+            orderedTagsPriority.forEach(tag => {
+                if (tags.includes(tag)) {
+                    result.push(tag)
                 }
             })
             
-            // 再添加其他领域
-            domains.forEach(domain => {
-                if (!orderedDomainsPriority.includes(domain)) {
-                    result.push(domain)
+            // 再添加其他标签
+            tags.forEach(tag => {
+                if (!orderedTagsPriority.includes(tag)) {
+                    result.push(tag)
                 }
             })
             
@@ -226,11 +243,21 @@ const app = createApp({
                 )
             }
 
-            // 数据领域多选过滤
-            if (selectedDomains.value.length > 0) {
-                filtered = filtered.filter(dataset => 
-                    selectedDomains.value.includes(dataset.domain)
-                )
+            // 数据标签多选过滤
+            if (selectedTags.value.length > 0) {
+                filtered = filtered.filter(dataset => {
+                    // 获取数据集的标签
+                    const datasetTags = getDatasetTags(dataset)
+                    
+                    if (tagFilterMode.value === 'exclusive') {
+                        // 仅包含模式：数据集必须只包含选中的标签
+                        return selectedTags.value.every(tag => datasetTags.includes(tag)) &&
+                               datasetTags.every(tag => selectedTags.value.includes(tag))
+                    } else {
+                        // 包含模式：数据集必须包含至少一个选中的标签
+                        return selectedTags.value.some(tag => datasetTags.includes(tag))
+                    }
+                })
             }
 
             // 数据量区间过滤
@@ -258,11 +285,21 @@ const app = createApp({
                 )
             }
 
-            // 数据领域多选过滤
-            if (selectedDomains.value.length > 0) {
-                filtered = filtered.filter(dataset => 
-                    selectedDomains.value.includes(dataset.domain)
-                )
+            // 数据标签多选过滤
+            if (selectedTags.value.length > 0) {
+                filtered = filtered.filter(dataset => {
+                    // 获取数据集的标签
+                    const datasetTags = getDatasetTags(dataset)
+                    
+                    if (tagFilterMode.value === 'exclusive') {
+                        // 仅包含模式：数据集必须只包含选中的标签
+                        return selectedTags.value.every(tag => datasetTags.includes(tag)) &&
+                               datasetTags.every(tag => selectedTags.value.includes(tag))
+                    } else {
+                        // 包含模式：数据集必须包含至少一个选中的标签
+                        return selectedTags.value.some(tag => datasetTags.includes(tag))
+                    }
+                })
             }
 
             // 数据量区间过滤
@@ -286,11 +323,21 @@ const app = createApp({
                 )
             }
 
-            // 数据领域多选过滤
-            if (selectedDomains.value.length > 0) {
-                filtered = filtered.filter(dataset => 
-                    selectedDomains.value.includes(dataset.domain)
-                )
+            // 数据标签多选过滤
+            if (selectedTags.value.length > 0) {
+                filtered = filtered.filter(dataset => {
+                    // 获取数据集的标签
+                    const datasetTags = getDatasetTags(dataset)
+                    
+                    if (tagFilterMode.value === 'exclusive') {
+                        // 仅包含模式：数据集必须只包含选中的标签
+                        return selectedTags.value.every(tag => datasetTags.includes(tag)) &&
+                               datasetTags.every(tag => selectedTags.value.includes(tag))
+                    } else {
+                        // 包含模式：数据集必须包含至少一个选中的标签
+                        return selectedTags.value.some(tag => datasetTags.includes(tag))
+                    }
+                })
             }
 
             // 数据量区间过滤
@@ -332,9 +379,11 @@ const app = createApp({
                             a.name.localeCompare(b.name) : 
                             b.name.localeCompare(a.name)
                     } else if (detailedSortColumn.value === 'domain') {
-                        // 按领域排序
-                        const domainA = a.domain || ''
-                        const domainB = b.domain || ''
+                        // 按领域排序（保留向后兼容，但使用第一个标签）
+                        const tagsA = getDatasetTags(a)
+                        const tagsB = getDatasetTags(b)
+                        const domainA = tagsA.length > 0 ? tagsA[0] : ''
+                        const domainB = tagsB.length > 0 ? tagsB[0] : ''
                         return detailedSortDirection.value === 'asc' ? 
                             domainA.localeCompare(domainB) : 
                             domainB.localeCompare(domainA)
@@ -380,11 +429,21 @@ const app = createApp({
                 )
             }
 
-            // 数据领域多选过滤
-            if (selectedDomains.value.length > 0) {
-                filtered = filtered.filter(dataset => 
-                    selectedDomains.value.includes(dataset.domain)
-                )
+            // 数据标签多选过滤
+            if (selectedTags.value.length > 0) {
+                filtered = filtered.filter(dataset => {
+                    // 获取数据集的标签
+                    const datasetTags = getDatasetTags(dataset)
+                    
+                    if (tagFilterMode.value === 'exclusive') {
+                        // 仅包含模式：数据集必须只包含选中的标签
+                        return selectedTags.value.every(tag => datasetTags.includes(tag)) &&
+                               datasetTags.every(tag => selectedTags.value.includes(tag))
+                    } else {
+                        // 包含模式：数据集必须包含至少一个选中的标签
+                        return selectedTags.value.some(tag => datasetTags.includes(tag))
+                    }
+                })
             }
 
             // 数据量区间过滤
@@ -414,15 +473,30 @@ const app = createApp({
         // 方法：重置筛选
         const resetFilters = () => {
             searchQuery.value = ''
-            selectedDomains.value = []
+            selectedTags.value = []
             selectedType.value = ''
             showDomainDropdown.value = false
             showTypeDropdown.value = false
         }
         
-        // 方法：移除所选领域
+        // 方法：移除所选标签
+        const removeTag = (tag) => {
+            selectedTags.value = selectedTags.value.filter(t => t !== tag)
+        }
+        
+        // 方法：移除所选领域 - 保留向后兼容
         const removeDomain = (domain) => {
-            selectedDomains.value = selectedDomains.value.filter(d => d !== domain)
+            // 将domain转换为对应的tag并移除
+            const domainToTagMap = {
+                'general': 'general',
+                'math': 'math', 
+                'code': 'code',
+                'reasoning': 'science' // reasoning映射到science
+            }
+            const tag = domainToTagMap[domain]
+            if (tag) {
+                selectedTags.value = selectedTags.value.filter(t => t !== tag)
+            }
         }
         
         // 方法：选择类型（单选）
@@ -550,13 +624,43 @@ const app = createApp({
             showDomainDropdown.value = false // 关闭其他下拉框
         }
         
-        // 方法：切换数据领域选择（多选）
-        const toggleDomain = (domain) => {
-            const index = selectedDomains.value.indexOf(domain)
+        // 方法：获取数据集的标签列表
+        const getDatasetTags = (dataset) => {
+            const tags = []
+            
+            // 只从tag字段解析标签
+            const tagStr = dataset.tag || ''
+            if (tagStr) {
+                // 假设标签用逗号分隔
+                const parsedTags = tagStr.split(',').map(t => t.trim()).filter(t => t)
+                tags.push(...parsedTags)
+            }
+            
+            return tags
+        }
+        
+        // 方法：切换标签选择（多选）
+        const toggleTag = (tag) => {
+            const index = selectedTags.value.indexOf(tag)
             if (index > -1) {
-                selectedDomains.value.splice(index, 1)
+                selectedTags.value.splice(index, 1)
             } else {
-                selectedDomains.value.push(domain)
+                selectedTags.value.push(tag)
+            }
+        }
+        
+        // 方法：切换数据领域选择（多选）- 保留向后兼容
+        const toggleDomain = (domain) => {
+            // 将domain转换为对应的tag并切换
+            const domainToTagMap = {
+                'general': 'general',
+                'math': 'math', 
+                'code': 'code',
+                'reasoning': 'science' // reasoning映射到science
+            }
+            const tag = domainToTagMap[domain]
+            if (tag) {
+                toggleTag(tag)
             }
         }
         
@@ -587,7 +691,20 @@ const app = createApp({
             return typeIcons[type.toLowerCase()] || 'fas fa-list-ol'
         }
         
-        // 方法：获取领域对应的图标
+        // 方法：获取标签对应的图标
+        const getTagIcon = (tag) => {
+            const tagIcons = {
+                'general': 'fas fa-book',
+                'math': 'fas fa-calculator',
+                'code': 'fas fa-code',
+                'science': 'fas fa-flask',
+                'reasoning': 'fas fa-brain'
+            }
+            
+            return tagIcons[tag.toLowerCase()] || 'fas fa-tag'
+        }
+        
+        // 方法：获取领域对应的图标 - 保留向后兼容
         const getDomainIcon = (domain) => {
             const domainIcons = {
                 'general': 'fas fa-book',
@@ -599,7 +716,13 @@ const app = createApp({
             return domainIcons[domain.toLowerCase()] || 'fas fa-tag'
         }
         
-        // 方法：获取领域显示名称（首字母大写）
+        // 方法：获取标签显示名称（首字母大写）
+        const getTagDisplayName = (tag) => {
+            if (!tag) return ''
+            return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
+        }
+        
+        // 方法：获取领域显示名称（首字母大写）- 保留向后兼容
         const getDomainDisplayName = (domain) => {
             if (!domain) return ''
             return domain.charAt(0).toUpperCase() + domain.slice(1).toLowerCase()
@@ -994,12 +1117,6 @@ const app = createApp({
             return ranks[dataset.id] || 1
         }
 
-        // 排序状态
-        const sortColumn = ref('overall_avg') // 当前排序列
-        const sortDirection = ref('desc') // 排序方向：'asc' 或 'desc'
-        const detailedSortColumn = ref('') // 详细表格的排序列
-        const detailedSortDirection = ref('desc') // 详细表格的排序方向
-
         // 新增：支持 year 和 size 排序
         const sortBy = (column) => {
             if (column === 'size') return; // 只禁止 size 排序，允许 year 排序
@@ -1263,7 +1380,8 @@ const app = createApp({
             error,
             currentModel,
             searchQuery,
-            selectedDomains,
+            selectedTags,
+            tagFilterMode,
             selectedType,
             sizeRangeMin,
             sizeRangeMax,
@@ -1290,14 +1408,15 @@ const app = createApp({
             detailedFilteredData,
             detailedFilteredDataForRanking,
             currentModelInfo,
-            availableDomains,
-            orderedDomains,
+            availableTags,
+            orderedTags,
             
             // 方法
             isBaseModel,
             isInstructModel,
             switchModel,
             resetFilters,
+            removeTag,
             removeDomain,
             selectType,
             clearType,
@@ -1310,8 +1429,12 @@ const app = createApp({
             isInSizeRange,
             toggleDomainDropdown,
             toggleTypeDropdown,
+            toggleTag,
             toggleDomain,
+            getDatasetTags,
             onTypeChange,
+            getTagIcon,
+            getTagDisplayName,
             getDomainIcon,
             getDomainDisplayName,
             getTypeIcon,

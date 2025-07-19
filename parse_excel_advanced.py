@@ -20,14 +20,30 @@ def parse_excel_advanced():
                 size = df_dataset.iloc[idx, 4] if idx < len(df_dataset) else None
                 size_precise = df_dataset.iloc[idx, 5] if idx < len(df_dataset) else None
                 link = df_dataset.iloc[idx, 6] if idx < len(df_dataset) else None
-                paper_link = df_dataset.iloc[idx, 7] if idx < len(df_dataset) else None
-                tag = df_dataset.iloc[idx, 8] if idx < len(df_dataset) else None
+                paper_link = df_dataset.iloc[idx, 11] if idx < len(df_dataset) else None
+                tag = df_dataset.iloc[idx, 15] if idx < len(df_dataset) else None
+                # 构建标签：将domain作为主要标签，如果有其他tag则合并
+                tags = []
+                if pd.notna(tag):
+                    tag_str = str(tag).strip()
+                    if tag_str:
+                        # 解析tag字段中的标签（假设用逗号分隔）
+                        tags.extend([t.strip() for t in tag_str.split(',') if t.strip()])
+                
+                # 从domain字段推断标签（如果没有tag字段或tag为空）
+                if not tags:
+                    # 这里可以根据数据集名称或其他信息推断标签
+                    # 暂时保持domain作为标签
+                    pass
+                
                 dataset_attr_map[name_str] = {
                     'affiliation': str(affiliation).strip() if pd.notna(affiliation) else '',
                     'year': str(year).strip() if pd.notna(year) else '',
                     'size': str(size).strip() if pd.notna(size) else '',
                     'size_precise': str(size_precise).strip() if pd.notna(size_precise) else '',
-                    'link': str(link).strip() if pd.notna(link) else ''
+                    'link': str(link).strip() if pd.notna(link) else '',
+                    'paper_link': str(paper_link).strip() if pd.notna(paper_link) else '',
+                    'tag': ','.join(tags) if tags else ''
                 }
 
         for sheet_name in sheets_to_process:
@@ -626,6 +642,17 @@ def parse_excel_advanced():
                     attr = dataset_attr_map.get(dataset_name, {})
                     dataset_info.update(attr)
                     
+                    # tag字段保持原始内容，不添加domain信息
+                    # existing_tags = dataset_info.get('tag', '').split(',') if dataset_info.get('tag') else []
+                    # existing_tags = [tag.strip() for tag in existing_tags if tag.strip()]
+                    
+                    # 添加domain作为标签（如果不在现有标签中）
+                    # if dataset_domain and dataset_domain not in existing_tags:
+                    #     existing_tags.append(dataset_domain)
+                    
+                    # 更新tag字段
+                    # dataset_info['tag'] = ','.join(existing_tags)
+                    
                     # 只添加有有效数据的数据集
                     if overall_avg > 0:
                         datasets.append(dataset_info)
@@ -661,6 +688,13 @@ def parse_excel_advanced():
             for i, item in enumerate(data[:3]):
                 print(f"{i+1}. {item['name']} [{item['domain']}]: 综合 {item['overall_avg']} (性价比涨跌: {item.get('overall_efficiency', 0):+.6f}), General {item['general_avg']} (性价比: {item.get('general_efficiency', 0):+.6f}), Math {item['math_avg']} (性价比: {item.get('math_efficiency', 0):+.6f}), Code {item['code_avg']} (性价比: {item.get('code_efficiency', 0):+.6f}), Reasoning {item['reasoning_avg']} (性价比: {item.get('reasoning_efficiency', 0):+.6f})")
                 
+                # 显示paper_link和tag信息
+                paper_link = item.get('paper_link', '')
+                tag = item.get('tag', '')
+                if paper_link or tag:
+                    print(f"    Paper Link: {paper_link if paper_link else '无'}")
+                    print(f"    Tag: {tag if tag else '无'}")
+                
                 # 显示小任务详情
                 if 'task_details' in item:
                     task_details = item['task_details']
@@ -686,6 +720,34 @@ def parse_excel_advanced():
                 domain = item['domain']
                 domain_count[domain] = domain_count.get(domain, 0) + 1
             print(f"  领域分布: {domain_count}")
+            
+            # 显示paper_link和tag统计
+            paper_link_count = {}
+            tag_count = {}
+            for item in data:
+                # 统计paper_link
+                paper_link = item.get('paper_link', '')
+                if paper_link:
+                    paper_link_count[paper_link] = paper_link_count.get(paper_link, 0) + 1
+                
+                # 统计tag
+                tag = item.get('tag', '')
+                if tag:
+                    tag_count[tag] = tag_count.get(tag, 0) + 1
+            
+            print(f"  Paper Link统计: {len(paper_link_count)} 个不同的链接")
+            if paper_link_count:
+                print(f"    前5个最常用的链接:")
+                sorted_links = sorted(paper_link_count.items(), key=lambda x: x[1], reverse=True)
+                for link, count in sorted_links[:5]:
+                    print(f"      {link}: {count} 次")
+            
+            print(f"  Tag统计: {len(tag_count)} 个不同的标签")
+            if tag_count:
+                print(f"    所有标签分布:")
+                sorted_tags = sorted(tag_count.items(), key=lambda x: x[1], reverse=True)
+                for tag, count in sorted_tags:
+                    print(f"      {tag}: {count} 次")
         
         return processed_data
         

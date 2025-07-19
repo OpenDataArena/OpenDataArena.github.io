@@ -91,24 +91,36 @@
 
                 <!-- 第二行：数据领域 和 榜单领域 -->
                 <div class="control-row">
-                    <!-- 数据领域按钮组 -->
-                    <div class="filter-dropdown-group data-domain-buttons-section">
-                        <label>Dataset Domain:</label>
-                        <div class="domain-buttons-container">
-                            <button
-                                class="domain-button"
-                                :class="{ active: selectedDomains.length === 0 }"
-                                @click="selectedDomains = []"> <!-- Assuming empty array means 'All' -->
-                                All
-                            </button>
-                            <button
-                                v-for="domain in orderedDomains"
-                                :key="domain"
-                                class="domain-button"
-                                :class="{ active: selectedDomains.includes(domain) }"
-                                @click="toggleDomain(domain)"> <!-- Assuming toggleDomain handles multi-select logic -->
-                                <i :class="getDomainIcon(domain)"></i> {{ getDomainDisplayName(domain) }}
-                            </button>
+                    <!-- 数据标签按钮组 -->
+                    <div class="filter-dropdown-group data-tag-buttons-section">
+                        <label>Dataset Tags:</label>
+                        <div class="tag-filter-container">
+                            <div class="tag-filter-mode">
+                                <label class="filter-mode-label">
+                                    <input type="radio" v-model="tagFilterMode" value="include" class="filter-mode-radio">
+                                    <span class="filter-mode-text">Contains</span>
+                                </label>
+                                <label class="filter-mode-label">
+                                    <input type="radio" v-model="tagFilterMode" value="exclusive" class="filter-mode-radio">
+                                    <span class="filter-mode-text">Exclusive</span>
+                                </label>
+                            </div>
+                            <div class="tag-buttons-container">
+                                <button
+                                    class="tag-button"
+                                    :class="{ active: selectedTags.length === 0 }"
+                                    @click="selectedTags = []">
+                                    All
+                                </button>
+                                <button
+                                    v-for="tag in orderedTags"
+                                    :key="tag"
+                                    class="tag-button"
+                                    :class="{ active: selectedTags.includes(tag) }"
+                                    @click="toggleTag(tag)">
+                                    <i :class="getTagIcon(tag)"></i> {{ getTagDisplayName(tag) }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- 榜单领域按钮组 -->
@@ -201,7 +213,6 @@
                                     <i :class="getSortIcon('year')" class="sort-icon"></i>
                                 </th>
                                 <th class="size-col">Size</th>
-                                <th class="domain-col">Domain</th>
                                 <th class="score-col sortable" @click="sortBy('overall_avg'); highlightColumn('overall_avg')">
                                     Avg Score
                                     <i :class="getSortIcon('overall_avg')" class="sort-icon"></i>
@@ -239,30 +250,31 @@
                                 }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) - 1)">
-                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'domain') ? 'overall_avg' : sortColumn) }}
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn) - 1)">
+                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn) }}
                                     </div>
                                     <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
-                                        <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                        <div class="dataset-name-with-tags">
+                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                            <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                            <!-- 显示标签图标 -->
+                                            <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-tags">
+                                                <span v-for="tag in getDatasetTags(dataset)" :key="tag" 
+                                                      class="tag-icon" 
+                                                      :title="getTagDisplayName(tag)"
+                                                      @click="toggleTag(tag)">
+                                                    <i :class="getTagIcon(tag)"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                         <div v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
                                 <td class="year-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}</td>
                                 <td class="size-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}</td>
-                                <td class="domain-col">
-                                    <span v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
-                                        class="domain-badge clickable" 
-                                        :class="'domain-' + (dataset.domain || 'unknown')"
-                                        @click="selectedDomains = [dataset.domain]"
-                                    >
-                                        {{ dataset.domain || 'Unknown' }}
-                                    </span>
-                                    <span v-else>-</span>
-                                </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedColumn === 'overall_avg' }">
                                     <div class="score-container">
                                         <span class="score-value overall">{{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg).score }}</span>
@@ -350,10 +362,6 @@
                                     <i :class="getSortIcon('year', true)" class="sort-icon"></i>
                                 </th>
                                 <th class="size-col">Size</th>
-                                <th class="domain-col sortable" @click="sortDetailedBy('domain')">
-                                    Domain
-                                    <i :class="getSortIcon('domain', true)" class="sort-icon"></i>
-                                </th>
                                 <th class="score-col overall-score sortable" @click="sortDetailedBy('average'); highlightColumn('average', true)">
                                     Avg Score
                                     <i :class="getSortIcon('average', true)" class="sort-icon"></i>
@@ -384,30 +392,31 @@
                                 }"
                             >
                                 <td class="rank-col">
-                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) - 1)">
-                                        {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'domain') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) }}
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) - 1)">
+                                        {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType) }}
                                     </div>
                                     <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
-                                        <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
-                                        <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                        <div class="dataset-name-with-tags">
+                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                            <span v-else class="dataset-name">{{ dataset.name }}</span>
+                                            <!-- 显示标签图标 -->
+                                            <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-tags">
+                                                <span v-for="tag in getDatasetTags(dataset)" :key="tag" 
+                                                      class="tag-icon" 
+                                                      :title="getTagDisplayName(tag)"
+                                                      @click="toggleTag(tag)">
+                                                    <i :class="getTagIcon(tag)"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                         <div v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-affiliation">{{ dataset.affiliation }}</div>
                                     </div>
                                 </td>
                                 <td class="year-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}</td>
                                 <td class="size-col">{{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}</td>
-                                <td class="domain-col">
-                                    <span v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
-                                        class="domain-badge clickable" 
-                                        :class="'domain-' + (dataset.domain || 'unknown')"
-                                        @click="selectedDomains = [dataset.domain]"
-                                    >
-                                        {{ dataset.domain || 'Unknown' }}
-                                    </span>
-                                    <span v-else>-</span>
-                                </td>
                                 <td class="score-col overall-score" :class="{ 'highlighted-col': highlightedDetailedColumn === 'average' }">
                                     <div class="score-container">
                                         <span class="score-value overall">{{ getTypeAverage(dataset, selectedType).score }}</span>
