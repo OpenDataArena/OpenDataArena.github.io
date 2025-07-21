@@ -108,6 +108,7 @@
                                 v-for="type in ['general', 'math', 'code', 'reasoning']" 
                                 :key="type"
                                 class="type-button"
+                                :data-type="type"
                                 :class="{ active: selectedType === type }"
                                 @click="selectType(type)">
                                 <i :class="getTypeIcon(type)"></i> {{ type.charAt(0).toUpperCase() + type.slice(1) }}
@@ -143,6 +144,7 @@
                                     v-for="tag in orderedTags"
                                     :key="tag"
                                     class="tag-button"
+                                    :data-type="tag.toLowerCase()"
                                     :class="{ 
                                         active: selectedTags.includes(tag),
                                         [`tag-${tag.toLowerCase()}`]: true
@@ -152,8 +154,8 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    
+                </div>
+
                     <!-- 数据量区间滑动条 -->
                     <div class="size-range-section">
                         <label>Dataset Size Range:</label>
@@ -265,7 +267,7 @@
                                 <td class="rank-col">
                                                             <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) - 1)">
                             {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) }}
-                        </div>
+                                    </div>
                                     <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
@@ -293,10 +295,10 @@
                                     <div class="score-container">
                                                                 <span class="score-value overall">{{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).score }}</span>
                         <span v-if="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffClass">
                             {{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'overall_efficiency' }">
@@ -308,40 +310,40 @@
                                     <div class="score-container">
                                                                 <span class="score-value">{{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).score }}</span>
                         <span v-if="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffClass">
                             {{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
                                     <div class="score-container">
                                                                 <span class="score-value">{{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).score }}</span>
                         <span v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffClass">
                             {{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
                                     <div class="score-container">
                                                                 <span class="score-value">{{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).score }}</span>
                         <span v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffClass">
                             {{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
                                     <div class="score-container">
                                                                 <span class="score-value">{{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).score }}</span>
                         <span v-if="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffClass">
                             {{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                             </tr>
@@ -408,7 +410,7 @@
                                 <td class="rank-col">
                                                             <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)">
                             {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) }}
-                        </div>
+                                    </div>
                                     <!-- For base and instruct models, this cell will be empty -->
                                 </td>
                                 <td class="name-col">
@@ -436,10 +438,10 @@
                                     <div class="score-container">
                                                                 <span class="score-value overall">{{ getTypeAverage(dataset, selectedType, improvementType).score }}</span>
                         <span v-if="getTypeAverage(dataset, selectedType, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="getTypeAverage(dataset, selectedType, improvementType).diffClass">
                             {{ getTypeAverage(dataset, selectedType, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="score-col" :class="{ 'highlighted-col': highlightedDetailedColumn === 'efficiency' }">
@@ -451,10 +453,10 @@
                                     <div class="score-container">
                                                                 <span class="score-value">{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).score }}</span>
                         <span v-if="getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffText"
-                              class="score-diff"
+                                              class="score-diff"
                               :class="getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffClass">
                             {{ getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffText }}
-                        </span>
+                                        </span>
                                     </div>
                                 </td>
                             </tr>

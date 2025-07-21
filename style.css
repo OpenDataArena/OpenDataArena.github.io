@@ -519,6 +519,97 @@ body {
     border-color: var(--primary-dark);
 }
 
+/* 选项卡按钮特定类型颜色样式 */
+.tag-button[data-type="general"] {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border-color: #bbdefb;
+}
+
+.tag-button[data-type="general"]:hover {
+    background-color: #bbdefb;
+    color: #1565c0;
+    border-color: #90caf9;
+}
+
+.tag-button[data-type="general"].active {
+    background-color: #1976d2;
+    color: white;
+    border-color: #1976d2;
+}
+
+.tag-button[data-type="math"] {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    border-color: #e1bee7;
+}
+
+.tag-button[data-type="math"]:hover {
+    background-color: #e1bee7;
+    color: #6a1b9a;
+    border-color: #ce93d8;
+}
+
+.tag-button[data-type="math"].active {
+    background-color: #7b1fa2;
+    color: white;
+    border-color: #7b1fa2;
+}
+
+.tag-button[data-type="code"] {
+    background-color: #e8f5e8;
+    color: #388e3c;
+    border-color: #c8e6c9;
+}
+
+.tag-button[data-type="code"]:hover {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    border-color: #a5d6a7;
+}
+
+.tag-button[data-type="code"].active {
+    background-color: #388e3c;
+    color: white;
+    border-color: #388e3c;
+}
+
+.tag-button[data-type="science"] {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border-color: #ffcc02;
+}
+
+.tag-button[data-type="science"]:hover {
+    background-color: #ffe0b2;
+    color: #ef6c00;
+    border-color: #ffb74d;
+}
+
+.tag-button[data-type="science"].active {
+    background-color: #f57c00;
+    color: white;
+    border-color: #f57c00;
+}
+
+.tag-button[data-type="reasoning"] {
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    border-color: #c5cae9;
+}
+
+.tag-button[data-type="reasoning"]:hover {
+    background-color: #c5cae9;
+    color: #303f9f;
+    border-color: #9fa8da;
+}
+
+.tag-button[data-type="reasoning"].active {
+    background-color: #3f51b5;
+    color: white;
+    border-color: #3f51b5;
+}
+
 /* 数据领域按钮组样式 */
 .data-domain-buttons-section {
     display: flex;
@@ -564,6 +655,97 @@ body {
     background-color: var(--primary-dark);
     color: var(--background-primary);
     border-color: var(--primary-dark);
+}
+
+/* 领域按钮特定类型颜色样式 */
+.domain-button[data-type="general"] {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border-color: #bbdefb;
+}
+
+.domain-button[data-type="general"]:hover {
+    background-color: #bbdefb;
+    color: #1565c0;
+    border-color: #90caf9;
+}
+
+.domain-button[data-type="general"].active {
+    background-color: #1976d2;
+    color: white;
+    border-color: #1976d2;
+}
+
+.domain-button[data-type="math"] {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    border-color: #e1bee7;
+}
+
+.domain-button[data-type="math"]:hover {
+    background-color: #e1bee7;
+    color: #6a1b9a;
+    border-color: #ce93d8;
+}
+
+.domain-button[data-type="math"].active {
+    background-color: #7b1fa2;
+    color: white;
+    border-color: #7b1fa2;
+}
+
+.domain-button[data-type="code"] {
+    background-color: #e8f5e8;
+    color: #388e3c;
+    border-color: #c8e6c9;
+}
+
+.domain-button[data-type="code"]:hover {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    border-color: #a5d6a7;
+}
+
+.domain-button[data-type="code"].active {
+    background-color: #388e3c;
+    color: white;
+    border-color: #388e3c;
+}
+
+.domain-button[data-type="science"] {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border-color: #ffcc02;
+}
+
+.domain-button[data-type="science"]:hover {
+    background-color: #ffe0b2;
+    color: #ef6c00;
+    border-color: #ffb74d;
+}
+
+.domain-button[data-type="science"].active {
+    background-color: #f57c00;
+    color: white;
+    border-color: #f57c00;
+}
+
+.domain-button[data-type="reasoning"] {
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    border-color: #c5cae9;
+}
+
+.domain-button[data-type="reasoning"]:hover {
+    background-color: #c5cae9;
+    color: #303f9f;
+    border-color: #9fa8da;
+}
+
+.domain-button[data-type="reasoning"].active {
+    background-color: #3f51b5;
+    color: white;
+    border-color: #3f51b5;
 }
 
 .size-range-section {
@@ -839,6 +1021,97 @@ body {
     background-color: var(--primary-dark);
     color: var(--background-primary);
     border-color: var(--primary-dark);
+}
+
+/* 类型按钮特定类型颜色样式 */
+.type-button[data-type="general"] {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border-color: #bbdefb;
+}
+
+.type-button[data-type="general"]:hover {
+    background-color: #bbdefb;
+    color: #1565c0;
+    border-color: #90caf9;
+}
+
+.type-button[data-type="general"].active {
+    background-color: #1976d2;
+    color: white;
+    border-color: #1976d2;
+}
+
+.type-button[data-type="math"] {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    border-color: #e1bee7;
+}
+
+.type-button[data-type="math"]:hover {
+    background-color: #e1bee7;
+    color: #6a1b9a;
+    border-color: #ce93d8;
+}
+
+.type-button[data-type="math"].active {
+    background-color: #7b1fa2;
+    color: white;
+    border-color: #7b1fa2;
+}
+
+.type-button[data-type="code"] {
+    background-color: #e8f5e8;
+    color: #388e3c;
+    border-color: #c8e6c9;
+}
+
+.type-button[data-type="code"]:hover {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    border-color: #a5d6a7;
+}
+
+.type-button[data-type="code"].active {
+    background-color: #388e3c;
+    color: white;
+    border-color: #388e3c;
+}
+
+.type-button[data-type="science"] {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border-color: #ffcc02;
+}
+
+.type-button[data-type="science"]:hover {
+    background-color: #ffe0b2;
+    color: #ef6c00;
+    border-color: #ffb74d;
+}
+
+.type-button[data-type="science"].active {
+    background-color: #f57c00;
+    color: white;
+    border-color: #f57c00;
+}
+
+.type-button[data-type="reasoning"] {
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    border-color: #c5cae9;
+}
+
+.type-button[data-type="reasoning"]:hover {
+    background-color: #c5cae9;
+    color: #303f9f;
+    border-color: #9fa8da;
+}
+
+.type-button[data-type="reasoning"].active {
+    background-color: #3f51b5;
+    color: white;
+    border-color: #3f51b5;
 }
 
 .improvement-type-section {

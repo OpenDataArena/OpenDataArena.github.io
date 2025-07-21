@@ -311,6 +311,79 @@
             border-color: #1e40af;
         }
         
+        /* 领域选项卡特定类型颜色样式 */
+        .domain-tab[data-type="general"] {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border-color: #bbdefb;
+        }
+        
+        .domain-tab[data-type="general"]:hover {
+            background-color: #bbdefb;
+            color: #1565c0;
+            border-color: #90caf9;
+        }
+        
+        .domain-tab[data-type="general"].active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1976d2;
+        }
+        
+        .domain-tab[data-type="math"] {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+            border-color: #e1bee7;
+        }
+        
+        .domain-tab[data-type="math"]:hover {
+            background-color: #e1bee7;
+            color: #6a1b9a;
+            border-color: #ce93d8;
+        }
+        
+        .domain-tab[data-type="math"].active {
+            background-color: #7b1fa2;
+            color: white;
+            border-color: #7b1fa2;
+        }
+        
+        .domain-tab[data-type="code"] {
+            background-color: #e8f5e8;
+            color: #388e3c;
+            border-color: #c8e6c9;
+        }
+        
+        .domain-tab[data-type="code"]:hover {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+            border-color: #a5d6a7;
+        }
+        
+        .domain-tab[data-type="code"].active {
+            background-color: #388e3c;
+            color: white;
+            border-color: #388e3c;
+        }
+        
+        .domain-tab[data-type="reasoning"] {
+            background-color: #e8eaf6;
+            color: #3f51b5;
+            border-color: #c5cae9;
+        }
+        
+        .domain-tab[data-type="reasoning"]:hover {
+            background-color: #c5cae9;
+            color: #303f9f;
+            border-color: #9fa8da;
+        }
+        
+        .domain-tab[data-type="reasoning"].active {
+            background-color: #3f51b5;
+            color: white;
+            border-color: #3f51b5;
+        }
+        
         .domain-tab input[type="checkbox"] {
             margin: 0;
             width: 14px;
@@ -690,6 +763,7 @@
                             <div 
                                 v-if="llamaDataset.task_details && llamaDataset.task_details.general_tasks"
                                 class="domain-tab"
+                                data-type="general"
                                 :class="{ active: selectedDomains.includes('general') }"
                                 @click="toggleDomain('general')">
                                 <input 
@@ -701,6 +775,7 @@
                             <div 
                                 v-if="llamaDataset.task_details && llamaDataset.task_details.math_tasks"
                                 class="domain-tab"
+                                data-type="math"
                                 :class="{ active: selectedDomains.includes('math') }"
                                 @click="toggleDomain('math')">
                                 <input 
@@ -712,6 +787,7 @@
                             <div 
                                 v-if="llamaDataset.task_details && llamaDataset.task_details.code_tasks"
                                 class="domain-tab"
+                                data-type="code"
                                 :class="{ active: selectedDomains.includes('code') }"
                                 @click="toggleDomain('code')">
                                 <input 
@@ -723,6 +799,7 @@
                             <div 
                                 v-if="llamaDataset.task_details && llamaDataset.task_details.reasoning_tasks"
                                 class="domain-tab"
+                                data-type="reasoning"
                                 :class="{ active: selectedDomains.includes('reasoning') }"
                                 @click="toggleDomain('reasoning')">
                                 <input 
