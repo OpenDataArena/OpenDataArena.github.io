@@ -58,7 +58,7 @@
 
             <!-- 控制区域 -->
             <div class="controls-section">
-                <!-- 第一行：模型系列、Improvement类型和榜单领域 -->
+                <!-- 第一行：模型系列、数据量区间和搜索框 -->
                 <div class="control-row">
                     <!-- 模型切换按钮组 -->
                     <div class="model-switcher model-buttons-section">
@@ -74,70 +74,6 @@
                             </button>
                         </div>
                     </div>
-                    
-
-                    
-                    <!-- 榜单领域按钮组 -->
-                    <div class="filter-dropdown-group type-buttons-section">
-                        <label>Leaderboard Domain:</label>
-                        <div class="type-buttons-container">
-                            <button 
-                                class="type-button"
-                                :class="{ active: !selectedType }"
-                                @click="selectType('')">
-                                All
-                            </button>
-                            <button 
-                                v-for="type in ['general', 'math', 'code', 'reasoning']" 
-                                :key="type"
-                                class="type-button"
-                                :data-type="type"
-                                :class="{ active: selectedType === type }"
-                                @click="selectType(type)">
-                                <i :class="getTypeIcon(type)"></i> {{ type.charAt(0).toUpperCase() + type.slice(1) }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 第二行：数据标签、数据量区间和搜索框 -->
-                <div class="control-row">
-                    <!-- 数据标签按钮组 -->
-                    <div class="filter-dropdown-group data-tag-buttons-section">
-                        <label>Dataset Tags:</label>
-                        <div class="tag-filter-container">
-                            <div class="tag-filter-mode">
-                                <label class="filter-mode-label">
-                                    <input type="radio" v-model="tagFilterMode" value="include" class="filter-mode-radio">
-                                    <span class="filter-mode-text">Contains</span>
-                                </label>
-                                <label class="filter-mode-label">
-                                    <input type="radio" v-model="tagFilterMode" value="exclusive" class="filter-mode-radio">
-                                    <span class="filter-mode-text">Exclusive</span>
-                                </label>
-                            </div>
-                            <div class="tag-buttons-container">
-                                <button
-                                    class="tag-button"
-                                    :class="{ active: selectedTags.length === 0 }"
-                                    @click="selectedTags = []">
-                                    All
-                                </button>
-                                <button
-                                    v-for="tag in orderedTags"
-                                    :key="tag"
-                                    class="tag-button"
-                                    :data-type="tag.toLowerCase()"
-                                    :class="{ 
-                                        active: selectedTags.includes(tag),
-                                        [`tag-${tag.toLowerCase()}`]: true
-                                    }"
-                                    @click="toggleTag(tag)">
-                                    <i :class="getTagIcon(tag)"></i> {{ getTagDisplayName(tag) }}
-                                </button>
-                            </div>
-                        </div>
-                </div>
 
                     <!-- 数据量区间滑动条 -->
                     <div class="size-range-section">
@@ -190,6 +126,68 @@
                                 placeholder="Search datasets..."
                                 class="search-input"
                             >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行：数据标签和榜单领域 -->
+                <div class="control-row">
+                    <!-- 数据标签按钮组 -->
+                    <div class="filter-dropdown-group data-tag-buttons-section">
+                        <label>Dataset Tags:</label>
+                        <div class="tag-filter-container">
+                            <div class="tag-filter-mode">
+                                <label class="filter-mode-label">
+                                    <input type="radio" v-model="tagFilterMode" value="include" class="filter-mode-radio">
+                                    <span class="filter-mode-text">Contains</span>
+                                </label>
+                                <label class="filter-mode-label">
+                                    <input type="radio" v-model="tagFilterMode" value="exclusive" class="filter-mode-radio">
+                                    <span class="filter-mode-text">Exclusive</span>
+                                </label>
+                            </div>
+                            <div class="tag-buttons-container">
+                                <button
+                                    class="tag-button"
+                                    :class="{ active: selectedTags.length === 0 }"
+                                    @click="selectedTags = []">
+                                    All
+                                </button>
+                                <button
+                                    v-for="tag in orderedTags"
+                                    :key="tag"
+                                    class="tag-button"
+                                    :data-type="tag.toLowerCase()"
+                                    :class="{ 
+                                        active: selectedTags.includes(tag),
+                                        [`tag-${tag.toLowerCase()}`]: true
+                                    }"
+                                    @click="toggleTag(tag)">
+                                    <i :class="getTagIcon(tag)"></i> {{ getTagDisplayName(tag) }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 榜单领域按钮组 -->
+                    <div class="filter-dropdown-group type-buttons-section">
+                        <label>Leaderboard Domain:</label>
+                        <div class="type-buttons-container">
+                            <button 
+                                class="type-button"
+                                :class="{ active: !selectedType }"
+                                @click="selectType('')">
+                                All
+                            </button>
+                            <button 
+                                v-for="type in ['general', 'math', 'code', 'reasoning']" 
+                                :key="type"
+                                class="type-button"
+                                :data-type="type"
+                                :class="{ active: selectedType === type }"
+                                @click="selectType(type)">
+                                <i :class="getTypeIcon(type)"></i> {{ type.charAt(0).toUpperCase() + type.slice(1) }}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -253,9 +251,12 @@
                                         {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) }}
                                     </div>
                                     <!-- 只为当前选中的比较基准显示标记 -->
-                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" :title="dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline'">
+                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
                                         <i v-if="dataset.domain === 'base'" class="fas fa-bullseye"></i>
                                         <i v-if="dataset.domain === 'instruct'" class="fas fa-bullseye"></i>
+                                        <div v-if="showTooltip" class="custom-tooltip">
+                                            {{ dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline' }}
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="name-col">
@@ -400,9 +401,12 @@
                                     <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)">
                                         {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) }}
                                     </div>
-                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" :title="dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline'">
+                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
                                         <i v-if="dataset.domain === 'base'" class="fas fa-bullseye"></i>
                                         <i v-if="dataset.domain === 'instruct'" class="fas fa-bullseye"></i>
+                                        <div v-if="showTooltip" class="custom-tooltip">
+                                            {{ dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline' }}
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="name-col">

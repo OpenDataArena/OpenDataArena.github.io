@@ -131,7 +131,6 @@ label {
 }
 
 .filter-dropdown-group {
-    flex: 2; /* 数据领域占2份 */
     min-width: 0; /* 允许缩小 */
 }
 

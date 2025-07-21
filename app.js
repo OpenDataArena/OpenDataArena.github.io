@@ -22,6 +22,9 @@ const app = createApp({
         // 新增：用于列高亮的状态
         const highlightedColumn = ref(null) // 主表格高亮列
         const highlightedDetailedColumn = ref(null) // 详细表格高亮列
+        
+        // 工具提示状态
+        const showTooltip = ref(false)
 
         // 排序状态
         const sortColumn = ref('overall_avg') // 当前排序列
@@ -1449,6 +1452,7 @@ const app = createApp({
             detailedSortDirection,
             highlightedColumn, // 导出
             highlightedDetailedColumn, // 导出
+            showTooltip, // 导出
             
             // 配置数据
             models,
