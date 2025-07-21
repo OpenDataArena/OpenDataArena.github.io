@@ -9,6 +9,7 @@ const app = createApp({
         const selectedTags = ref([]) // 数组支持多选
         const tagFilterMode = ref('include') // 'include' 或 'exclusive'
         const selectedType = ref('') // 改回单选
+        const improvementType = ref('vs_base') // 新增：improvement类型选择
         const sizeRangeMin = ref(0) // 数据量区间最小值索引
         const sizeRangeMax = ref(7) // 数据量区间最大值索引
         const minSlider = ref(null) // 最小值滑动条引用
@@ -750,10 +751,34 @@ const app = createApp({
         }
 
         // 方法：格式化分数并显示改进值 (主榜单)
-        const formatScoreWithImprovement = (score, improvementValue) => {
+        const formatScoreWithImprovement = (score, improvementValue, dataset = null, improvementType = 'vs_base') => {
             const formattedScore = formatScore(score)
             let diffText = null;
             let diffClass = '';
+
+            // 如果dataset有新的improvement结构，使用新的结构
+            if (dataset && dataset.improvement && dataset.improvement[improvementType]) {
+                // 根据score类型确定使用哪个improvement值
+                let actualImprovementValue = null;
+                if (typeof score === 'number') {
+                    // 根据score值判断是哪个领域的分数
+                    if (Math.abs(score - (dataset.overall_avg || 0)) < 0.1) {
+                        actualImprovementValue = dataset.improvement[improvementType].overall_avg;
+                    } else if (Math.abs(score - (dataset.general_avg || 0)) < 0.1) {
+                        actualImprovementValue = dataset.improvement[improvementType].general_avg;
+                    } else if (Math.abs(score - (dataset.math_avg || 0)) < 0.1) {
+                        actualImprovementValue = dataset.improvement[improvementType].math_avg;
+                    } else if (Math.abs(score - (dataset.code_avg || 0)) < 0.1) {
+                        actualImprovementValue = dataset.improvement[improvementType].code_avg;
+                    } else if (Math.abs(score - (dataset.reasoning_avg || 0)) < 0.1) {
+                        actualImprovementValue = dataset.improvement[improvementType].reasoning_avg;
+                    }
+                }
+                
+                if (typeof actualImprovementValue === 'number') {
+                    improvementValue = actualImprovementValue;
+                }
+            }
 
             if (typeof improvementValue === 'number') { // Always show if improvementValue is a number
                 const diff = roundToOneDecimal(improvementValue);
@@ -878,7 +903,7 @@ const app = createApp({
         }
 
         // 方法：获取特定任务的分数
-        const getTaskScore = (dataset, type, taskNameFromHeader, metricNameFromHeader, raw = false) => {
+        const getTaskScore = (dataset, type, taskNameFromHeader, metricNameFromHeader, raw = false, improvementType = 'vs_base') => {
             if (!dataset || !type || !taskNameFromHeader) {
                 return raw ? 0 : { score: '0.0', diffText: null, diffClass: '' };
             }
@@ -953,13 +978,21 @@ const app = createApp({
             const indexInCurrentDatasetScores = currentDatasetMetricSequence.findIndex(item =>
                 item.taskName === taskNameFromHeader && item.metricName === metricNameFromHeader
             );
-            if (
-                dataset.improvement &&
-                dataset.improvement[improvementArrayKey] &&
-                indexInCurrentDatasetScores !== -1 &&
-                dataset.improvement[improvementArrayKey].length > indexInCurrentDatasetScores
-            ) {
-                improvementValue = dataset.improvement[improvementArrayKey][indexInCurrentDatasetScores];
+            
+            // 支持新的improvement结构
+            if (dataset.improvement) {
+                let improvementArray = null;
+                if (dataset.improvement[improvementType] && dataset.improvement[improvementType][improvementArrayKey]) {
+                    // 新的结构：improvement.vs_base 或 improvement.vs_instruct
+                    improvementArray = dataset.improvement[improvementType][improvementArrayKey];
+                } else if (dataset.improvement[improvementArrayKey]) {
+                    // 旧的结构：直接访问
+                    improvementArray = dataset.improvement[improvementArrayKey];
+                }
+                
+                if (improvementArray && indexInCurrentDatasetScores !== -1 && improvementArray.length > indexInCurrentDatasetScores) {
+                    improvementValue = improvementArray[indexInCurrentDatasetScores];
+                }
             }
 
             // 3. 格式化并返回
@@ -984,10 +1017,21 @@ const app = createApp({
         };
 
         // 方法：获取类型平均分
-        const getTypeAverage = (dataset, type) => {
+        const getTypeAverage = (dataset, type, improvementType = 'vs_base') => {
             const avgKey = type + '_avg';
             const scoreValue = dataset[avgKey] || 0;
-            const improvementValue = dataset.improvement ? dataset.improvement[avgKey] : null; // 假设 improvement 在 dataset.improvement 对象中
+            
+            // 支持新的improvement结构
+            let improvementValue = null;
+            if (dataset.improvement) {
+                if (dataset.improvement[improvementType]) {
+                    // 新的结构：improvement.vs_base 或 improvement.vs_instruct
+                    improvementValue = dataset.improvement[improvementType][avgKey];
+                } else if (dataset.improvement[avgKey]) {
+                    // 旧的结构：直接访问 improvement.general_avg 等
+                    improvementValue = dataset.improvement[avgKey];
+                }
+            }
 
             const formattedScore = formatScore(scoreValue);
             let diffText = null;
@@ -1024,7 +1068,7 @@ const app = createApp({
         }
 
         // 方法：计算排名（考虑相同分数）
-        const calculateRanks = (data, scoreKey, isDetailed = false, selectedType = null) => {
+        const calculateRanks = (data, scoreKey, isDetailed = false, selectedType = null, improvementType = 'vs_base') => {
             let dataToRank = data.filter(item => !isBaseModel(item)); // 排除 base
             let dataWithRoundedScores
 
@@ -1048,7 +1092,7 @@ const app = createApp({
                     if (header) {
                         dataWithRoundedScores = data.map(item => ({
                             ...item,
-                            roundedScore: roundToOneDecimal(getTaskScore(item, selectedType, header.taskName, header.metricName, true))
+                            roundedScore: roundToOneDecimal(getTaskScore(item, selectedType, header.taskName, header.metricName, true, improvementType))
                         }))
                     } else {
                         // 默认使用平均分
@@ -1111,9 +1155,9 @@ const app = createApp({
         }
 
         // 方法：获取排名
-        const getRank = (dataset, data, scoreKey, isDetailed = false, selectedType = null) => {
+        const getRank = (dataset, data, scoreKey, isDetailed = false, selectedType = null, improvementType = 'vs_base') => {
             if (isBaseModel(dataset)) return '-'; // base 不参与排名
-            const ranks = calculateRanks(data.filter(item => !isBaseModel(item)), scoreKey, isDetailed, selectedType)
+            const ranks = calculateRanks(data.filter(item => !isBaseModel(item)), scoreKey, isDetailed, selectedType, improvementType)
             return ranks[dataset.id] || 1
         }
 
@@ -1383,6 +1427,7 @@ const app = createApp({
             selectedTags,
             tagFilterMode,
             selectedType,
+            improvementType,
             sizeRangeMin,
             sizeRangeMax,
             minSlider,

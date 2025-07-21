@@ -1,5 +1,4 @@
 :root {
-    /* BriefMind Daily 风格配色方案 */
     --primary-color: #1e40af;
     --primary-light: #3b82f6;
     --primary-dark: #1e3a8a;
@@ -47,7 +46,6 @@ body {
     padding: 2rem;
 }
 
-/* Main Container */
 .main-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -55,7 +53,6 @@ body {
     background: var(--background-primary);
 }
 
-/* 贡献者展示板块样式 */
 .contributors-section {
     margin-top: 3rem;
     padding: 2.5rem;
@@ -227,7 +224,6 @@ body {
     font-size: 1.2rem;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
     .contributors-section {
         padding: 1.5rem;
@@ -269,7 +265,6 @@ body {
     }
 }
 
-/* Header Styles */
 .header {
     display: flex;
     align-items: center; /* This will help vertically align all items in the header */
@@ -281,7 +276,6 @@ body {
     /* Removed any backdrop-filter, box-shadow from header if they were there */
 }
 
-/* Group the Like and Subscribe buttons */
 .header-buttons {
     display: flex;
     align-items: center;
@@ -289,69 +283,131 @@ body {
 }
 
 .header h1 {
-    font-size: 3.2rem; /* 更大字号 */
+    font-size: 3.2rem;
     font-weight: 700;
-    /* Simple left-to-right blue gradient */
-    background: linear-gradient(to right, #00BFFF, #000080); /* More contrasting blues: Deep Sky Blue to Navy */
+    background: linear-gradient(to right, #00BFFF, #000080);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the text color transparent to show the gradient */
-    color: transparent; /* Fallback for browsers that don't support background-clip: text */
-    letter-spacing: 0.03em; /* Adds a touch of modern sophistication */
-    padding: 5px 0; /* Adds a bit of breathing room around the text */
-    margin: 0; /* Ensure no extra margin */
-    position: relative; /* For potential pseudo-elements if needed for more complex effects */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: 0.03em;
+    padding: 5px 0;
+    margin: 0;
+    position: relative;
 }
 
-/* Remove gradient and animation from header */
 .header::before {
     display: none;
 }
 
-/* Controls Section */
 .controls-section {
     padding: 0.75rem 0 0.5rem;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Increased gap between rows */
+    gap: 1rem;
 }
 
 .control-row {
     display: flex;
-    gap: 1.5rem; /* Increased gap between items in a row */
-    align-items: flex-end; /* Align items to the bottom for better visual balance with labels */
+    gap: 1.5rem;
+    align-items: flex-end;
     flex-wrap: wrap;
-    padding-left: 20px; /* Add padding to shift content to the right */
+    padding-left: 20px;
+}
+
+.control-row:first-child {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    gap: 1rem;
+}
+
+.control-row:first-child .model-switcher {
+    flex: 0 0 auto;
+}
+
+.control-row:first-child .improvement-type-section {
+    flex: 0 0 auto;
+}
+
+.control-row:first-child .type-buttons-section {
+    flex: 0 0 auto;
+}
+
+.control-row:first-child .search-box-container {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.control-row:last-child {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.control-row:last-child .data-tag-buttons-section {
+    flex: 1;
+    min-width: 400px;
+}
+
+.control-row:last-child .size-range-section {
+    flex: 0 0 auto;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.control-row:last-child .search-box-container {
+    flex: 0 0 auto;
+    min-width: 200px;
+    margin-left: auto;
+    margin-top: 2rem;
 }
 
 .model-switcher,
 .type-buttons-section,
 .data-domain-buttons-section,
 .search-box-container {
-    flex-grow: 1; /* Allow items to grow and fill space */
-    flex-basis: 200px; /* Minimum base width before wrapping */
+    flex-grow: 1;
+    flex-basis: 150px;
 }
 
-/* 模型系列按钮组样式 */
+.model-switcher label,
+.type-buttons-section label,
+.data-tag-buttons-section label,
+.size-range-section label,
+.improvement-type-section label,
+.search-box-container label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.control-row:last-child .data-tag-buttons-section label,
+.control-row:last-child .size-range-section label {
+    margin-top: 0;
+}
+
 .model-buttons-section {
     display: flex;
-    flex-direction: column; /* Label above buttons */
-    gap: 0.5rem; /* Space between label and buttons */
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .model-buttons-container {
     display: flex;
-    gap: 0.5rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .model-button {
-    padding: 0.6rem 1rem; /* Consistent with other control buttons */
+    padding: 0.6rem 1rem;
     border: 1px solid var(--border-medium);
     background-color: var(--background-primary);
     color: var(--text-secondary);
-    border-radius: var(--radius-sm); /* Square-ish corners */
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: 500;
@@ -374,28 +430,22 @@ body {
 .search-box-container {
     display: flex;
     flex-direction: column;
-    /* gap: 4px; */ /* Gap removed as label is removed */
-    justify-content: flex-end; /* Align search box to bottom if label was there */
+    justify-content: flex-end;
 }
 
 .search-box-container .search-box {
-    width: 100%; /* Make search box take full width of its container */
+    width: 100%;
 }
 
 .search-box-container label {
     display: block;
-    margin-bottom: 0; /* Reset margin from general label style if needed */
-    font-weight: 500;
-    color: var(--text-primary);
-    font-size: 0.85rem;
-    height: 14px;
+    margin-bottom: 0;
 }
 
-/* 数据标签按钮组样式 */
 .data-tag-buttons-section {
     display: flex;
-    flex-direction: column; /* Label above buttons */
-    gap: 0.5rem; /* Space between label and buttons */
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .tag-filter-container {
@@ -431,16 +481,16 @@ body {
 
 .tag-buttons-container {
     display: flex;
-    gap: 0.5rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .tag-button {
-    padding: 0.6rem 1rem; /* Consistent with type-button */
+    padding: 0.6rem 1rem;
     border: 1px solid var(--border-medium);
     background-color: var(--background-primary);
     color: var(--text-secondary);
-    border-radius: var(--radius-sm); /* Square-ish corners */
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: 500;
@@ -448,7 +498,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 80px; /* Minimum width */
+    min-width: 80px;
     text-align: center;
 }
 
@@ -472,22 +522,22 @@ body {
 /* 数据领域按钮组样式 */
 .data-domain-buttons-section {
     display: flex;
-    flex-direction: column; /* Label above buttons */
-    gap: 0.5rem; /* Space between label and buttons */
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .domain-buttons-container {
     display: flex;
-    gap: 0.5rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .domain-button {
-    padding: 0.6rem 1rem; /* Consistent with type-button */
+    padding: 0.6rem 1rem;
     border: 1px solid var(--border-medium);
     background-color: var(--background-primary);
     color: var(--text-secondary);
-    border-radius: var(--radius-sm); /* Square-ish corners */
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: 500;
@@ -495,7 +545,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 80px; /* Minimum width */
+    min-width: 80px;
     text-align: center;
 }
 
@@ -516,7 +566,6 @@ body {
     border-color: var(--primary-dark);
 }
 
-/* 数据量区间滑动条样式 */
 .size-range-section {
     display: flex;
     flex-direction: column;
@@ -647,18 +696,17 @@ body {
 
 
 
-/* Reset button styles (Removed) */
 .reset-button-container {
-    margin-left: auto; /* Pushes reset button to the far right in its row */
-    align-self: flex-end; /* Align with the bottom of other elements in the row */
-    padding-bottom: 0; /* Adjusted to align with new button styles */
+    margin-left: auto;
+    align-self: flex-end;
+    padding-bottom: 0;
 }
 
 .reset-btn {
-    padding: 0.6rem 1rem; /* Consistent with type-button & domain-button */
+    padding: 0.6rem 1rem;
     background: var(--background-secondary);
     border: 1px solid var(--border-medium);
-    border-radius: var(--radius-sm); /* Square-ish corners */
+    border-radius: var(--radius-sm);
     color: var(--text-secondary);
     font-size: 0.875rem;
     font-weight: 500;
@@ -736,45 +784,43 @@ body {
     border-color: var(--primary-color);
 }
 
-/* Filter Section */
 .filter-section {
     display: flex;
-    flex-direction: column; /* Stack rows vertically */
-    gap: 1.5rem; /* Space between rows */
+    flex-direction: column;
+    gap: 1.5rem;
     padding: 1.5rem;
-    background-color: var(--background-primary); /* Changed from --background-secondary */
+    background-color: var(--background-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     margin-bottom: 2rem;
 }
 
-/* 榜单领域按钮组样式 */
 .type-buttons-section {
     display: flex;
-    flex-direction: column; /* Label above buttons */
-    gap: 0.5rem; /* Space between label and buttons */
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .type-buttons-container {
     display: flex;
-    gap: 0.5rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .type-button {
-    padding: 0.6rem 1rem; /* Adjusted padding for a more 'square' feel */
+    padding: 0.6rem 1rem;
     border: 1px solid var(--border-medium);
     background-color: var(--background-primary);
     color: var(--text-secondary);
-    border-radius: var(--radius-sm); /* Square-ish corners */
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: 500;
     font-size: 0.875rem;
-    display: inline-flex; /* Align icon and text */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 80px; /* Minimum width for buttons */
+    min-width: 80px;
     text-align: center;
 }
 
@@ -795,6 +841,51 @@ body {
     border-color: var(--primary-dark);
 }
 
+.improvement-type-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 180px;
+}
+
+.improvement-type-section label {
+    text-align: left;
+}
+
+.improvement-type-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.improvement-type-button {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-medium);
+    background-color: var(--background-primary);
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    text-align: center;
+}
+
+.improvement-type-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--background-accent);
+}
+
+.improvement-type-button.active {
+    background-color: var(--primary-dark);
+    color: var(--background-primary);
+    border-color: var(--primary-dark);
+}
+
 .filter-tags-row {
     display: flex;
     align-items: center;
@@ -808,7 +899,6 @@ body {
     white-space: nowrap;
 }
 
-/* 在小屏幕上允许横向滚动 */
 .filter-tags-row::-webkit-scrollbar {
     height: 4px;
 }
@@ -878,7 +968,6 @@ body {
     border-color: var(--primary-light);
 }
 
-/* 顶部控制行样式 */
 .top-controls-row {
     display: flex;
     justify-content: space-between;
@@ -933,7 +1022,6 @@ body {
     color: var(--text-light);
 }
 
-/* Table Styles */
 .leaderboard-container {
     background: var(--background-primary);
     border-radius: var(--radius-lg);
@@ -976,22 +1064,20 @@ body {
     background: var(--background-accent);
 }
 
-/* Add a specific background color for the base row */
 .table-row.base-row {
-    background-color: #f0f8ff; /* AliceBlue, a light and distinct color */
+    background-color: #f0f8ff;
 }
 
 .table-row.base-row:hover {
-    background-color: #e6f2ff; /* A slightly darker shade for hover on base row */
+    background-color: #e6f2ff;
 }
 
-/* Add a specific background color for the instruct row */
 .table-row.instruct-row {
-    background-color: #f0f8ff; /* Same as base row - AliceBlue */
+    background-color: #f0f8ff;
 }
 
 .table-row.instruct-row:hover {
-    background-color: #e6f2ff; /* Same as base row hover - A slightly darker shade */
+    background-color: #e6f2ff;
 }
 
 .table tbody tr {
@@ -1007,10 +1093,8 @@ body {
 }
 
 .ranking-table tbody tr:hover {
-    background-color: #F5F7FA !important; /* Use the same light grey-blue as column highlight, ensure it applies */
+    background-color: #F5F7FA !important;
 }
-
-/* Remove the empty ruleset as it's not needed and can cause linting issues */
 
 .table tbody tr:last-child td {
     border-bottom: none;
@@ -1020,18 +1104,16 @@ body {
     border-bottom: none;
 }
 
-/* Main leaderboard table specific styles */
 .leaderboard-container .ranking-table th,
 .leaderboard-container .ranking-table td {
-    text-align: center; /* Center-align all columns by default */
+    text-align: center;
 }
 
 .leaderboard-container .ranking-table th.name-col,
 .leaderboard-container .ranking-table td.name-col {
-    text-align: left; /* Left-align the dataset name column */
+    text-align: left;
 }
 
-/* Table Column Styles */
 .rank-col {
     width: 80px;
     text-align: center;
@@ -1090,6 +1172,30 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1px solid var(--border-light);
+}
+
+.tag-icon.tag-general {
+    background: #e3f2fd;
+    color: #1976d2;
+    border-color: #bbdefb;
+}
+
+.tag-icon.tag-math {
+    background: #f3e5f5;
+    color: #7b1fa2;
+    border-color: #e1bee7;
+}
+
+.tag-icon.tag-code {
+    background: #e8f5e8;
+    color: #388e3c;
+    border-color: #c8e6c9;
+}
+
+.tag-icon.tag-science {
+    background: #fff3e0;
+    color: #f57c00;
+    border-color: #ffcc02;
 }
 
 .tag-icon:hover {

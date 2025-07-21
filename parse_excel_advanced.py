@@ -7,7 +7,6 @@ def parse_excel_advanced():
         sheets_to_process = ['llama', 'qwen']
         processed_data = {}
 
-        # 读取dataset sheet，构建名称到属性的映射
         df_dataset = pd.read_excel('0719.xlsx', sheet_name='dataset', header=None)
         dataset_attr_map = {}
         for idx in range(3, len(df_dataset)):
@@ -21,12 +20,10 @@ def parse_excel_advanced():
                 link = df_dataset.iloc[idx, 6] if idx < len(df_dataset) else None
                 paper_link = df_dataset.iloc[idx, 11] if idx < len(df_dataset) else None
                 tag = df_dataset.iloc[idx, 15] if idx < len(df_dataset) else None
-                # 构建标签：将domain作为主要标签，如果有其他tag则合并
                 tags = []
                 if pd.notna(tag):
                     tag_str = str(tag).strip()
                     if tag_str:
-                        # 解析tag字段中的标签（假设用逗号分隔）
                         tags.extend([t.strip() for t in tag_str.split(',') if t.strip()])
                 
                 if not tags:
@@ -45,19 +42,15 @@ def parse_excel_advanced():
         for sheet_name in sheets_to_process:
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
-            # 读取原始数据，不跳过任何行
             df_raw = pd.read_excel('0719.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
-            # 检测领域分布
             domain_ranges = detect_domain_ranges(df_raw)
             print(f"领域分布: {domain_ranges}")
             
-            # 自动检测各领域的列布局
             column_layout = detect_column_layout(df_raw)
             
-            # 提取列范围
             general_cols = column_layout['general_cols']
             math_cols = column_layout['math_cols']
             code_cols = column_layout['code_cols']
@@ -68,7 +61,6 @@ def parse_excel_advanced():
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
 
-            # ========== 修正：提取base和instruct行为单行 ==========
             base_row_idx = 387  # 第388行对应索引387（0-based）
             instruct_row_idx = 388  # 第389行对应索引388（0-based），base行的下一行
             
@@ -86,7 +78,6 @@ def parse_excel_advanced():
                 print("警告: 未找到instruct行")
                 instruct_row = None
                 
-            # 提前定义 base_info 和 instruct_info
             base_info = None
             instruct_info = None
             if base_row is not None:
@@ -493,16 +484,14 @@ def parse_excel_advanced():
                             elif 'b' in size_str:
                                 size = float(size_str.replace('b', '')) * 1000000000
                             else:
-                                # 尝试直接转换为数字
                                 size = float(size_str)
                             
                             if size > 0:
                                 efficiency = (avg_score / size) * 1000  # 每1k数据的性价比
-                                return round(efficiency, 6)  # 保留6位小数
+                                return round(efficiency, 6)
                             else:
                                 return 0
                         except (ValueError, TypeError):
-                            # 如果无法解析数据量，返回0
                             return 0
                     
                     # 计算各领域的数据性价比分数
@@ -518,8 +507,6 @@ def parse_excel_advanced():
                     base_math_efficiency_absolute = calculate_efficiency_score(base_math_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
                     base_code_efficiency_absolute = calculate_efficiency_score(base_code_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
                     base_reasoning_efficiency_absolute = calculate_efficiency_score(base_reasoning_avg, dataset_attr_map.get(dataset_name, {}).get('size_precise', ''))
-                    
-
                     
                     # 计算相对于base模型的性价比涨跌
                     overall_efficiency = round(overall_efficiency_absolute - base_overall_efficiency_absolute, 6)
@@ -550,7 +537,6 @@ def parse_excel_advanced():
                             })
                         return list(organized_tasks.values())
                     
-                    # General领域小任务
                     if 'general_tasks' in column_layout and general_task_scores:
                         task_details['general_tasks'] = organize_tasks_by_name(
                             column_layout.get('general_tasks', []),
@@ -558,7 +544,6 @@ def parse_excel_advanced():
                             general_task_scores
                         )
                     
-                    # Math领域小任务
                     if 'math_tasks' in column_layout and math_task_scores:
                         task_details['math_tasks'] = organize_tasks_by_name(
                             column_layout.get('math_tasks', []),
@@ -566,7 +551,6 @@ def parse_excel_advanced():
                             math_task_scores
                         )
                     
-                    # Code领域小任务
                     if 'code_tasks' in column_layout and code_task_scores:
                         task_details['code_tasks'] = organize_tasks_by_name(
                             column_layout.get('code_tasks', []),
@@ -574,7 +558,6 @@ def parse_excel_advanced():
                             code_task_scores
                         )
                     
-                    # Reasoning领域小任务
                     if 'reasoning_tasks' in column_layout and reasoning_task_scores:
                         task_details['reasoning_tasks'] = organize_tasks_by_name(
                             column_layout.get('reasoning_tasks', []),
@@ -582,9 +565,7 @@ def parse_excel_advanced():
                             reasoning_task_scores
                         )
                     
-                    # 计算提升/下降
                     def safe_list_subtract(list1, list2):
-                        """安全的列表减法，处理长度不一致和None值的情况"""
                         result = []
                         min_len = min(len(list1), len(list2))
                         for i in range(min_len):
@@ -594,13 +575,14 @@ def parse_excel_advanced():
                             result.append(round(list1[i] - list2[i], 2))
                         return result
                     
-                    improvement = {
+                    # 计算相对于base的improvement
+                    improvement_vs_base = {
                         'general_avg': round(general_avg - base_general_avg, 2),
                         'math_avg': round(math_avg - base_math_avg, 2),
                         'code_avg': round(code_avg - base_code_avg, 2),
                         'reasoning_avg': round(reasoning_avg - base_reasoning_avg, 2),
                         'overall_avg': round(overall_avg - base_overall_avg, 2),
-                        'overall_efficiency': overall_efficiency,  # 已经是相对于base模型的性价比涨跌
+                        'overall_efficiency': overall_efficiency,
                         'general_efficiency': general_efficiency,
                         'math_efficiency': math_efficiency,
                         'code_efficiency': code_efficiency,
@@ -611,7 +593,29 @@ def parse_excel_advanced():
                         'reasoning_task_scores': safe_list_subtract(reasoning_task_scores, base_reasoning_task_scores)
                     }
                     
-                    # 构建dataset_info时，增加属性
+                    # 计算相对于instruct的improvement
+                    improvement_vs_instruct = {
+                        'general_avg': round(general_avg - instruct_general_avg, 2),
+                        'math_avg': round(math_avg - instruct_math_avg, 2),
+                        'code_avg': round(code_avg - instruct_code_avg, 2),
+                        'reasoning_avg': round(reasoning_avg - instruct_reasoning_avg, 2),
+                        'overall_avg': round(overall_avg - instruct_overall_avg, 2),
+                        'overall_efficiency': 0,  # 暂时设为0，因为instruct模型无数据量信息
+                        'general_efficiency': 0,
+                        'math_efficiency': 0,
+                        'code_efficiency': 0,
+                        'reasoning_efficiency': 0,
+                        'general_task_scores': safe_list_subtract(general_task_scores, instruct_general_task_scores),
+                        'math_task_scores': safe_list_subtract(math_task_scores, instruct_math_task_scores),
+                        'code_task_scores': safe_list_subtract(code_task_scores, instruct_code_task_scores),
+                        'reasoning_task_scores': safe_list_subtract(reasoning_task_scores, instruct_reasoning_task_scores)
+                    }
+                    
+                    improvement = {
+                        'vs_base': improvement_vs_base,
+                        'vs_instruct': improvement_vs_instruct
+                    }
+                    
                     dataset_info = {
                         'id': dataset_id,
                         'name': dataset_name,
@@ -621,7 +625,7 @@ def parse_excel_advanced():
                         'code_avg': round(code_avg, 2),
                         'reasoning_avg': round(reasoning_avg, 2),
                         'overall_avg': round(overall_avg, 2),
-                        'overall_efficiency': overall_efficiency,  # 新增：数据性价比分数
+                        'overall_efficiency': overall_efficiency,
                         'general_efficiency': general_efficiency,
                         'math_efficiency': math_efficiency,
                         'code_efficiency': code_efficiency,
@@ -630,26 +634,14 @@ def parse_excel_advanced():
                         'math_scores': math_scores,
                         'code_scores': code_scores,
                         'reasoning_scores': reasoning_scores,
-                        'task_details': task_details,  # 新增：小任务详细信息
-                        'improvement': improvement   # 新增：提升/下降
+                        'task_details': task_details,
+                        'improvement': improvement
                     }
                     
                     # 合并属性
                     attr = dataset_attr_map.get(dataset_name, {})
                     dataset_info.update(attr)
                     
-                    # tag字段保持原始内容，不添加domain信息
-                    # existing_tags = dataset_info.get('tag', '').split(',') if dataset_info.get('tag') else []
-                    # existing_tags = [tag.strip() for tag in existing_tags if tag.strip()]
-                    
-                    # 添加domain作为标签（如果不在现有标签中）
-                    # if dataset_domain and dataset_domain not in existing_tags:
-                    #     existing_tags.append(dataset_domain)
-                    
-                    # 更新tag字段
-                    # dataset_info['tag'] = ','.join(existing_tags)
-                    
-                    # 只添加有有效数据的数据集
                     if overall_avg > 0:
                         datasets.append(dataset_info)
                         dataset_id += 1
@@ -657,41 +649,34 @@ def parse_excel_advanced():
                     else:
                         print(f"  ❌ 跳过: 无有效数据")
                     
-                    # 移动到下一个数据集（跳过4行）
                     current_row += 4
                 else:
-                    # 如果B列为空，移动到下一行
                     current_row += 1
             
-            # 在每个系列的datasets最前面插入instruct_info和base_info
             if instruct_info:
-                datasets.insert(0, instruct_info)  # instruct模型排第一
+                datasets.insert(0, instruct_info)
             if base_info:
-                datasets.insert(1, base_info)  # base模型排第二
+                datasets.insert(1, base_info)
             
             processed_data[sheet_name] = datasets
             print(f"\n{sheet_name} 工作表处理完成: {len(datasets)} 个数据集")
         
-        # 保存处理后的数据
         with open('processed_leaderboard_data.json', 'w', encoding='utf-8') as f:
             json.dump(processed_data, f, ensure_ascii=False, indent=2)
         
         print("\n处理后的数据已保存到 processed_leaderboard_data.json")
         
-        # 显示示例数据
         for sheet_name, data in processed_data.items():
             print(f"\n{sheet_name} 示例数据 (前3个):")
             for i, item in enumerate(data[:3]):
                 print(f"{i+1}. {item['name']} [{item['domain']}]: 综合 {item['overall_avg']} (性价比涨跌: {item.get('overall_efficiency', 0):+.6f}), General {item['general_avg']} (性价比: {item.get('general_efficiency', 0):+.6f}), Math {item['math_avg']} (性价比: {item.get('math_efficiency', 0):+.6f}), Code {item['code_avg']} (性价比: {item.get('code_efficiency', 0):+.6f}), Reasoning {item['reasoning_avg']} (性价比: {item.get('reasoning_efficiency', 0):+.6f})")
                 
-                # 显示paper_link和tag信息
                 paper_link = item.get('paper_link', '')
                 tag = item.get('tag', '')
                 if paper_link or tag:
                     print(f"    Paper Link: {paper_link if paper_link else '无'}")
                     print(f"    Tag: {tag if tag else '无'}")
                 
-                # 显示小任务详情
                 if 'task_details' in item:
                     task_details = item['task_details']
                     for domain in ['general_tasks', 'math_tasks', 'code_tasks', 'reasoning_tasks']:
@@ -702,31 +687,25 @@ def parse_excel_advanced():
                                 task_name = task['task_name']
                                 metrics = task['metrics']
                                 if len(metrics) == 1:
-                                    # 只有一个指标
                                     print(f"     • {task_name} ({metrics[0]['metric']}): {metrics[0]['score']}")
                                 else:
-                                    # 多个指标
                                     print(f"     • {task_name}:")
                                     for metric in metrics:
                                         print(f"       - {metric['metric']}: {metric['score']}")
             
-            # 显示领域分布统计
             domain_count = {}
             for item in data:
                 domain = item['domain']
                 domain_count[domain] = domain_count.get(domain, 0) + 1
             print(f"  领域分布: {domain_count}")
             
-            # 显示paper_link和tag统计
             paper_link_count = {}
             tag_count = {}
             for item in data:
-                # 统计paper_link
                 paper_link = item.get('paper_link', '')
                 if paper_link:
                     paper_link_count[paper_link] = paper_link_count.get(paper_link, 0) + 1
                 
-                # 统计tag
                 tag = item.get('tag', '')
                 if tag:
                     tag_count[tag] = tag_count.get(tag, 0) + 1
@@ -754,14 +733,12 @@ def parse_excel_advanced():
         return None
 
 def detect_column_layout(df_raw):
-    """自动检测各领域的列布局和小任务信息"""
     print("\n--- 检测表头和列布局 ---")
     
-    # 查找表头行（通常在前几行）
     header_keywords = ['general', 'math', 'code', 'reasoning', 'dataset', 'model']
     header_row = None
     
-    for i in range(min(5, len(df_raw))):  # 检查前5行
+    for i in range(min(5, len(df_raw))):
         row = df_raw.iloc[i]
         row_text = ' '.join([str(cell).lower() for cell in row if pd.notna(cell)])
         if any(keyword in row_text for keyword in header_keywords):
@@ -770,7 +747,6 @@ def detect_column_layout(df_raw):
             print(f"表头内容: {[str(cell) for cell in row[:25] if pd.notna(cell)]}")
             break
     
-    # 默认列配置（基于用户指定的列范围）
     default_config = {
         'general_cols': list(range(3, 7)),      # D,E,F,G
         'math_cols': list(range(7, 12)),        # H,I,J,K,L  
@@ -784,22 +760,19 @@ def detect_column_layout(df_raw):
     print(f"  Code: 列 {[chr(65+i) for i in default_config['code_cols']]} (索引 {default_config['code_cols']})")
     print(f"  Reasoning: 列 {[chr(65+i) for i in default_config['reasoning_cols']]} (索引 {default_config['reasoning_cols']})")
     
-    # 提取小任务信息（第2行为任务名，第3行为指标名）
     task_info = extract_task_info(df_raw, default_config)
     default_config.update(task_info)
     
     return default_config
 
 def extract_task_info(df_raw, column_config):
-    """提取各领域小任务的名称和指标"""
     print("\n--- 提取小任务信息 ---")
     
     task_info = {}
     
-    # 假设第2行（索引1）为任务名，第3行（索引2）为指标名
     if len(df_raw) > 2:
-        task_name_row = df_raw.iloc[1]  # 第2行
-        metric_name_row = df_raw.iloc[2]  # 第3行
+        task_name_row = df_raw.iloc[1]
+        metric_name_row = df_raw.iloc[2]
         
         domains = ['general', 'math', 'code', 'reasoning']
         
@@ -808,20 +781,17 @@ def extract_task_info(df_raw, column_config):
             if col_key in column_config:
                 cols = column_config[col_key]
                 
-                # 提取任务名称和指标，处理合并单元格情况
                 task_names = []
                 metric_names = []
                 current_task_name = None
                 
                 for col_idx in cols:
-                    # 提取任务名称
                     if col_idx < len(task_name_row):
                         task_name = task_name_row.iloc[col_idx]
                         if pd.notna(task_name) and str(task_name).strip():
                             current_task_name = str(task_name).strip()
                             task_names.append(current_task_name)
                         else:
-                            # 如果当前单元格为空，使用前一个任务名称
                             if current_task_name:
                                 task_names.append(current_task_name)
                             else:
@@ -832,7 +802,6 @@ def extract_task_info(df_raw, column_config):
                         else:
                             task_names.append(f"Task_{col_idx}")
                     
-                    # 提取指标名称
                     if col_idx < len(metric_name_row):
                         metric_name = metric_name_row.iloc[col_idx]
                         if pd.notna(metric_name) and str(metric_name).strip():
@@ -853,12 +822,10 @@ def extract_task_info(df_raw, column_config):
     return task_info
 
 def detect_domain_ranges(df_raw):
-    """检测各领域在Excel中的行范围"""
     domain_ranges = {}
     
     print("\n--- 检测领域分布 ---")
     
-    # 查找A列中的领域标记
     domain_keywords = ['general', 'math', 'code', 'reasoning']
     domain_starts = {}
     
@@ -870,15 +837,12 @@ def detect_domain_ranges(df_raw):
                 domain_starts[a_str] = i
                 print(f"找到领域 '{a_str}' 开始于行 {i+1}")
     
-    # 计算每个领域的范围
     sorted_domains = sorted(domain_starts.items(), key=lambda x: x[1])
     
     for i, (domain, start_row) in enumerate(sorted_domains):
         if i < len(sorted_domains) - 1:
-            # 不是最后一个领域，范围到下一个领域开始之前
             end_row = sorted_domains[i + 1][1] - 1
         else:
-            # 最后一个领域，范围到文件末尾
             end_row = len(df_raw) - 1
         
         domain_ranges[domain] = (start_row, end_row)
@@ -887,7 +851,6 @@ def detect_domain_ranges(df_raw):
     return domain_ranges
 
 def determine_dataset_domain(row_num, domain_ranges):
-    """根据行号确定数据集所属的领域"""
     for domain, (start_row, end_row) in domain_ranges.items():
         if start_row <= row_num <= end_row:
             return domain
