@@ -75,24 +75,7 @@
                         </div>
                     </div>
                     
-                    <!-- Improvement类型切换 -->
-                    <div class="improvement-type-section">
-                        <label>Improvement vs:</label>
-                        <div class="improvement-type-buttons">
-                            <button 
-                                class="improvement-type-button" 
-                                :class="{ active: improvementType === 'vs_base' }"
-                                @click="improvementType = 'vs_base'">
-                                Base Model
-                            </button>
-                            <button 
-                                class="improvement-type-button" 
-                                :class="{ active: improvementType === 'vs_instruct' }"
-                                @click="improvementType = 'vs_instruct'">
-                                Instruct Model
-                            </button>
-                        </div>
-                    </div>
+
                     
                     <!-- 榜单领域按钮组 -->
                     <div class="filter-dropdown-group type-buttons-section">
@@ -263,12 +246,17 @@
                                     'base-row': dataset.domain === 'base',
                                     'instruct-row': dataset.domain === 'instruct'
                                 }"
+                                @click="selectBaseline(dataset)"
                             >
                                 <td class="rank-col">
-                                                            <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) - 1)">
-                            {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) }}
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) - 1)">
+                                        {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name') ? 'overall_avg' : sortColumn, false, null, improvementType) }}
                                     </div>
-                                    <!-- For base and instruct models, this cell will be empty -->
+                                    <!-- 只为当前选中的比较基准显示标记 -->
+                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" :title="dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline'">
+                                        <i v-if="dataset.domain === 'base'" class="fas fa-bullseye"></i>
+                                        <i v-if="dataset.domain === 'instruct'" class="fas fa-bullseye"></i>
+                                    </div>
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
@@ -406,19 +394,22 @@
                                     'base-row': dataset.domain === 'base',
                                     'instruct-row': dataset.domain === 'instruct'
                                 }"
+                                @click="selectBaseline(dataset)"
                             >
                                 <td class="rank-col">
-                                                            <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)">
-                            {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) }}
+                                    <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="rank-badge" :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)">
+                                        {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) }}
                                     </div>
-                                    <!-- For base and instruct models, this cell will be empty -->
+                                    <div v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')" class="baseline-indicator active" :title="dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline'">
+                                        <i v-if="dataset.domain === 'base'" class="fas fa-bullseye"></i>
+                                        <i v-if="dataset.domain === 'instruct'" class="fas fa-bullseye"></i>
+                                    </div>
                                 </td>
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
                                         <div class="dataset-name-with-tags">
                                             <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                             <span v-else class="dataset-name">{{ dataset.name }}</span>
-                                            <!-- 显示标签图标 -->
                                             <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-tags">
                                                 <span v-for="tag in getDatasetTags(dataset)" :key="tag" 
                                                       class="tag-icon" 

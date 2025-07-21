@@ -1390,6 +1390,15 @@ const app = createApp({
             }
         }
 
+        // 选择比较基准的函数
+        const selectBaseline = (dataset) => {
+            if (dataset.domain === 'base') {
+                improvementType.value = 'vs_base'
+            } else if (dataset.domain === 'instruct') {
+                improvementType.value = 'vs_instruct'
+            }
+        }
+
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             setTimeout(setupSubscribeModal, 500);
         } else {
@@ -1508,7 +1517,8 @@ const app = createApp({
             getEfficiencyDiffClass,
             openFeedbackForm, // 反馈功能
             contributors, // 贡献者数据
-            openContributionGuide // 打开贡献指南
+            openContributionGuide, // 打开贡献指南
+            selectBaseline // 选择比较基准
         }
     }
 })
