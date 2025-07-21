@@ -7,7 +7,7 @@ def parse_excel_advanced():
         sheets_to_process = ['llama', 'qwen']
         processed_data = {}
 
-        df_dataset = pd.read_excel('0719.xlsx', sheet_name='dataset', header=None)
+        df_dataset = pd.read_excel('0721.xlsx', sheet_name='dataset', header=None)
         dataset_attr_map = {}
         for idx in range(3, len(df_dataset)):
             name = df_dataset.iloc[idx, 1] if idx < len(df_dataset) else None
@@ -42,7 +42,7 @@ def parse_excel_advanced():
         for sheet_name in sheets_to_process:
             print(f"\n--- 处理工作表: {sheet_name} ---")
             
-            df_raw = pd.read_excel('0719.xlsx', sheet_name=sheet_name, header=None)
+            df_raw = pd.read_excel('0721.xlsx', sheet_name=sheet_name, header=None)
             
             print(f"工作表大小: {df_raw.shape}")
             
@@ -61,8 +61,8 @@ def parse_excel_advanced():
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
 
-            base_row_idx = 387  # 第388行对应索引387（0-based）
-            instruct_row_idx = 388  # 第389行对应索引388（0-based），base行的下一行
+            base_row_idx = 371  
+            instruct_row_idx = 372
             
             if base_row_idx < len(df_raw):
                 base_row = df_raw.iloc[base_row_idx]
@@ -748,10 +748,10 @@ def detect_column_layout(df_raw):
             break
     
     default_config = {
-        'general_cols': list(range(3, 7)),      # D,E,F,G
-        'math_cols': list(range(7, 12)),        # H,I,J,K,L  
-        'code_cols': list(range(12, 18)),       # M,N,O,P,Q,R,S
-        'reasoning_cols': [18,19,20,21,22]   # T,U,V,W,X
+        'general_cols': list(range(3, 7)), 
+        'math_cols': list(range(7, 12)), 
+        'code_cols': list(range(12, 18)),       
+        'reasoning_cols': [18,19,20,21,23] 
     }
     
     print("使用默认列配置:")
