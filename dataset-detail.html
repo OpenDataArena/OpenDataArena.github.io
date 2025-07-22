@@ -221,6 +221,33 @@
             font-size: 0.7rem;
         }
         
+        /* 比较数据集列表中的标签颜色样式 */
+        .compare-dataset-item .tag-badge[data-type="general"] {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border-color: #bbdefb;
+        }
+        
+        .compare-dataset-item .tag-badge[data-type="math"] {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+            border-color: #e1bee7;
+        }
+        
+        .compare-dataset-item .tag-badge[data-type="code"] {
+            background-color: #e8f5e8;
+            color: #388e3c;
+            border-color: #c8e6c9;
+        }
+        
+        .compare-dataset-item .tag-badge[data-type="science"] {
+            background-color: #fff3e0;
+            color: #f57c00;
+            border-color: #ffcc02;
+        }
+        
+
+        
         .section-content {
             padding: 30px;
         }
@@ -385,9 +412,7 @@
         }
         
         .domain-tab input[type="checkbox"] {
-            margin: 0;
-            width: 14px;
-            height: 14px;
+            display: none;
         }
 
 
@@ -703,15 +728,15 @@
                                 v-for="ds in availableDatasets" 
                                 :key="ds.id"
                                 class="compare-dataset-item"
-                                :class="{ selected: isDatasetSelected(ds.id) }"
-                                @click="toggleDatasetSelection(ds.id)">
+                                :class="{ selected: isDatasetSelected(ds.name) }"
+                                @click="toggleDatasetSelection(ds.name)">
                                 <input 
                                     type="checkbox" 
-                                    :checked="isDatasetSelected(ds.id)"
-                                    @change="toggleDatasetSelection(ds.id)">
-                                <span class="dataset-name">{{ ds.name }}</span>
+                                    :checked="isDatasetSelected(ds.name)"
+                                    @click.stop>
+                                <span class="dataset-name">{{ getDisplayName(ds.name) }}</span>
                                 <span class="dataset-tags">
-                                    <span v-for="tag in getDatasetTags(ds)" :key="tag" class="tag-badge small">
+                                    <span v-for="tag in getDatasetTags(ds)" :key="tag" class="tag-badge small" :data-type="tag.toLowerCase()">
                                         <i :class="getTagIcon(tag)"></i>
                                         {{ getTagDisplayName(tag) }}
                                     </span>
@@ -955,16 +980,16 @@
                     }
                 }
 
-                const isDatasetSelected = (datasetId) => {
-                    return selectedDatasets.value.includes(datasetId)
+                const isDatasetSelected = (datasetName) => {
+                    return selectedDatasets.value.includes(datasetName)
                 }
 
-                const toggleDatasetSelection = (datasetId) => {
-                    const index = selectedDatasets.value.indexOf(datasetId)
+                const toggleDatasetSelection = (datasetName) => {
+                    const index = selectedDatasets.value.indexOf(datasetName)
                     if (index > -1) {
                         selectedDatasets.value.splice(index, 1)
                     } else {
-                        selectedDatasets.value.push(datasetId)
+                        selectedDatasets.value.push(datasetName)
                     }
                 }
 
@@ -1006,15 +1031,25 @@
                     // 收集Llama模型的所有数据集数据
                     const llamaDataArrays = [baseChartData.data]
                     const qwenDataArrays = [getMultiDomainChartData(qwenDataset.value).data]
-                    const names = [llamaDataset.value.name]
+                    
+                    // 为两个图表分别创建名称数组
+                    const llamaNames = [llamaDataset.value.name]
+                    const qwenNames = [qwenDataset.value.name]
 
                     // 添加选中的数据集
                     const llamaModelData = allDatasetsData.value['llama']
                     const qwenModelData = allDatasetsData.value['qwen']
                     
-                    selectedDatasets.value.forEach(id => {
-                        const compareLlamaDataset = llamaModelData.find(d => d.id.toString() === id.toString())
-                        const compareQwenDataset = qwenModelData.find(d => d.id.toString() === id.toString())
+                    // 数据集名称映射（llama名称 -> qwen名称）
+                    const datasetNameMapping = {
+                        'meta-llama/Llama-3.1-8B-Instruct': 'Qwen/Qwen2.5-7B-Instruct',
+                        'meta-llama/Llama-3.1-8B': 'Qwen/Qwen2.5-7B',
+                    }
+                    
+                    selectedDatasets.value.forEach(datasetName => {
+                        const compareLlamaDataset = llamaModelData.find(d => d.name === datasetName)
+                        const qwenDatasetName = datasetNameMapping[datasetName] || datasetName
+                        const compareQwenDataset = qwenModelData.find(d => d.name === qwenDatasetName)
                         
                         if (compareLlamaDataset && compareQwenDataset) {
                             const llamaCompareData = getMultiDomainChartData(compareLlamaDataset)
@@ -1022,16 +1057,15 @@
                             
                             llamaDataArrays.push(llamaCompareData.data)
                             qwenDataArrays.push(qwenCompareData.data)
-                            names.push(compareLlamaDataset.name)
+                            llamaNames.push(compareLlamaDataset.name)
+                            qwenNames.push(compareQwenDataset.name)
                         }
                     })
 
-                    // 创建比较图表
-                    llamaChart = createRadarChart('llamaRadarChart', baseChartData.labels, llamaDataArrays, baseChartData.title, names, llamaChart)
-                    qwenChart = createRadarChart('qwenRadarChart', baseChartData.labels, qwenDataArrays, baseChartData.title, names, qwenChart)
+                    llamaChart = createRadarChart('llamaRadarChart', baseChartData.labels, llamaDataArrays, baseChartData.title, llamaNames, llamaChart)
+                    qwenChart = createRadarChart('qwenRadarChart', baseChartData.labels, qwenDataArrays, baseChartData.title, qwenNames, qwenChart)
                 }
 
-                // 为指定数据集获取多领域组合图表数据
                 const getMultiDomainChartData = (datasetObj) => {
                     if (selectedDomains.value.length === 0) {
                         return { labels: [], data: [], title: 'No domains selected' }
@@ -1337,6 +1371,17 @@
                     return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
                 }
 
+                // 获取数据集显示名称
+                const getDisplayName = (datasetName) => {
+                    const displayNameMapping = {
+                        'meta-llama/Llama-3.1-8B-Instruct': 'Instruct Model',
+                        'meta-llama/Llama-3.1-8B': 'Base Model',
+                        'Qwen/Qwen2.5-7B-Instruct': 'Instruct Model',
+                        'Qwen/Qwen2.5-7B': 'Base Model',
+                    }
+                    return displayNameMapping[datasetName] || datasetName
+                }
+
                 return {
                     loading,
                     error,
@@ -1361,7 +1406,9 @@
                     // 标签功能
                     getDatasetTags,
                     getTagIcon,
-                    getTagDisplayName
+                    getTagDisplayName,
+                    // 显示名称功能
+                    getDisplayName
                 }
             }
         })
