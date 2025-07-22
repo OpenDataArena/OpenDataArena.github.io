@@ -27,7 +27,6 @@ def main():
         print(f"主页: http://localhost:{PORT}/index.html")
         print("-" * 50)
         
-        # 自动打开浏览器
         try:
             webbrowser.open(f'http://localhost:{PORT}/index.html')
         except:

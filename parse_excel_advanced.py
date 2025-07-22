@@ -61,6 +61,7 @@ def parse_excel_advanced():
             print(f"Code列范围: {code_cols}")
             print(f"Reasoning列范围: {reasoning_cols}")
 
+            ## 处理base模型和instruct模型
             base_row_idx = 371  
             instruct_row_idx = 372
             
@@ -746,7 +747,8 @@ def detect_column_layout(df_raw):
             print(f"找到表头行: {i+1}")
             print(f"表头内容: {[str(cell) for cell in row[:25] if pd.notna(cell)]}")
             break
-    
+
+    ## 领域对应列配置
     default_config = {
         'general_cols': list(range(3, 7)), 
         'math_cols': list(range(7, 12)), 

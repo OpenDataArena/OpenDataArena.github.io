@@ -982,14 +982,12 @@ const app = createApp({
                 item.taskName === taskNameFromHeader && item.metricName === metricNameFromHeader
             );
             
-            // 支持新的improvement结构
             if (dataset.improvement) {
                 let improvementArray = null;
                 if (dataset.improvement[improvementType] && dataset.improvement[improvementType][improvementArrayKey]) {
-                    // 新的结构：improvement.vs_base 或 improvement.vs_instruct
+                    // improvement.vs_base 或 improvement.vs_instruct
                     improvementArray = dataset.improvement[improvementType][improvementArrayKey];
                 } else if (dataset.improvement[improvementArrayKey]) {
-                    // 旧的结构：直接访问
                     improvementArray = dataset.improvement[improvementArrayKey];
                 }
                 
@@ -1002,11 +1000,11 @@ const app = createApp({
             const formattedScore = formatScore(scoreValue);
             let diffText = null;
             let diffClass = '';
-            if (typeof improvementValue === 'number') { // Always show if improvementValue is a number
+            if (typeof improvementValue === 'number') { 
                 const diff = roundToOneDecimal(improvementValue);
                 if (diff === 0) {
                     diffText = '0.0';
-                    diffClass = 'score-diff-positive'; // Changed to positive for 0.0
+                    diffClass = 'score-diff-positive';
                 } else {
                     diffText = (diff > 0 ? '+' : '') + diff.toFixed(1);
                     diffClass = diff > 0 ? 'score-diff-positive' : 'score-diff-negative';
@@ -1024,14 +1022,11 @@ const app = createApp({
             const avgKey = type + '_avg';
             const scoreValue = dataset[avgKey] || 0;
             
-            // 支持新的improvement结构
             let improvementValue = null;
             if (dataset.improvement) {
                 if (dataset.improvement[improvementType]) {
-                    // 新的结构：improvement.vs_base 或 improvement.vs_instruct
                     improvementValue = dataset.improvement[improvementType][avgKey];
                 } else if (dataset.improvement[avgKey]) {
-                    // 旧的结构：直接访问 improvement.general_avg 等
                     improvementValue = dataset.improvement[avgKey];
                 }
             }
@@ -1166,7 +1161,7 @@ const app = createApp({
 
         // 新增：支持 year 和 size 排序
         const sortBy = (column) => {
-            if (column === 'size') return; // 只禁止 size 排序，允许 year 排序
+            if (column === 'size') return; // 允许 year 排序
             if (sortColumn.value === column) {
                 sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
@@ -1178,7 +1173,7 @@ const app = createApp({
             }
         }
         const sortDetailedBy = (column) => {
-            if (column === 'size') return; // 只禁止 size 排序，允许 year 排序
+            if (column === 'size') return; // 允许 year 排序
             if (detailedSortColumn.value === column) {
                 detailedSortDirection.value = detailedSortDirection.value === 'asc' ? 'desc' : 'asc'
             } else {
@@ -1375,10 +1370,8 @@ const app = createApp({
             const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe2Mh4L3e-1TvlCl-Qfl_WasFk2dPO2mFcbmfMG4iF9IgKuIQ/viewform?usp=dialog'
             
             try {
-                // 尝试打开新窗口
                 const newWindow = window.open(googleFormUrl, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes')
                 
-                // 检查是否被阻止
                 if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
                     console.log('Popup blocked, trying alternative method')
                     // 如果弹窗被阻止，直接在当前窗口打开
@@ -1388,7 +1381,6 @@ const app = createApp({
                 }
             } catch (error) {
                 console.error('Error opening feedback form:', error)
-                // 备用方案：直接跳转
                 window.location.href = googleFormUrl
             }
         }
@@ -1515,14 +1507,14 @@ const app = createApp({
             getTypeAverage,
             getTypeEfficiency,
             getTypeAverageValue,
-            highlightColumn, // 导出
+            highlightColumn,
             formatEfficiencyScore,
             formatEfficiencyDiff,
             getEfficiencyDiffClass,
-            openFeedbackForm, // 反馈功能
-            contributors, // 贡献者数据
-            openContributionGuide, // 打开贡献指南
-            selectBaseline // 选择比较基准
+            openFeedbackForm,
+            contributors,
+            openContributionGuide,
+            selectBaseline
         }
     }
 })
