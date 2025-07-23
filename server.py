@@ -4,7 +4,7 @@ import os
 import webbrowser
 from pathlib import Path
 
-PORT = 8004
+PORT = 8000
 DIRECTORY = Path(__file__).parent
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -24,11 +24,11 @@ def main():
         print(f"服务器启动成功!")
         print(f"目录: {DIRECTORY}")
         print(f"访问地址: http://localhost:{PORT}")
-        print(f"主页: http://localhost:{PORT}/index.html")
+        print(f"主页: http://localhost:{PORT}/home.html")
         print("-" * 50)
         
         try:
-            webbrowser.open(f'http://localhost:{PORT}/index.html')
+            webbrowser.open(f'http://localhost:{PORT}/home.html')
         except:
             print("请手动打开浏览器访问上述地址")
         

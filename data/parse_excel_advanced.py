@@ -127,7 +127,7 @@ def parse_excel_advanced():
                     'code_avg': round(base_code_avg, 2),
                     'reasoning_avg': round(base_reasoning_avg, 2),
                     'overall_avg': round(base_overall_avg, 2),
-                    'overall_efficiency': 0,  # base模型无数据量信息，设为0
+                    'overall_efficiency': 0,
                     'general_efficiency': 0,
                     'math_efficiency': 0,
                     'code_efficiency': 0,
@@ -264,7 +264,7 @@ def parse_excel_advanced():
                     'code_avg': round(instruct_code_avg, 2),
                     'reasoning_avg': round(instruct_reasoning_avg, 2),
                     'overall_avg': round(instruct_overall_avg, 2),
-                    'overall_efficiency': 0,  # instruct模型无数据量信息，设为0
+                    'overall_efficiency': 0,
                     'general_efficiency': 0,
                     'math_efficiency': 0,
                     'code_efficiency': 0,

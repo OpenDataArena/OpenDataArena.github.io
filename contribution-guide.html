@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contribution Guide - OpenDataArena</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-36SWWSWBC7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-36SWWSWBC7');
+    </script>
     <style>
         .guide-container {
             max-width: 1200px;
@@ -281,24 +289,46 @@
         
         .back-btn {
             position: fixed;
-            top: 2rem;
-            left: 2rem;
-            padding: 0.75rem 1.5rem;
+            right: 2rem;
+            bottom: 2rem;
+            left: auto;
+            top: auto;
+            padding: 0.45rem 0.7rem;
             background: var(--primary-color);
             color: white;
             border: none;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
+            gap: 0.3rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease, width 0.3s cubic-bezier(0.4,0,0.2,1);
             box-shadow: var(--shadow-md);
+            z-index: 1000;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        
+        .back-btn .back-text {
+            max-width: 0;
+            opacity: 0;
+            margin-left: 0;
+            transition: max-width 0.3s, opacity 0.3s, margin-left 0.3s;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 0.95rem;
+        }
         .back-btn:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
+            color: #fff;
+        }
+        .back-btn:hover .back-text {
+            max-width: 120px;
+            opacity: 1;
+            margin-left: 0.4rem;
+        }
+        .back-btn i {
+            font-size: 1rem;
         }
         
         /* 提交信息按钮样式 */
@@ -470,11 +500,6 @@
                 align-items: center;
             }
             
-            .back-btn {
-                position: static;
-                margin-bottom: 1rem;
-            }
-            
             .submit-info-modal-content {
                 min-width: 320px;
                 padding: 1.5rem;
@@ -483,11 +508,36 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-        Back to Home
-    </a>
-    
+    <header class="header">
+        <div class="title-container nav-left">
+            <h1><a href="home.html" class="nav-home-link" :class="{active: currentPage === 'home'}">OpenDataArena</a></h1>
+        </div>
+        <nav class="nav-right">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="leaderboard.html" :class="{active: currentPage === 'leaderboard'}">Leaderboard</a></li>
+                <li class="nav-item"><a href="comparison.html" :class="{active: currentPage === 'comparison'}">Comparison</a></li>
+                <li class="nav-item"><a href="rules.html" :class="{active: currentPage === 'rules'}">Rules</a></li>
+                <li class="nav-item"><a href="contribution-guide.html" :class="{active: currentPage === 'contribution-guide'}">Contribution Guide</a></li>
+                <li class="nav-item"><a href="#" :class="{active: currentPage === 'tools'}" onclick="alert('Tools page coming soon!')">Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 悬浮操作菜单 -->
+    <div class="fab-menu">
+        <div class="fab-actions">
+            <div class="fab-action fab-back">
+                <a href="home.html" class="fab-icon" title="Back to Home"><i class="fas fa-arrow-left"></i></a>
+                <a href="home.html" class="fab-label-btn" title="Back to Home"><i class="fas fa-arrow-left"></i><span>Back to Home</span></a>
+            </div>
+            <div class="fab-action fab-feedback">
+                <button class="fab-icon" title="Feedback" onclick="openFeedbackForm()"><i class="fas fa-comment"></i></button>
+                <button class="fab-label-btn" title="Feedback" onclick="openFeedbackForm()"><i class="fas fa-comment"></i><span>Feedback</span></button>
+            </div>
+        </div>
+        <button class="fab-main" title="More actions"><i class="fas fa-ellipsis-h"></i></button>
+    </div>
+
     <div class="guide-container">
         <div class="guide-header">
             <h1 class="guide-title">
@@ -637,10 +687,8 @@ print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id
                     </ol>
                 </div>
             </div>
-            
-
         </div>
-        
+
         <!-- 联系方式 -->
         <div class="contact-info">
             <h3>Need Help?</h3>
@@ -661,7 +709,7 @@ print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id
             </div>
         </div>
     </div>
-    
+
     <script>
         function copyCode(button) {
             const codeBlock = button.closest('.code-block');
@@ -796,6 +844,12 @@ print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id
             setTimeout(setupSubmitInfoModal, 500);
         } else {
             document.addEventListener('DOMContentLoaded', () => setTimeout(setupSubmitInfoModal, 500));
+        }
+
+        // feedback按钮的回调（如有全局函数可复用，否则可补充）
+        function openFeedbackForm() {
+            // 这里可根据你的实际反馈表单逻辑实现
+            alert('Feedback form coming soon!');
         }
     </script>
 </body>

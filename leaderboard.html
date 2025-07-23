@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenDataArena</title>
+    <title>Leaderboard</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dropdown-styles.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dropdown-styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-36SWWSWBC7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-36SWWSWBC7');
+    </script>
 </head>
 <body>
     <div id="app">
@@ -27,35 +35,38 @@
             </div>
         </div>
 
+        <header class="header">
+            <div class="title-container nav-left">
+                <h1><a href="home.html" class="nav-home-link" :class="{active: currentPage === 'home'}">OpenDataArena</a></h1>
+            </div>
+            <nav class="nav-right">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="leaderboard.html" :class="{active: currentPage === 'leaderboard'}">Leaderboard</a></li>
+                    <li class="nav-item"><a href="comparison.html" :class="{active: currentPage === 'comparison'}">Comparison</a></li>
+                    <li class="nav-item"><a href="rules.html" :class="{active: currentPage === 'rules'}">Rules</a></li>
+                    <li class="nav-item"><a href="contribution-guide.html" :class="{active: currentPage === 'contribution-guide'}">Contribution Guide</a></li>
+                    <li class="nav-item"><a href="#" :class="{active: currentPage === 'tools'}" onclick="alert('Tools page coming soon!')">Tools</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- 悬浮操作菜单 -->
+        <div class="fab-menu">
+            <div class="fab-actions">
+                <div class="fab-action fab-back">
+                    <a href="home.html" class="fab-icon" title="Back to Home"><i class="fas fa-arrow-left"></i></a>
+                    <a href="home.html" class="fab-label-btn" title="Back to Home"><i class="fas fa-arrow-left"></i><span>Back to Home</span></a>
+                </div>
+                <div class="fab-action fab-feedback">
+                    <button class="fab-icon" title="Feedback" onclick="openFeedbackForm()"><i class="fas fa-comment"></i></button>
+                    <button class="fab-label-btn" title="Feedback" onclick="openFeedbackForm()"><i class="fas fa-comment"></i><span>Feedback</span></button>
+                </div>
+            </div>
+            <button class="fab-main" title="More actions"><i class="fas fa-ellipsis-h"></i></button>
+        </div>
+
         <!-- 主容器 -->
         <div class="main-container" v-show="!loading">
-            <!-- 简洁头部 -->
-            <header class="header">
-                <div class="title-container">
-                    <h1>OpenDataArena</h1>
-                    <a href="rules.html" class="rules-link-text">Leaderboard Rules</a>
-                </div>
-                <div class="header-buttons">
-                    <!-- LikeBtn.com BEGIN -->
-                    <span class="likebtn-wrapper" data-theme="custom" data-btn_size="29" data-f_size="17" data-icon_size="20" data-icon_l="thmb7-u" data-icon_l_c="#1039a2" data-icon_l_c_v="#980d19" data-icon_d_c_v="#d9fb05" data-label_c="#1039a2" data-label_c_v="1039a2" data-counter_l_c="#1039a2" data-bg_c="#ffffff" data-bg_c_v="#ffffff" data-brdr_c="#1039a2" data-f_family="Verdana" data-ef_voting="heartbeat" data-identifier="item_1" data-dislike_enabled="false" data-icon_dislike_show="false" data-counter_frmt="comma" data-site_id="6879d11f6fd08b3d2832c422"></span>
-                    <!-- LikeBtn.com END -->
-                    <button id="subscribe-btn" class="subscribe-btn"><i class="fas fa-envelope"></i> Subscribe</button>
-                </div>
-                <div id="subscribe-modal" class="subscribe-modal">
-                  <div class="subscribe-modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h3>Subscribe to Our Updates</h3>
-                    <form id="subscribe-form">
-                      <input type="email" id="subscribe-email" name="email" placeholder="Enter your email" required />
-                      <button type="submit">Subscribe</button>
-                    </form>
-                    <div id="subscribe-success" class="subscribe-success" style="display:none;">Thank you for subscribing!</div>
-                    <div id="subscribe-error" class="subscribe-error" style="display:none;">Subscription failed, please try again.</div>
-                  </div>
-                </div>
-                <!-- Subscribe Button END -->
-            </header>
-
             <!-- 控制区域 -->
             <div class="controls-section">
                 <!-- 第一行：模型系列、数据量区间和搜索框 -->
@@ -262,7 +273,7 @@
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
                                         <div class="dataset-name-with-tags">
-                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`comparison.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                             <span v-else class="dataset-name">{{ dataset.name }}</span>
                                             <!-- 显示标签图标 -->
                                             <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-tags">
@@ -412,7 +423,7 @@
                                 <td class="name-col">
                                     <div class="dataset-name-cell">
                                         <div class="dataset-name-with-tags">
-                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`dataset-detail.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
+                                            <a v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" :href="`comparison.html?id=${dataset.id}`" class="dataset-link">{{ dataset.name }}</a>
                                             <span v-else class="dataset-name">{{ dataset.name }}</span>
                                             <div v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'" class="dataset-tags">
                                                 <span v-for="tag in getDatasetTags(dataset)" :key="tag" 
@@ -459,64 +470,20 @@
                     </table>
                 </div>
             </div>
-            
-            <!-- 贡献者展示板块 -->
-            <div class="contributors-section">
-                <div class="contributors-header">
-                    <h2 class="contributors-title">
-                        <i class="fas fa-users"></i>
-                        Our Contributors
-                    </h2>
-                    <p class="contributors-subtitle">
-                        Thanks to these outstanding researchers and developers for their contributions to OpenDataArena
-                    </p>
-                </div>
-                
-                <div class="contributors-grid">
-                    <div class="contributor-avatar" v-for="contributor in contributors" :key="contributor.id">
-                        <img :src="contributor.avatar" :alt="contributor.name" :title="contributor.name">
-                        <div class="contributor-tooltip">
-                            <strong>{{ contributor.name }}</strong>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="become-contributor">
-                    <div class="contributor-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">{{ contributors.length }}+</div>
-                            <div class="stat-label">Active Contributors</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">150+</div>
-                            <div class="stat-label">Datasets</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1000+</div>
-                            <div class="stat-label">Evaluations</div>
-                        </div>
-                    </div>
-                    
-                    <button class="become-contributor-btn" @click="openContributionGuide">
-                        <i class="fas fa-plus-circle"></i>
-                        Become a Contributor
-                    </button>
-                </div>
-            </div>
         </div>
 
         <!-- Feedback Button -->
-        <div class="feedback-container">
+        <!-- <div class="feedback-container">
             <button class="feedback-btn" @click="openFeedbackForm">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
                 Feedback
             </button>
-        </div>
+        </div> -->
     </div>
 
-    <script src="app.js"></script>
+    <script src="./js/app.js"></script>
     <!-- LikeBtn.com BEGIN -->
     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- LikeBtn.com END -->
@@ -536,6 +503,10 @@
                     <a href="#" class="github-repo-link" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                         GitHub Repository
+                    </a>
+                    <a href="mailto:opendataarena@163.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        Contact Us
                     </a>
                 </div>
             </div>

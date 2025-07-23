@@ -49,7 +49,7 @@ const app = createApp({
         const loadData = async () => {
             try {
                 loading.value = true
-                const response = await fetch('./processed_leaderboard_data.json')
+                const response = await fetch('../data/processed_leaderboard_data.json')
                 if (!response.ok) {
                     throw new Error('Failed to load data')
                 }
@@ -1294,6 +1294,16 @@ const app = createApp({
             };
         }
 
+        // 让hero-section中的Subscribe按钮与原有弹窗联动
+        const subscribeBtnHero = document.getElementById('subscribe-btn-hero');
+        const subscribeBtn = document.getElementById('subscribe-btn');
+        const subscribeModal = document.getElementById('subscribe-modal');
+        if (subscribeBtnHero && subscribeBtn && subscribeModal) {
+            subscribeBtnHero.addEventListener('click', function() {
+                subscribeBtn.click();
+            });
+        }
+
         // 贡献者数据
         const contributors = ref([
             {
@@ -1422,6 +1432,7 @@ const app = createApp({
             })
         })
 
+        window.openFeedbackForm = openFeedbackForm;
         return {
             // 响应式数据
             loading,
