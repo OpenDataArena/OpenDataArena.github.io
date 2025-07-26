@@ -182,24 +182,26 @@
 
             .code-block {
                 background: var(--background-accent);
-                border-radius: var(--radius-sm);
-                margin: 1rem 0;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
                 font-family: "Courier New", monospace;
                 font-size: 0.9rem;
                 overflow: hidden;
                 border: 1px solid var(--border-light);
+                box-shadow: var(--shadow-sm);
+                max-width: 100%;
             }
 
             .code-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0.75rem 1rem;
+                padding: 1rem 1.5rem;
                 background: var(--border-light);
                 border-bottom: 1px solid var(--border-light);
-                font-size: 0.85rem;
-                font-weight: 500;
-                color: var(--text-secondary);
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-primary);
             }
 
             .copy-btn {
@@ -621,35 +623,30 @@
                     <li class="nav-item">
                         <a
                             href="leaderboard.html"
-                            :class="{active: currentPage === 'leaderboard'}"
                             >Leaderboard</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="data-comparison.html?id=2"
-                            :class="{active: currentPage === 'comparison'}"
                             >Data Comparison</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="configurations.html"
-                            :class="{active: currentPage === 'rules'}"
                             >Configurations</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="contribution.html"
-                            :class="{active: currentPage === 'contribution'}"
                             >Contribution</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="tools.html"
-                            :class="{active: currentPage === 'tools'}"
                             >Tools</a
                         >
                     </li>
