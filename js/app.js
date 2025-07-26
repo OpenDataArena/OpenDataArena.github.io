@@ -20,7 +20,29 @@ const app = createApp({
         const error = ref(null)
         
         // 当前页面标识
-        const currentPage = ref('leaderboard')
+        const currentPage = ref('')
+        
+        // 根据当前页面URL设置currentPage
+        const setCurrentPage = () => {
+            const pathname = window.location.pathname
+            const filename = pathname.split('/').pop()
+            
+            if (filename === 'index.html' || filename === '' || pathname.endsWith('/')) {
+                currentPage.value = 'home'
+            } else if (filename === 'leaderboard.html') {
+                currentPage.value = 'leaderboard'
+            } else if (filename === 'data-comparison.html') {
+                currentPage.value = 'comparison'
+            } else if (filename === 'configurations.html') {
+                currentPage.value = 'rules'
+            } else if (filename === 'contribution.html') {
+                currentPage.value = 'contribution'
+            } else if (filename === 'tools.html') {
+                currentPage.value = 'tools'
+            } else {
+                currentPage.value = 'home' // 默认值
+            }
+        }
 
         // 新增：用于列高亮的状态
         const highlightedColumn = ref(null) // 主表格高亮列
@@ -1459,6 +1481,7 @@ const app = createApp({
 
         // 挂载时加载数据
         onMounted(() => {
+            setCurrentPage() // 设置当前页面
             loadData()
             
             // 添加全局点击事件来关闭下拉框

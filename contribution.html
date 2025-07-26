@@ -182,36 +182,39 @@
 
             .code-block {
                 background: var(--background-accent);
-                border-radius: var(--radius-sm);
-                margin: 1rem 0;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
                 font-family: "Courier New", monospace;
                 font-size: 0.9rem;
                 overflow: hidden;
                 border: 1px solid var(--border-light);
+                box-shadow: var(--shadow-sm);
+                max-width: 100%;
             }
 
             .code-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0.75rem 1rem;
+                padding: 1rem 1.5rem;
                 background: var(--border-light);
                 border-bottom: 1px solid var(--border-light);
-                font-size: 0.85rem;
-                font-weight: 500;
-                color: var(--text-secondary);
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-primary);
             }
 
             .copy-btn {
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                padding: 0.25rem 0.75rem;
+                padding: 0.5rem 1rem;
                 background: var(--background-primary);
                 border: 1px solid var(--border-medium);
                 border-radius: var(--radius-sm);
                 color: var(--text-secondary);
-                font-size: 0.8rem;
+                font-size: 0.85rem;
+                font-weight: 500;
                 cursor: pointer;
                 transition: all 0.2s ease;
             }
@@ -220,6 +223,7 @@
                 background: var(--primary-color);
                 color: white;
                 border-color: var(--primary-color);
+                transform: translateY(-1px);
             }
 
             .copy-btn.copied {
@@ -230,11 +234,35 @@
 
             .code-block code {
                 display: block;
-                padding: 1rem;
+                padding: 1.5rem;
                 color: var(--text-primary);
-                line-height: 1.5;
+                line-height: 1.6;
                 overflow-x: auto;
                 white-space: pre;
+                word-wrap: break-word;
+                font-size: 0.9rem;
+                background: var(--background-accent);
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+            }
+
+            /* 代码高亮样式 */
+            .code-block code .comment {
+                color: #6a737d;
+                font-style: italic;
+            }
+
+            .code-block code .keyword {
+                color: #d73a49;
+                font-weight: 600;
+            }
+
+            .code-block code .string {
+                color: #032f62;
+            }
+
+            .code-block code .function {
+                color: #6f42c1;
             }
 
             .step-content ul {
@@ -525,6 +553,27 @@
                     min-width: 320px;
                     padding: 1.5rem;
                 }
+
+                .code-block {
+                    margin: 1rem 0;
+                    border-radius: var(--radius-sm);
+                }
+
+                .code-header {
+                    padding: 0.75rem 1rem;
+                    font-size: 0.85rem;
+                }
+
+                .code-block code {
+                    padding: 1rem;
+                    font-size: 0.85rem;
+                    line-height: 1.5;
+                }
+
+                .copy-btn {
+                    padding: 0.4rem 0.8rem;
+                    font-size: 0.8rem;
+                }
             }
         </style>
     </head>
@@ -547,35 +596,30 @@
                     <li class="nav-item">
                         <a
                             href="leaderboard.html"
-                            :class="{active: currentPage === 'leaderboard'}"
                             >Leaderboard</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="data-comparison.html?id=2"
-                            :class="{active: currentPage === 'comparison'}"
                             >Data Comparison</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="configurations.html"
-                            :class="{active: currentPage === 'rules'}"
                             >Configurations</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="contribution.html"
-                            :class="{active: currentPage === 'contribution'}"
                             >Contribution</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
                             href="tools.html"
-                            :class="{active: currentPage === 'tools'}"
                             >Tools</a
                         >
                     </li>
@@ -745,12 +789,9 @@
                                                 Copy
                                             </button>
                                         </div>
-                                        <code id="bash-commands">
-                                            pip install huggingface_hub datasets
-                                            huggingface-cli login # login your
-                                            huggingface account python
-                                            upload_your_ds.py
-                                        </code>
+                                        <code id="bash-commands">pip install huggingface_hub datasets
+huggingface-cli login # login your huggingface account
+python upload_your_ds.py</code>
                                     </div>
 
                                     <div class="code-block">
@@ -764,33 +805,28 @@
                                                 Copy
                                             </button>
                                         </div>
-                                        <code id="upload-code">
-                                            from datasets import load_dataset
-                                            from utils_jsonl import read_jsonl #
-                                            --- Configuration --- # Your Hugging
-                                            Face username or organization name
-                                            and desired dataset name. # Replace
-                                            'your-username' with your actual
-                                            username or organization. repo_id =
-                                            "your-username/my-awesome-viewable-dataset"
-                                            # The path to your local JSONL file.
-                                            local_file_path = "my_dataset.jsonl"
-                                            # --- Load the local JSONL file into
-                                            a Dataset --- dataset =
-                                            load_dataset('json',
-                                            data_files=local_file_path,
-                                            split='train') print(f"Dataset
-                                            loaded from {local_file_path}:")
-                                            print(dataset) print(dataset[0]) #
-                                            --- Push the dataset to Hugging Face
-                                            Hub --- print(f"Attempting to push
-                                            dataset to {repo_id}...")
-                                            dataset.push_to_hub(repo_id)
-                                            print(f"Successfully pushed dataset
-                                            to '{repo_id}'") print(f"You can
-                                            view your dataset here:
-                                            https://huggingface.co/datasets/{repo_id}")
-                                        </code>
+                                        <code id="upload-code">from datasets import load_dataset
+from utils_jsonl import read_jsonl
+
+# --- Configuration ---
+# Your Hugging Face username or organization name and desired dataset name.
+# Replace 'your-username' with your actual username or organization.
+repo_id = "your-username/my-awesome-viewable-dataset"
+
+# The path to your local JSONL file.
+local_file_path = "my_dataset.jsonl"
+
+# --- Load the local JSONL file into a Dataset ---
+dataset = load_dataset('json', data_files=local_file_path, split='train')
+print(f"Dataset loaded from {local_file_path}:")
+print(dataset)
+print(dataset[0])
+
+# --- Push the dataset to Hugging Face Hub ---
+print(f"Attempting to push dataset to {repo_id}...")
+dataset.push_to_hub(repo_id)
+print(f"Successfully pushed dataset to '{repo_id}'")
+print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id}")</code>
                                     </div>
                                 </div>
                             </li>
