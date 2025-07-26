@@ -83,7 +83,7 @@ const app = createApp({
                 error.value = null
             } catch (err) {
                 console.error('Error loading data:', err)
-                error.value = '数据加载失败，请检查数据文件是否存在'
+                error.value = 'Error loading data'
                 // 使用模拟数据作为备用
                 rawData.value = {
                     llama: generateMockData('LLaMA'),

@@ -2956,6 +2956,7 @@ footer {
 }
 .hero-content {
     padding-right: 8px;
+    margin-top: -30px;
 }
 .hero-title {
     font-size: 2.6rem;
@@ -3610,7 +3611,7 @@ footer {
 
 .hero-section .col-lg-5 ul {
     min-height: 340px;
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 .hero-section .col-lg-5 {
