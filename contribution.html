@@ -182,26 +182,24 @@
 
             .code-block {
                 background: var(--background-accent);
-                border-radius: var(--radius-md);
-                margin: 1.5rem 0;
+                border-radius: var(--radius-sm);
+                margin: 1rem 0;
                 font-family: "Courier New", monospace;
                 font-size: 0.9rem;
                 overflow: hidden;
                 border: 1px solid var(--border-light);
-                box-shadow: var(--shadow-sm);
-                max-width: 100%;
             }
 
             .code-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 1rem 1.5rem;
+                padding: 0.75rem 1rem;
                 background: var(--border-light);
                 border-bottom: 1px solid var(--border-light);
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: var(--text-primary);
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: var(--text-secondary);
             }
 
             .copy-btn {
@@ -621,19 +619,39 @@
             <nav class="nav-right">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="leaderboard.html">Leaderboard</a>
+                        <a
+                            href="leaderboard.html"
+                            :class="{active: currentPage === 'leaderboard'}"
+                            >Leaderboard</a
+                        >
                     </li>
                     <li class="nav-item">
-                        <a href="data-comparison.html?id=2">Data Comparison</a>
+                        <a
+                            href="data-comparison.html?id=2"
+                            :class="{active: currentPage === 'comparison'}"
+                            >Data Comparison</a
+                        >
                     </li>
                     <li class="nav-item">
-                        <a href="configurations.html">Configurations</a>
+                        <a
+                            href="configurations.html"
+                            :class="{active: currentPage === 'rules'}"
+                            >Configurations</a
+                        >
                     </li>
                     <li class="nav-item">
-                        <a href="contribution.html">Contribution</a>
+                        <a
+                            href="contribution.html"
+                            :class="{active: currentPage === 'contribution'}"
+                            >Contribution</a
+                        >
                     </li>
                     <li class="nav-item">
-                        <a href="tools.html">Tools</a>
+                        <a
+                            href="tools.html"
+                            :class="{active: currentPage === 'tools'}"
+                            >Tools</a
+                        >
                     </li>
                 </ul>
             </nav>
@@ -820,9 +838,11 @@
                                                 Copy
                                             </button>
                                         </div>
-                                        <code id="bash-commands">pip install huggingface_hub datasets
+                                        <code id="bash-commands">
+pip install huggingface_hub datasets
 huggingface-cli login # login your huggingface account
-python upload_your_ds.py</code>
+python upload_your_ds.py
+                                        </code>
                                     </div>
 
                                     <div class="code-block">
@@ -836,10 +856,11 @@ python upload_your_ds.py</code>
                                                 Copy
                                             </button>
                                         </div>
-                                        <code id="upload-code">from datasets import load_dataset
+                                        <code id="upload-code">
+from datasets import load_dataset
 from utils_jsonl import read_jsonl
 
-# --- Configuration ---
+#--- Configuration ---
 # Your Hugging Face username or organization name and desired dataset name.
 # Replace 'your-username' with your actual username or organization.
 repo_id = "your-username/my-awesome-viewable-dataset"
@@ -857,7 +878,8 @@ print(dataset[0])
 print(f"Attempting to push dataset to {repo_id}...")
 dataset.push_to_hub(repo_id)
 print(f"Successfully pushed dataset to '{repo_id}'")
-print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id}")</code>
+print(f"You can view your dataset here: https://huggingface.co/datasets/{repo_id}")
+                                        </code>
                                     </div>
                                 </div>
                             </li>

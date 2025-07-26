@@ -1481,7 +1481,6 @@ const app = createApp({
 
         // 挂载时加载数据
         onMounted(() => {
-            setCurrentPage() // 设置当前页面
             loadData()
             
             // 添加全局点击事件来关闭下拉框
