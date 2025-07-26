@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tools - Training and Testing Settings</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/dropdown-styles.css" />
+        <link rel="stylesheet" href="./css/mobile.css" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-36SWWSWBC7"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-36SWWSWBC7");
+        </script>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                    "Segoe UI Emoji", "Segoe UI Symbol";
+                margin: 0;
+                padding: 0;
+                background-color: #f4f7f6;
+                color: #333;
+            }
+            .rules-container {
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            .rules-header {
+                text-align: center;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #e0e0e0;
+            }
+            .rules-header h1 {
+                color: #1039a2;
+                font-size: 2.2em;
+                margin-bottom: 10px;
+            }
+            .rules-header .back-link {
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px 20px;
+                background-color: #1039a2;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1em;
+                transition: background-color 0.3s ease;
+            }
+            .rules-header .back-link:hover {
+                background-color: #0d2c7a;
+            }
+            .rules-header .back-link i {
+                margin-right: 8px;
+            }
+            .rules-section {
+                margin-bottom: 40px;
+            }
+            .rules-section h2 {
+                font-size: 1.8em;
+                color: #333;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+            }
+            .rules-section h2 i {
+                margin-right: 10px;
+                color: #1039a2;
+            }
+            .rules-section p {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+            .rules-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                font-size: 0.95em;
+                table-layout: fixed;
+            }
+            .rules-table th,
+            .rules-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+                vertical-align: top;
+                word-wrap: break-word;
+            }
+            .rules-table th {
+                background-color: #f7f9fa;
+                font-weight: 600;
+                color: #333;
+            }
+            .rules-table td:first-child {
+                font-weight: 500;
+                width: 20%;
+                background-color: #fcfdff;
+            }
+            .dataset-cell {
+                white-space: pre-wrap;
+                word-break: break-word;
+                line-height: 1.5;
+            }
+            .footer-nav {
+                text-align: center;
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            a.repo-link {
+                color: #222 !important;
+                text-decoration: none !important;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            a.repo-link i {
+                margin-left: 6px;
+                font-size: 0.95em;
+                vertical-align: middle;
+            }
+            a.repo-link:hover {
+                color: #1039a2 !important;
+            }
+            .tools-header {
+                text-align: left;
+                margin-bottom: 3rem;
+                padding: 2rem;
+                background: linear-gradient(
+                    180deg,
+                    var(--background-secondary) 0%,
+                    var(--background-accent) 50%
+                );
+                border-radius: var(--radius-lg);
+                border: 1px solid var(--border-light);
+            }
+            .tools-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--primary-dark);
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .tools-subtitle {
+                font-size: 1.2rem;
+                color: var(--text-secondary);
+                max-width: 800px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+            @media (max-width: 768px) {
+                .tools-title {
+                    font-size: 2rem;
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="title-container nav-left">
+                <div class="nav-title-group">
+                    <h1 class="nav-main-title">
+                        <a href="index.html" class="nav-home-link"
+                            >OpenDataArena</a
+                        >
+                    </h1>
+                    <div class="nav-slogan">
+                        Benchmark Data Value - Right at Your Fingertips
+                    </div>
+                </div>
+            </div>
+            <nav class="nav-right">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a
+                            href="leaderboard.html"
+                            :class="{active: currentPage === 'leaderboard'}"
+                            >Leaderboard</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="data-comparison.html?id=2"
+                            :class="{active: currentPage === 'comparison'}"
+                            >Data Comparison</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="configurations.html"
+                            :class="{active: currentPage === 'rules'}"
+                            >Configurations</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="contribution.html"
+                            :class="{active: currentPage === 'contribution'}"
+                            >Contribution</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="tools.html"
+                            :class="{active: currentPage === 'tools'}"
+                            >Tools</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- 悬浮操作菜单 -->
+        <div class="fab-menu">
+            <div class="fab-actions">
+                <div class="fab-action fab-back">
+                    <a href="index.html" class="fab-icon" title="Back to Home"
+                        ><i class="fas fa-arrow-left"></i
+                    ></a>
+                    <a
+                        href="index.html"
+                        class="fab-label-btn"
+                        title="Back to Home"
+                        ><i class="fas fa-arrow-left"></i
+                        ><span>Back to Home</span></a
+                    >
+                </div>
+                <div class="fab-action fab-feedback">
+                    <button
+                        class="fab-icon"
+                        title="Feedback"
+                        onclick="openFeedbackForm()"
+                    >
+                        <i class="fas fa-comment"></i>
+                    </button>
+                    <button
+                        class="fab-label-btn"
+                        title="Feedback"
+                        onclick="openFeedbackForm()"
+                    >
+                        <i class="fas fa-comment"></i><span>Feedback</span>
+                    </button>
+                </div>
+            </div>
+            <button class="fab-main" title="More actions">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+        </div>
+
+        <div class="rules-container">
+            <div class="tools-header">
+                <h1 class="tools-title">
+                    <i class="fas fa-toolbox"></i>
+                    OpenDataArena-Tools Introduction
+                </h1>
+                <p class="guide-subtitle" style="margin-bottom: 10px">
+                    We have developed a complete set of high-quality tools to
+                    support data value verification, covering key stages such as
+                    training, evaluation, and multi-dimensional data scoring.
+                    All tools are fully open-source and aligned with widely
+                    adopted community standards, ensuring ease of reproduction
+                    and extensibility.
+                </p>
+                <p class="guide-subtitle">
+                    See
+                    <a
+                        href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+                        target="_blank"
+                        class="repo-link"
+                        ><u>OpenDataArena-Tool</u></a
+                    >
+                    for more details.
+                </p>
+            </div>
+            <h2 style="margin-top: 25px; margin-bottom: 15px">
+                1. Training &amp; Evaluation Tools
+            </h2>
+            <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 20px">
+                Our training and testing tools provide a consistent,
+                controllable, and reproducible experimental platform, enabling
+                fair comparisons across different datasets and model
+                configurations.
+            </p>
+            <h3
+                style="margin-top: 25px; margin-left: 20px; margin-bottom: 15px"
+            >
+                🔧 Train Tool:
+                <a
+                    href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/model_train"
+                    target="_blank"
+                    class="repo-link"
+                    ><code><u> model_train</u></code></a
+                >
+            </h3>
+            <ul
+                style="
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    margin-left: 40px;
+                    margin-bottom: 20px;
+                "
+            >
+                <li>
+                    Built upon the widely used
+                    <a
+                        href="https://github.com/huggingface/llama-factory"
+                        target="_blank"
+                        class="repo-link"
+                        ><strong><u>LLaMA Factory</u></strong></a
+                    >
+                    training framework.
+                </li>
+                <li>
+                    Standardized training pipeline supporting major open-source
+                    models such as <strong><u>LLaMA</u></strong
+                    >, <strong><u>Qwen</u></strong
+                    >, and others.
+                </li>
+                <li>
+                    Configurable components including data loading, fine-tuning
+                    strategies, logging, and more.
+                </li>
+                <li>
+                    Training configurations are derived from extensive
+                    literature review to ensure fairness and comparability.
+                </li>
+            </ul>
+            <h3
+                style="margin-top: 25px; margin-left: 20px; margin-bottom: 15px"
+            >
+                🔧 Test Tool:
+                <a
+                    href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/model_eval"
+                    target="_blank"
+                    class="repo-link"
+                    ><code><u>model_eval</u></code></a
+                >
+            </h3>
+            <ul
+                style="
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    margin-left: 40px;
+                    margin-bottom: 20px;
+                "
+            >
+                <li>
+                    Built on the popular
+                    <a
+                        href="https://github.com/opencompass-ai/opencompass"
+                        target="_blank"
+                        class="repo-link"
+                        ><strong><u>OpenCompass</u></strong></a
+                    >
+                    evaluation framework.
+                </li>
+                <li>
+                    Unified evaluation pipeline compatible with a variety of
+                    tasks (e.g., code generation, mathematical reasoning,
+                    open-domain QA).
+                </li>
+                <li>
+                    Aligned with mainstream tools such as
+                    <a
+                        href="https://github.com/openai/math-eval-harness"
+                        target="_blank"
+                        class="repo-link"
+                        ><code><u>math-eval-harness</u></code></a
+                    >
+                    and
+                    <a
+                        href="https://github.com/EleutherAI/lm-evaluation-harness"
+                        target="_blank"
+                        class="repo-link"
+                        ><code><u>lm-evaluation-harness</u></code></a
+                    >.
+                </li>
+                <li>
+                    Supports automated result extraction and formatting,
+                    enhancing evaluation efficiency and consistency.
+                </li>
+            </ul>
+            <h2 style="margin-top: 25px; margin-bottom: 15px">
+                2. Data Scoring Tool (Data Scorer)
+            </h2>
+            <p
+                style="
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    margin-left: 20px;
+                    margin-bottom: 20px;
+                "
+            >
+                We provide a multi-dimensional
+                <strong>data scoring framework</strong> designed to assess the
+                quality and value of data from various perspectives. It supports
+                LLM-based evaluation, statistical analysis, and task-related
+                performance metrics.
+            </p>
+            <h3
+                style="margin-top: 25px; margin-left: 20px; margin-bottom: 15px"
+            >
+                🔧 Test Tool:
+                <a
+                    href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer"
+                    target="_blank"
+                    class="repo-link"
+                    ><code><u>data_scorer</u></code></a
+                >
+            </h3>
+            <ul style="font-size: 1.1em; line-height: 1.6; margin-left: 40px">
+                <li>
+                    <p>
+                        A versatile and extensible framework for multi-type,
+                        multi-dimensional data scoring.
+                    </p>
+                </li>
+                <ul style="margin-left: 40px">
+                    <li>
+                        Supports <strong>LLM-based subjective scoring</strong>,
+                        including tools like <em>LLM-as-a-Judge</em>.
+                    </li>
+                    <li>
+                        Supports model-based metrics such as
+                        <strong>diversity</strong>,
+                        <strong>correctness</strong>, and
+                        <strong>complexity</strong>.
+                    </li>
+                    <li>
+                        Includes statistical data features such as
+                        <strong>data length</strong>.
+                    </li>
+                </ul>
+            </ul>
+            <ul
+                style="
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    margin-left: 40px;
+                    margin-bottom: 20px;
+                "
+            >
+                <li>
+                    <p>
+                        Seamlessly integrates with the training and testing
+                        tools to evaluate data effectiveness based on real
+                        downstream performance.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Applicable for tasks like selecting high-quality data,
+                        building dataset subsets, and analyzing the impact of
+                        data on model performance.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h4>Related Links</h4>
+                    <div class="links-container">
+                        <a
+                            href="https://opendatalab.github.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-globe"></i>
+                            OpenDataLab Research
+                        </a>
+                        <a
+                            href="https://opendatalab.org.cn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-home"></i>
+                            OpenDataLab
+                        </a>
+                        <a
+                            href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+                            class="github-repo-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-github"></i>
+                            GitHub Repository
+                        </a>
+                        <a
+                            href="mailto:opendataarena@163.com"
+                            class="contact-link"
+                        >
+                            <i class="fas fa-envelope"></i>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 OpenDataArena. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function openFeedbackForm() {
+                const googleFormUrl =
+                    "https://docs.google.com/forms/d/e/1FAIpQLSe2Mh4L3e-1TvlCl-Qfl_WasFk2dPO2mFcbmfMG4iF9IgKuIQ/viewform?usp=dialog";
+                try {
+                    const newWindow = window.open(
+                        googleFormUrl,
+                        "_blank",
+                        "width=800,height=600,scrollbars=yes,resizable=yes"
+                    );
+                    if (
+                        !newWindow ||
+                        newWindow.closed ||
+                        typeof newWindow.closed === "undefined"
+                    ) {
+                        window.location.href = googleFormUrl;
+                    }
+                } catch (error) {
+                    window.location.href = googleFormUrl;
+                }
+            }
+        </script>
+    </body>
+</html>

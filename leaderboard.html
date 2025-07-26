@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dataset Leaderboard - OpenDataArena</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/dropdown-styles.css" />
+        <link rel="stylesheet" href="./css/mobile.css" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-36SWWSWBC7"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-36SWWSWBC7");
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <header class="header">
+                <div class="title-container nav-left">
+                    <div class="nav-title-group">
+                        <h1 class="nav-main-title">
+                            <a href="index.html" class="nav-home-link"
+                                >OpenDataArena</a
+                            >
+                        </h1>
+                        <div class="nav-slogan">
+                            Benchmark Data Value - Right at Your Fingertips
+                        </div>
+                    </div>
+                </div>
+                <nav class="nav-right">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a
+                                href="leaderboard.html"
+                                :class="{active: currentPage === 'leaderboard'}"
+                                >Leaderboard</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                href="data-comparison.html?id=2"
+                                :class="{active: currentPage === 'comparison'}"
+                                >Data Comparison</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                href="configurations.html"
+                                :class="{active: currentPage === 'rules'}"
+                                >Configurations</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                href="contribution.html"
+                                :class="{active: currentPage === 'contribution'}"
+                                >Contribution</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                href="tools.html"
+                                :class="{active: currentPage === 'tools'}"
+                                >Tools</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- 加载状态 -->
+            <div v-if="loading" class="loading-overlay">
+                <div class="loading-spinner">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    <p>Loading...</p>
+                </div>
+            </div>
+
+            <!-- 错误状态 -->
+            <div v-if="error" class="error-overlay">
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>{{ error }}</p>
+                </div>
+            </div>
+
+            <!-- 悬浮操作菜单 -->
+            <div class="fab-menu">
+                <div class="fab-actions">
+                    <div class="fab-action fab-back">
+                        <a
+                            href="index.html"
+                            class="fab-icon"
+                            title="Back to Home"
+                            ><i class="fas fa-arrow-left"></i
+                        ></a>
+                        <a
+                            href="index.html"
+                            class="fab-label-btn"
+                            title="Back to Home"
+                            ><i class="fas fa-arrow-left"></i
+                            ><span>Back to Home</span></a
+                        >
+                    </div>
+                    <div class="fab-action fab-feedback">
+                        <button
+                            class="fab-icon"
+                            title="Feedback"
+                            onclick="openFeedbackForm()"
+                        >
+                            <i class="fas fa-comment"></i>
+                        </button>
+                        <button
+                            class="fab-label-btn"
+                            title="Feedback"
+                            onclick="openFeedbackForm()"
+                        >
+                            <i class="fas fa-comment"></i><span>Feedback</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="fab-main" title="More actions">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <!-- 主容器 -->
+            <div class="main-container" v-show="!loading">
+                <!-- 控制区域 -->
+                <div class="controls-section">
+                    <!-- 第一行：模型系列、数据量区间和搜索框 -->
+                    <div class="control-row">
+                        <!-- 模型切换按钮组 -->
+                        <div class="model-switcher model-buttons-section">
+                            <label>Model Family:</label>
+                            <div class="model-buttons-container">
+                                <button
+                                    v-for="model in models"
+                                    :key="model.id"
+                                    class="model-button"
+                                    :class="{ active: currentModel === model.id }"
+                                    @click="currentModel = model.id"
+                                >
+                                    {{ model.name }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 数据量区间滑动条 -->
+                        <div class="size-range-section">
+                            <label>Dataset Size Range:</label>
+                            <div class="size-slider-container">
+                                <div class="size-slider-wrapper">
+                                    <div class="size-slider-track">
+                                        <div
+                                            class="size-slider-range"
+                                            :style="getRangeStyle()"
+                                        ></div>
+                                        <input
+                                            ref="minSlider"
+                                            type="range"
+                                            class="size-slider size-slider-min"
+                                            :min="0"
+                                            :max="7"
+                                            :value="sizeRangeMin"
+                                            @input="updateSizeRangeMin($event)"
+                                            @change="updateSizeRangeMin($event)"
+                                            @mousedown="onSliderMouseDown"
+                                            @touchstart="onSliderMouseDown"
+                                        />
+                                        <input
+                                            ref="maxSlider"
+                                            type="range"
+                                            class="size-slider size-slider-max"
+                                            :min="0"
+                                            :max="7"
+                                            :value="sizeRangeMax"
+                                            @input="updateSizeRangeMax($event)"
+                                            @change="updateSizeRangeMax($event)"
+                                            @mousedown="onSliderMouseDown"
+                                            @touchstart="onSliderMouseDown"
+                                        />
+                                    </div>
+                                    <div class="size-slider-labels">
+                                        <span class="size-label-min"
+                                            >{{
+                                            formatSizeLabel(getSizeValueFromIndex(sizeRangeMin))
+                                            }}</span
+                                        >
+                                        <span class="size-label-max"
+                                            >{{
+                                            formatSizeLabel(getSizeValueFromIndex(sizeRangeMax))
+                                            }}</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 搜索框 -->
+                        <div class="search-box-container">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input
+                                    id="search-input-main"
+                                    type="text"
+                                    v-model="searchQuery"
+                                    placeholder="Search datasets..."
+                                    class="search-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第二行：数据标签和榜单领域 -->
+                    <div class="control-row">
+                        <!-- 数据标签按钮组 -->
+                        <div
+                            class="filter-dropdown-group data-tag-buttons-section"
+                        >
+                            <label>Dataset Tags:</label>
+                            <div class="tag-filter-container">
+                                <div class="tag-filter-mode">
+                                    <label class="filter-mode-label">
+                                        <input
+                                            type="radio"
+                                            v-model="tagFilterMode"
+                                            value="include"
+                                            class="filter-mode-radio"
+                                        />
+                                        <span class="filter-mode-text"
+                                            >Include</span
+                                        >
+                                    </label>
+                                    <label class="filter-mode-label">
+                                        <input
+                                            type="radio"
+                                            v-model="tagFilterMode"
+                                            value="exclusive"
+                                            class="filter-mode-radio"
+                                        />
+                                        <span class="filter-mode-text"
+                                            >Only</span
+                                        >
+                                    </label>
+                                </div>
+                                <div class="tag-buttons-container">
+                                    <button
+                                        class="tag-button"
+                                        :class="{ active: selectedTags.length === 0 }"
+                                        @click="selectedTags = []"
+                                    >
+                                        All
+                                    </button>
+                                    <button
+                                        v-for="tag in orderedTags"
+                                        :key="tag"
+                                        class="tag-button"
+                                        :data-type="tag.toLowerCase()"
+                                        :class="{ 
+                                        active: selectedTags.includes(tag),
+                                        [`tag-${tag.toLowerCase()}`]: true
+                                    }"
+                                        @click="toggleTag(tag)"
+                                    >
+                                        <i :class="getTagIcon(tag)"></i> {{
+                                        getTagDisplayName(tag) }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 榜单领域按钮组 -->
+                        <div class="filter-dropdown-group type-buttons-section">
+                            <label>Benchmark Domain:</label>
+                            <div class="type-buttons-container">
+                                <button
+                                    class="type-button"
+                                    :class="{ active: !selectedType }"
+                                    @click="selectType('')"
+                                >
+                                    All
+                                </button>
+                                <button
+                                    v-for="type in ['general', 'math', 'code', 'reasoning']"
+                                    :key="type"
+                                    class="type-button"
+                                    :data-type="type"
+                                    :class="{ active: selectedType === type }"
+                                    @click="selectType(type)"
+                                >
+                                    <i :class="getTypeIcon(type)"></i> {{
+                                    type.charAt(0).toUpperCase() + type.slice(1)
+                                    }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主要排行榜表格 -->
+                <div class="leaderboard-container" v-show="!selectedType">
+                    <div class="table-container">
+                        <table class="ranking-table">
+                            <thead>
+                                <tr>
+                                    <th class="rank-col">Rank</th>
+                                    <th
+                                        class="name-col sortable"
+                                        @click="sortBy('name')"
+                                    >
+                                        Dataset
+                                        <i
+                                            :class="getSortIcon('name')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="year-col sortable"
+                                        @click="sortBy('year')"
+                                    >
+                                        Year
+                                        <i
+                                            :class="getSortIcon('year')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="size-col sortable"
+                                        @click="sortBy('size'); highlightColumn('size')"
+                                    >
+                                        Size
+                                        <i
+                                            :class="getSortIcon('size')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('overall_avg'); highlightColumn('overall_avg')"
+                                    >
+                                        Avg Score
+                                        <i
+                                            :class="getSortIcon('overall_avg')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('overall_efficiency'); highlightColumn('overall_efficiency')"
+                                    >
+                                        Efficiency
+                                        <i
+                                            :class="getSortIcon('overall_efficiency')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('general_avg'); highlightColumn('general_avg')"
+                                    >
+                                        General
+                                        <i
+                                            :class="getSortIcon('general_avg')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('math_avg'); highlightColumn('math_avg')"
+                                    >
+                                        Math
+                                        <i
+                                            :class="getSortIcon('math_avg')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('code_avg'); highlightColumn('code_avg')"
+                                    >
+                                        Code
+                                        <i
+                                            :class="getSortIcon('code_avg')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortBy('reasoning_avg'); highlightColumn('reasoning_avg')"
+                                    >
+                                        Reasoning
+                                        <i
+                                            :class="getSortIcon('reasoning_avg')"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    v-for="(dataset, index) in filteredData"
+                                    :key="dataset.id"
+                                    class="table-row"
+                                    :class="{ 
+                                    'base-row': dataset.domain === 'base',
+                                    'instruct-row': dataset.domain === 'instruct'
+                                }"
+                                    @click="selectBaseline(dataset)"
+                                >
+                                    <td class="rank-col">
+                                        <div
+                                            v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                            class="rank-badge"
+                                            :class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'size') ? 'overall_avg' : sortColumn, false, null, improvementType) - 1)"
+                                        >
+                                            {{ getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'size') ? 'overall_avg' : sortColumn, false, null, improvementType) }}
+                                        </div>
+                                        <!-- 只为当前选中的比较基准显示标记 -->
+                                        <div
+                                            v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')"
+                                            class="baseline-indicator active"
+                                            @mouseenter="showTooltip = true"
+                                            @mouseleave="showTooltip = false"
+                                        >
+                                            <i
+                                                v-if="dataset.domain === 'base'"
+                                                class="fas fa-bullseye"
+                                            ></i>
+                                            <i
+                                                v-if="dataset.domain === 'instruct'"
+                                                class="fas fa-bullseye"
+                                            ></i>
+                                            <div
+                                                v-if="showTooltip"
+                                                class="custom-tooltip"
+                                            >
+                                                {{ dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline' }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="name-col">
+                                        <div class="dataset-name-cell">
+                                            <div class="dataset-name-with-tags">
+                                                <a
+                                                    v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                    :href="`data-comparison.html?id=${dataset.id}`"
+                                                    class="dataset-link"
+                                                    >{{ dataset.name }}</a
+                                                >
+                                                <span
+                                                    v-else
+                                                    class="dataset-name"
+                                                    >{{ dataset.name }}</span
+                                                >
+                                                <!-- 显示标签图标 -->
+                                                <div
+                                                    v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                    class="dataset-tags"
+                                                >
+                                                    <span
+                                                        v-for="tag in getDatasetTags(dataset)"
+                                                        :key="tag"
+                                                        class="tag-icon"
+                                                        :class="`tag-${tag.toLowerCase()}`"
+                                                        :title="getTagDisplayName(tag)"
+                                                        @click="toggleTag(tag)"
+                                                    >
+                                                        <i
+                                                            :class="getTagIcon(tag)"
+                                                        ></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                class="dataset-affiliation"
+                                            >
+                                                {{ dataset.affiliation }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="year-col">
+                                        {{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}
+                                    </td>
+                                    <td
+                                        class="size-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'size' }"
+                                    >
+                                        {{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}
+                                    </td>
+                                    <td
+                                        class="score-col overall-score"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'overall_avg' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value overall"
+                                                >{{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffClass"
+                                            >
+                                                {{ formatScoreWithImprovement(dataset.overall_avg, dataset.improvement?.overall_avg, dataset, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'overall_efficiency' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatEfficiencyScore(dataset.overall_efficiency) }}</span
+                                            >
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'general_avg' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffClass"
+                                            >
+                                                {{ formatScoreWithImprovement(dataset.general_avg, dataset.improvement?.general_avg, dataset, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'math_avg' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffClass"
+                                            >
+                                                {{ formatScoreWithImprovement(dataset.math_avg, dataset.improvement?.math_avg, dataset, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'code_avg' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffClass"
+                                            >
+                                                {{ formatScoreWithImprovement(dataset.code_avg, dataset.improvement?.code_avg, dataset, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffClass"
+                                            >
+                                                {{ formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement?.reasoning_avg, dataset, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 详细类型表格 -->
+                <div
+                    class="detailed-leaderboard-container"
+                    v-show="selectedType"
+                >
+                    <div class="detailed-header">
+                        <h2 class="detailed-title">
+                            <i class="fas fa-chart-line"></i>
+                            {{ getTypeDisplayName(selectedType) }} Leaderboard
+                        </h2>
+                        <button @click="selectedType = ''" class="back-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Main Leaderboard
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="ranking-table detailed-table">
+                            <thead>
+                                <tr>
+                                    <th class="rank-col">Rank</th>
+                                    <th
+                                        class="name-col sortable"
+                                        @click="sortDetailedBy('name')"
+                                    >
+                                        Dataset<i
+                                            :class="getSortIcon('name', true)"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="year-col sortable"
+                                        @click="sortDetailedBy('year')"
+                                    >
+                                        Year
+                                        <i
+                                            :class="getSortIcon('year', true)"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="size-col sortable"
+                                        @click="sortDetailedBy('size'); highlightColumn('size', true)"
+                                    >
+                                        Size
+                                        <i
+                                            :class="getSortIcon('size', true)"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col overall-score sortable"
+                                        @click="sortDetailedBy('average'); highlightColumn('average', true)"
+                                    >
+                                        Avg Score
+                                        <i
+                                            :class="getSortIcon('average', true)"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        class="score-col sortable"
+                                        @click="sortDetailedBy('efficiency'); highlightColumn('efficiency', true)"
+                                    >
+                                        Efficiency
+                                        <i
+                                            :class="getSortIcon('efficiency', true)"
+                                            class="sort-icon"
+                                        ></i>
+                                    </th>
+                                    <th
+                                        v-for="header in getTaskHeaders(selectedType)"
+                                        :key="header.taskName + '_' + header.metricName"
+                                        class="score-col sortable"
+                                        @click="sortDetailedBy(header.taskName + '_' + header.metricName); highlightColumn(header.taskName + '_' + header.metricName, true)"
+                                    >
+                                        <div class="task-header">
+                                            <div class="task-name">
+                                                {{ header.displayName }}
+                                                <i
+                                                    :class="getSortIcon(header.taskName + '_' + header.metricName, true)"
+                                                    class="sort-icon"
+                                                ></i>
+                                            </div>
+                                            <div class="metric-name">
+                                                {{ header.metricDisplayName }}
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    v-for="(dataset, index) in detailedFilteredData"
+                                    :key="dataset.id"
+                                    class="table-row"
+                                    :class="{ 
+                                    'base-row': dataset.domain === 'base',
+                                    'instruct-row': dataset.domain === 'instruct'
+                                }"
+                                    @click="selectBaseline(dataset)"
+                                >
+                                    <td class="rank-col">
+                                        <div
+                                            v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                            class="rank-badge"
+                                            :class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'size') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)"
+                                        >
+                                            {{ getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'size') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) }}
+                                        </div>
+                                        <div
+                                            v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')"
+                                            class="baseline-indicator active"
+                                            @mouseenter="showTooltip = true"
+                                            @mouseleave="showTooltip = false"
+                                        >
+                                            <i
+                                                v-if="dataset.domain === 'base'"
+                                                class="fas fa-bullseye"
+                                            ></i>
+                                            <i
+                                                v-if="dataset.domain === 'instruct'"
+                                                class="fas fa-bullseye"
+                                            ></i>
+                                            <div
+                                                v-if="showTooltip"
+                                                class="custom-tooltip"
+                                            >
+                                                {{ dataset.domain === 'base' ? 'Currently using Base Model as comparison baseline' : 'Currently using Instruct Model as comparison baseline' }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="name-col">
+                                        <div class="dataset-name-cell">
+                                            <div class="dataset-name-with-tags">
+                                                <a
+                                                    v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                    :href="`data-comparison.html?id=${dataset.id}`"
+                                                    class="dataset-link"
+                                                    >{{ dataset.name }}</a
+                                                >
+                                                <span
+                                                    v-else
+                                                    class="dataset-name"
+                                                    >{{ dataset.name }}</span
+                                                >
+                                                <div
+                                                    v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                    class="dataset-tags"
+                                                >
+                                                    <span
+                                                        v-for="tag in getDatasetTags(dataset)"
+                                                        :key="tag"
+                                                        class="tag-icon"
+                                                        :class="`tag-${tag.toLowerCase()}`"
+                                                        :title="getTagDisplayName(tag)"
+                                                        @click="toggleTag(tag)"
+                                                    >
+                                                        <i
+                                                            :class="getTagIcon(tag)"
+                                                        ></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+                                                class="dataset-affiliation"
+                                            >
+                                                {{ dataset.affiliation }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="year-col">
+                                        {{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.year }}
+                                    </td>
+                                    <td
+                                        class="size-col"
+                                        :class="{ 'highlighted-col': highlightedDetailedColumn === 'size' }"
+                                    >
+                                        {{ dataset.domain === 'base' || dataset.domain === 'instruct' ? '-' : dataset.size }}
+                                    </td>
+                                    <td
+                                        class="score-col overall-score"
+                                        :class="{ 'highlighted-col': highlightedDetailedColumn === 'average' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value overall"
+                                                >{{ getTypeAverage(dataset, selectedType, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="getTypeAverage(dataset, selectedType, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="getTypeAverage(dataset, selectedType, improvementType).diffClass"
+                                            >
+                                                {{ getTypeAverage(dataset, selectedType, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedDetailedColumn === 'efficiency' }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ formatEfficiencyScore(getTypeEfficiency(dataset, selectedType)) }}</span
+                                            >
+                                        </div>
+                                    </td>
+                                    <td
+                                        v-for="header in getTaskHeaders(selectedType)"
+                                        :key="header.taskName + '_' + header.metricName"
+                                        class="score-col"
+                                        :class="{ 'highlighted-col': highlightedDetailedColumn === (header.taskName + '_' + header.metricName) }"
+                                    >
+                                        <div class="score-container">
+                                            <span class="score-value"
+                                                >{{ getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).score }}</span
+                                            >
+                                            <span
+                                                v-if="getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffText"
+                                                class="score-diff"
+                                                :class="getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffClass"
+                                            >
+                                                {{ getTaskScore(dataset, selectedType, header.taskName, header.metricName, false, improvementType).diffText }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Button -->
+            <!-- <div class="feedback-container">
+            <button class="feedback-btn" @click="openFeedbackForm">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Feedback
+            </button>
+        </div> -->
+        </div>
+
+        <script src="./js/app.js"></script>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h4>Related Links</h4>
+                    <div class="links-container">
+                        <a
+                            href="https://opendatalab.github.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-globe"></i>
+                            OpenDataLab Research
+                        </a>
+                        <a
+                            href="https://opendatalab.org.cn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-home"></i>
+                            OpenDataLab
+                        </a>
+                        <a
+                            href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+                            class="github-repo-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-github"></i>
+                            GitHub Repository
+                        </a>
+                        <a
+                            href="mailto:opendataarena@163.com"
+                            class="contact-link"
+                        >
+                            <i class="fas fa-envelope"></i>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 OpenDataArena. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
