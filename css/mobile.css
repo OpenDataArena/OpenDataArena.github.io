@@ -1,0 +1,1471 @@
+/* 移动端适配样式 */
+/* 基础移动端设置 */
+@media (max-width: 768px) {
+    /* 基础布局调整 */
+    .container,
+    .main-container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    /* 导航栏移动端适配 */
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+        min-height: auto;
+        gap: 1rem;
+    }
+
+    .nav-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .nav-item a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* 标题组移动端适配 */
+    .nav-title-group {
+        text-align: center;
+        align-items: center;
+    }
+
+    .nav-main-title {
+        font-size: 1.5rem;
+    }
+
+    .nav-slogan {
+        font-size: 0.75rem;
+        text-align: center;
+    }
+
+    /* Hero区域移动端适配 */
+    .hero-section {
+        padding: 2rem 1rem;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .hero-content h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .hero-title-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hero-title-row .subscribe-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    /* 右侧列表移动端适配 */
+    .col-lg-5 ul {
+        min-height: auto;
+        margin-top: 1rem;
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* News & Roadmap 移动端适配 */
+    .news-roadmap-section {
+        padding: 1rem;
+    }
+
+    .news-roadmap-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .news-block,
+    .roadmap-block {
+        min-width: 0;
+        padding: 1rem;
+    }
+
+    .news-title,
+    .roadmap-title {
+        font-size: 1.2rem;
+    }
+
+    /* 贡献者区域移动端适配 */
+    .contributors-section {
+        padding: 1.5rem 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .contributors-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contributors-grid {
+        gap: 0.5rem;
+    }
+
+    .contributor-avatar {
+        width: 45px;
+        height: 45px;
+    }
+
+    .contributor-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background: var(--background-primary);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* 页脚移动端适配 */
+    .footer-content {
+        padding: 0 1rem;
+    }
+
+    .links-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .links-container a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* FAB菜单移动端适配 */
+    .fab-menu {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1rem;
+    }
+
+    .fab-label-btn {
+        font-size: 0.8rem;
+        padding: 0 0.5rem;
+    }
+
+    /* 订阅弹窗移动端适配 */
+    .subscribe-modal-content {
+        padding: 1.5rem;
+        min-width: 280px;
+        max-width: 95vw;
+    }
+
+    .subscribe-modal-content input[type="email"] {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    /* 排行榜页面移动端适配 */
+    .controls-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .control-row {
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .control-row:first-child {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding-right: 0;
+    }
+
+    .control-row:last-child {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .model-switcher,
+    .type-buttons-section,
+    .improvement-type-section,
+    .data-tag-buttons-section,
+    .size-range-section,
+    .search-box-container {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .model-buttons-container,
+    .type-buttons-container,
+    .improvement-type-buttons,
+    .tag-buttons-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+        min-width: 70px;
+    }
+
+    .search-box {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem 0.6rem 2.2rem;
+    }
+
+    .size-slider-wrapper {
+        padding: 5px;
+        margin: 5px 0;
+    }
+
+    .size-slider-labels {
+        font-size: 0.8rem;
+    }
+
+    .reset-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0;
+        height: 40px;
+    }
+
+    /* 表格移动端适配 */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ranking-table {
+        min-width: 600px;
+        font-size: 0.8rem;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 0.5rem 0.25rem;
+        white-space: nowrap;
+    }
+
+    .ranking-table th {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .name-col {
+        min-width: 150px;
+        max-width: 200px;
+    }
+
+    .dataset-name-cell {
+        max-width: 150px;
+    }
+
+    .dataset-name {
+        font-size: 0.8rem;
+    }
+
+    .dataset-affiliation {
+        font-size: 0.7rem;
+    }
+
+    .rank-col {
+        width: 50px;
+    }
+
+    .year-col {
+        width: 60px;
+    }
+
+    .size-col {
+        width: 70px;
+    }
+
+    .score-col {
+        width: 80px;
+    }
+
+    .rank-badge {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .domain-badge {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .score-container {
+        align-items: center;
+    }
+
+    .score-diff {
+        font-size: 0.7rem;
+        padding: 1px 4px;
+    }
+
+    /* 筛选标签移动端适配 */
+    .filter-tags-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        margin: 0;
+        overflow-x: visible;
+    }
+
+    .filter-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        flex-shrink: 0;
+    }
+
+    .filter-tag i {
+        font-size: 0.7rem;
+    }
+
+    /* 详细表格移动端适配 */
+    .detailed-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .detailed-title {
+        font-size: 1.3rem;
+    }
+
+    .back-btn {
+        position: static;
+        margin-bottom: 1rem;
+        width: auto;
+        display: inline-flex;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .detailed-table {
+        font-size: 0.7rem;
+        min-width: 800px;
+    }
+
+    .detailed-table th,
+    .detailed-table td {
+        padding: 0.4rem 0.2rem;
+    }
+
+    .detailed-table th small {
+        font-size: 0.6rem;
+    }
+
+    .detailed-table .name-col {
+        min-width: 120px;
+        max-width: 150px;
+    }
+
+    .detailed-table .domain-col {
+        min-width: 80px;
+        max-width: 100px;
+    }
+
+    /* 数据比较页面移动端适配 */
+    .compare-controls {
+        gap: 1rem;
+    }
+
+    .compare-toggle-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0;
+    }
+
+    .compare-selection {
+        padding: 1rem;
+    }
+
+    .compare-dropdown label {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .compare-dataset-list {
+        max-height: 250px;
+    }
+
+    .compare-dataset-item {
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .compare-dataset-item .dataset-name {
+        font-size: 0.85rem;
+    }
+
+    .compare-dataset-item .dataset-domain {
+        font-size: 0.7rem;
+        padding: 1px 6px;
+    }
+
+    .compare-actions {
+        gap: 0.75rem;
+    }
+
+    .compare-update-btn,
+    .compare-clear-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    /* 比较卡片移动端适配 */
+    .comparison-cards {
+        margin-bottom: 1.5rem;
+    }
+
+    .comparison-card {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    .comparison-card-header,
+    .comparison-card-header.compact-header {
+        padding: 0.75rem 1rem 1.5rem 1rem;
+        min-height: 20px;
+        font-size: 0.85rem;
+        height: 20px;
+    }
+
+    .comparison-card-title {
+        font-size: 1rem;
+    }
+
+    .comparison-card-tags {
+        gap: 0.4rem;
+    }
+
+    .comparison-card-body {
+        padding: 1rem 1.5rem 0.5rem 1.5rem;
+    }
+
+    .comparison-card-header .external-link {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.8rem;
+        height: 20px;
+        line-height: 1;
+    }
+
+    /* 数据集详情页面移动端适配 */
+    .dataset-detail-container {
+        padding: 1rem;
+    }
+
+    .back-to-leaderboard {
+        margin-bottom: 1.5rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .dataset-header {
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .dataset-title {
+        font-size: 1.1rem;
+    }
+
+    .dataset-affiliation {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .dataset-basic-info {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .info-item {
+        padding: 1rem 0.75rem;
+        border-radius: 8px;
+    }
+
+    .info-label {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .info-value {
+        font-size: 1.2rem;
+    }
+
+    .external-links {
+        gap: 0.6rem;
+        margin-top: 0;
+    }
+
+    .external-link {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    .content-section {
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-header {
+        padding: 1.5rem 2rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        gap: 0.75rem;
+    }
+
+    .section-content {
+        padding: 2rem;
+    }
+
+    .tag-badge {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+        margin: 1px;
+    }
+
+    .tag-badge.small {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.6rem;
+    }
+
+    .tag-badge i {
+        font-size: 0.6rem;
+    }
+
+    /* 图表移动端适配 */
+    .dual-charts-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .chart-container {
+        margin-bottom: 0;
+    }
+
+    .chart-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .chart-wrapper {
+        height: 350px;
+    }
+
+    .domain-selection {
+        margin-bottom: 1rem;
+    }
+
+    .domain-tabs {
+        gap: 0.6rem;
+    }
+
+    .domain-tab {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        gap: 0.4rem;
+    }
+
+    .dynamic-chart-title {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.4rem;
+        min-height: 25px;
+    }
+}
+
+/* 小屏幕设备适配 */
+@media (max-width: 480px) {
+    .container,
+    .main-container {
+        padding: 0.75rem;
+    }
+
+    .header {
+        padding: 0.75rem;
+    }
+
+    .nav-main-title {
+        font-size: 1.3rem;
+    }
+
+    .nav-slogan {
+        font-size: 0.7rem;
+    }
+
+    .nav-item a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h3 {
+        font-size: 0.9rem;
+    }
+
+    .hero-content p {
+        font-size: 0.85rem;
+    }
+
+    .news-title,
+    .roadmap-title {
+        font-size: 1.1rem;
+    }
+
+    .contributors-title {
+        font-size: 1.3rem;
+    }
+
+    .contributor-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fab-menu {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 0.9rem;
+    }
+
+    /* 排行榜小屏幕适配 */
+    .controls-section {
+        padding: 0.75rem;
+    }
+
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-width: 60px;
+    }
+
+    .ranking-table {
+        min-width: 500px;
+        font-size: 0.75rem;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 0.4rem 0.2rem;
+    }
+
+    .name-col {
+        min-width: 120px;
+        max-width: 150px;
+    }
+
+    .rank-col {
+        width: 40px;
+    }
+
+    .year-col {
+        width: 50px;
+    }
+
+    .size-col {
+        width: 60px;
+    }
+
+    .score-col {
+        width: 70px;
+    }
+
+    .rank-badge {
+        width: 25px;
+        height: 25px;
+        font-size: 0.7rem;
+    }
+
+    .domain-badge {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.6rem;
+    }
+
+    .filter-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .detailed-table {
+        min-width: 600px;
+        font-size: 0.65rem;
+    }
+
+    .detailed-table th,
+    .detailed-table td {
+        padding: 0.3rem 0.15rem;
+    }
+
+    .detailed-table th small {
+        font-size: 0.55rem;
+    }
+
+    /* 数据比较小屏幕适配 */
+    .compare-selection {
+        padding: 0.75rem;
+    }
+
+    .compare-dataset-list {
+        max-height: 200px;
+    }
+
+    .compare-dataset-item {
+        padding: 0.6rem 0.8rem;
+        gap: 0.6rem;
+    }
+
+    .compare-dataset-item .dataset-name {
+        font-size: 0.8rem;
+    }
+
+    .compare-dataset-item .dataset-domain {
+        font-size: 0.65rem;
+        padding: 1px 5px;
+    }
+
+    .compare-update-btn,
+    .compare-clear-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .comparison-card-header,
+    .comparison-card-header.compact-header {
+        padding: 0.6rem 0.8rem 1.2rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .comparison-card-title {
+        font-size: 0.9rem;
+    }
+
+    .comparison-card-body {
+        padding: 0.8rem 1.2rem 0.4rem 1.2rem;
+    }
+
+    .comparison-card-header .external-link {
+        padding: 0.25rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .dataset-header {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .dataset-title {
+        font-size: 1rem;
+    }
+
+    .dataset-affiliation {
+        font-size: 0.85rem;
+    }
+
+    .dataset-basic-info {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .info-item {
+        padding: 0.8rem 0.6rem;
+    }
+
+    .info-label {
+        font-size: 0.75rem;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+    }
+
+    .external-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .section-header {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+
+    .section-content {
+        padding: 1.5rem;
+    }
+
+    .chart-wrapper {
+        height: 300px;
+    }
+
+    .domain-tab {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* 超小屏幕设备适配 */
+@media (max-width: 360px) {
+    .container,
+    .main-container {
+        padding: 0.5rem;
+    }
+
+    .header {
+        padding: 0.5rem;
+    }
+
+    .nav-main-title {
+        font-size: 1.2rem;
+    }
+
+    .nav-slogan {
+        font-size: 0.65rem;
+    }
+
+    .nav-item a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-content h3 {
+        font-size: 0.85rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .news-title,
+    .roadmap-title {
+        font-size: 1rem;
+    }
+
+    .contributors-title {
+        font-size: 1.2rem;
+    }
+
+    .contributor-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .fab-menu {
+        right: 0.5rem;
+        bottom: 0.5rem;
+    }
+
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.8rem;
+    }
+
+    /* 排行榜超小屏幕适配 */
+    .controls-section {
+        padding: 0.5rem;
+    }
+
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+        min-width: 50px;
+    }
+
+    .ranking-table {
+        min-width: 450px;
+        font-size: 0.7rem;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 0.3rem 0.15rem;
+    }
+
+    .name-col {
+        min-width: 100px;
+        max-width: 120px;
+    }
+
+    .rank-col {
+        width: 35px;
+    }
+
+    .year-col {
+        width: 45px;
+    }
+
+    .size-col {
+        width: 55px;
+    }
+
+    .score-col {
+        width: 65px;
+    }
+
+    .rank-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+    }
+
+    .domain-badge {
+        padding: 0.1rem 0.3rem;
+        font-size: 0.55rem;
+    }
+
+    .filter-tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .detailed-table {
+        min-width: 500px;
+        font-size: 0.6rem;
+    }
+
+    .detailed-table th,
+    .detailed-table td {
+        padding: 0.25rem 0.1rem;
+    }
+
+    .detailed-table th small {
+        font-size: 0.5rem;
+    }
+
+    /* 数据比较超小屏幕适配 */
+    .compare-selection {
+        padding: 0.5rem;
+    }
+
+    .compare-dataset-list {
+        max-height: 180px;
+    }
+
+    .compare-dataset-item {
+        padding: 0.5rem 0.6rem;
+        gap: 0.5rem;
+    }
+
+    .compare-dataset-item .dataset-name {
+        font-size: 0.75rem;
+    }
+
+    .compare-dataset-item .dataset-domain {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+    }
+
+    .compare-update-btn,
+    .compare-clear-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .comparison-card-header,
+    .comparison-card-header.compact-header {
+        padding: 0.5rem 0.6rem 1rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .comparison-card-title {
+        font-size: 0.85rem;
+    }
+
+    .comparison-card-body {
+        padding: 0.6rem 1rem 0.3rem 1rem;
+    }
+
+    .comparison-card-header .external-link {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .dataset-header {
+        padding: 0.6rem 1rem;
+    }
+
+    .dataset-title {
+        font-size: 0.9rem;
+    }
+
+    .dataset-affiliation {
+        font-size: 0.8rem;
+    }
+
+    .dataset-basic-info {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.6rem;
+    }
+
+    .info-item {
+        padding: 0.6rem 0.5rem;
+    }
+
+    .info-label {
+        font-size: 0.7rem;
+    }
+
+    .info-value {
+        font-size: 1rem;
+    }
+
+    .external-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.7rem;
+    }
+
+    .section-header {
+        padding: 1rem 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .section-content {
+        padding: 1.2rem;
+    }
+
+    .chart-wrapper {
+        height: 250px;
+    }
+
+    .domain-tab {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* 横屏模式适配 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-left {
+        width: auto;
+    }
+
+    .nav-right {
+        width: auto;
+    }
+
+    .hero-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h3 {
+        font-size: 0.9rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .news-roadmap-container {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .news-block,
+    .roadmap-block {
+        flex: 1;
+    }
+
+    /* 排行榜横屏适配 */
+    .control-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .control-row:first-child {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .control-row:last-child {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .model-switcher,
+    .type-buttons-section,
+    .improvement-type-section {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .data-tag-buttons-section {
+        flex: 2;
+        min-width: 0;
+    }
+
+    .size-range-section,
+    .search-box-container {
+        flex: 0 0 auto;
+        min-width: 150px;
+    }
+
+    /* 数据比较横屏适配 */
+    .compare-controls {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .compare-selection {
+        flex: 1;
+    }
+
+    .dual-charts-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .chart-wrapper {
+        height: 400px;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 增大触摸目标 */
+    .nav-item a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subscribe-btn,
+    .become-contributor-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* 排行榜触摸优化 */
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-input {
+        min-height: 44px;
+    }
+
+    .reset-btn {
+        min-height: 44px;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 数据比较触摸优化 */
+    .compare-toggle-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .compare-dataset-item {
+        min-height: 44px;
+    }
+
+    .compare-update-btn,
+    .compare-clear-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .comparison-card-header {
+        min-height: 44px;
+    }
+
+    .external-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-item {
+        min-height: 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .domain-tab {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 移除悬停效果，改为激活效果 */
+    .nav-item a:hover,
+    .subscribe-btn:hover,
+    .become-contributor-btn:hover,
+    .fab-main:hover,
+    .fab-icon:hover,
+    .fab-label-btn:hover,
+    .model-button:hover,
+    .type-button:hover,
+    .improvement-type-button:hover,
+    .tag-button:hover,
+    .compare-toggle-btn:hover,
+    .compare-update-btn:hover,
+    .compare-clear-btn:hover,
+    .external-link:hover,
+    .domain-tab:hover {
+        transform: none;
+    }
+
+    .nav-item a:active,
+    .subscribe-btn:active,
+    .become-contributor-btn:active,
+    .fab-main:active,
+    .fab-icon:active,
+    .fab-label-btn:active,
+    .model-button:active,
+    .type-button:active,
+    .improvement-type-button:active,
+    .tag-button:active,
+    .compare-toggle-btn:active,
+    .compare-update-btn:active,
+    .compare-clear-btn:active,
+    .external-link:active,
+    .domain-tab:active {
+        transform: scale(0.95);
+    }
+
+    /* 优化滚动体验 */
+    .contributors-grid,
+    .news-list,
+    .links-container,
+    .table-container,
+    .compare-dataset-list {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* 高分辨率屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .contributor-avatar img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    /* 这里可以添加深色模式样式 */
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    .fab-menu,
+    .fab-actions,
+    .fab-label-btn,
+    .subscribe-btn,
+    .become-contributor-btn,
+    .nav-item a,
+    .contributor-avatar,
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button,
+    .compare-toggle-btn,
+    .compare-update-btn,
+    .compare-clear-btn,
+    .external-link,
+    .domain-tab {
+        transition: none;
+    }
+
+    .fab-menu:hover .fab-actions {
+        animation: none;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .nav-item a,
+    .subscribe-btn,
+    .become-contributor-btn,
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button,
+    .compare-toggle-btn,
+    .compare-update-btn,
+    .compare-clear-btn,
+    .external-link,
+    .domain-tab {
+        border-width: 2px;
+    }
+
+    .contributor-avatar {
+        border-width: 3px;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .fab-menu,
+    .subscribe-modal {
+        display: none !important;
+    }
+
+    .hero-section {
+        background: white !important;
+        box-shadow: none !important;
+    }
+
+    .contributors-section {
+        background: white !important;
+        box-shadow: none !important;
+    }
+
+    .controls-section {
+        display: none !important;
+    }
+
+    .table-container {
+        overflow: visible !important;
+    }
+
+    .ranking-table {
+        min-width: auto !important;
+        font-size: 0.8rem !important;
+    }
+
+    .compare-controls {
+        display: none !important;
+    }
+
+    .comparison-cards {
+        display: none !important;
+    }
+}
