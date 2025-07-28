@@ -32,9 +32,9 @@ const app = createApp({
             } else if (filename === 'leaderboard.html') {
                 currentPage.value = 'leaderboard'
             } else if (filename === 'data-comparison.html') {
-                currentPage.value = 'comparison'
+                currentPage.value = 'data-comparison'
             } else if (filename === 'configurations.html') {
-                currentPage.value = 'rules'
+                currentPage.value = 'configurations'
             } else if (filename === 'contribution.html') {
                 currentPage.value = 'contribution'
             } else if (filename === 'tools.html') {
