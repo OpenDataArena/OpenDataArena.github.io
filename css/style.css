@@ -3562,14 +3562,23 @@ footer {
     gap: 1.1rem;
     margin-bottom: 0.2em;
 }
-.hero-title-row .subscribe-btn {
+.hero-title-row .subscribe-btn,
+.hero-title-row a.subscribe-btn {
     margin: 0;
     padding: 0.45em 1.1em;
     font-size: 1.01rem;
-    height: auto;
+    height: 40px;
     box-shadow: var(--shadow-sm);
     border-radius: 6px;
     white-space: nowrap;
+    min-width: 150px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-sizing: border-box;
 }
 @media (max-width: 600px) {
     .hero-title-row {
@@ -3577,9 +3586,11 @@ footer {
         align-items: flex-start;
         gap: 0.5rem;
     }
-    .hero-title-row .subscribe-btn {
+    .hero-title-row .subscribe-btn,
+    .hero-title-row a.subscribe-btn {
         width: 100%;
         margin-left: 0;
+        min-width: auto;
     }
 }
 
