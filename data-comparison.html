@@ -1483,7 +1483,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- OpenThoughts 卡片 -->
+                            <!-- Difficulty 卡片 -->
                             <div
                                 class="chart-card"
                                 style="
@@ -1497,7 +1497,7 @@
                             >
                                 <div
                                     class="card-header"
-                                    @click="toggleCard('openthoughts')"
+                                    @click="toggleCard('difficulty')"
                                     style="
                                         padding: 16px 20px;
                                         background: linear-gradient(
@@ -1531,10 +1531,10 @@
                                                 font-size: 16px;
                                             "
                                         ></i>
-                                        OpenThoughts and Relevance
+                                        Difficulty and Relevance
                                     </h3>
                                     <i
-                                        :class="expandedCards.openthoughts ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"
+                                        :class="expandedCards.difficulty ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"
                                         style="
                                             transition: transform 0.3s ease;
                                             font-size: 14px;
@@ -1542,7 +1542,7 @@
                                     ></i>
                                 </div>
                                 <div
-                                    v-show="expandedCards.openthoughts"
+                                    v-show="expandedCards.difficulty"
                                     class="card-content"
                                     style="
                                         padding: 20px;
@@ -1550,7 +1550,7 @@
                                     "
                                 >
                                     <div
-                                        class="openthoughts-charts-container"
+                                        class="difficulty-charts-container"
                                         style="
                                             display: flex;
                                             gap: 32px;
@@ -1558,7 +1558,7 @@
                                             width: 100%;
                                         "
                                     >
-                                        <!-- OpenThoughts (Q) -->
+                                        <!-- difficulty (Q) -->
                                         <div
                                             class="chart-container"
                                             style="
@@ -1571,14 +1571,14 @@
                                                 class="dynamic-chart-title"
                                                 style="text-align: center"
                                             >
-                                                OpenThoughts (Q)
+                                                Difficulty (Q)
                                             </h3>
                                             <div
                                                 class="chart-wrapper"
                                                 style="padding-bottom: 60px"
                                             >
                                                 <canvas
-                                                    id="openthoughtsQLineChart"
+                                                    id="difficultyQLineChart"
                                                 ></canvas>
                                             </div>
                                         </div>
@@ -2892,24 +2892,24 @@
                                 window[metric.toLowerCase() + "QALineChartObj"]
                             );
                         });
-                        // 更新OpenThoughts卡片曲线图
-                        const openQ = getOpenThoughtsLineChartData(
+                        // 更新Difficulty卡片曲线图
+                        const openQ = getDifficultyLineChartData(
                             selectedObjs,
                             "Q"
                         );
-                        const relQA = getOpenThoughtsLineChartData(
+                        const relQA = getDifficultyLineChartData(
                             selectedObjs,
                             "QA"
                         );
 
-                        // 创建OpenThoughts (Q)线图
+                        // 创建Difficulty (Q)线图
                         const openCtx = document.getElementById(
-                            "openthoughtsQLineChart"
+                            "difficultyQLineChart"
                         );
-                        if (openCtx && window["openthoughtsQLineChartObj"])
-                            window["openthoughtsQLineChartObj"].destroy();
+                        if (openCtx && window["difficultyQLineChartObj"])
+                            window["difficultyQLineChartObj"].destroy();
                         if (openCtx) {
-                            window["openthoughtsQLineChartObj"] = new Chart(
+                            window["difficultyQLineChartObj"] = new Chart(
                                 openCtx,
                                 {
                                     type: "line",
@@ -4094,7 +4094,7 @@
                         complexity: false,
                         correctness: false,
                         meaningfulness: false,
-                        openthoughts: false,
+                        difficulty: false,
                         modelevaluation: false,
                         modelbasedq: false,
                         modelbasedqa: false,
@@ -4104,8 +4104,8 @@
                         expandedCards.value[key] = !expandedCards.value[key];
                     };
 
-                    // 计算OpenThoughts和Relevance曲线图数据
-                    const getOpenThoughtsLineChartData = (datasets, type) => {
+                    // 计算difficulty和Relevance曲线图数据
+                    const getDifficultyLineChartData = (datasets, type) => {
                         // type: 'Q' or 'QA'
                         const labelsArr = [];
                         const dataArr = [];
@@ -4116,7 +4116,7 @@
                                 metric =
                                     ds?.evaluation_score?.Q_scores?.[
                                         "LLM-as-Judge"
-                                    ]?.OpenThoughts;
+                                    ]?.Difficulty;
                             else if (type === "QA")
                                 metric =
                                     ds?.evaluation_score?.QA_scores?.[
