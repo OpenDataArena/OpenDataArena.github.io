@@ -758,6 +758,7 @@
       "size_precise": "808812",
       "link": "https://huggingface.co/datasets/nomic-ai/gpt4all-j-prompt-generations",
       "paper_link": "https://static.nomic.ai/gpt4all/2023_GPT4All-J_Technical_Report_2.pdf",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -1092,6 +1093,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/tatsu-lab/alpaca",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -1426,6 +1428,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/vicgalle/alpaca-gpt4",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/alpaca_gpt4_scored",
       "tag": "general",
       "evaluation_score": {
         "Q_scores": {
@@ -2256,6 +2259,7 @@
       "size_precise": "15011",
       "link": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,code"
     },
     {
@@ -2590,6 +2594,7 @@
       "size_precise": "70000",
       "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_70k",
       "paper_link": "https://arxiv.org/abs/2304.12244",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -2924,6 +2929,7 @@
       "size_precise": "143000",
       "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_V2_196k",
       "paper_link": "https://arxiv.org/abs/2304.12244",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -3258,6 +3264,7 @@
       "size_precise": "1084",
       "link": "https://huggingface.co/datasets/GAIR/lima",
       "paper_link": "https://arxiv.org/abs/2305.11206",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -3592,6 +3599,7 @@
       "size_precise": "994045",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -4422,6 +4430,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -4756,6 +4765,7 @@
       "size_precise": "82439",
       "link": "https://huggingface.co/datasets/yizhongw/self_instruct",
       "paper_link": "https://arxiv.org/abs/2212.10560",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -5090,6 +5100,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -5920,6 +5931,7 @@
       "size_precise": "891857",
       "link": "https://huggingface.co/datasets/cognitivecomputations/dolphin",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -6254,6 +6266,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -7084,6 +7097,7 @@
       "size_precise": "498813",
       "link": "https://huggingface.co/datasets/hakurei/open-instruct-v1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -7418,6 +7432,7 @@
       "size_precise": "134610",
       "link": "https://huggingface.co/datasets/cyzhh/MMOS",
       "paper_link": "https://arxiv.org/abs/2403.00799",
+      "scored_link": "",
       "tag": "math,code"
     },
     {
@@ -7752,6 +7767,7 @@
       "size_precise": "7473",
       "link": "https://huggingface.co/datasets/openai/gsm8k",
       "paper_link": "https://arxiv.org/abs/2110.14168",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -8086,6 +8102,7 @@
       "size_precise": "7500",
       "link": "https://huggingface.co/datasets/hendrycks/competition_math",
       "paper_link": "https://arxiv.org/abs/2103.03874",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -8420,6 +8437,7 @@
       "size_precise": "1000000",
       "link": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
       "paper_link": "https://arxiv.org/abs/2410.01560",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/openmathinstruct-2_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -9250,6 +9268,7 @@
       "size_precise": "859494",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath-cot_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -10080,6 +10099,7 @@
       "size_precise": "72441",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-TIR",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -10414,6 +10434,7 @@
       "size_precise": "395000",
       "link": "https://huggingface.co/datasets/meta-math/MetaMathQA",
       "paper_link": "https://arxiv.org/abs/2309.12284",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -10748,6 +10769,7 @@
       "size_precise": "262039",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MathInstruct",
       "paper_link": "https://arxiv.org/abs/2309.05653",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -11082,6 +11104,7 @@
       "size_precise": "29837",
       "link": "https://huggingface.co/datasets/allenai/math_qa",
       "paper_link": "https://aclanthology.org/N19-1245/",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -11416,6 +11439,7 @@
       "size_precise": "50000",
       "link": "https://huggingface.co/datasets/camel-ai/math",
       "paper_link": "https://arxiv.org/abs/2303.17760",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -11750,6 +11774,7 @@
       "size_precise": "29857",
       "link": "https://huggingface.co/datasets/SkunkworksAI/reasoning-0.01",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -12084,6 +12109,7 @@
       "size_precise": "149960",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -12418,6 +12444,7 @@
       "size_precise": "20000",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-algebra",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -12752,6 +12779,7 @@
       "size_precise": "1003467",
       "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math",
       "paper_link": "https://arxiv.org/abs/2410.18693",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ScaleQuest-Math_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -13546,6 +13574,7 @@
       "size_precise": "309066",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K",
       "paper_link": "https://arxiv.org/abs/2504.11456",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -13880,6 +13909,7 @@
       "size_precise": "169527",
       "link": "https://huggingface.co/datasets/rubenroy/GammaCorpus-CoT-Math-170k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -14214,6 +14244,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
       "paper_link": "https://arxiv.org/pdf/2402.14830",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-math-word-problems-200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -15044,6 +15075,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -15874,6 +15906,7 @@
       "size_precise": "23578",
       "link": "https://huggingface.co/datasets/gretelai/gretel-math-gsm8k-v1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -16208,6 +16241,7 @@
       "size_precise": "969980",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Maths-College_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -17038,6 +17072,7 @@
       "size_precise": "979915",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-Grade-School",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -17372,6 +17407,7 @@
       "size_precise": "50000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -18202,6 +18238,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -19032,6 +19069,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -19862,6 +19900,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -20692,6 +20731,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -21522,6 +21562,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -22352,6 +22393,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -23182,6 +23224,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
       "tag": "code"
     },
     {
@@ -23516,6 +23559,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
       "tag": "code"
     },
     {
@@ -23850,6 +23894,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -24680,6 +24725,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
       "tag": "code"
     },
     {
@@ -25014,6 +25060,7 @@
       "size_precise": "66383",
       "link": "https://huggingface.co/datasets/m-a-p/Code-Feedback",
       "paper_link": "https://arxiv.org/abs/2402.14658",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Code-Feedback_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -25844,6 +25891,7 @@
       "size_precise": "55117",
       "link": "https://huggingface.co/datasets/Vezora/Open-Critic-GPT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -26178,6 +26226,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
       "tag": "code"
     },
     {
@@ -26512,6 +26561,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
       "tag": "code"
     },
     {
@@ -26846,6 +26896,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -27676,6 +27727,7 @@
       "size_precise": "484097",
       "link": "https://huggingface.co/datasets/KodCode/KodCode-V1",
       "paper_link": "https://arxiv.org/abs/2503.02951",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/KodCode-V1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -28504,6 +28556,7 @@
       "size_precise": "82439",
       "link": "https://huggingface.co/datasets/codeparrot/self-instruct-starcoder",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -28838,6 +28891,7 @@
       "size_precise": "78264",
       "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Evol-Instruct-Code-80k-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -29668,6 +29722,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -30498,6 +30553,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -31327,6 +31383,7 @@
       "size_precise": "22608",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Python-Code-23k-ShareGPT_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -32156,6 +32213,7 @@
       "size_precise": "304692",
       "link": "https://huggingface.co/datasets/smcleod/golang-coder",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -32490,6 +32548,7 @@
       "size_precise": "380000",
       "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k",
       "paper_link": "https://arxiv.org/abs/2501.04694",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/EpiCoder-func-380k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -33320,6 +33379,7 @@
       "size_precise": "108391",
       "link": "https://huggingface.co/datasets/likaixin/InstructCoder",
       "paper_link": "https://arxiv.org/abs/2310.20329",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/InstructCoder_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -34150,6 +34210,7 @@
       "size_precise": "1043251",
       "link": "https://huggingface.co/datasets/likaixin/TACO-verified",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -34484,6 +34545,7 @@
       "size_precise": "100000",
       "link": "https://huggingface.co/datasets/gretelai/synthetic_text_to_sql",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -34818,6 +34880,7 @@
       "size_precise": "22500",
       "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/gretel-text-to-python-fintech-en-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -35648,6 +35711,7 @@
       "size_precise": "78577",
       "link": "https://huggingface.co/datasets/arviii/sql-create-context",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -35982,6 +36046,7 @@
       "size_precise": "109402",
       "link": "https://huggingface.co/datasets/argilla/apigen-function-calling",
       "paper_link": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/61cce86d180b1184949e58939c4f983d-Abstract-Datasets_and_Benchmarks_Track.html",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -36316,6 +36381,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -37146,6 +37212,7 @@
       "size_precise": "73928",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-74k-ShareGPT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -37480,6 +37547,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -38310,6 +38378,7 @@
       "size_precise": "418545",
       "link": "https://huggingface.co/datasets/Nan-Do/instructional_code-search-net-python",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -38608,6 +38677,7 @@
       "size_precise": "24926",
       "link": "https://huggingface.co/datasets/garage-bAInd/Open-Platypus",
       "paper_link": "https://arxiv.org/abs/2308.07317",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -38906,6 +38976,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
       "paper_link": "https://huggingface.co/blog/open-r1",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"
     },
     {
@@ -39204,6 +39275,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
       "tag": "general,math,science"
     },
     {
@@ -39502,6 +39574,7 @@
       "size_precise": "138000",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K-2",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,science"
     },
     {
@@ -39800,6 +39873,7 @@
       "size_precise": "16710",
       "link": "https://huggingface.co/datasets/bespokelabs/Bespoke-Stratos-17k",
       "paper_link": "https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -40098,6 +40172,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -40396,6 +40471,7 @@
       "size_precise": "171647",
       "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math"
     },
     {
@@ -40694,6 +40770,7 @@
       "size_precise": "77685",
       "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT",
       "paper_link": "https://arxiv.org/abs/2504.13828",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -40992,6 +41069,7 @@
       "size_precise": "327",
       "link": "https://huggingface.co/datasets/GAIR/o1-journey",
       "paper_link": "https://arxiv.org/pdf/2410.18982",
+      "scored_link": "",
       "tag": "general,math"
     },
     {
@@ -41290,6 +41368,7 @@
       "size_precise": "62925",
       "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -41588,6 +41667,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -41886,6 +41966,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -42680,6 +42761,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -42978,6 +43060,7 @@
       "size_precise": "19944",
       "link": "https://huggingface.co/datasets/KingNish/reasoning-base-20k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -43276,6 +43359,7 @@
       "size_precise": "19704",
       "link": "https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT",
       "paper_link": "https://arxiv.org/abs/2412.18925",
+      "scored_link": "",
       "tag": "science"
     },
     {
@@ -43574,6 +43658,7 @@
       "size_precise": "274166",
       "link": "https://huggingface.co/datasets/EricLu/SCP-116K",
       "paper_link": "https://arxiv.org/abs/2501.15587",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -43872,6 +43957,7 @@
       "size_precise": "323965",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/code.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -44666,6 +44752,7 @@
       "size_precise": "558129",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/math.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-math_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -45460,6 +45547,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -45758,6 +45846,7 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
       "tag": "general,math"
     }
   ],
@@ -46520,6 +46609,7 @@
       "size_precise": "808812",
       "link": "https://huggingface.co/datasets/nomic-ai/gpt4all-j-prompt-generations",
       "paper_link": "https://static.nomic.ai/gpt4all/2023_GPT4All-J_Technical_Report_2.pdf",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -46854,6 +46944,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/tatsu-lab/alpaca",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -47188,6 +47279,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/vicgalle/alpaca-gpt4",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/alpaca_gpt4_scored",
       "tag": "general",
       "evaluation_score": {
         "Q_scores": {
@@ -48018,6 +48110,7 @@
       "size_precise": "15011",
       "link": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,code"
     },
     {
@@ -48352,6 +48445,7 @@
       "size_precise": "70000",
       "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_70k",
       "paper_link": "https://arxiv.org/abs/2304.12244",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -48686,6 +48780,7 @@
       "size_precise": "143000",
       "link": "https://huggingface.co/datasets/WizardLMTeam/WizardLM_evol_instruct_V2_196k",
       "paper_link": "https://arxiv.org/abs/2304.12244",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -49020,6 +49115,7 @@
       "size_precise": "1084",
       "link": "https://huggingface.co/datasets/GAIR/lima",
       "paper_link": "https://arxiv.org/abs/2305.11206",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -49354,6 +49450,7 @@
       "size_precise": "994045",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -50184,6 +50281,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -50518,6 +50616,7 @@
       "size_precise": "82439",
       "link": "https://huggingface.co/datasets/yizhongw/self_instruct",
       "paper_link": "https://arxiv.org/abs/2212.10560",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -50852,6 +50951,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -51682,6 +51782,7 @@
       "size_precise": "891857",
       "link": "https://huggingface.co/datasets/cognitivecomputations/dolphin",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -52016,6 +52117,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -52846,6 +52948,7 @@
       "size_precise": "498813",
       "link": "https://huggingface.co/datasets/hakurei/open-instruct-v1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -53180,6 +53283,7 @@
       "size_precise": "134610",
       "link": "https://huggingface.co/datasets/cyzhh/MMOS",
       "paper_link": "https://arxiv.org/abs/2403.00799",
+      "scored_link": "",
       "tag": "math,code"
     },
     {
@@ -53514,6 +53618,7 @@
       "size_precise": "7473",
       "link": "https://huggingface.co/datasets/openai/gsm8k",
       "paper_link": "https://arxiv.org/abs/2110.14168",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -53848,6 +53953,7 @@
       "size_precise": "7500",
       "link": "https://huggingface.co/datasets/hendrycks/competition_math",
       "paper_link": "https://arxiv.org/abs/2103.03874",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -54182,6 +54288,7 @@
       "size_precise": "1000000",
       "link": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
       "paper_link": "https://arxiv.org/abs/2410.01560",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/openmathinstruct-2_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -55012,6 +55119,7 @@
       "size_precise": "859494",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath-cot_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -55842,6 +55950,7 @@
       "size_precise": "72441",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-TIR",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -56176,6 +56285,7 @@
       "size_precise": "395000",
       "link": "https://huggingface.co/datasets/meta-math/MetaMathQA",
       "paper_link": "https://arxiv.org/abs/2309.12284",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -56510,6 +56620,7 @@
       "size_precise": "262039",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MathInstruct",
       "paper_link": "https://arxiv.org/abs/2309.05653",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -56844,6 +56955,7 @@
       "size_precise": "29837",
       "link": "https://huggingface.co/datasets/allenai/math_qa",
       "paper_link": "https://aclanthology.org/N19-1245/",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -57178,6 +57290,7 @@
       "size_precise": "50000",
       "link": "https://huggingface.co/datasets/camel-ai/math",
       "paper_link": "https://arxiv.org/abs/2303.17760",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -57512,6 +57625,7 @@
       "size_precise": "29857",
       "link": "https://huggingface.co/datasets/SkunkworksAI/reasoning-0.01",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code"
     },
     {
@@ -57846,6 +57960,7 @@
       "size_precise": "149960",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-math",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -58180,6 +58295,7 @@
       "size_precise": "20000",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-algebra",
       "paper_link": "https://arxiv.org/abs/2411.15124",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -58514,6 +58630,7 @@
       "size_precise": "1003467",
       "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math",
       "paper_link": "https://arxiv.org/abs/2410.18693",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ScaleQuest-Math_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -59308,6 +59425,7 @@
       "size_precise": "309066",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K",
       "paper_link": "https://arxiv.org/abs/2504.11456",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -59642,6 +59760,7 @@
       "size_precise": "169527",
       "link": "https://huggingface.co/datasets/rubenroy/GammaCorpus-CoT-Math-170k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -59976,6 +60095,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
       "paper_link": "https://arxiv.org/pdf/2402.14830",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-math-word-problems-200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -60806,6 +60926,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -61636,6 +61757,7 @@
       "size_precise": "23578",
       "link": "https://huggingface.co/datasets/gretelai/gretel-math-gsm8k-v1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -61970,6 +62092,7 @@
       "size_precise": "969980",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Maths-College_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -62800,6 +62923,7 @@
       "size_precise": "979915",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-Grade-School",
       "paper_link": "",
+      "scored_link": "",
       "tag": "math"
     },
     {
@@ -63134,6 +63258,7 @@
       "size_precise": "50000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -63964,6 +64089,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -64794,6 +64920,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -65624,6 +65751,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -66454,6 +66582,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -67284,6 +67413,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -68114,6 +68244,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -68944,6 +69075,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
       "tag": "code"
     },
     {
@@ -69278,6 +69410,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
       "tag": "code"
     },
     {
@@ -69612,6 +69745,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -70442,6 +70576,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
       "tag": "code"
     },
     {
@@ -70776,6 +70911,7 @@
       "size_precise": "66383",
       "link": "https://huggingface.co/datasets/m-a-p/Code-Feedback",
       "paper_link": "https://arxiv.org/abs/2402.14658",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Code-Feedback_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -71606,6 +71742,7 @@
       "size_precise": "55117",
       "link": "https://huggingface.co/datasets/Vezora/Open-Critic-GPT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -71940,6 +72077,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
       "tag": "code"
     },
     {
@@ -72274,6 +72412,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
       "tag": "code"
     },
     {
@@ -72608,6 +72747,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -73438,6 +73578,7 @@
       "size_precise": "484097",
       "link": "https://huggingface.co/datasets/KodCode/KodCode-V1",
       "paper_link": "https://arxiv.org/abs/2503.02951",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/KodCode-V1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -74268,6 +74409,7 @@
       "size_precise": "82439",
       "link": "https://huggingface.co/datasets/codeparrot/self-instruct-starcoder",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -74602,6 +74744,7 @@
       "size_precise": "78264",
       "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Evol-Instruct-Code-80k-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -75432,6 +75575,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -76262,6 +76406,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -77092,6 +77237,7 @@
       "size_precise": "22608",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Python-Code-23k-ShareGPT_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -77922,6 +78068,7 @@
       "size_precise": "304692",
       "link": "https://huggingface.co/datasets/smcleod/golang-coder",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -78256,6 +78403,7 @@
       "size_precise": "380000",
       "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k",
       "paper_link": "https://arxiv.org/abs/2501.04694",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/EpiCoder-func-380k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -79086,6 +79234,7 @@
       "size_precise": "108391",
       "link": "https://huggingface.co/datasets/likaixin/InstructCoder",
       "paper_link": "https://arxiv.org/abs/2310.20329",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/InstructCoder_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -79916,6 +80065,7 @@
       "size_precise": "1043251",
       "link": "https://huggingface.co/datasets/likaixin/TACO-verified",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -80250,6 +80400,7 @@
       "size_precise": "100000",
       "link": "https://huggingface.co/datasets/gretelai/synthetic_text_to_sql",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -80584,6 +80735,7 @@
       "size_precise": "22500",
       "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/gretel-text-to-python-fintech-en-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -81414,6 +81566,7 @@
       "size_precise": "78577",
       "link": "https://huggingface.co/datasets/arviii/sql-create-context",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -81748,6 +81901,7 @@
       "size_precise": "109402",
       "link": "https://huggingface.co/datasets/argilla/apigen-function-calling",
       "paper_link": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/61cce86d180b1184949e58939c4f983d-Abstract-Datasets_and_Benchmarks_Track.html",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -82082,6 +82236,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -82912,6 +83067,7 @@
       "size_precise": "73928",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-74k-ShareGPT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -83246,6 +83402,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -84076,6 +84233,7 @@
       "size_precise": "418545",
       "link": "https://huggingface.co/datasets/Nan-Do/instructional_code-search-net-python",
       "paper_link": "",
+      "scored_link": "",
       "tag": "code"
     },
     {
@@ -84374,6 +84532,7 @@
       "size_precise": "24926",
       "link": "https://huggingface.co/datasets/garage-bAInd/Open-Platypus",
       "paper_link": "https://arxiv.org/abs/2308.07317",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -84672,6 +84831,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
       "paper_link": "https://huggingface.co/blog/open-r1",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"
     },
     {
@@ -84970,6 +85130,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
       "tag": "general,math,science"
     },
     {
@@ -85268,6 +85429,7 @@
       "size_precise": "138000",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K-2",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,science"
     },
     {
@@ -85566,6 +85728,7 @@
       "size_precise": "16710",
       "link": "https://huggingface.co/datasets/bespokelabs/Bespoke-Stratos-17k",
       "paper_link": "https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -85864,6 +86027,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -86162,6 +86326,7 @@
       "size_precise": "171647",
       "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math"
     },
     {
@@ -86460,6 +86625,7 @@
       "size_precise": "77685",
       "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT",
       "paper_link": "https://arxiv.org/abs/2504.13828",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -86758,6 +86924,7 @@
       "size_precise": "327",
       "link": "https://huggingface.co/datasets/GAIR/o1-journey",
       "paper_link": "https://arxiv.org/pdf/2410.18982",
+      "scored_link": "",
       "tag": "general,math"
     },
     {
@@ -87056,6 +87223,7 @@
       "size_precise": "62925",
       "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general"
     },
     {
@@ -87354,6 +87522,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -87652,6 +87821,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -88446,6 +88616,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ",
       "paper_link": "https://arxiv.org/abs/2406.08464",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -88744,6 +88915,7 @@
       "size_precise": "19944",
       "link": "https://huggingface.co/datasets/KingNish/reasoning-base-20k",
       "paper_link": "",
+      "scored_link": "",
       "tag": "general,math,code,science"
     },
     {
@@ -89042,6 +89214,7 @@
       "size_precise": "19704",
       "link": "https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT",
       "paper_link": "https://arxiv.org/abs/2412.18925",
+      "scored_link": "",
       "tag": "science"
     },
     {
@@ -89340,6 +89513,7 @@
       "size_precise": "274166",
       "link": "https://huggingface.co/datasets/EricLu/SCP-116K",
       "paper_link": "https://arxiv.org/abs/2501.15587",
+      "scored_link": "",
       "tag": "general,math,science"
     },
     {
@@ -89638,6 +89812,7 @@
       "size_precise": "323965",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/code.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -90432,6 +90607,7 @@
       "size_precise": "558129",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/math.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-math_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -91226,6 +91402,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -91524,6 +91701,7 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
       "tag": "general,math"
     }
   ]

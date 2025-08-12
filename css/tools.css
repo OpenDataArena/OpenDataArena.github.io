@@ -1,0 +1,71 @@
+.tools-container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+.tools-container h2 {
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+.tools-container p {
+	font-size: 1.1em;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+.tools-container h3 {
+	margin-top: 25px;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+.tools-container ul {
+	font-size: 1.1em;
+	line-height: 1.6;
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+.tools-header {
+	text-align: left;
+	margin-bottom: 3rem;
+	padding: 2rem;
+	background: linear-gradient(
+		180deg,
+		var(--background-secondary) 0%,
+		var(--background-accent) 50%
+	);
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-light);
+}
+
+.tools-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--primary-dark);
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+a.repo-link {
+	color: #222 !important;
+	text-decoration: none !important;
+	font-weight: 500;
+	transition: color 0.2s;
+}
+a.repo-link i {
+	margin-left: 6px;
+	font-size: 0.95em;
+	vertical-align: middle;
+}
+a.repo-link:hover {
+	color: #1039a2 !important;
+}

@@ -1,0 +1,77 @@
+.rules-container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+.rules-section {
+	margin-bottom: 40px;
+}
+
+.rules-section h2 {
+	font-size: 1.8em;
+	color: #333;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+.rules-section h2 i {
+	margin-right: 10px;
+	color: #1039a2;
+}
+
+.rules-section p {
+	font-size: 1.1em;
+	margin-bottom: 15px;
+	line-height: 1.6;
+}
+
+.rules-section h3 {
+	color: #1039a2;
+	font-size: 1.3em;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+.rules-section ul {
+	/* font-size: 1.1em; */
+	line-height: 1.6;
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+.rules-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	font-size: 0.95em;
+	table-layout: auto;
+}
+
+.rules-table th,
+.rules-table td {
+	border: 1px solid #ddd;
+	padding: 12px;
+	text-align: left;
+	vertical-align: top;
+	word-wrap: break-word;
+}
+
+.rules-table th {
+	background-color: #f7f9fa;
+	font-weight: 600;
+	color: #333;
+}
+
+.rules-table-shot td:nth-child(5),
+.rules-table-shot th:nth-child(5) {
+	width: 70px;
+	min-width: 70px;
+	max-width: 70px;
+}
+
