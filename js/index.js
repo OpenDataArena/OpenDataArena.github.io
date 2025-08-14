@@ -131,13 +131,20 @@ const app = createApp({
 			}
 		};
 
-		// 挂载时加载数据
-		onMounted(() => {
-			loadData();
-			setTimeout(() => {
-				createRadarChart();
-			}, 200);
+		// 挂载时加载数据（等待数据就绪后再绘制首图）
+		onMounted(async () => {
+			await loadData();            // 等待异步数据加载完成（含回退模拟数据）
+			await nextTick();            // 等待依赖的计算属性更新
+			createRadarChart();          // 首次进入就绘制含数据的雷达图
 		});
+
+		// Re-render radar chart when language toggles
+		watch(i18nLang, async () => {
+			// Wait for i18n plugin to swap language, then rebuild chart with translated labels
+			await nextTick();
+			createRadarChart();
+		});
+
 		// 计算属性：当前数据
 		const currentData = computed(() => {
 			return rawData.value[currentModel.value] || [];
@@ -627,7 +634,8 @@ const app = createApp({
 			if (!canvas) return;
 
 			// i18n translate helper (falls back to key if not ready)
-			const t = (key) => (window.vm && typeof window.vm.$t === "function" ? window.vm.$t(key) : key);
+			const t = (key) =>
+				window.vm && typeof window.vm.$t === "function" ? window.vm.$t(key) : key;
 
 			// 1. 组装数据
 			const top5 = getTop5Datasets();
@@ -711,13 +719,6 @@ const app = createApp({
 			// 4. 渲染自定义 legend
 			renderRadarLegend(datasets);
 		}
-
-		// Re-render radar chart when language toggles
-		watch(i18nLang, async () => {
-			// Wait for i18n plugin to swap language, then rebuild chart with translated labels
-			await nextTick();
-			createRadarChart();
-		});
 
 		// 贡献者数据
 		const contributors = ref([

@@ -1,0 +1,452 @@
+
+@media (max-width: 600px) {
+    .nav-main-title {
+        font-size: 1rem;
+    }
+    .nav-slogan {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .fab-menu {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .fab-label-btn {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-section .row {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+    .col-lg-7,
+    .col-lg-5 {
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-section .row.align-items-center {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .hero-title-row .subscribe-btn,
+    .hero-title-row a.subscribe-btn {
+        width: 100%;
+        margin-left: 0;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-section .row {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+    .col-lg-7,
+    .col-lg-5 {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .news-block,
+    .roadmap-block {
+        min-width: 0;
+        padding: 1.2rem 1rem 1rem 1rem;
+        border-radius: var(--radius-md);
+    }
+}
+
+@media (max-width: 900px) {
+    .news-block,
+    .roadmap-block {
+        min-width: 0;
+        padding: 1.2rem 1rem 1rem 1rem;
+        border-radius: var(--radius-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .contributors-section {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .contributors-title {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contributors-grid {
+        gap: 0.75rem;
+    }
+
+    .contributor-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contributor-tooltip {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .contributor-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .become-contributor-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .top-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        margin-top: 0.5rem;
+    }
+
+    .filter-tag {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .filter-tags-row {
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .filter-tag-group:not(:first-child)::before {
+        display: none;
+    }
+
+    .filter-tag i {
+        font-size: 0.8rem;
+    }
+
+    .reset-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .controls-section {
+        padding: 1rem;
+    }
+}
+
+/* 响应式优化 */
+@media (max-width: 1200px) {
+    .detailed-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .detailed-table {
+        font-size: 0.9rem;
+    }
+
+    .detailed-table th,
+    .detailed-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .detailed-header {
+        padding: 1rem;
+    }
+
+    .detailed-title {
+        font-size: 1.5rem;
+    }
+
+    .detailed-table {
+        font-size: 0.8rem;
+    }
+
+    .detailed-table th,
+    .detailed-table td {
+        padding: 0.5rem 0.25rem;
+    }
+
+    .detailed-table th small {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 增大触摸目标 */
+    .nav-item a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subscribe-btn,
+    .become-contributor-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fab-main,
+    .fab-icon,
+    .fab-label-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* 排行榜触摸优化 */
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-input {
+        min-height: 44px;
+    }
+
+    .reset-btn {
+        min-height: 44px;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 数据比较触摸优化 */
+    .compare-toggle-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .compare-dataset-item {
+        min-height: 44px;
+    }
+
+    .compare-update-btn,
+    .compare-clear-btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .comparison-card-header {
+        min-height: 44px;
+    }
+
+    .external-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-item {
+        min-height: 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .domain-tab {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 移除悬停效果，改为激活效果 */
+    .nav-item a:hover,
+    .subscribe-btn:hover,
+    .become-contributor-btn:hover,
+    .fab-main:hover,
+    .fab-icon:hover,
+    .fab-label-btn:hover,
+    .model-button:hover,
+    .type-button:hover,
+    .improvement-type-button:hover,
+    .tag-button:hover,
+    .compare-toggle-btn:hover,
+    .compare-update-btn:hover,
+    .compare-clear-btn:hover,
+    .external-link:hover,
+    .domain-tab:hover {
+        transform: none;
+    }
+
+    .nav-item a:active,
+    .subscribe-btn:active,
+    .become-contributor-btn:active,
+    .fab-main:active,
+    .fab-icon:active,
+    .fab-label-btn:active,
+    .model-button:active,
+    .type-button:active,
+    .improvement-type-button:active,
+    .tag-button:active,
+    .compare-toggle-btn:active,
+    .compare-update-btn:active,
+    .compare-clear-btn:active,
+    .external-link:active,
+    .domain-tab:active {
+        transform: scale(0.95);
+    }
+
+    /* 优化滚动体验 */
+    .contributors-grid,
+    .news-list,
+    .links-container,
+    .table-container,
+    .compare-dataset-list {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    .fab-menu,
+    .fab-actions,
+    .fab-label-btn,
+    .subscribe-btn,
+    .become-contributor-btn,
+    .nav-item a,
+    .contributor-avatar,
+    .model-button,
+    .type-button,
+    .improvement-type-button,
+    .tag-button,
+    .compare-toggle-btn,
+    .compare-update-btn,
+    .compare-clear-btn,
+    .external-link,
+    .domain-tab {
+        transition: none;
+    }
+
+    .fab-menu:hover .fab-actions {
+        animation: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .guide-container {
+        padding: 1rem;
+    }
+
+    .guide-title {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+
+    .section-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .submit-info-modal-content {
+        min-width: 320px;
+        padding: 1.5rem;
+    }
+
+    .code-block {
+        margin: 1rem 0;
+        border-radius: var(--radius-sm);
+    }
+
+    .code-header {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .code-block code {
+        padding: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .copy-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tools-title {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+}

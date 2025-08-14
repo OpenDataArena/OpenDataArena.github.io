@@ -130,6 +130,9 @@ export const lang_index = {
 
 		index_contributor_prefix:
 			"Thanks to these outstanding researchers and developers for their contributions to OpenDataArena. We invite everyone to collaborate in building and enhancing OpenDataArena.",
+		index_contributors_title: "Our Contributors",
+		index_contributors_subtitle: "Thanks to these outstanding researchers and developers for their contributions to OpenDataArena",
+		index_become_contributor: "Become a Contributor",
 		index_contributor_num_1: "Domains",
 		index_contributor_num_2: "Benchmarks",
 		index_contributor_num_3: "Score Dimensions",
@@ -197,7 +200,6 @@ export const lang_index = {
 		index_coming_long_term_4:
 			'<b class="highlight">引入更多数据打分因子与评价方法</b>，支持自动化与任务相关的多维评分',
 
-		// Contributors
 		index_contributors_title: "贡献者",
 		index_contributors_subtitle: "感谢以下研究者与开发者对 OpenDataArena 的贡献",
 		index_become_contributor: "成为贡献者",
@@ -247,7 +249,7 @@ export const lang_leaderboard = {
 		lb_dataset_size_range: "数据集大小范围",
 		lb_benchmark_domain: "基准领域",
 		lb_search_datasets: "搜索数据集...",
-		lb_all: "包含所有",
+		lb_all: "总览",
 		lb_rank: "排名",
 		lb_dataset: "数据集",
 		lb_year: "年份",

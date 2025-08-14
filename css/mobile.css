@@ -1,452 +1,1430 @@
+/* =========================
+    Index page mobile styles
+   ========================= */
 
+/* ---- 基础容器在窄屏缩进 ---- */
+@media (max-width: 900px) {
+	.container {
+		padding: 1.25rem;
+	}
+	.hero-section .container {
+		padding: 0 8px;
+	}
+}
+
+/* ---- 版心/两列布局在 900px 以下为 1 列 ---- */
+@media (max-width: 900px) {
+	.hero-section .row.align-items-center {
+		flex-direction: column;
+		gap: 28px;
+	}
+	.col-lg-7,
+	.col-lg-5 {
+		flex: 1 1 100%;
+		max-width: 100%;
+	}
+
+	.hero-content {
+		padding-right: 0;
+		margin-top: 0;
+	}
+
+	.summary-leaderboard-flex {
+		flex-direction: column;
+		gap: 28px;
+	}
+	.summary-leaderboard-left,
+	.summary-leaderboard-right {
+		flex: 1 1 100%;
+		min-width: 0;
+	}
+}
+
+/* ---- 768 下的字体与按钮尺寸微调 ---- */
+@media (max-width: 768px) {
+	.hero-title {
+		font-size: 2rem;
+		letter-spacing: 0.5px;
+	}
+	.hero-content h3 {
+		font-size: 1.05rem;
+	}
+	.hero-content p {
+		font-size: 0.98rem;
+		line-height: 1.7;
+	}
+
+	.hero-title-row {
+		flex-wrap: wrap;
+		gap: 0.7rem;
+	}
+	.hero-title-row .subscribe-btn,
+	.hero-title-row a.subscribe-btn {
+		height: 38px;
+		font-size: 0.95rem;
+		min-width: 120px;
+		padding: 0.4em 0.9em;
+	}
+
+	.col-lg-5 ul {
+		font-size: 0.95rem;
+		padding: 0.8rem 1rem 0.8rem 1.2rem;
+	}
+
+	.ranking-table th,
+	.ranking-table td {
+		padding: 10px 8px;
+		font-size: 0.95rem;
+	}
+
+	.summary-leaderboard-header {
+		font-size: 1.2rem;
+		padding: 14px 14px 10px 14px;
+	}
+
+	.dynamic-chart-title {
+		font-size: 1.05rem;
+		margin-top: 18px;
+	}
+}
+
+/* ---- 600 下的更紧凑布局 ---- */
 @media (max-width: 600px) {
-    .nav-main-title {
-        font-size: 1rem;
-    }
-    .nav-slogan {
-        font-size: 0.9rem;
-        margin-bottom: 0.3rem;
-    }
+	/* 顶部导航列表换行留空隙（若你的导航容器需要可自行加 flex-wrap） */
+	.nav-right .nav-list {
+		gap: 8px;
+	}
+	.nav-item .lang-icon-img {
+		width: 22px;
+		height: 22px;
+	}
+
+	.hero-section {
+		padding: 28px 0 22px 0;
+		border-radius: 0 0 14px 14px;
+	}
+
+	.hero-title {
+		font-size: 1.7rem;
+	}
+	.hero-content h3 {
+		font-size: 1rem;
+	}
+	.hero-content p {
+		font-size: 0.94rem;
+	}
+	.col-lg-5 ul {
+		margin-top: 20px;
+		gap: 0.6rem;
+		font-size: 0.92rem;
+	}
+
+	/* 简要榜单表格在小屏可横向滚动，避免挤压 */
+	.summary-table-container {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.ranking-table {
+		min-width: 560px; /* 设下限，避免过度压缩 */
+	}
+
+	/* 雷达图容器缩放 */
+	.index-chart-container {
+		max-width: 100%;
+		padding-bottom: 10px;
+	}
+	.index-chart-wrapper {
+		max-width: 320px;
+		min-height: 300px;
+	}
+	.summary-leaderboard-radar,
+	.index-chart-container,
+	.index-chart-wrapper {
+		min-height: 360px;
+	}
+	.chart-legend-wrapper {
+		gap: 12px;
+		padding: 0 6px;
+	}
+	.legend-item {
+		font-size: 0.95rem;
+		gap: 6px;
+	}
+
+	/* News & Roadmap 卡片堆叠 */
+	.news-roadmap-section {
+		padding: 1.25rem;
+	}
+	.news-roadmap-container {
+		gap: 1.25rem;
+	}
+	.news-block,
+	.roadmap-block {
+		padding: 1.4rem 1rem 1rem 1rem;
+		min-width: 0;
+	}
+	.news-title,
+	.roadmap-title {
+		font-size: 1.2rem;
+		padding-bottom: 0.5rem;
+		margin-bottom: 0.8rem;
+	}
+	.news-list li:not(:last-child) {
+		padding-bottom: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	/* 贡献者区 */
+	.contributors-section {
+		padding: 1.25rem;
+	}
+	.contributors-title {
+		font-size: 1.6rem;
+		gap: 0.5rem;
+	}
+	.contributors-subtitle {
+		font-size: 0.96rem;
+		line-height: 1.5;
+	}
+	.contributors-grid {
+		gap: 0.75rem;
+		padding: 0.5rem;
+	}
+	.contributor-avatar {
+		width: 54px;
+		height: 54px;
+	}
+	.contributor-tooltip {
+		font-size: 0.75rem;
+	}
+
+	.contributor-stats {
+		gap: 1.2rem;
+		flex-wrap: wrap;
+	}
+	.stat-number {
+		font-size: 1.8rem;
+	}
+	.stat-label {
+		font-size: 0.85rem;
+	}
+
+	.become-contributor-btn {
+		font-size: 1rem;
+		padding: 0.8rem 1.2rem;
+	}
+
+	/* Footer */
+	footer .footer-content {
+		padding: 1rem;
+	}
+	.footer-links .links-container a {
+		gap: 6px;
+	}
 }
 
-@media (max-width: 768px) {
-    .fab-menu {
-        right: 1rem;
-        bottom: 1rem;
-    }
-    .fab-main,
-    .fab-icon,
-    .fab-label-btn {
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-    .fab-label-btn {
-        font-size: 0.92rem;
-    }
-}
-
-@media (max-width: 900px) {
-    .hero-section .row {
-        flex-direction: column;
-        gap: 32px;
-    }
-    .hero-content {
-        padding-right: 0;
-        text-align: center;
-    }
-    .col-lg-7,
-    .col-lg-5 {
-        width: 100%;
-        max-width: 100%;
-    }
-    .hero-section .row.align-items-center {
-        flex-direction: column;
-        gap: 32px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero-title-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    .hero-title-row .subscribe-btn,
-    .hero-title-row a.subscribe-btn {
-        width: 100%;
-        margin-left: 0;
-        min-width: auto;
-    }
-}
-
-@media (max-width: 900px) {
-    .hero-section .row {
-        flex-direction: column;
-        gap: 32px;
-    }
-    .hero-content {
-        padding-right: 0;
-        text-align: center;
-    }
-    .col-lg-7,
-    .col-lg-5 {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 900px) {
-    .news-block,
-    .roadmap-block {
-        min-width: 0;
-        padding: 1.2rem 1rem 1rem 1rem;
-        border-radius: var(--radius-md);
-    }
-}
-
-@media (max-width: 900px) {
-    .news-block,
-    .roadmap-block {
-        min-width: 0;
-        padding: 1.2rem 1rem 1rem 1rem;
-        border-radius: var(--radius-md);
-    }
-}
-
-@media (max-width: 768px) {
-    .contributors-section {
-        padding: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .contributors-title {
-        font-size: 1.8rem;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .contributors-grid {
-        gap: 0.75rem;
-    }
-
-    .contributor-avatar {
-        width: 50px;
-        height: 50px;
-    }
-
-    .contributor-tooltip {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.6rem;
-    }
-
-    .contributor-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .become-contributor-btn {
-        padding: 0.875rem 1.5rem;
-        font-size: 1rem;
-    }
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .top-controls-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-box {
-        margin-top: 0.5rem;
-    }
-
-    .filter-tag {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-    }
-
-    .filter-tags-row {
-        gap: 0.5rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        justify-content: flex-start;
-    }
-
-    .filter-tag-group:not(:first-child)::before {
-        display: none;
-    }
-
-    .filter-tag i {
-        font-size: 0.8rem;
-    }
-
-    .reset-btn {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.7rem;
-    }
-
-    .controls-section {
-        padding: 1rem;
-    }
-}
-
-/* 响应式优化 */
-@media (max-width: 1200px) {
-    .detailed-header {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .detailed-table {
-        font-size: 0.9rem;
-    }
-
-    .detailed-table th,
-    .detailed-table td {
-        padding: 0.75rem 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .detailed-header {
-        padding: 1rem;
-    }
-
-    .detailed-title {
-        font-size: 1.5rem;
-    }
-
-    .detailed-table {
-        font-size: 0.8rem;
-    }
-
-    .detailed-table th,
-    .detailed-table td {
-        padding: 0.5rem 0.25rem;
-    }
-
-    .detailed-table th small {
-        font-size: 0.7rem;
-    }
-}
-
-
-/* 触摸设备优化 */
+/* ---- 细节：触摸设备优化 ---- */
 @media (hover: none) and (pointer: coarse) {
-    /* 增大触摸目标 */
-    .nav-item a {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	/* 增大触摸目标 */
+	.subscribe-btn,
+	.summary-leaderboard-header,
+	.summary-leaderboard-link.enhanced-link,
+	.become-contributor-btn,
+	.ranking-table a,
+	.nav-right .nav-item a,
+	.nav-right .nav-item button {
+		min-height: 44px;
+	}
 
-    .subscribe-btn,
-    .become-contributor-btn {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	/* 取消 hover 专属的颜色变化，改为 active/ focus 更明显 */
+	.summary-leaderboard-header:hover {
+		background: linear-gradient(90deg, #e9efff 0%, #fff 80%);
+		color: #1c2452;
+		box-shadow: 0 2px 16px 0 rgba(50, 80, 200, 0.04);
+	}
+	.summary-leaderboard-header:active {
+		background: linear-gradient(90deg, #dbe7ff 0%, #f7f9ff 80%);
+	}
 
-    .fab-main,
-    .fab-icon,
-    .fab-label-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
+	/* 列表滚动体验改善 */
+	.summary-table-container,
+	.news-roadmap-container {
+		-webkit-overflow-scrolling: touch;
+	}
 
-    /* 排行榜触摸优化 */
-    .model-button,
-    .type-button,
-    .improvement-type-button,
-    .tag-button {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .search-input {
-        min-height: 44px;
-    }
-
-    .reset-btn {
-        min-height: 44px;
-    }
-
-    .ranking-table th,
-    .ranking-table td {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* 数据比较触摸优化 */
-    .compare-toggle-btn {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-    }
-
-    .compare-dataset-item {
-        min-height: 44px;
-    }
-
-    .compare-update-btn,
-    .compare-clear-btn {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .comparison-card-header {
-        min-height: 44px;
-    }
-
-    .external-link {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .info-item {
-        min-height: 44px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .domain-tab {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* 移除悬停效果，改为激活效果 */
-    .nav-item a:hover,
-    .subscribe-btn:hover,
-    .become-contributor-btn:hover,
-    .fab-main:hover,
-    .fab-icon:hover,
-    .fab-label-btn:hover,
-    .model-button:hover,
-    .type-button:hover,
-    .improvement-type-button:hover,
-    .tag-button:hover,
-    .compare-toggle-btn:hover,
-    .compare-update-btn:hover,
-    .compare-clear-btn:hover,
-    .external-link:hover,
-    .domain-tab:hover {
-        transform: none;
-    }
-
-    .nav-item a:active,
-    .subscribe-btn:active,
-    .become-contributor-btn:active,
-    .fab-main:active,
-    .fab-icon:active,
-    .fab-label-btn:active,
-    .model-button:active,
-    .type-button:active,
-    .improvement-type-button:active,
-    .tag-button:active,
-    .compare-toggle-btn:active,
-    .compare-update-btn:active,
-    .compare-clear-btn:active,
-    .external-link:active,
-    .domain-tab:active {
-        transform: scale(0.95);
-    }
-
-    /* 优化滚动体验 */
-    .contributors-grid,
-    .news-list,
-    .links-container,
-    .table-container,
-    .compare-dataset-list {
-        -webkit-overflow-scrolling: touch;
-    }
+	/* 点击反馈 */
+	.subscribe-btn:active,
+	.become-contributor-btn:active,
+	.summary-leaderboard-link.enhanced-link:active {
+		transform: translateY(1px);
+	}
 }
 
-/* 减少动画偏好 */
+/* ---- 用户偏好：减少动画/动效 ---- */
 @media (prefers-reduced-motion: reduce) {
-    .fab-menu,
-    .fab-actions,
-    .fab-label-btn,
-    .subscribe-btn,
-    .become-contributor-btn,
-    .nav-item a,
-    .contributor-avatar,
-    .model-button,
-    .type-button,
-    .improvement-type-button,
-    .tag-button,
-    .compare-toggle-btn,
-    .compare-update-btn,
-    .compare-clear-btn,
-    .external-link,
-    .domain-tab {
-        transition: none;
-    }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
 
-    .fab-menu:hover .fab-actions {
-        animation: none;
-    }
+	/* 减弱阴影与放大效果，避免视觉“跳变” */
+	.summary-leaderboard-header,
+	.news-block:hover,
+	.roadmap-block:hover,
+	.become-contributor-btn:hover {
+		box-shadow: var(--shadow-sm);
+		transform: none !important;
+	}
+
+	/* 旋转/加载动效可保持但降低对比度 */
+	.loading-spinner .fa-spin {
+		animation-duration: 1.2s !important; /* 较慢但仍有反馈 */
+	}
 }
 
+/* =========================
+    Leaderboard page mobile styles
+   ========================= */
 
-@media (max-width: 768px) {
-    .guide-container {
-        padding: 1rem;
-    }
+/* ---- 900px: 栅格改为纵向堆叠，控件自适应 ---- */
+@media (max-width: 900px) {
+	/* 控制区整体留白微调 */
+	.controls-section {
+		padding: 0 0 1rem;
+		gap: 0.75rem;
+	}
 
-    .guide-title {
-        font-size: 2rem;
-        flex-direction: column;
-    }
+	/* 每一行改为纵向堆叠，减少左右拥挤 */
+	.controls-section .control-row {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.75rem;
+		padding-left: 12px;
+		padding-right: 12px;
+		margin-top: 8px;
+	}
 
-    .section-header {
-        flex-direction: column;
-        text-align: center;
-    }
+	.controls-section .control-row:first-child,
+	.controls-section .control-row:last-child {
+		justify-content: flex-start;
+		align-items: stretch;
+		padding-left: 12px;
+		padding-right: 12px;
+		gap: 0.75rem;
+		margin-top: 8px;
+	}
 
-    .step-item {
-        flex-direction: column;
-        text-align: center;
-    }
+	/* 子块全宽显示 */
+	.model-switcher,
+	.type-buttons-section,
+	.data-tag-buttons-section,
+	.size-range-section,
+	.search-box-container,
+	.filter-dropdown-group {
+		flex: 1 1 100%;
+		max-width: 100%;
+		min-width: 0;
+	}
 
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+	/* 模型按钮容器多行折叠 */
+	.model-buttons-container,
+	.type-buttons-container,
+	.tag-buttons-container {
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
 
-    .submit-info-modal-content {
-        min-width: 320px;
-        padding: 1.5rem;
-    }
+	/* 搜索框铺满 */
+	.search-box {
+		max-width: 100%;
+	}
 
-    .code-block {
-        margin: 1rem 0;
-        border-radius: var(--radius-sm);
-    }
-
-    .code-header {
-        padding: 0.75rem 1rem;
-        font-size: 0.85rem;
-    }
-
-    .code-block code {
-        padding: 1rem;
-        font-size: 0.85rem;
-        line-height: 1.5;
-    }
-
-    .copy-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
+	/* 尺寸选择区顶到下一行 */
+	.controls-section .size-range-section {
+		margin: 0;
+	}
 }
 
+/* ---- 768px: 字号、间距与按钮尺寸微调 ---- */
 @media (max-width: 768px) {
-    .tools-title {
-        font-size: 2rem;
-        flex-direction: column;
-    }
+	.model-button,
+	.type-button,
+	.tag-button {
+		font-size: 0.9rem;
+		padding: 0.55rem 0.9rem;
+		min-width: 84px;
+	}
+
+	.size-slider-wrapper {
+		padding: 6px;
+		margin: 6px 0;
+	}
+	.size-slider-track {
+		height: 5px;
+	}
+
+	.size-slider-labels {
+		font-size: 0.8rem;
+	}
+
+	/* 表格字体/间距收紧，并允许横向滚动 */
+	.leaderboard-container .table-container {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.ranking-table th,
+	.ranking-table td {
+		padding: 10px 8px;
+		font-size: 0.95rem;
+	}
+
+	/* 详细表格在中屏以下给出最小宽度，避免被过度压缩 */
+	.ranking-table.detailed-table {
+		min-width: 860px;
+	}
+}
+
+/* ---- 600px: 更紧凑布局，标签/按钮堆叠显示 ---- */
+@media (max-width: 600px) {
+	.model-button,
+	.type-button,
+	.tag-button {
+		font-size: 0.88rem;
+		padding: 0.5rem 0.85rem;
+		min-width: 78px;
+	}
+
+	/* 标签筛选模式与标签按钮更紧凑 */
+	.tag-filter-mode {
+		gap: 0.75rem;
+	}
+	.filter-mode-label {
+		font-size: 0.85rem;
+	}
+
+	/* 排行榜表格：更小字号，并保证可滚动 */
+	.leaderboard-container .table-container {
+		padding-bottom: 4px;
+	}
+	.ranking-table {
+		min-width: 640px;
+	}
+	.ranking-table th,
+	.ranking-table td {
+		padding: 8px 6px;
+		font-size: 0.92rem;
+	}
+
+	/* 详细表格更宽的下限，促使容器滚动而非挤压 */
+	.ranking-table.detailed-table {
+		min-width: 980px;
+	}
+
+	/* 工具提示在移动端避免遮挡（稍微减小） */
+	.efficiency-tooltip {
+		max-width: 260px;
+		font-size: 12px;
+		padding: 10px 12px;
+	}
+}
+
+/* ---- 触摸设备优化：更大的触控目标、弱化 hover ---- */
+@media (hover: none) and (pointer: coarse) {
+	.model-button,
+	.type-button,
+	.tag-button,
+	.search-input,
+	.size-slider::-webkit-slider-thumb,
+	.size-slider::-moz-range-thumb {
+		min-height: 44px;
+	}
+
+	/* 弱化 hover，使用 active 反馈 */
+	.model-button:hover,
+	.type-button:hover,
+	.tag-button:hover {
+		background-color: var(--background-primary);
+		color: var(--text-secondary);
+		border-color: var(--border-medium);
+	}
+	.model-button:active,
+	.type-button:active,
+	.tag-button:active {
+		transform: translateY(1px);
+	}
+
+	/* 滑块更易触控 */
+	.size-slider::-webkit-slider-thumb {
+		width: 22px;
+		height: 22px;
+	}
+	.size-slider::-moz-range-thumb {
+		width: 22px;
+		height: 22px;
+	}
+}
+
+/* ---- 减少动画偏好：降低过渡与阴影 ---- */
+@media (prefers-reduced-motion: reduce) {
+	.model-button,
+	.type-button,
+	.tag-button,
+	.search-input,
+	.size-slider::-webkit-slider-thumb,
+	.size-slider::-moz-range-thumb {
+		transition-duration: 0.001ms !important;
+	}
+	.type-button:hover,
+	.tag-button:hover,
+	.model-button:hover {
+		box-shadow: var(--shadow-sm);
+		transform: none !important;
+	}
+}
+
+/* =========================
+	Data-Comparison page mobile styles
+   ========================= */
+
+/* ---- 900px: 主要布局栅格收敛为单列，控件自适应 ---- */
+@media (max-width: 900px) {
+	/* 标题区与容器留白收敛 */
+	.dataset-detail-container {
+		padding: 12px;
+	}
+	.data-comparison-header {
+		padding: 1.25rem;
+		margin-bottom: 1.5rem;
+	}
+	.data-comparison-title {
+		font-size: 2rem;
+	}
+
+	/* 控制面板整体堆叠显示 */
+	.compare-controls {
+		gap: 16px;
+	}
+	.compare-selection {
+		padding: 16px;
+	}
+
+	/* 搜索栏与按钮占满宽度 */
+	.compare-search-bar {
+		display: flex;
+		gap: 8px;
+		align-items: stretch;
+	}
+	.compare-search-bar input[type="text"] {
+		width: 100% !important;
+	}
+	.compare-search-bar button {
+		width: auto !important;
+		flex: 0 0 auto;
+	}
+
+	/* 数据集列表更紧凑且不超宽 */
+	.compare-dataset-list {
+		max-height: 360px;
+	}
+	.compare-dataset-item {
+		padding: 10px 12px;
+	}
+
+	/* 操作按钮换行 */
+	.compare-actions {
+		gap: 10px;
+	}
+	.compare-update-btn,
+	.compare-clear-btn {
+		flex: 1 1 auto;
+		justify-content: center;
+	}
+
+	/* 双雷达图单列纵向排列 */
+	.dual-charts-container {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
+
+	/* 章节容器内边距收敛 */
+	.section-content {
+		padding: 24px;
+	}
+}
+
+/* ---- 768px: 字体、按钮、表格、图表高度微调 ---- */
+@media (max-width: 768px) {
+	.data-comparison-title {
+		font-size: 1.8rem;
+	}
+	.section-title {
+		font-size: 1.2rem;
+	}
+
+	.compare-update-btn,
+	.compare-clear-btn {
+		padding: 10px 14px;
+		font-size: 0.95rem;
+	}
+
+	/* 领域标签更紧凑 */
+	.domain-tabs {
+		gap: 6px;
+	}
+	.domain-tab {
+		padding: 0.5rem 0.8rem;
+		font-size: 0.85rem;
+	}
+
+	/* 表格可横向滚动，避免挤压 */
+	.heuristic-table-container {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.heuristic-table {
+		min-width: 520px;
+		width: 100%;
+	}
+
+	/* 雷达图容器高度下调以适配中等屏宽 */
+	.chart-wrapper {
+		height: 420px;
+	}
+}
+
+/* ---- 600px: 更紧凑布局，三图/双图全部单列，字体再收敛 ---- */
+@media (max-width: 600px) {
+	.data-comparison-header {
+		padding: 1rem;
+	}
+	.data-comparison-title {
+		font-size: 1.6rem;
+	}
+
+	/* 搜索栏纵向堆叠，按钮全宽 */
+	.compare-search-bar {
+		flex-direction: column;
+		gap: 10px;
+	}
+	.compare-search-bar button {
+		width: 100% !important;
+		margin-left: 0 !important;
+	}
+
+	/* 列表项与徽章更紧凑 */
+	.compare-dataset-item {
+		gap: 10px;
+	}
+	.compare-dataset-item .dataset-name {
+		font-size: 0.95rem;
+	}
+	.tag-badge.small {
+		font-size: 0.68rem;
+		padding: 2px 6px;
+	}
+
+	/* 章节内边距更紧凑 */
+	.section-content {
+		padding: 18px;
+	}
+
+	/* 双图、三图均单列 */
+	.dual-charts-container {
+		grid-template-columns: 1fr;
+		gap: 22px;
+	}
+	.triple-charts-container {
+		flex-direction: column;
+		gap: 22px;
+		margin-bottom: 0;
+	}
+	.triple-charts-container-inner {
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	/* 卡片与标题字号缩小 */
+	.chart-title,
+	.dynamic-chart-title {
+		font-size: 1rem;
+	}
+
+	/* 图表高度进一步下调 */
+	.chart-wrapper {
+		height: 360px;
+	}
+
+	/* 内层卡片收敛间距 */
+	.inner-cards-container {
+		gap: 12px;
+	}
+	.card-content {
+		padding: 18px;
+	}
+	.card-header {
+		padding: 14px;
+	}
+}
+
+/* ---- 触摸设备优化：更大的触控目标、弱化 hover ---- */
+@media (hover: none) and (pointer: coarse) {
+	/* 增大点击面积 */
+	.compare-update-btn,
+	.compare-clear-btn,
+	.domain-tab,
+	.compare-dataset-item,
+	.card-header {
+		min-height: 44px;
+	}
+
+	/* 减弱 hover 效果 */
+	.compare-dataset-item:hover {
+		background: #f5f7fb;
+	}
+	.domain-tab:hover {
+		background: #eef2ff;
+	}
+
+	/* 滚动体验 */
+	.compare-dataset-list,
+	.heuristic-table-container {
+		-webkit-overflow-scrolling: touch;
+	}
+
+	/* 点击反馈 */
+	.compare-update-btn:active,
+	.compare-clear-btn:active,
+	.domain-tab:active,
+	.card-header:active {
+		transform: translateY(1px);
+	}
+}
+
+/* ---- 用户偏好：减少动画/动效 ---- */
+@media (prefers-reduced-motion: reduce) {
+	.compare-update-btn,
+	.compare-clear-btn,
+	.domain-tab,
+	.compare-dataset-item,
+	.card-header,
+	.chart-card,
+	.content-section {
+		transition-duration: 0.001ms !important;
+	}
+
+	.comparison-card:hover,
+	.content-section:hover,
+	.chart-card.inner .card-header:hover {
+		box-shadow: var(--shadow-sm);
+		transform: none !important;
+	}
+
+	.loading-spinner .fa-spin {
+		animation-duration: 1.2s !important;
+	}
+}
+
+/* =========================
+	Responsive fixes for header crowding & charts
+   ========================= */
+
+/* --- 900px: stack dual charts; stack triple inner; prepare flexible header --- */
+@media (max-width: 900px) {
+	/* Performance overview: two charts stack vertically */
+	.dual-charts-container {
+		grid-template-columns: 1fr !important;
+		gap: 28px;
+	}
+
+	/* LLM-as-Judge & Model-based: three charts / inner containers stack */
+	.triple-charts-container {
+		flex-direction: column;
+		gap: 24px;
+	}
+	.triple-charts-container-inner {
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	/* Double charts (e.g., Clarity Q/QA, etc.) stack */
+	.double-charts-container {
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	/* Make chart containers shrink nicely */
+	.chart-container.score {
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	/* Header: allow wrapping to avoid overlap */
+	.comparison-card-header > div {
+		flex-wrap: wrap;
+	}
+}
+
+/* --- 768px: tighten paddings, fonts; ensure full chart visibility --- */
+@media (max-width: 768px) {
+	/* Comparison dataset header area */
+	.comparison-card-header,
+	.comparison-card-header.compact-header {
+		padding: 12px 14px;
+		height: auto;
+		min-height: 0;
+	}
+	.comparison-card-title {
+		font-size: 1.05rem;
+		flex: 1 1 100%;
+		margin-bottom: 8px;
+		word-break: break-word;
+	}
+	.external-links {
+		flex: 1 1 100%;
+		gap: 6px;
+	}
+	.external-link {
+		padding: 8px 10px;
+		font-size: 0.85rem;
+	}
+
+	/* Chart wrapper height down; canvas fully responsive */
+	.chart-wrapper {
+		height: 420px;
+		max-width: 100%;
+	}
+	.chart-wrapper canvas {
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+/* --- 600px: compact layout; even smaller titles/links; safe chart size --- */
+@media (max-width: 600px) {
+	.comparison-card-title {
+		font-size: 1rem;
+	}
+	.external-link {
+		padding: 6px 8px;
+		font-size: 0.8rem;
+	}
+
+	/* Further reduce chart height for small screens */
+	.chart-wrapper {
+		height: 360px;
+	}
+
+	/* Dataset card body spacing */
+	.comparison-card-body {
+		padding: 14px 16px 4px 16px;
+	}
+}
+
+/* --- Touch optimization: larger tap targets; softer hover --- */
+@media (hover: none) and (pointer: coarse) {
+	.external-link {
+		min-height: 44px;
+	}
+	.external-link:hover {
+		transform: none;
+	}
+}
+
+/* --- Reduced motion: keep transitions minimal --- */
+@media (prefers-reduced-motion: reduce) {
+	.external-link {
+		transition-duration: 0.001ms !important;
+	}
+}
+
+/* =========================
+	Configurations page mobile styles
+   ========================= */
+
+/* ---- 900px: 收敛版心与间距，表格可滚动 ---- */
+@media (max-width: 900px) {
+	/* 容器与区块留白 */
+	.rules-container {
+		padding: 16px;
+		margin: 16px auto;
+	}
+	.rules-section {
+		margin-bottom: 28px;
+	}
+
+	/* 标题字号微调 */
+	.rules-section h2 {
+		font-size: 1.6em;
+		margin-top: 20px;
+	}
+	.rules-section h3 {
+		font-size: 1.15em;
+	}
+	.rules-section p {
+		font-size: 1rem;
+	}
+
+	/* 列表缩进减少，避免挤压 */
+	.rules-section ul {
+		margin-left: 24px;
+	}
+
+	/* 表格容器可横向滚动（无额外 wrapper 时直接作用于 table 父级） */
+	.rules-section {
+		overflow-x: auto;
+	}
+	.rules-table {
+		min-width: 720px;
+	}
+	.rules-table.rules-table-shot {
+		min-width: 880px;
+	}
+}
+
+/* ---- 768px: 进一步收紧排版，控制表格行高与内边距 ---- */
+@media (max-width: 768px) {
+	.rules-container {
+		padding: 14px;
+	}
+	.rules-section h2 {
+		font-size: 1.45em;
+	}
+	.rules-section h3 {
+		font-size: 1.1em;
+	}
+	.rules-section p {
+		font-size: 0.98rem;
+		line-height: 1.65;
+	}
+
+	.rules-table {
+		font-size: 0.92rem;
+	}
+	.rules-table th,
+	.rules-table td {
+		padding: 10px;
+	}
+
+	/* 让 shot 列与 Benchmark_file 列不被压扁（只在小屏给最小宽约束） */
+	.rules-table-shot td:nth-child(5),
+	.rules-table-shot th:nth-child(5) {
+		min-width: 72px;
+	}
+}
+
+/* ---- 600px: 最紧凑样式，标题/列表再缩，表格更易读 ---- */
+@media (max-width: 600px) {
+	.rules-container {
+		padding: 12px;
+	}
+	.rules-section {
+		margin-bottom: 22px;
+	}
+	.rules-section h2 {
+		font-size: 1.35em;
+	}
+	.rules-section h3 {
+		font-size: 1.05em;
+	}
+	.rules-section p {
+		font-size: 0.95rem;
+	}
+	.rules-section ul {
+		margin-left: 18px;
+	}
+
+	/* 表格行距更紧凑，但保证可读性 */
+	.rules-table {
+		font-size: 0.9rem;
+	}
+	.rules-table th,
+	.rules-table td {
+		padding: 8px;
+	}
+
+	/* 明确最小宽度以促使容器横向滚动而不是压缩内容 */
+	.rules-table {
+		min-width: 640px;
+	}
+	.rules-table.rules-table-shot {
+		min-width: 900px;
+	}
+}
+
+/* ---- 触摸设备优化：更大的触控区域、惯性滚动 ---- */
+@media (hover: none) and (pointer: coarse) {
+	.rules-container a,
+	.rules-table a {
+		min-height: 44px;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	/* 表格滚动惯性更顺滑（作用于 section 作为滚动容器） */
+	.rules-section {
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+/* ---- 减少动画偏好 ---- */
+@media (prefers-reduced-motion: reduce) {
+	.rules-container,
+	.rules-section,
+	.rules-table th,
+	.rules-table td {
+		transition-duration: 0.001ms !important;
+	}
+}
+
+/* =========================
+	Contribution page mobile styles
+   ========================= */
+
+/* ---- 900px: 版心/卡片/步骤布局收敛，代码块自适应 ---- */
+@media (max-width: 900px) {
+	.guide-container {
+		padding: 16px;
+	}
+	.guide-header {
+		margin-bottom: 18px;
+	}
+	.guide-title {
+		font-size: 1.9rem;
+	}
+
+	.guide-sections {
+		gap: 20px;
+	}
+	.guide-section .section-content {
+		padding: 18px;
+	}
+
+	.step-list {
+		margin-left: 18px;
+	}
+	.step-item {
+		display: flex;
+		gap: 12px;
+		align-items: flex-start;
+	}
+	.step-number {
+		flex: 0 0 28px;
+		height: 28px;
+		line-height: 28px;
+		font-size: 0.95rem;
+	}
+	.step-content {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	/* 代码块容器允许水平滚动，避免被挤压 */
+	.code-block {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.code-block code {
+		display: block;
+		min-width: 560px;
+	}
+
+	/* 悬浮菜单：缩小外距，避免遮挡内容 */
+	.fab-menu {
+		bottom: 16px;
+		right: 16px;
+	}
+	.fab-actions {
+		gap: 8px;
+	}
+}
+
+/* ---- 768px: 字号、间距、按钮尺寸微调；弹窗更贴合屏幕 ---- */
+@media (max-width: 768px) {
+	.guide-title {
+		font-size: 1.7rem;
+	}
+	.guide-header p {
+		font-size: 0.98rem;
+		line-height: 1.65;
+	}
+
+	.step-content h4 {
+		font-size: 1.05rem;
+	}
+	.step-content p,
+	.step-content li {
+		font-size: 0.96rem;
+	}
+
+	/* 代码块标题与复制按钮排版收敛 */
+	.code-header {
+		gap: 10px;
+	}
+	.copy-btn {
+		padding: 6px 10px;
+		font-size: 0.9rem;
+	}
+
+	/* 提交弹窗收敛 */
+	.submit-info-modal-content {
+		width: 92%;
+		max-width: 680px;
+		padding: 16px;
+	}
+	.submit-info-modal-content h3 {
+		font-size: 1.15rem;
+	}
+	.submit-info-modal-content .form-group label {
+		font-size: 0.95rem;
+	}
+	.submit-info-modal-content input {
+		font-size: 0.95rem;
+		padding: 10px 12px;
+	}
+	#submit-btn {
+		padding: 10px 14px;
+		font-size: 0.95rem;
+	}
+
+	/* 联系方式卡片 */
+	.contact-info {
+		padding: 16px;
+	}
+	.contact-buttons {
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+	.contact-btn {
+		padding: 10px 12px;
+		font-size: 0.95rem;
+	}
+}
+
+/* ---- 600px: 更紧凑布局；按钮与链接可换行；代码字体缩小 ---- */
+@media (max-width: 600px) {
+	.guide-container {
+		padding: 12px;
+	}
+	.guide-header {
+		margin-bottom: 14px;
+	}
+	.guide-title {
+		font-size: 1.5rem;
+	}
+
+	.guide-section .section-content {
+		padding: 14px;
+	}
+	.step-list {
+		margin-left: 14px;
+	}
+	.step-item {
+		gap: 10px;
+	}
+	.step-number {
+		flex: 0 0 24px;
+		height: 24px;
+		line-height: 24px;
+		font-size: 0.88rem;
+	}
+
+	.copy-btn {
+		width: 100%;
+		justify-content: center;
+	}
+	.code-block code {
+		min-width: 480px;
+		font-size: 0.92rem;
+	}
+
+	/* 联系方式按钮改纵向堆叠，避免挤压 */
+	.contact-buttons {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.contact-btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	/* 悬浮菜单：移动端仅展示图标按钮，隐藏带文案的长按钮 */
+	.fab-actions .fab-label-btn {
+		display: none;
+	}
+	.fab-actions .fab-icon {
+		display: inline-flex;
+	}
+}
+
+/* ---- 触摸设备优化：更大的触控目标、取消 hover 抖动 ---- */
+@media (hover: none) and (pointer: coarse) {
+	.copy-btn,
+	.submit-info-btn,
+	.contact-btn,
+	.fab-main,
+	.fab-icon {
+		min-height: 44px;
+	}
+	.contact-btn:hover,
+	.copy-btn:hover {
+		transform: none;
+	}
+}
+
+/* ---- 减少动画偏好：压低过渡/阴影 ---- */
+@media (prefers-reduced-motion: reduce) {
+	.copy-btn,
+	.submit-info-btn,
+	.contact-btn,
+	.fab-main,
+	.fab-actions > * {
+		transition-duration: 0.001ms !important;
+	}
+}
+
+/* =========================
+	Tools page mobile styles
+   ========================= */
+
+/* ---- 900px: 版心与区块留白收敛，标题与列表更紧凑 ---- */
+@media (max-width: 900px) {
+	.tools-container {
+		padding: 16px;
+		margin: 16px auto;
+	}
+
+	.tools-header {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+	}
+
+	.tools-title {
+		font-size: 2rem;
+		gap: 0.75rem;
+		justify-content: flex-start; /* 左对齐更节省横向空间 */
+	}
+
+	.tools-container h2 {
+		margin-top: 20px;
+		margin-bottom: 12px;
+	}
+
+	.tools-container h3 {
+		margin-top: 18px;
+		margin-left: 14px;
+		margin-bottom: 10px;
+	}
+
+	.tools-container p {
+		font-size: 1rem;
+		line-height: 1.65;
+		margin-bottom: 16px;
+	}
+
+	.tools-container ul {
+		font-size: 1rem;
+		line-height: 1.65;
+		margin-left: 28px;
+		margin-bottom: 16px;
+	}
+}
+
+/* ---- 768px: 字号与间距再收敛，链接触达性提升 ---- */
+@media (max-width: 768px) {
+	.tools-title {
+		font-size: 1.8rem;
+	}
+
+	.tools-container p {
+		font-size: 0.98rem;
+		line-height: 1.6;
+	}
+
+	.tools-container ul {
+		font-size: 0.98rem;
+		line-height: 1.6;
+		margin-left: 22px;
+	}
+
+	.tools-container h2 {
+		font-size: 1.25rem;
+	}
+
+	.tools-container h3 {
+		font-size: 1.05rem;
+		margin-left: 10px;
+	}
+
+	/* 让含链接的行在窄屏更好点按 */
+	a.repo-link {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+	}
+}
+
+/* ---- 600px: 最紧凑布局，标题/列表缩进减少，避免拥挤 ---- */
+@media (max-width: 600px) {
+	.tools-container {
+		padding: 12px;
+		margin: 12px auto;
+	}
+
+	.tools-header {
+		margin-bottom: 1.25rem;
+		padding: 1rem;
+		border-radius: 10px;
+	}
+
+	.tools-title {
+		font-size: 1.6rem;
+		gap: 0.5rem;
+	}
+
+	.tools-container h2 {
+		font-size: 1.15rem;
+		margin-top: 16px;
+		margin-bottom: 10px;
+	}
+
+	.tools-container h3 {
+		font-size: 1rem;
+		margin-top: 14px;
+		margin-left: 6px;
+		margin-bottom: 8px;
+	}
+
+	.tools-container p {
+		font-size: 0.95rem;
+		line-height: 1.55;
+		margin-bottom: 12px;
+	}
+
+	.tools-container ul {
+		font-size: 0.95rem;
+		line-height: 1.55;
+		margin-left: 16px;
+		margin-bottom: 12px;
+	}
+
+	/* 段落中的长链接在超小屏可换行，避免溢出 */
+	.tools-container p a,
+	.tools-container li a {
+		word-break: break-all;
+	}
+}
+
+/* ---- 触摸设备优化：更大的触控目标、弱化 hover 抖动 ---- */
+@media (hover: none) and (pointer: coarse) {
+	.tools-container a.repo-link {
+		min-height: 44px;
+	}
+
+	/* 避免触摸下 hover 产生不必要的色彩闪烁 */
+	a.repo-link:hover {
+		color: inherit !important;
+	}
+}
+
+/* ---- 减少动画偏好：压低过渡 ---- */
+@media (prefers-reduced-motion: reduce) {
+	.tools-header,
+	.tools-title,
+	.tools-container h2,
+	.tools-container h3,
+	.tools-container p,
+	.tools-container ul,
+	a.repo-link {
+		transition-duration: 0.001ms !important;
+	}
+}
+
+/* =========================
+	Global Header mobile fixes
+   ========================= */
+
+/* 900px: 允许换行，压缩左右内边距与间距 */
+@media (max-width: 900px) {
+	.header {
+		flex-wrap: wrap;
+		padding: 8px 12px; /* 原 0 32px */
+		gap: 8px;
+	}
+	.nav-left,
+	.nav-right {
+		flex: 1 1 100%;
+		min-width: 0; /* 防止超出导致横向滚动 */
+	}
+	.nav-right .nav-list {
+		flex-wrap: wrap; /* 关键：导航可换行 */
+		gap: 12px; /* 原 32px */
+	}
+	.nav-item a,
+	.nav-item button.lang-toggle-btn {
+		padding: 6px 10px; /* 原 8px 18px */
+	}
+	.nav-slogan {
+		white-space: normal; /* 原先 nowrap 可能导致溢出 */
+	}
+}
+
+/* 768px: 再收紧字号与间距，确保不出现横向滚动 */
+@media (max-width: 768px) {
+	.nav-main-title {
+		font-size: 1rem;
+	}
+	.nav-slogan {
+		font-size: 0.76rem;
+		margin-top: 0.28rem;
+	}
+
+	.nav-right .nav-list {
+		gap: 10px;
+	}
+	.nav-item a,
+	.nav-item button.lang-toggle-btn {
+		padding: 6px 8px;
+	}
+}
+
+/* 600px: 标题与标语占满一行，导航另起一行；必要时隐藏标语 */
+@media (max-width: 600px) {
+	.header {
+		padding: 8px 10px;
+	}
+	.nav-left {
+		order: 0;
+	}
+	.nav-right {
+		order: 1;
+	}
+
+	.nav-title-group {
+		width: 100%;
+	}
+	.nav-slogan {
+		display: none;
+	} /* 极小屏隐藏标语，避免横向滚动 */
+
+	.nav-right .nav-list {
+		width: 100%;
+		justify-content: flex-start; /* 左对齐更省空间 */
+		gap: 8px;
+	}
+	.nav-item a,
+	.nav-item button.lang-toggle-btn {
+		padding: 6px 8px;
+		font-size: 0.96rem;
+	}
+
+	/* 语言图标尺寸微调，保持垂直居中 */
+	.nav-item .lang-icon-img {
+		width: 22px;
+		height: 22px;
+	}
 }

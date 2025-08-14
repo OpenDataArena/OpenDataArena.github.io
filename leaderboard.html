@@ -594,7 +594,8 @@
 					<div class="detailed-header">
 						<h2 class="detailed-title">
 							<i class="fas fa-chart-line"></i>
-							{{ getTypeDisplayName(selectedType) }} Leaderboard
+							{{ $t('all_' + selectedType.toLowerCase()) !== ('all_' + selectedType.toLowerCase()) ?
+							$t('all_' + selectedType.toLowerCase()) : getTypeDisplayName(selectedType) }}{{ $t('all_leaderboard') }}
 						</h2>
 						<!-- <button @click="selectedType = ''" class="back-btn">
                             <i class="fas fa-arrow-left"></i>
