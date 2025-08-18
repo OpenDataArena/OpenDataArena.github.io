@@ -87,51 +87,35 @@ export const lang_index = {
 		index_table_size: "size",
 		index_table_avg_score: "avg",
 		index_lb_cta: "Click to view detail Leaderboard",
+		index_overall_average: "Overall Average",
 
 		// Summary comparison block
 		index_llama_model: "Llama Model",
+		index_qwen_model: "Qwen Model",
 		index_cmp_cta: "Click to start Dataset Comparison",
 
-		index_news_title: "News",
+		// News
 		index_news_1:
-			"{index_news_1_link_data_scoring}, supporting LLM-based judgment and diverse evaluation metrics for automated data assessment. Detailed {index_news_1_link_wiki} introduction is provided.",
-		index_news_1_link_data_scoring:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">Data scoring framework open-sourced</a></b>',
-		index_news_1_link_wiki:
-			'<b class="highlight"><a href="https://opendataarena-tool.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Wiki</a></b>',
-		index_news_2:
-			"{index_news_2_link_multi}, empowering deeper insights into dataset quality. Welcome to download.",
-		index_news_2_link_multi:
-			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">Multi-dimensional data scoring results released</a></b>',
-		index_news_3:
-			"{index_news_3_link_full}, supporting reproducible experiments on mainstream models and benchmarks. Welcome to star and use.",
-		index_news_3_link_full:
 			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool" target="_blank" rel="noopener noreferrer">Full training and evaluation toolkit open-sourced</a></b>',
-		index_news_4:
-			"{index_news_4_link_open}, enabling post-training data validation across multiple domains, tasks, and evaluation dimensions.",
-		index_news_4_link_open:
-			'<b class="highlight"><a href="https://opendataarena.github.io/index.html" target="_blank" rel="noopener noreferrer">OpenDataArena v1.0 launched</a></b>',
+		index_news_2:
+			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">Data scoring framework open-sourced</a></b>',
+		index_news_3:
+			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">Multi-dimensional data scoring results released</a></b>',
 
-		index_coming_title: "What's Coming",
-		index_coming_short_term_title: "Short-Term Plans",
-		index_coming_short_term_1:
-			'<b class="highlight">Release seed datasets</b>with built-in support for <b class="highlight">data filtering and subset selection</b>',
-		index_coming_short_term_2:
-			'<b class="highlight">Benchmark Qwen3</b> and other latest LLMs with standardized evaluation results',
-		index_coming_long_term_title: "Mid-to-Long Term Plans",
-		index_coming_long_term_1:
-			'<b class="highlight">Monthly update dataset rankings </b>, provide the latest evaluation results.',
-		index_coming_long_term_2:
-			'<b class="highlight">Expand to domain-specific datasets</b>, including <b class="highlight">medical</b>,<b class="highlight">scientific</b>, and other high-value fields',
-		index_coming_long_term_3:
-			'<b class="highlight">Support multimodal and reasoning-intensive datasets</b>, enabling richer evaluation scenarios',
-		index_coming_long_term_4:
-			'<b class="highlight">Introduce more data scoring factors and evaluation methods</b>, including automatic, human-aligned, and task-aware metrics.',
+		// Future
+		index_coming_1:
+			'<b class="highlight">Monthly update dataset rankings and dataset recommendation (ing)</b>',
+		index_coming_2:
+			'<b class="highlight">Expand to medical, scientific, and other domain-specific datasets (ing)</b>',
+		index_coming_3: '<b class="highlight">Support multimodal datasets evaluation (ing)</b>',
+		index_coming_4:
+			'<b class="highlight">Introduce more data scoring factors and evaluation methods (ing)</b>',
 
 		index_contributor_prefix:
 			"Thanks to these outstanding researchers and developers for their contributions to OpenDataArena. We invite everyone to collaborate in building and enhancing OpenDataArena.",
 		index_contributors_title: "Our Contributors",
-		index_contributors_subtitle: "Thanks to these outstanding researchers and developers for their contributions to OpenDataArena",
+		index_contributors_subtitle:
+			"Thanks to these outstanding researchers and developers for their contributions to OpenDataArena",
 		index_become_contributor: "Become a Contributor",
 		index_contributor_num_1: "Domains",
 		index_contributor_num_2: "Benchmarks",
@@ -161,44 +145,26 @@ export const lang_index = {
 		index_table_size: "大小",
 		index_table_avg_score: "平均分",
 		index_lb_cta: "查看完整排行榜",
+		index_overall_average: "总览",
 
 		// Summary comparison block
 		index_llama_model: "Llama 模型",
+		index_qwen_model: "Qwen 模型",
 		index_cmp_cta: "开始数据集对比",
 
-		index_news_title: "最新动态",
+		// News
 		index_news_1:
-			"{index_news_1_link_data_scoring}，支持基于大模型的主观评分与多维度指标的自动评估，详细介绍见{index_news_1_link_wiki}。",
-		index_news_1_link_data_scoring:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">数据评分工具框架开源</a></b>',
-		index_news_1_link_wiki:
-			'<b><a href="https://opendataarena-tool.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Wiki</a></b>',
-		index_news_2: "{index_news_2_link_multi}，与 OpenDataLab 联合推出，提升数据质量洞察力。",
-		index_news_2_link_multi:
-			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">数据评分结果集正式发布</a></b>',
-		index_news_3: "{index_news_3_link_full}，助力主流模型的可复现实验与公平对比。",
-		index_news_3_link_full:
 			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool" target="_blank" rel="noopener noreferrer">训练与评测工具链全面开源</a></b>',
-		index_news_4: "{index_news_4_link_open}，支持多领域、多任务、多维度的后训练数据验证。",
-		index_news_4_link_open:
-			'<b class="highlight"><a href="https://opendataarena.github.io/index.html" target="_blank" rel="noopener noreferrer">数据竞技场 v1.0 正式上线</a></b>',
+		index_news_2:
+			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">数据评分工具框架开源</a></b>',
+		index_news_3:
+			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">数据评分结果集正式发布</a></b>',
 
-		// News & roadmap
-		index_coming_title: "未来规划",
-		index_coming_short_term_title: "近期计划",
-		index_coming_short_term_1:
-			'<b class="highlight">发布种子数据集</b>，支持数据筛选与子集构建',
-		index_coming_short_term_2:
-			'<b class="highlight">上线最新模型 Qwen3 的评测结果</b>，便于社区参考与对比',
-		index_coming_long_term_title: "中长期计划",
-		index_coming_long_term_1:
-			'<b class="highlight">月度数据集榜单更新</b>，每月提供最新数据集评价结果',
-		index_coming_long_term_2:
-			'<b class="highlight">扩展更多领域数据</b>，涵盖医学、科学等高价值应用场景',
-		index_coming_long_term_3:
-			'<b class="highlight">支持多模态与复杂推理类数据集</b>，拓展模型验证边界',
-		index_coming_long_term_4:
-			'<b class="highlight">引入更多数据打分因子与评价方法</b>，支持自动化与任务相关的多维评分',
+		// Future
+		index_coming_1: '<b class="highlight">月度数据集榜单更新与推荐数据集（ing）</b>',
+		index_coming_2: '<b class="highlight">覆盖医学、科学等更多领域数据评估（ing）</b>',
+		index_coming_3: '<b class="highlight">支持多模态数据评估（ing）</b>',
+		index_coming_4: '<b class="highlight">引入更多数据评分因子与结果（ing）</b>',
 
 		index_contributors_title: "贡献者",
 		index_contributors_subtitle: "感谢以下研究者与开发者对 OpenDataArena 的贡献",
@@ -517,8 +483,7 @@ export const lang_contribution = {
 		contrib_3_title: "提交相关信息",
 		contrib_3_submit: "提交数据集信息",
 		contrib_need_help: "需要帮助？",
-		contrib_help_prefix:
-			"如果你在贡献过程中遇到问题，或需要更详细的指导，欢迎随时与我们联系。",
+		contrib_help_prefix: "如果你在贡献过程中遇到问题，或需要更详细的指导，欢迎随时与我们联系。",
 		contrib_help_send_email: "发送邮件",
 		contrib_help_issue: "GitHub Issues",
 		contrib_help_feedback: "反馈表单",
@@ -604,22 +569,18 @@ export const lang_tools = {
 		tools_1_2_3:
 			'与主流评测框架对齐（如 <a href="https://github.com/openai/math-eval-harness" target="_blank" class="repo-link"><code><u>math-eval-harness</u></code></a> 和 <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="repo-link"><code><u>lm-evaluation-harness</u></code></a>。）',
 		tools_1_2_4: "支持自动化结果提取与格式化，提升测试效率与一致性。",
-        tools_2_title: "2. 数据评分工具（Data Scorer）",
-        tools_2_prefix:
-            "我们提供一套多维度的<strong>数据评分框架</strong>，从多个角度评估数据的质量与价值，支持基于大模型的主观评估、统计分析以及与任务相关的性能指标。",
-        tools_2_1_title:
-            '🔧 评分工具：<a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" class="repo-link"><code><u>data_scorer</u></code></a>',
-        tools_2_1_1:
-            "面向多类型、多维度数据评分的通用且可扩展框架。",
-        tools_2_1_1_1:
-            "支持<strong>基于大模型的主观评分</strong>，例如 <em>LLM-as-a-Judge</em> 等工具。",
-        tools_2_1_1_2:
-            "支持多种基于模型的度量，如<strong>多样性</strong>、<strong>正确性</strong>、<strong>复杂度</strong>等。",
-        tools_2_1_1_3:
-            "包含诸如<strong>数据长度</strong>等统计特征。",
-        tools_2_1_2:
-            "可与训练与测试工具无缝集成，基于实际下游性能评估数据有效性。",
-        tools_2_1_3:
-            "适用于高质量数据筛选、构建数据子集、分析数据对模型性能的影响等任务。",
+		tools_2_title: "2. 数据评分工具（Data Scorer）",
+		tools_2_prefix:
+			"我们提供一套多维度的<strong>数据评分框架</strong>，从多个角度评估数据的质量与价值，支持基于大模型的主观评估、统计分析以及与任务相关的性能指标。",
+		tools_2_1_title:
+			'🔧 评分工具：<a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" class="repo-link"><code><u>data_scorer</u></code></a>',
+		tools_2_1_1: "面向多类型、多维度数据评分的通用且可扩展框架。",
+		tools_2_1_1_1:
+			"支持<strong>基于大模型的主观评分</strong>，例如 <em>LLM-as-a-Judge</em> 等工具。",
+		tools_2_1_1_2:
+			"支持多种基于模型的度量，如<strong>多样性</strong>、<strong>正确性</strong>、<strong>复杂度</strong>等。",
+		tools_2_1_1_3: "包含诸如<strong>数据长度</strong>等统计特征。",
+		tools_2_1_2: "可与训练与测试工具无缝集成，基于实际下游性能评估数据有效性。",
+		tools_2_1_3: "适用于高质量数据筛选、构建数据子集、分析数据对模型性能的影响等任务。",
 	},
 };

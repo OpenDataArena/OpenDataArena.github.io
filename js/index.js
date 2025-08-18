@@ -5,6 +5,10 @@ import {
 	initI18nForIndex,
 	createIndexI18nPlugin,
 	getLangRef,
+	getCurrentLang,
+	setCurrentLang,
+	initStickyHeader,
+	initHeroFillViewport,
 } from "./general.js";
 
 // —— Vue 应用（首页专用）——
@@ -77,11 +81,26 @@ function setupSubscribeModal() {
 document.addEventListener("DOMContentLoaded", () => {
 	initGeneral();
 	setupSubscribeModal();
+	// 标记语言按钮为由 Vue 管理，避免通用兜底再次绑定导致双触发
+	const langBtn = document.getElementById("lang-toggle");
+	if (langBtn) langBtn.setAttribute("data-i18n-vue", "1");
 	initI18nForIndex();
+	initHeroFillViewport();
 });
 
 const app = createApp({
 	setup() {
+		// Language toggle for header button (Vue controlled)
+		const toggleLang = () => {
+			const next = getCurrentLang() === "zh" ? "en" : "zh";
+			setCurrentLang(next);
+			const r = getLangRef && getLangRef();
+			if (r) r.value = next; // trigger re-render
+		};
+
+		const langAriaLabel = computed(() => {
+			return getCurrentLang() === "zh" ? "Switch to English" : "切换为中文";
+		});
 		// 基础状态（首页专用）
 		const rawData = ref({});
 		const loading = ref(false);
@@ -133,16 +152,21 @@ const app = createApp({
 
 		// 挂载时加载数据（等待数据就绪后再绘制首图）
 		onMounted(async () => {
-			await loadData();            // 等待异步数据加载完成（含回退模拟数据）
-			await nextTick();            // 等待依赖的计算属性更新
-			createRadarChart();          // 首次进入就绘制含数据的雷达图
+			await loadData(); // 等待异步数据加载完成（含回退模拟数据）
+			await nextTick(); // 等待依赖的计算属性更新
+			const langBtn = document.getElementById("lang-toggle");
+			if (langBtn) langBtn.setAttribute("data-i18n-vue", "1");
+			createLlamaRadarChart(); // 首次进入就绘制含数据的雷达图
+			createQwenRadarChart();
 		});
 
 		// Re-render radar chart when language toggles
 		watch(i18nLang, async () => {
 			// Wait for i18n plugin to swap language, then rebuild chart with translated labels
 			await nextTick();
-			createRadarChart();
+			createLlamaRadarChart();
+			createQwenRadarChart();
+			initHeroFillViewport();
 		});
 
 		// 计算属性：当前数据
@@ -173,6 +197,7 @@ const app = createApp({
 				loading.value = false;
 			}
 		};
+
 		// 生成模拟数据
 		const generateMockData = (prefix) => {
 			const datasets = [];
@@ -342,15 +367,6 @@ const app = createApp({
 				.filter((row) => row.domain !== "base" && row.domain !== "instruct")
 				.slice(0, 5);
 		}
-		function goToLeaderboard() {
-			window.location.href = "leaderboard.html";
-		}
-		function goToDataComparison() {
-			window.location.href = "data-comparison.html?id=87";
-		}
-
-		// —— 模板引用的辅助：避免渲染期未定义 ——
-		const improvementType = ref("vs_base"); // 新增：improvement类型选择
 		// 计算属性：未排序的过滤数据（用于排名计算）
 		const filteredDataForRanking = computed(() => {
 			let filtered = currentData.value.filter(
@@ -386,6 +402,51 @@ const app = createApp({
 			}
 			return filtered;
 		});
+		// —— Top5 by specific metric (Math / Code) ——
+		function getTop5ByMetric(metricKey) {
+			// 以与主榜相同的过滤视图为基础（已排除 base/instruct，并应用搜索/标签/体量）
+			const source = Array.isArray(filteredDataForRanking.value)
+				? filteredDataForRanking.value
+				: [];
+			const safeScore = (row) => {
+				const v = row && row[metricKey];
+				return typeof v === "number" && !Number.isNaN(v) ? v : 0;
+			};
+			return source
+				.slice()
+				.sort((a, b) => safeScore(b) - safeScore(a))
+				.slice(0, 5);
+		}
+		const mathTop5Rows = computed(() => getTop5ByMetric("math_avg"));
+		const codeTop5Rows = computed(() => getTop5ByMetric("code_avg"));
+
+		// Baseline row (from filteredData, same source as Overall table)
+		const baselineRow = computed(() => {
+			const arr = filteredData.value || [];
+			return arr.find((item) => item.domain === "base") || null;
+		});
+
+		// Math / Code tables with baseline as the first row
+		const mathTop5WithBase = computed(() => {
+			const base = baselineRow.value;
+			const list = mathTop5Rows.value || [];
+			return base ? [base, ...list] : list;
+		});
+		const codeTop5WithBase = computed(() => {
+			const base = baselineRow.value;
+			const list = codeTop5Rows.value || [];
+			return base ? [base, ...list] : list;
+		});
+		function goToLeaderboard() {
+			window.location.href = "leaderboard.html";
+		}
+		function goToDataComparison() {
+			window.location.href = "data-comparison.html?id=87";
+		}
+
+		// —— 模板引用的辅助：避免渲染期未定义 ——
+		const improvementType = ref("vs_base"); // 新增：improvement类型选择
+
 		// 方法：获取排名
 		const getRank = (
 			dataset,
@@ -615,8 +676,8 @@ const app = createApp({
 		];
 
 		// 渲染 legend
-		function renderRadarLegend(datasets) {
-			const legend = document.getElementById("summaryRadarLegend");
+		function renderRadarLegend(datasets, containerId = "summaryRadarLegend") {
+			const legend = document.getElementById(containerId);
 			if (!legend) return;
 			legend.innerHTML = datasets
 				.map(
@@ -629,7 +690,8 @@ const app = createApp({
 				)
 				.join("");
 		}
-		function createRadarChart() {
+
+		function createLlamaRadarChart() {
 			const canvas = document.getElementById("summaryLlamaRadarChart");
 			if (!canvas) return;
 
@@ -717,7 +779,113 @@ const app = createApp({
 				},
 			});
 			// 4. 渲染自定义 legend
-			renderRadarLegend(datasets);
+			renderRadarLegend(datasets, "summaryRadarLegend");
+		}
+
+		function createQwenRadarChart() {
+			const canvas = document.getElementById("summaryQwenRadarChart");
+			if (!canvas) return;
+
+			// i18n translate helper (falls back to key if not ready)
+			const t = (key) =>
+				window.vm && typeof window.vm.$t === "function" ? window.vm.$t(key) : key;
+
+			// 1) 取 Qwen 家族数据：来自原始数据的 qwen 分支，而不是当前 currentModel
+			const qwenData =
+				rawData.value && Array.isArray(rawData.value.qwen) ? rawData.value.qwen : [];
+			if (!qwenData.length) return;
+
+			// 2) baseline 行（domain === 'base'）
+			const baseRow = qwenData.find((row) => row.domain === "base") || null;
+
+			// 3) 取 ALL 的前 5 名（排除 base/instruct），按照 overall_avg 排序
+			const top5 = qwenData
+				.filter((row) => row.domain !== "base" && row.domain !== "instruct")
+				.slice() // copy
+				.sort((a, b) => (b.overall_avg || 0) - (a.overall_avg || 0))
+				.slice(0, 5);
+
+			const rowsForChart = top5;
+			const datasets = rowsForChart.map((row, idx) => ({
+				label: row.name,
+				data: [
+					row.overall_avg,
+					row.general_avg,
+					row.math_avg,
+					row.code_avg,
+					row.reasoning_avg,
+				],
+				fill: true,
+				backgroundColor: colors[idx % colors.length].bg,
+				borderColor: colors[idx % colors.length].border,
+				borderWidth: 2,
+				pointBackgroundColor: colors[idx % colors.length].point,
+				pointBorderColor: "#ffffff",
+				pointBorderWidth: 2,
+				pointRadius: 4,
+				pointHoverRadius: 6,
+			}));
+
+			// 5) 销毁旧图表
+			if (window.summaryQwenRadar) {
+				window.summaryQwenRadar.destroy();
+			}
+
+			// 6) 创建新雷达图
+			window.summaryQwenRadar = new Chart(canvas.getContext("2d"), {
+				type: "radar",
+				data: {
+					labels: [
+						t("all_overall"),
+						t("all_general"),
+						t("all_math"),
+						t("all_code"),
+						t("all_reasoning"),
+					],
+					datasets: datasets,
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					layout: { padding: 8 },
+					plugins: {
+						legend: { display: false },
+						tooltip: {
+							enabled: true,
+							callbacks: {
+								label: function (context) {
+									const label = context.dataset.label || "";
+									const value = context.formattedValue || "";
+									return `${label}: ${parseFloat(value).toFixed(1)}`;
+								},
+							},
+						},
+					},
+					elements: {
+						line: { borderWidth: 2 },
+						point: { radius: 4, hoverRadius: 6, borderWidth: 2 },
+					},
+					scales: {
+						r: {
+							angleLines: { color: "#e3e8f0" },
+							grid: { color: "#e3e8f0" },
+							suggestedMin: 0,
+							suggestedMax: 100,
+							pointLabels: {
+								font: { size: 15, weight: "bold" },
+								color: "#1e293b",
+							},
+							ticks: {
+								stepSize: 20,
+								color: "#64748b",
+							},
+						},
+					},
+				},
+			});
+
+			// 7) 渲染自定义 legend（单独的容器，避免与 Llama 冲突）
+			renderRadarLegend(datasets, "summaryQwenLegend");
 		}
 
 		// 贡献者数据
@@ -808,6 +976,8 @@ const app = createApp({
 		};
 
 		return {
+			toggleLang,
+			langAriaLabel,
 			// 公用方法可以按需暴露（模板需要时）
 			openFeedbackForm,
 			loadData,
@@ -855,12 +1025,20 @@ const app = createApp({
 			// 首页摘要与跳转
 			summaryLeaderboardRows,
 			getTop5Datasets,
+			mathTop5Rows,
+			codeTop5Rows,
+			getTop5ByMetric,
+			// Baseline and with-base helpers for Math/Code tables
+			baselineRow,
+			mathTop5WithBase,
+			codeTop5WithBase,
 			goToLeaderboard,
 			goToDataComparison,
 
 			// radar
 			renderRadarLegend,
-			createRadarChart,
+			createLlamaRadarChart,
+			createQwenRadarChart,
 
 			// contributor
 			contributors,

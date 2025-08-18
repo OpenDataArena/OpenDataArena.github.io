@@ -22,6 +22,7 @@
 	--radius-sm: 6px;
 	--radius-md: 8px;
 	--radius-lg: 12px;
+	--header-height: 64px;
 }
 
 * {
@@ -41,23 +42,28 @@ body {
 	padding: 0;
 }
 
-.main-container {
-	max-width: 1400px;
-	margin: 0 auto;
-	padding: 2rem;
-	background: var(--background-primary);
-}
-
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 32px;
-	background: #fff;
-	border-bottom: 1px solid #e5e5e5;
+	background: linear-gradient(90deg, #f0f4ff 0%, #eaf0fa 100%);
+	/* border-bottom: 1px solid #e5e5e5; */
 	min-height: 64px;
-	margin-bottom: 32px;
-	padding-bottom: 10px;
+	/* margin-bottom: 32px; */
+	/* padding-bottom: 10px; */
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;
+	z-index: 1300; /* above content & FAB (which uses 1200) */
+}
+
+/* Sticky state visual (on scroll) */
+.header.is-stuck {
+	box-shadow: var(--shadow-md);
+	border-bottom: 1px solid var(--border-light);
+	background: linear-gradient(90deg, rgba(240, 244, 255, 0.98) 0%, rgba(234, 240, 250, 0.98) 100%);
+	backdrop-filter: saturate(180%) blur(8px);
 }
 
 .nav-left h1 {
@@ -71,7 +77,7 @@ body {
 }
 
 .header h1 {
-	font-size: 3.2rem;
+	font-size: 2.5rem;
 	font-weight: 700;
 	background: linear-gradient(to right, #00bfff, #000080);
 	-webkit-background-clip: text;
@@ -152,12 +158,12 @@ body {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-    align-items: center;
+	align-items: center;
 }
 
 .nav-item a {
 	display: block;
-	font-size: 1.08rem;
+	font-size: 16px;
 	font-weight: 500;
 	color: #1039a2;
 	text-decoration: none;
@@ -696,7 +702,7 @@ footer {
 .lang-toggle-btn {
 	display: inline-flex;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 	border: none;
 	background: none;
 }
@@ -716,4 +722,3 @@ footer {
 	display: flex;
 	align-items: center;
 }
-

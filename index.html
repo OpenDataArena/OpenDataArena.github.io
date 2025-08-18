@@ -9,8 +9,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 		<script type="module" src="./js/index.js"></script>
 		<link rel="stylesheet" href="./css/general.css" />
-		<link rel="stylesheet" href="./css/mobile.css" />
 		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/mobile.css" />
 		<link rel="icon" href="data:," />
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -96,6 +96,9 @@
 							<button
 								id="lang-toggle"
 								class="lang-toggle-btn"
+								@click="toggleLang"
+								:aria-label="langAriaLabel"
+								:title="langAriaLabel"
 								style="cursor: pointer">
 								<img
 									src="./icon/lang.svg"
@@ -141,201 +144,352 @@
 				</button>
 			</div>
 
-			<!-- Main Container -->
-			<div class="main-container" v-show="!loading">
-				<!-- Hero Section -->
-				<section id="home" class="hero-section">
-					<div class="container">
-						<div class="row align-items-center">
-							<!-- Hero Section right part-->
-							<div class="col-lg-7">
-								<div class="hero-content">
-									<div class="hero-title-row">
-										<h1 class="hero-title">OpenDataArena</h1>
-										<a
-											href="https://github.com/OpenDataArena/OpenDataArena-Tool"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="subscribe-btn">
-											<i class="fab fa-github"></i>
-											GitHub
-										</a>
-										<a
-											href="https://huggingface.co/OpenDataArena"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="subscribe-btn">
-											<img src="./icon/huggingface.svg" alt="Hugging Face" />
-											Hugging Face
-										</a>
-										<button id="subscribe-btn" class="subscribe-btn">
-											<i class="fas fa-envelope"></i>
-											{{ $t('all_subscribe') }}
-										</button>
-									</div>
-									<h3>{{ $t('index_subtitle') }}</h3>
-									<p>✨ {{ $t('index_hero_section_left_1') }}</p>
-									<p>✨ {{ $t('index_hero_section_left_2') }}</p>
-									<p>✨ {{ $t('index_hero_section_left_3') }}</p>
-									<p>✨ {{ $t('index_hero_section_left_4') }}</p>
-								</div>
+			<!-- Hero Section -->
+			<section id="home" class="hero-section">
+				<div class="row align-items-center">
+					<!-- Hero Section right part-->
+					<div class="col-lg-7">
+						<div class="hero-content">
+							<div class="hero-title-row">
+								<h1 class="hero-title">OpenDataArena</h1>
 							</div>
-							<!-- Hero Section left part -->
-							<div class="col-lg-5">
-								<ul>
-									<li><strong>{{ $t('index_hero_section_right_1') }}</strong></li>
-									<li><strong>{{ $t('index_hero_section_right_2') }}</strong></li>
-									<li><strong>{{ $t('index_hero_section_right_3') }}</strong></li>
-									<li><strong>{{ $t('index_hero_section_right_4') }}</strong></li>
-									<li><strong>{{ $t('index_hero_section_right_5') }}</strong></li>
-									<li><strong>{{ $t('index_hero_section_right_6') }}</strong></li>
-								</ul>
+							<h3>{{ $t('index_subtitle') }}</h3>
+							<a
+								href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="subscribe-btn">
+								<i class="fab fa-github"></i>
+								GitHub
+							</a>
+							<a
+								href="https://huggingface.co/OpenDataArena"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="subscribe-btn">
+								<img src="./icon/huggingface.svg" alt="Hugging Face" />
+								Hugging Face
+							</a>
+							<button id="subscribe-btn" class="subscribe-btn">
+								<i class="fas fa-envelope"></i>
+								{{ $t('all_subscribe') }}
+							</button>
+							<p style="margin-top: 20px">✨ {{ $t('index_hero_section_left_1') }}</p>
+							<p>✨ {{ $t('index_hero_section_left_2') }}</p>
+							<p>✨ {{ $t('index_hero_section_left_3') }}</p>
+						</div>
+					</div>
+					<!-- Subscribe modal -->
+					<div id="subscribe-modal" class="subscribe-modal">
+						<div class="subscribe-modal-content">
+							<span class="close-modal">&times;</span>
+							<h3>{{ $t('all_subscribe_h4') }}</h3>
+							<form id="subscribe-form">
+								<input
+									type="email"
+									id="subscribe-email"
+									name="email"
+									:key="`ph-${i18nLang}`"
+									:placeholder="$t('all_subscribe_hint')"
+									required />
+								<button type="submit">{{ $t('all_subscribe') }}</button>
+							</form>
+							<div
+								id="subscribe-success"
+								class="subscribe-success"
+								style="display: none">
+								{{ $t('all_subscribe_thanks') }}
 							</div>
-							<!-- Subscribe modal -->
-							<div id="subscribe-modal" class="subscribe-modal">
-								<div class="subscribe-modal-content">
-									<span class="close-modal">&times;</span>
-									<h3>{{ $t('all_subscribe_h4') }}</h3>
-									<form id="subscribe-form">
-										<input
-											type="email"
-											id="subscribe-email"
-											name="email"
-											:key="`ph-${i18nLang}`"
-											:placeholder="$t('all_subscribe_hint')"
-											required />
-										<button type="submit">{{ $t('all_subscribe') }}</button>
-									</form>
-									<div
-										id="subscribe-success"
-										class="subscribe-success"
-										style="display: none">
-										{{ $t('all_subscribe_thanks') }}
-									</div>
-									<div
-										id="subscribe-error"
-										class="subscribe-error"
-										style="display: none">
-										{{ $t('all_subscribe_error') }}
-									</div>
-								</div>
+							<div id="subscribe-error" class="subscribe-error" style="display: none">
+								{{ $t('all_subscribe_error') }}
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				<!-- brief table -->
-				<section class="summary-leaderboard-section">
-					<div class="summary-leaderboard-flex">
-						<div class="summary-leaderboard-left">
-							<!-- 榜单标题行 -->
-							<div
-								class="summary-leaderboard-header"
-								@click="goToLeaderboard"
-								tabindex="0">
-								<span class="summary-leaderboard-title">
-									<i class="fas fa-trophy"></i> {{ $t('all_leaderboard') }}
-								</span>
-							</div>
-							<div class="table-container summary-table-container">
-								<table class="ranking-table">
-									<thead>
-										<tr>
-											<th class="rank-col">{{ $t('index_table_rank') }}</th>
-											<th class="name-col">
-												{{ $t('index_table_dataset') }}
-											</th>
-											<th class="year-col">{{ $t('index_table_year') }}</th>
-											<th class="size-col">{{ $t('index_table_size') }}</th>
-											<th class="score-col">
-												{{ $t('index_table_avg_score') }}
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr
-											v-for="(row, idx) in summaryLeaderboardRows"
-											:key="row.id"
-											class="table-row"
-											:class="{'base-row': row.domain === 'base'}">
-											<td class="rank-col">
-												<span v-if="row.domain === 'base'">-</span>
-												<div
-													v-else
-													class="rank-badge"
-													:class="getRankClass(getRank(row, filteredDataForRanking, 'overall_avg', false, null, improvementType) - 1)">
-													{{ getRank(row, filteredDataForRanking,
-													'overall_avg', false, null, improvementType) }}
-												</div>
-											</td>
-											<td class="name-col">
-												<span v-if="row.domain === 'base'"
-													>{{ row.name }}</span
-												>
-												<div v-else class="dataset-name-cell">
-													<a
-														:href="`data-comparison.html?id=${row.id}`"
-														class="dataset-link"
-														>{{ row.name }}</a
-													>
-													<div
-														v-if="row.affiliation && row.domain !== 'base' && row.domain !== 'instruct'"
-														class="dataset-affiliation">
-														{{ row.affiliation }}
-													</div>
-												</div>
-											</td>
-											<td class="year-col">
-												{{ row.domain === 'base' ? '-' : row.year }}
-											</td>
-											<td class="size-col">
-												{{ row.domain === 'base' ? '-' : row.size }}
-											</td>
-											<td class="score-col">
-												<div class="score-container">
-													<span class="score-value overall"
-														>{{
-														formatScoreWithImprovement(row.overall_avg,
-														row.improvement?.overall_avg, row,
-														improvementType).score }}</span
-													>
-													<span
-														v-if="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffText"
-														class="score-diff"
-														:class="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffClass">
-														{{
-														formatScoreWithImprovement(row.overall_avg,
-														row.improvement?.overall_avg, row,
-														improvementType).diffText }}
-													</span>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="summary-leaderboard-footer">
-								<a
-									href="leaderboard.html"
-									class="summary-leaderboard-link enhanced-link">
-									{{ $t('index_lb_cta') }}
-									<i class="fas fa-arrow-right"></i>
-								</a>
-							</div>
+			<!-- brief table -->
+			<section class="summary-leaderboard-section">
+				<div class="summary-leaderboard-flex">
+					<!-- Overall average -->
+					<div class="summary-leaderboard-table">
+						<!-- 榜单标题行 -->
+						<div
+							class="summary-leaderboard-header"
+							@click="goToLeaderboard"
+							tabindex="0">
+							<span class="summary-leaderboard-title">
+								<i class="fas fa-trophy"></i> {{ $t('all_leaderboard') }}
+							</span>
+							<span class="summary-leaderboard-extra"
+								>{{ $t('index_overall_average') }}</span
+							>
 						</div>
-						<div class="summary-leaderboard-right">
-							<!-- 标题行 -->
-							<div
-								class="summary-leaderboard-header"
-								@click="goToDataComparison"
-								@keyup.enter="goToDataComparison"
-								tabindex="0">
-								<span class="summary-leaderboard-title">
-									<i class="fas fa-balance-scale"></i> {{
-									$t('all_data_comparison') }}
-								</span>
-							</div>
-							<!-- 雷达图 -->
+						<div class="table-container summary-table-container">
+							<table class="ranking-table">
+								<thead>
+									<tr>
+										<th class="rank-col" style="text-align: center">
+											{{ $t('index_table_rank') }}
+										</th>
+										<th class="name-col">{{ $t('index_table_dataset') }}</th>
+										<th class="score-col" style="text-align: center">
+											{{ $t('index_table_avg_score') }}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(row, idx) in summaryLeaderboardRows"
+										:key="row.id"
+										class="table-row"
+										:class="{'base-row': row.domain === 'base'}">
+										<td class="rank-col" style="text-align: center">
+											<span v-if="row.domain === 'base'">-</span>
+											<div
+												v-else
+												class="rank-badge"
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'overall_avg', false, null, improvementType) - 1)">
+												{{ getRank(row, filteredDataForRanking,
+												'overall_avg', false, null, improvementType) }}
+											</div>
+										</td>
+										<td class="name-col">
+											<span v-if="row.domain === 'base'">{{ row.name }}</span>
+											<div v-else class="dataset-name-cell">
+												<a
+													:href="`data-comparison.html?id=${row.id}`"
+													class="dataset-link"
+													>{{ row.name }}</a
+												>
+												<div
+													v-if="row.affiliation && row.domain !== 'base' && row.domain !== 'instruct'"
+													class="dataset-affiliation">
+													{{ row.affiliation }}
+												</div>
+											</div>
+										</td>
+										<td class="score-col">
+											<div class="score-container">
+												<span class="score-value overall">
+													{{ formatScoreWithImprovement(row.overall_avg,
+													row.improvement?.overall_avg, row,
+													improvementType).score }}
+												</span>
+												<span
+													v-if="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffClass">
+													{{ formatScoreWithImprovement(row.overall_avg,
+													row.improvement?.overall_avg, row,
+													improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="summary-leaderboard-footer">
+							<a
+								href="leaderboard.html"
+								class="summary-leaderboard-link enhanced-link">
+								{{ $t('index_lb_cta') }}
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+					<!-- Math -->
+					<div class="summary-leaderboard-table">
+						<!-- 榜单标题行 -->
+						<div
+							class="summary-leaderboard-header"
+							@click="goToLeaderboard"
+							tabindex="0">
+							<span class="summary-leaderboard-title">
+								<i class="fas fa-trophy"></i> {{ $t('all_leaderboard') }}
+							</span>
+							<span class="summary-leaderboard-extra">{{ $t('all_math') }}</span>
+						</div>
+						<div class="table-container summary-table-container">
+							<table class="ranking-table">
+								<thead>
+									<tr>
+										<th class="rank-col" style="text-align: center">
+											{{ $t('index_table_rank') }}
+										</th>
+										<th class="name-col">{{ $t('index_table_dataset') }}</th>
+										<th class="score-col" style="text-align: center">
+											{{ $t('index_table_avg_score') }}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(row, idx) in mathTop5WithBase"
+										:key="row.id || ('base-'+idx)"
+										class="table-row"
+										:class="{'base-row': row.domain === 'base'}">
+										<td class="rank-col" style="text-align: center">
+											<span v-if="row.domain === 'base'">-</span>
+											<div
+												v-else
+												class="rank-badge"
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'math_avg', false, null, improvementType) - 1)">
+												{{ getRank(row, filteredDataForRanking, 'math_avg',
+												false, null, improvementType) }}
+											</div>
+										</td>
+										<td class="name-col">
+											<span v-if="row.domain === 'base'">{{ row.name }}</span>
+											<div v-else class="dataset-name-cell">
+												<a
+													:href="`data-comparison.html?id=${row.id}`"
+													class="dataset-link"
+													>{{ row.name }}</a
+												>
+												<div
+													v-if="row.affiliation"
+													class="dataset-affiliation">
+													{{ row.affiliation }}
+												</div>
+											</div>
+										</td>
+										<td class="score-col">
+											<div class="score-container">
+												<span class="score-value overall">
+													{{ formatScoreWithImprovement(row.math_avg,
+													row.improvement?.math_avg, row,
+													improvementType).score }}
+												</span>
+												<span
+													v-if="formatScoreWithImprovement(row.math_avg, row.improvement?.math_avg, row, improvementType).diffText && row.domain !== 'base'"
+													class="score-diff"
+													:class="formatScoreWithImprovement(row.math_avg, row.improvement?.math_avg, row, improvementType).diffClass">
+													{{ formatScoreWithImprovement(row.math_avg,
+													row.improvement?.math_avg, row,
+													improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="summary-leaderboard-footer">
+							<a
+								href="leaderboard.html"
+								class="summary-leaderboard-link enhanced-link">
+								{{ $t('index_lb_cta') }}
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+					<!-- Code -->
+					<div class="summary-leaderboard-table">
+						<!-- 榜单标题行 -->
+						<div
+							class="summary-leaderboard-header"
+							@click="goToLeaderboard"
+							tabindex="0">
+							<span class="summary-leaderboard-title">
+								<i class="fas fa-trophy"></i> {{ $t('all_leaderboard') }}
+							</span>
+							<span class="summary-leaderboard-extra">{{ $t('all_code') }}</span>
+						</div>
+						<div class="table-container summary-table-container">
+							<table class="ranking-table">
+								<thead>
+									<tr>
+										<th class="rank-col" style="text-align: center">
+											{{ $t('index_table_rank') }}
+										</th>
+										<th class="name-col">{{ $t('index_table_dataset') }}</th>
+										<th class="score-col" style="text-align: center">
+											{{ $t('index_table_avg_score') }}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(row, idx) in codeTop5WithBase"
+										:key="row.id || ('base-'+idx)"
+										class="table-row"
+										:class="{'base-row': row.domain === 'base'}">
+										<td class="rank-col" style="text-align: center">
+											<span v-if="row.domain === 'base'">-</span>
+											<div
+												v-else
+												class="rank-badge"
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'code_avg', false, null, improvementType) - 1)">
+												{{ getRank(row, filteredDataForRanking, 'code_avg',
+												false, null, improvementType) }}
+											</div>
+										</td>
+										<td class="name-col">
+											<span v-if="row.domain === 'base'">{{ row.name }}</span>
+											<div v-else class="dataset-name-cell">
+												<a
+													:href="`data-comparison.html?id=${row.id}`"
+													class="dataset-link"
+													>{{ row.name }}</a
+												>
+												<div
+													v-if="row.affiliation"
+													class="dataset-affiliation">
+													{{ row.affiliation }}
+												</div>
+											</div>
+										</td>
+										<td class="score-col">
+											<div class="score-container">
+												<span class="score-value overall">
+													{{ formatScoreWithImprovement(row.code_avg,
+													row.improvement?.code_avg, row,
+													improvementType).score }}
+												</span>
+												<span
+													v-if="formatScoreWithImprovement(row.code_avg, row.improvement?.code_avg, row, improvementType).diffText && row.domain !== 'base'"
+													class="score-diff"
+													:class="formatScoreWithImprovement(row.code_avg, row.improvement?.code_avg, row, improvementType).diffClass">
+													{{ formatScoreWithImprovement(row.code_avg,
+													row.improvement?.code_avg, row,
+													improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="summary-leaderboard-footer">
+							<a
+								href="leaderboard.html"
+								class="summary-leaderboard-link enhanced-link">
+								{{ $t('index_lb_cta') }}
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- radar -->
+			<section class="summary-leaderboard-section">
+				<div class="summary-leaderboard-flex-radar">
+					<div class="summary-leaderboard-table">
+						<!-- 标题行 -->
+						<div
+							class="summary-leaderboard-header"
+							@click="goToDataComparison"
+							@keyup.enter="goToDataComparison"
+							tabindex="0">
+							<span class="summary-leaderboard-title">
+								<i class="fas fa-balance-scale"></i> {{ $t('all_data_comparison') }}
+							</span>
+						</div>
+						<div class="radar-pair">
+							<!-- Llama -->
 							<div class="summary-leaderboard-radar">
 								<div class="index-chart-container" style="margin-top: 26px">
 									<h3 class="dynamic-chart-title" style="margin-bottom: 10px">
@@ -348,143 +502,122 @@
 									<div id="summaryRadarLegend" class="chart-legend-wrapper"></div>
 								</div>
 							</div>
-							<div class="summary-leaderboard-footer">
-								<a
-									href="data-comparison.html?id=87"
-									class="summary-leaderboard-link enhanced-link">
-									{{ $t('index_cmp_cta') }}
-									<i class="fas fa-arrow-right"></i>
-								</a>
+							<!-- Qwen -->
+							<div class="summary-leaderboard-radar">
+								<div class="index-chart-container" style="margin-top: 26px">
+									<h3 class="dynamic-chart-title" style="margin-bottom: 10px">
+										<i class="fas fa-robot" style="margin-right: 10px"></i>
+										{{ $t('index_qwen_model') }}
+									</h3>
+									<div class="index-chart-wrapper">
+										<canvas id="summaryQwenRadarChart"></canvas>
+									</div>
+									<div id="summaryQwenLegend" class="chart-legend-wrapper"></div>
+								</div>
 							</div>
 						</div>
+						<div class="summary-leaderboard-footer">
+							<a
+								href="data-comparison.html?id=87"
+								class="summary-leaderboard-link enhanced-link">
+								{{ $t('index_cmp_cta') }}
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				<!-- News & Roadmap Section -->
-				<section class="news-roadmap-section">
-					<div class="news-roadmap-container">
-						<div class="news-block">
-							<h2 class="news-title">
-								<i class="fas fa-bullhorn"></i> {{ $t('index_news_title') }}
-							</h2>
-							<div class="news-list-card">
-								<ul class="news-list">
-									<li>
-										<span class="news-date">2025.07.28｜</span>
-										<span v-html="$t('index_news_1')"></span>
-									</li>
-									<li>
-										<span class="news-date">2025.07.27｜</span>
-										<span v-html="$t('index_news_2')"></span>
-									</li>
-									<li>
-										<span class="news-date">2025.07.26｜</span>
-										<span v-html="$t('index_news_3')"></span>
-									</li>
-									<li>
-										<span class="news-date">2025.07.25｜</span>
-										<span v-html="$t('index_news_4')"></span>
-									</li>
+			<!-- News & Roadmap Section -->
+			<section class="news-roadmap-section">
+				<div class="news-roadmap-container">
+					<div class="roadmap-block">
+						<div class="roadmap-content">
+							<div class="roadmap-short-term">
+								<ul style="margin-left: 20px">
+									<li v-html="$t('index_news_1')"></li>
+									<li v-html="$t('index_news_2')"></li>
+									<li v-html="$t('index_news_3')"></li>
+								</ul>
+							</div>
+							<div class="roadmap-short-term">
+								<ul style="margin-left: 20px">
+									<li v-html="$t('index_coming_1')"></li>
+									<li v-html="$t('index_coming_2')"></li>
+									<li v-html="$t('index_coming_3')"></li>
+									<li v-html="$t('index_coming_4')"></li>
 								</ul>
 							</div>
 						</div>
-						<div class="roadmap-block">
-							<h2 class="roadmap-title">
-								<i class="fas fa-road"></i> {{ $t('index_coming_title') }}
-							</h2>
-							<div class="roadmap-content">
-								<div class="roadmap-short-term">
-									<div class="roadmap-label">
-										<span class="emoji"></span> {{
-										$t('index_coming_short_term_title') }}
-									</div>
-									<ul style="margin-left: 20px">
-										<li v-html="$t('index_coming_short_term_1')"></li>
-										<li v-html="$t('index_coming_short_term_2')"></li>
-									</ul>
-								</div>
-								<div class="roadmap-midlong-term">
-									<div class="roadmap-label">
-										<span class="emoji"></span> {{
-										$t('index_coming_long_term_title') }}
-									</div>
-									<ul style="margin-left: 20px">
-										<li v-html="$t('index_coming_long_term_1')"></li>
-										<li v-html="$t('index_coming_long_term_2')"></li>
-										<li v-html="$t('index_coming_long_term_3')"></li>
-										<li v-html="$t('index_coming_long_term_4')"></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- 贡献者展示板块 -->
-				<div class="contributors-section">
-					<div class="contributors-header">
-						<h2 class="contributors-title">
-							<i class="fas fa-users"></i>
-							{{ $t('index_contributors_title') }}
-						</h2>
-						<p class="contributors-subtitle">{{ $t('index_contributors_subtitle') }}</p>
-					</div>
-					<div class="contributors-grid">
-						<a
-							class="contributor-avatar"
-							v-for="contributor in contributors"
-							:key="contributor.id"
-							:href="contributor.github"
-							target="_blank"
-							rel="noopener noreferrer">
-							<img
-								:src="contributor.avatar"
-								:alt="contributor.name"
-								:title="contributor.name" />
-							<div class="contributor-tooltip">
-								<strong>{{ contributor.name }}</strong>
-							</div>
-						</a>
-					</div>
-					<div class="become-contributor">
-						<div class="contributor-stats">
-							<div class="stat-item">
-								<div class="stat-number">4+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_1') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">20+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_2') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">15+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_3') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">600+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_4') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">10K+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_5') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">100+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_6') }}</div>
-							</div>
-							<div class="stat-item">
-								<div class="stat-number">10M+</div>
-								<div class="stat-label">{{ $t('index_contributor_num_7') }}</div>
-							</div>
-						</div>
-
-						<button class="become-contributor-btn" @click="openContributionGuide">
-							<i class="fas fa-plus-circle"></i>
-							{{ $t('index_become_contributor') }}
-						</button>
 					</div>
 				</div>
+			</section>
+
+			<!-- 贡献者展示板块 -->
+			<div class="contributors-section">
+				<div class="contributors-header">
+					<h2 class="contributors-title">
+						<i class="fas fa-users"></i>
+						{{ $t('index_contributors_title') }}
+					</h2>
+					<p class="contributors-subtitle">{{ $t('index_contributors_subtitle') }}</p>
+				</div>
+				<div class="contributors-grid">
+					<a
+						class="contributor-avatar"
+						v-for="contributor in contributors"
+						:key="contributor.id"
+						:href="contributor.github"
+						target="_blank"
+						rel="noopener noreferrer">
+						<img
+							:src="contributor.avatar"
+							:alt="contributor.name"
+							:title="contributor.name" />
+						<div class="contributor-tooltip">
+							<strong>{{ contributor.name }}</strong>
+						</div>
+					</a>
+				</div>
+				<div class="become-contributor">
+					<div class="contributor-stats">
+						<div class="stat-item">
+							<div class="stat-number">4+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_1') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">20+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_2') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">15+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_3') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">600+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_4') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">10K+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_5') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">100+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_6') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">10M+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_7') }}</div>
+						</div>
+					</div>
+
+					<button class="become-contributor-btn" @click="openContributionGuide">
+						<i class="fas fa-plus-circle"></i>
+						{{ $t('index_become_contributor') }}
+					</button>
+				</div>
 			</div>
+
 			<footer>
 				<div class="footer-content">
 					<div class="footer-links">

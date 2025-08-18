@@ -2,6 +2,102 @@
     Index page mobile styles
    ========================= */
 
+/* --- Summary leaderboard sections: responsive container --- */
+@media (max-width: 1200px) {
+	.summary-leaderboard-section {
+		width: auto; /* override fixed 1400px */
+		max-width: 100%;
+		margin: 48px auto 24px auto; /* tighter vertical spacing */
+		padding: 0 12px; /* smaller horizontal padding */
+	}
+}
+
+/* 900px: 3列→2列；表格与标题收紧 */
+@media (max-width: 900px) {
+	.summary-leaderboard-flex {
+		grid-template-columns: repeat(2, minmax(280px, 1fr));
+		gap: 28px;
+	}
+	.summary-leaderboard-flex-radar {
+		gap: 28px;
+	}
+	.summary-leaderboard-header {
+		font-size: 1.15rem;
+		padding: 14px 14px 10px 14px;
+	}
+	.summary-leaderboard-header .summary-leaderboard-extra {
+		font-size: 0.9rem;
+		margin-left: auto;
+		white-space: nowrap;
+		max-width: none; /* avoid squeezing */
+	}
+	/* 表格在中屏也允许横向滚动避免拥挤 */
+	.summary-table-container {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.ranking-table {
+		min-width: 560px;
+	}
+}
+
+/* 768px: 2列→1列；字体/间距再收紧；图例更紧凑 */
+@media (max-width: 768px) {
+	.summary-leaderboard-flex {
+		grid-template-columns: 1fr; /* stack cards */
+		gap: 24px;
+	}
+	.summary-leaderboard-header {
+		font-size: 1.08rem;
+		padding: 12px 12px 9px 12px;
+	}
+	.ranking-table th,
+	.ranking-table td {
+		padding: 10px 8px;
+		font-size: 0.95rem;
+	}
+	.chart-legend-wrapper {
+		gap: 12px;
+		padding: 0 6px;
+	}
+	.legend-item {
+		font-size: 0.95rem;
+	}
+
+	/* 雷达图容器高度略降以适配中屏 */
+	.summary-leaderboard-radar,
+	.index-chart-container,
+	.index-chart-wrapper {
+		min-height: 420px;
+	}
+}
+
+/* 600px: 更紧凑的表格与图表高度；标题更小 */
+@media (max-width: 600px) {
+	.summary-leaderboard-section {
+		margin: 36px auto 18px auto;
+		padding: 0 10px;
+	}
+	.summary-leaderboard-header {
+		font-size: 1rem;
+		padding: 10px 10px 8px 10px;
+	}
+	.dynamic-chart-title {
+		font-size: 1rem;
+	}
+
+	/* 再次压缩雷达图高度，保证完整可见 */
+	.summary-leaderboard-radar,
+	.index-chart-container,
+	.index-chart-wrapper {
+		min-height: 360px;
+	}
+	.index-chart-wrapper {
+		max-width: 320px; /* 使 canvas 在小屏不溢出 */
+		min-height: 300px;
+	}
+}
+
 /* ---- 基础容器在窄屏缩进 ---- */
 @media (max-width: 900px) {
 	.container {
@@ -33,8 +129,8 @@
 		flex-direction: column;
 		gap: 28px;
 	}
-	.summary-leaderboard-left,
-	.summary-leaderboard-right {
+	.summary-leaderboard-table,
+	.summary-leaderboard-table {
 		flex: 1 1 100%;
 		min-width: 0;
 	}
@@ -88,7 +184,6 @@
 	}
 }
 
-/* ---- 600 下的更紧凑布局 ---- */
 @media (max-width: 600px) {
 	/* 顶部导航列表换行留空隙（若你的导航容器需要可自行加 flex-wrap） */
 	.nav-right .nav-list {
@@ -223,6 +318,67 @@
 	}
 }
 
+/* =========================
+   News & Roadmap: mobile rework
+   ========================= */
+
+/* Tablet & down: stack two columns, tighten spacing, override inline list margins */
+@media (max-width: 900px) {
+	.news-roadmap-section {
+		padding: 16px;
+		margin: 16px auto 24px auto;
+	}
+	.news-roadmap-container {
+		gap: 16px;
+	}
+	.roadmap-content {
+		flex-direction: column; /* stack vertically */
+		gap: 16px; /* tighter gap */
+		align-items: stretch; /* each block full width */
+	}
+	.roadmap-short-term {
+		min-height: 0; /* let height shrink on mobile */
+		padding: 16px; /* slightly smaller padding */
+		justify-content: center; /* vertical center text */
+		align-items: flex-start; /* keep list left aligned */
+	}
+	.roadmap-short-term ul {
+		margin: 0 0 0 16px !important; /* override inline margin-left in HTML */
+	}
+	.roadmap-short-term li {
+		line-height: 1.55;
+		margin-bottom: 6px;
+	}
+	.roadmap-title {
+		font-size: 1.15rem;
+	}
+}
+
+/* Small phones: even tighter paddings and font sizes */
+@media (max-width: 600px) {
+	.news-roadmap-section {
+		padding: 12px;
+		margin: 12px auto 18px auto;
+	}
+	.news-roadmap-container {
+		gap: 12px;
+	}
+	.roadmap-content {
+		gap: 12px;
+	}
+	.roadmap-short-term {
+		padding: 12px 14px;
+		border-radius: 10px;
+	}
+	.roadmap-short-term ul {
+		margin-left: 14px !important; /* keep a small bullet indent */
+	}
+	.roadmap-short-term li {
+		margin-bottom: 4px;
+		font-size: 0.96rem;
+	}
+}
+
 /* ---- 细节：触摸设备优化 ---- */
 @media (hover: none) and (pointer: coarse) {
 	/* 增大触摸目标 */
@@ -283,6 +439,24 @@
 	/* 旋转/加载动效可保持但降低对比度 */
 	.loading-spinner .fa-spin {
 		animation-duration: 1.2s !important; /* 较慢但仍有反馈 */
+	}
+}
+
+@media (max-width: 1200px) {
+	.summary-leaderboard-flex {
+		grid-template-columns: repeat(2, minmax(320px, 1fr));
+	}
+}
+@media (max-width: 720px) {
+	.summary-leaderboard-flex {
+		grid-template-columns: 1fr; /* one per row */
+	}
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 1024px) {
+	.radar-pair {
+		grid-template-columns: 1fr;
 	}
 }
 

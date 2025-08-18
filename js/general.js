@@ -255,9 +255,11 @@ export function createConfigurationsI18nPlugin() {
 				const cur = lang.startsWith("zh") ? "zh" : "en";
 
 				// 当前语言与英文的双层回退
-				const LidxCur = (LANG.lang_configurations && (LANG.lang_configurations[cur] || {})) || {};
+				const LidxCur =
+					(LANG.lang_configurations && (LANG.lang_configurations[cur] || {})) || {};
 				const LallCur = (LANG.lang_all && (LANG.lang_all[cur] || {})) || {};
-				const LidxEn = (LANG.lang_configurations && (LANG.lang_configurations.en || {})) || {};
+				const LidxEn =
+					(LANG.lang_configurations && (LANG.lang_configurations.en || {})) || {};
 				const LallEn = (LANG.lang_all && (LANG.lang_all.en || {})) || {};
 
 				const lookup = (k) => LidxCur[k] ?? LallCur[k] ?? LidxEn[k] ?? LallEn[k] ?? null;
@@ -310,7 +312,8 @@ export function createContributionI18nPlugin() {
 				const cur = lang.startsWith("zh") ? "zh" : "en";
 
 				// 当前语言与英文的双层回退
-				const LidxCur = (LANG.lang_contribution && (LANG.lang_contribution[cur] || {})) || {};
+				const LidxCur =
+					(LANG.lang_contribution && (LANG.lang_contribution[cur] || {})) || {};
 				const LallCur = (LANG.lang_all && (LANG.lang_all[cur] || {})) || {};
 				const LidxEn = (LANG.lang_contribution && (LANG.lang_contribution.en || {})) || {};
 				const LallEn = (LANG.lang_all && (LANG.lang_all.en || {})) || {};
@@ -409,31 +412,84 @@ export function createToolsI18nPlugin() {
 
 export function initI18nForIndex() {
 	const bind = () => {
-		// 初始化 html[lang]
+		// 1) 同步 <html lang>
 		setCurrentLang(getCurrentLang());
+
+		// 2) 非 Vue 页面/头部的兜底点击逻辑（避免与 Vue 重复绑定）
 		const btn = document.getElementById("lang-toggle");
-		if (btn) {
-			const syncBtn = () => {
-				const cur = getCurrentLang();
-				btn.innerHTML =
-					'<img src="./icon/lang.svg" class="lang-icon-img" alt="" aria-hidden="true" />';
-				const label = cur === "zh" ? "Switch to English" : "切换为中文";
-				btn.setAttribute("aria-label", label);
-				btn.title = label;
-			};
-			syncBtn();
-			btn.addEventListener("click", () => {
-				const next = getCurrentLang() === "zh" ? "en" : "zh";
-				setCurrentLang(next);
-				// 驱动 Vue 响应式刷新
-				if (getLangRef()) getLangRef().value = next;
-				syncBtn();
-			});
+		if (btn && !btn.hasAttribute("data-i18n-vue")) {
+			if (!btn.__oda_lang_listener__) {
+				btn.__oda_lang_listener__ = (e) => {
+					e.preventDefault();
+					const next = toggleLanguage();
+					// 通知已安装的 i18n 插件（若存在）
+					if (__i18nLangRef) __i18nLangRef.value = next;
+				};
+				btn.addEventListener("click", btn.__oda_lang_listener__, false);
+			}
 		}
 	};
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", bind, { once: true });
 	} else {
 		bind();
+	}
+}
+
+// general.js
+
+export function initStickyHeader() {
+	function attach() {
+		const header = document.querySelector(".header");
+		if (!header) return;
+
+		function onScroll() {
+			if (window.scrollY > 0) {
+				header.classList.add("is-stuck");
+			} else {
+				header.classList.remove("is-stuck");
+			}
+		}
+
+		window.addEventListener("scroll", onScroll, { passive: true });
+		// 初始化执行一次
+		onScroll();
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", attach, { once: true });
+	} else {
+		attach();
+	}
+}
+
+// Measure header height and keep hero-section filling the viewport (minus header)
+let __heroFillInitial = false;
+export function initHeroFillViewport() {
+	function debounce(fn, wait) {
+		let t;
+		return function () {
+			clearTimeout(t);
+			t = setTimeout(fn, wait);
+		};
+	}
+	function measure() {
+		try {
+			const header = document.querySelector(".header");
+			const h = header ? header.offsetHeight : 64;
+			document.documentElement.style.setProperty("--header-height", h + "px");
+		} catch (_) {}
+	}
+	function attach() {
+		if (!__heroFillInitial) {
+			window.addEventListener("resize", debounce(measure, 120), { passive: true });
+			__heroFillInitial = true;
+		}
+		measure();
+	}
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", attach, { once: false });
+	} else {
+		attach();
 	}
 }
