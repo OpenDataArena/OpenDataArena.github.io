@@ -154,29 +154,62 @@
 								<h1 class="hero-title">OpenDataArena</h1>
 							</div>
 							<h3>{{ $t('index_subtitle') }}</h3>
-							<a
-								href="https://github.com/OpenDataArena/OpenDataArena-Tool"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="subscribe-btn">
-								<i class="fab fa-github"></i>
-								GitHub
-							</a>
-							<a
-								href="https://huggingface.co/OpenDataArena"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="subscribe-btn">
-								<img src="./icon/huggingface.svg" alt="Hugging Face" />
-								Hugging Face
-							</a>
-							<button id="subscribe-btn" class="subscribe-btn">
-								<i class="fas fa-envelope"></i>
-								{{ $t('all_subscribe') }}
-							</button>
 							<p style="margin-top: 20px">✨ {{ $t('index_hero_section_left_1') }}</p>
 							<p>✨ {{ $t('index_hero_section_left_2') }}</p>
 							<p>✨ {{ $t('index_hero_section_left_3') }}</p>
+							<div class="cta-grid">
+								<a
+									href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="subscribe-btn cta-btn">
+									<div class="btn-text">
+										<span class="btn-title">
+											<i class="fab fa-github" style="margin-top: 2px; margin-bottom: -2px; margin-right: -2px;"></i>
+											<span>{{ $t('index_tool') }}</span>
+										</span>
+										<span class="btn-sub" v-html="$t('index_news_1')"></span>
+									</div>
+								</a>
+
+								<a
+									href="https://github.com/OpenDataArena/OpenDataArena-Tool"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="subscribe-btn cta-btn">
+									<div class="btn-text">
+										<span class="btn-title">
+											<i class="fab fa-github" style="margin-top: 2px; margin-bottom: -2px; margin-right: -2px;"></i>
+											<span>{{ $t('index_data_scorer') }}</span>
+										</span>
+										<span class="btn-sub" v-html="$t('index_news_2')"></span>
+									</div>
+								</a>
+
+								<a
+									href="https://huggingface.co/OpenDataArena"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="subscribe-btn cta-btn">
+									<div class="btn-text">
+										<span class="btn-title">
+											<img src="./icon/huggingface.svg" alt="Hugging Face">
+											<span>Hugging Face</span>
+										</span>
+										<span class="btn-sub" v-html="$t('index_news_3')"></span>
+									</div>
+								</a>
+
+								<button id="subscribe-btn" class="subscribe-btn cta-btn">
+									<div class="btn-text">
+										<span class="btn-title">
+											<i class="fas fa-envelope" style="margin-top: 2px; margin-bottom: -2px; margin-right: -2px;"></i>
+											<span>{{ $t('all_subscribe') }}</span>
+										</span>
+										<span class="btn-sub">{{ $t('index_news_4') }}</span>
+									</div>
+								</button>
+							</div>
 						</div>
 					</div>
 					<!-- Subscribe modal -->
@@ -528,31 +561,6 @@
 				</div>
 			</section>
 
-			<!-- News & Roadmap Section -->
-			<section class="news-roadmap-section">
-				<div class="news-roadmap-container">
-					<div class="roadmap-block">
-						<div class="roadmap-content">
-							<div class="roadmap-short-term">
-								<ul style="margin-left: 20px">
-									<li v-html="$t('index_news_1')"></li>
-									<li v-html="$t('index_news_2')"></li>
-									<li v-html="$t('index_news_3')"></li>
-								</ul>
-							</div>
-							<div class="roadmap-short-term">
-								<ul style="margin-left: 20px">
-									<li v-html="$t('index_coming_1')"></li>
-									<li v-html="$t('index_coming_2')"></li>
-									<li v-html="$t('index_coming_3')"></li>
-									<li v-html="$t('index_coming_4')"></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			<!-- 贡献者展示板块 -->
 			<div class="contributors-section">
 				<div class="contributors-header">
@@ -586,6 +594,14 @@
 							<div class="stat-label">{{ $t('index_contributor_num_1') }}</div>
 						</div>
 						<div class="stat-item">
+							<div class="stat-number">100+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_6') }}</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">10M+</div>
+							<div class="stat-label">{{ $t('index_contributor_num_7') }}</div>
+						</div>
+						<div class="stat-item">
 							<div class="stat-number">20+</div>
 							<div class="stat-label">{{ $t('index_contributor_num_2') }}</div>
 						</div>
@@ -600,14 +616,6 @@
 						<div class="stat-item">
 							<div class="stat-number">10K+</div>
 							<div class="stat-label">{{ $t('index_contributor_num_5') }}</div>
-						</div>
-						<div class="stat-item">
-							<div class="stat-number">100+</div>
-							<div class="stat-label">{{ $t('index_contributor_num_6') }}</div>
-						</div>
-						<div class="stat-item">
-							<div class="stat-number">10M+</div>
-							<div class="stat-label">{{ $t('index_contributor_num_7') }}</div>
 						</div>
 					</div>
 

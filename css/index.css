@@ -14,6 +14,53 @@
 	display: flex;
 	flex-direction: column; /* use column so vertical centering is via main axis */
 	justify-content: center; /* vertically center the .row within the section */
+	/* CTA theme vars (scoped to hero only to avoid global impact) */
+	--adm-radius-s: 4px;
+	--adm-radius-m: 8px;
+	--adm-radius-l: 12px;
+	--adm-font-size-1: 9px;
+	--adm-font-size-2: 10px;
+	--adm-font-size-3: 11px;
+	--adm-font-size-4: 12px;
+	--adm-font-size-5: 13px;
+	--adm-font-size-6: 14px;
+	--adm-font-size-7: 15px;
+	--adm-font-size-8: 16px;
+	--adm-font-size-9: 17px;
+	--adm-font-size-10: 18px;
+	--adm-color-primary: #1677ff;
+	--adm-color-success: #00b578;
+	--adm-color-warning: #ff8f1f;
+	--adm-color-danger: #ff3141;
+	--adm-color-yellow: #ff9f18;
+	--adm-color-orange: #ff6430;
+	--adm-color-wathet: #e7f1ff;
+	--adm-color-text: #333333;
+	--adm-color-text-secondary: #666666;
+	--adm-color-weak: #999999;
+	--adm-color-light: #cccccc;
+	--adm-color-border: #eeeeee;
+	--adm-color-background: #ffffff;
+	--adm-color-highlight: var(--adm-color-danger);
+	--adm-color-white: #ffffff;
+	--adm-color-box: #f5f5f5;
+	--adm-color-text-light-solid: var(--adm-color-white);
+	--adm-color-text-dark-solid: #000000;
+	--adm-color-fill-content: var(--adm-color-box);
+	--adm-font-size-main: var(--adm-font-size-5);
+	--adm-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI,
+		Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+	--theme-color: #3477eb;
+	--theme-color-9: rgba(52, 119, 235, 0.9);
+	--theme-color-8: rgba(52, 119, 235, 0.8);
+	--theme-color-7: rgba(52, 119, 235, 0.7);
+	--theme-color-6: rgba(52, 119, 235, 0.6);
+	--theme-color-5: rgba(52, 119, 235, 0.5);
+	--theme-color-4: rgba(52, 119, 235, 0.4);
+	--theme-color-3: rgba(52, 119, 235, 0.3);
+	--theme-color-2: rgba(52, 119, 235, 0.2);
+	--theme-color-1: rgba(52, 119, 235, 0.1);
+	--theme-color-0: rgba(52, 119, 235, 0);
 }
 
 .container {
@@ -77,28 +124,101 @@
 
 .hero-content .subscribe-btn,
 .hero-content a.subscribe-btn {
-	margin: 0.35rem 0.4rem;
-	padding: 0.45em 1.1em;
-	font-size: 1rem;
-	height: 40px;
-	box-shadow: var(--shadow-sm);
-	border-radius: 6px;
-	white-space: nowrap;
-	width: 150px;
-	text-align: center;
-	justify-content: center;
-	text-decoration: none;
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	font-family: HarmonyOS Sans, var(--adm-font-family);
+	font-size: var(--adm-font-size-8); /* 16px */
+	font-weight: 600;
+	color: var(--adm-color-text);
+
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5rem;
+	justify-content: center;
+	gap: 8px;
 	box-sizing: border-box;
 	vertical-align: middle;
+	white-space: nowrap;
+
+	padding: 10px 18px;
+	height: 44px;
+	min-width: 148px;
+	border-radius: var(--adm-radius-m); /* 8px */
+	border: 1px solid var(--Brand1-2, #b1c7e6);
+	background: linear-gradient(
+			140deg,
+			rgba(157, 199, 254, 0.1) 0%,
+			rgba(255, 255, 255, 0.1) 45%,
+			rgba(157, 199, 254, 0.1) 100%
+		),
+		#fff;
+	box-shadow: 0 2px 8px rgba(16, 57, 162, 0.06);
+	transition: all 0.18s ease;
+	text-decoration: none;
+	margin: 0 10px 0 10px;
 }
 
+.hero-content .subscribe-btn i,
 .hero-content .subscribe-btn img {
-	height: 1.1rem;
-	width: auto;
+	height: 18px;
+	width: 18px;
 	display: block;
+}
+
+/* Hover / Active states */
+/* 仅 hover 才强化外观 */
+.hero-content .subscribe-btn:hover {
+	border-color: var(--theme-color-6);
+	box-shadow: 0 4px 14px rgba(52, 119, 235, 0.18);
+	background: linear-gradient(
+			140deg,
+			rgba(157, 199, 254, 0.16) 0%,
+			rgba(255, 255, 255, 0.08) 45%,
+			rgba(157, 199, 254, 0.16) 100%
+		),
+		#fff;
+}
+
+/* focus 用无障碍描边，不做 hover 的视觉强化 */
+.hero-content .subscribe-btn:focus-visible {
+	outline: 2px solid var(--theme-color-6);
+	outline-offset: 2px;
+}
+
+.hero-content .subscribe-btn:active {
+	transform: translateY(1px);
+	box-shadow: 0 2px 8px rgba(52, 119, 235, 0.14);
+}
+
+/* Specific icon spacing for font icons */
+.hero-content .subscribe-btn i {
+	margin-right: 6px;
+}
+
+/* Keep GitHub/HF/Subscribe aligned in a row and equal height */
+.hero-content .subscribe-btn-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.hero-content .cta-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+}
+.hero-content .cta-desc {
+	font-size: 0.92rem;
+	line-height: 1.35;
+	color: var(--text-secondary, #666666);
+	max-width: 180px;
+	text-align: center;
+}
+/* keep the group nicely centered and wrapped on small screens */
+.hero-content .subscribe-btn-group {
+	justify-content: center;
+	gap: 16px;
 }
 
 .hero-title {
@@ -110,26 +230,129 @@
 		"Microsoft YaHei", sans-serif;
 }
 
+/* generic shim to avoid side effects on other pages */
 .subscribe-btn {
-	background: #1039a2;
-	color: #fff;
-	border: none;
-	border-radius: 6px;
-	padding: 10px 28px;
-	font-size: 1.08rem;
-	font-weight: 600;
+	all: unset;
+}
+.subscribe-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	cursor: pointer;
-	transition: background 0.18s, box-shadow 0.18s;
-	box-shadow: 0 2px 8px rgba(16, 57, 162, 0.08);
-	margin-top: 0;
 }
-.subscribe-btn i {
-	margin-right: 8px;
+
+/* ============ CTA unified grid & two-line button ============ */
+.hero-content .cta-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(240px, 1fr));
+	gap: 20px; /* 原 16px → 20px */
+	justify-content: center;
+	align-items: stretch;
+	margin-top: 8px; /* 微调顶部间距 */
+}
+
+/* Full-width two-line buttons with left icon + right text */
+.hero-content .cta-btn {
+	width: 100%;
+	min-height: 104px; /* 原 92px → 104px，留出更舒适的两行空间 */
+	padding: 14px 18px; /* 原 12px 16px → 14px 18px */
+	justify-content: center;
+	gap: 12px;
+	text-align: center;
+	white-space: normal;
+	align-self: stretch;
+
+	/* 更贴合 hero-section 的柔和蓝调 */
+	border-radius: var(--adm-radius-l); /* 12px 的圆角 */
+	
+	box-shadow: 0 3px 12px rgba(16, 57, 162, 0.08); /* 稍柔和的投影 */
+	transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease,
+		background 0.18s ease;
+}
+
+.hero-content .cta-btn:hover {
+	transform: translateY(-1px);
+	border-color: rgba(52, 119, 235, 0.36);
+	box-shadow: 0 6px 18px rgba(52, 119, 235, 0.16);
+	background: linear-gradient(
+			140deg,
+			rgba(157, 199, 254, 0.16) 0%,
+			rgba(255, 255, 255, 0.1) 45%,
+			rgba(157, 199, 254, 0.16) 100%
+		),
+		linear-gradient(90deg, #e9f1ff 0%, #eef3fb 100%);
+}
+
+.hero-content .cta-btn:focus-visible {
+	outline: 2px solid var(--theme-color-6);
+	outline-offset: 2px;
+}
+
+.hero-content .cta-btn:active {
+	transform: translateY(0);
+	box-shadow: 0 3px 12px rgba(52, 119, 235, 0.14);
+}
+
+/* 图标尺寸保持一致 */
+.hero-content .cta-btn i,
+.hero-content .cta-btn img {
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+}
+
+/* 文本容器：标题居中、说明可左对齐 */
+.hero-content .cta-btn .btn-text {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 6px; /* 原 4px → 6px，层次更舒展 */
+	line-height: 1.3;
+	min-width: 0;
+	width: 100%;
+}
+
+/* 标题行：图标 + 文字 同一行，垂直对齐，整体居中 */
+.hero-content .cta-btn .btn-title {
+	display: flex;
+	align-items: center; /* 垂直居中图标与文字 */
+	justify-content: center; /* 整行居中 */
+	gap: 10px; /* 图标与文字间距略增 */
+	font-size: 1.06rem; /* 略放大标题 */
+	font-weight: 700;
+	color: #1039a2; /* 与 hero 主色相呼应 */
+	letter-spacing: 0.2px; /* 细微字距，提升质感 */
+	text-align: center;
+	width: 100%;
+}
+
+/* 标题图标微调基线对齐，光学更居中 */
+.hero-content .cta-btn .btn-title i,
+.hero-content .cta-btn .btn-title img {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	transform: translateY(1px); /* 轻微上/下校正，让视觉更平衡 */
+}
+
+/* 说明文字：左对齐、行距更舒展，可优雅换行 */
+.hero-content .cta-btn .btn-sub {
 	display: block;
+	font-size: 0.95rem; /* 说明稍大一点，更易读 */
+	font-weight: 400; /* 取消加粗 */
+	color: var(--text-secondary, #58627a);
+	line-height: 1.55;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	text-align: center; /* 左对齐说明 */
+	margin-top: 2px;
 }
-.subscribe-btn:hover,
-.subscribe-btn:focus {
-	background: #1a53c1;
+
+.hero-content .cta-btn .btn-sub a {
+	color: #1a53c1;
+	text-decoration: underline;
 }
 
 .col-lg-5 {

@@ -94,13 +94,18 @@ export const lang_index = {
 		index_qwen_model: "Qwen Model",
 		index_cmp_cta: "Click to start Dataset Comparison",
 
+		index_tool: 'Tool',
+		index_data_scorer: 'Data Scorer',
+
 		// News
 		index_news_1:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool" target="_blank" rel="noopener noreferrer">Full training and evaluation toolkit open-sourced</a></b>',
+			'Full training and evaluation toolkit open-sourced',
 		index_news_2:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">Data scoring framework open-sourced</a></b>',
+			'Data scoring framework open-sourced',
 		index_news_3:
-			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">Multi-dimensional data scoring results released</a></b>',
+			'Multi-dimensional data scoring results released',
+		index_news_4:
+			'Tap to subscribe and get the latest news delivered',
 
 		// Future
 		index_coming_1:
@@ -152,13 +157,13 @@ export const lang_index = {
 		index_qwen_model: "Qwen 模型",
 		index_cmp_cta: "开始数据集对比",
 
+		index_tool: '工具链',
+		index_data_scorer: '数据评分工具',
 		// News
-		index_news_1:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool" target="_blank" rel="noopener noreferrer">训练与评测工具链全面开源</a></b>',
-		index_news_2:
-			'<b class="highlight"><a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/data_scorer" target="_blank" rel="noopener noreferrer">数据评分工具框架开源</a></b>',
-		index_news_3:
-			'<b class="highlight"><a href="https://huggingface.co/OpenDataArena" target="_blank" rel="noopener noreferrer">数据评分结果集正式发布</a></b>',
+		index_news_1: '训练与评测工具链全面开源',
+		index_news_2: '数据评分工具框架开源',
+		index_news_3: '数据评分结果集正式发布',
+		index_news_4: '点击订阅获取最新消息',
 
 		// Future
 		index_coming_1: '<b class="highlight">月度数据集榜单更新与推荐数据集（ing）</b>',
