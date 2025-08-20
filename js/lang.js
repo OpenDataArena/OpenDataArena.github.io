@@ -509,7 +509,7 @@ export const lang_tools = {
 			"We have developed a complete set of high-quality tools to support data value verification, covering key stages such as training, evaluation, and multi-dimensional data scoring. All tools are fully open-source and aligned with widely adopted community standards, ensuring ease of reproduction and extensibility.",
 		tools_title_prefix_2:
 			'See <a href="https://github.com/OpenDataArena/OpenDataArena-Tool" target="_blank" class="repo-link"><u>OpenDataArena-Tool</u></a> for more details.',
-		tools_1_title: "1. Training &amp; Evaluation Tools",
+		tools_1_title: "1. Training & Evaluation Tools",
 		tools_1_prefix:
 			"Our training and testing tools provide a consistent, controllable, and reproducible experimental platform, enabling fair comparisons across different datasets and model configurations.",
 		tools_1_1_title:
