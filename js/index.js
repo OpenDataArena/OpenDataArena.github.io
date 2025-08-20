@@ -104,7 +104,8 @@ const app = createApp({
 		// 基础状态（首页专用）
 		const rawData = ref({});
 		const loading = ref(false);
-		const currentModel = ref("llama");
+		const tableModel = ref("qwen");
+		const radarModel = ref("llama")
 		const error = ref(null);
 		const searchQuery = ref("");
 		const selectedTags = ref([]);
@@ -170,8 +171,13 @@ const app = createApp({
 		});
 
 		// 计算属性：当前数据
-		const currentData = computed(() => {
-			return rawData.value[currentModel.value] || [];
+		const llamaData = computed(() => {
+			return rawData.value[tableModel.value] || [];
+		});
+
+		// 计算属性：当前数据
+		const qwenData = computed(() => {
+			return rawData.value[radarModel.value] || [];
 		});
 
 		// 加载数据
@@ -255,13 +261,12 @@ const app = createApp({
 			return sizeNum >= minSize && (maxSize === Infinity ? true : sizeNum <= maxSize);
 		};
 
-		// 排序后的数据（依赖 currentData / sortColumn / sortDirection 全局）
+		// 排序后的数据（依赖 llamaData / sortColumn / sortDirection 全局）
 		const sortedData = computed(() => {
-			if (!currentData.value.length) return [];
-
-			const baseModel = currentData.value.find((item) => isBaseModel(item));
-			const instructModel = currentData.value.find((item) => isInstructModel(item));
-			const otherModels = currentData.value.filter(
+			if (!llamaData.value.length) return [];
+			const baseModel = llamaData.value.find((item) => isBaseModel(item));
+			const instructModel = llamaData.value.find((item) => isInstructModel(item));
+			const otherModels = llamaData.value.filter(
 				(item) => !isBaseModel(item) && !isInstructModel(item)
 			);
 
@@ -369,7 +374,7 @@ const app = createApp({
 		}
 		// 计算属性：未排序的过滤数据（用于排名计算）
 		const filteredDataForRanking = computed(() => {
-			let filtered = currentData.value.filter(
+			let filtered = llamaData.value.filter(
 				(item) => !isBaseModel(item) && !isInstructModel(item)
 			); // 排除 base 和 instruct
 			// 搜索过滤
@@ -699,9 +704,25 @@ const app = createApp({
 			const t = (key) =>
 				window.vm && typeof window.vm.$t === "function" ? window.vm.$t(key) : key;
 
-			// 1. 组装数据
-			const top5 = getTop5Datasets();
-			const datasets = top5.map((row, idx) => ({
+			
+			// 1) 取 llama 家族数据：来自原始数据的 llama 分支
+			const llamaData=
+				rawData.value && Array.isArray(rawData.value.llama) ? rawData.value.llama : [];
+			if (!llamaData.length) return;
+
+			// 2) baseline 行（domain === 'base'）
+			const baseRow = llamaData.find((row) => row.domain === "base") || null;
+
+			// 3) 取 ALL 的前 5 名（排除 base/instruct），按照 overall_avg 排序
+			const top5 = llamaData
+				.filter((row) => row.domain !== "base" && row.domain !== "instruct")
+				.slice() // copy
+				.sort((a, b) => (b.overall_avg || 0) - (a.overall_avg || 0))
+				.slice(0, 5);
+
+			const rowsForChart = top5;
+
+			const datasets = rowsForChart.map((row, idx) => ({
 				label: row.name,
 				data: [
 					row.overall_avg,
@@ -806,6 +827,7 @@ const app = createApp({
 				.slice(0, 5);
 
 			const rowsForChart = top5;
+
 			const datasets = rowsForChart.map((row, idx) => ({
 				label: row.name,
 				data: [
@@ -983,8 +1005,9 @@ const app = createApp({
 			loadData,
 			generateMockData,
 			rawData,
-			currentData,
-			currentModel,
+			llamaData,
+			tableModel,
+			radarModel,
 
 			// 状态
 			loading,
@@ -1005,7 +1028,7 @@ const app = createApp({
 			filteredData,
 
 			// 依赖/工具（可选暴露）
-			currentData,
+			llamaData,
 			sortColumn,
 			sortDirection,
 			sizeValues,

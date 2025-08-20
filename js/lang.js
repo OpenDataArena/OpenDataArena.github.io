@@ -87,7 +87,7 @@ export const lang_index = {
 		index_table_size: "size",
 		index_table_avg_score: "avg",
 		index_lb_cta: "Click to view detail Leaderboard",
-		index_overall_average: "Overall Average",
+		index_overall: "Overall",
 
 		// Summary comparison block
 		index_llama_model: "Llama Model",
@@ -150,7 +150,7 @@ export const lang_index = {
 		index_table_size: "大小",
 		index_table_avg_score: "平均分",
 		index_lb_cta: "查看完整排行榜",
-		index_overall_average: "总览",
+		index_overall: "总览",
 
 		// Summary comparison block
 		index_llama_model: "Llama 模型",
