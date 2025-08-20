@@ -63,9 +63,71 @@
 				console.warn("[UnhandledRejection]", e.reason);
 			});
 		</script>
+		<style>
+			/* Hide Vue app until it is mounted to avoid pre-mount flicker of v-if blocks */
+			[v-cloak] {
+				display: none !important;
+			}
+			/* Keep app hidden until Vue fully mounted to avoid FOUC when v-cloak is removed */
+			.app-hidden {
+				display: none !important;
+			}
+			/* --- Preload skeleton (very lightweight) --- */
+			#preload {
+				position: fixed;
+				inset: 0;
+				z-index: 9999;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: #f7f9ff; /* soft background matching hero tone */
+				color: #1f2a55;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+					"PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+			}
+			.preload-box {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				padding: 16px 20px;
+				border-radius: 10px;
+				border: 1px solid rgba(52, 119, 235, 0.18);
+				background: #ffffff;
+				box-shadow: 0 6px 22px rgba(16, 57, 162, 0.08);
+			}
+			.preload-spinner {
+				width: 18px;
+				height: 18px;
+				border: 2px solid rgba(52, 119, 235, 0.18);
+				border-top-color: rgba(52, 119, 235, 0.9);
+				border-radius: 50%;
+				animation: oda-spin 0.9s linear infinite;
+			}
+			.preload-text {
+				font-size: 14px;
+				color: #31456a;
+				letter-spacing: 0.2px;
+			}
+			@keyframes oda-spin {
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.preload-spinner {
+					animation: none;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<div id="app">
+		<div id="preload" role="status" aria-live="polite" aria-label="Loading">
+			<div class="preload-box">
+				<div class="preload-spinner" aria-hidden="true"></div>
+				<div class="preload-text">Loading…</div>
+			</div>
+		</div>
+		<div id="app" v-cloak class="app-hidden">
 			<header class="header" :data-lang="i18nLang">
 				<div class="title-container nav-left">
 					<div class="nav-title-group">
@@ -115,12 +177,12 @@
 			</div>
 
 			<!-- Error -->
-			<div v-if="error" class="error-overlay">
+			<!-- <div v-if="error" class="error-overlay">
 				<div class="error-message">
 					<i class="fas fa-exclamation-triangle"></i>
 					<p>{{ $t('all_error') }}: {{ error }}</p>
 				</div>
-			</div>
+			</div> -->
 
 			<!-- 悬浮操作菜单 -->
 			<div class="fab-menu">
@@ -251,7 +313,9 @@
 													<!-- 保留这些表单项的英文标签与提示；如需 i18n 可后续增键 -->
 													<div class="form-group">
 														<label for="dataset-link"
-															>{{ $t('contrib_submit_huggingface_link') }}</label
+															>{{
+															$t('contrib_submit_huggingface_link')
+															}}</label
 														>
 														<input
 															type="url"
@@ -264,7 +328,9 @@
 													</div>
 
 													<div class="form-group">
-														<label for="user-email">{{ $t('contrib_submit_email') }}</label>
+														<label for="user-email"
+															>{{ $t('contrib_submit_email') }}</label
+														>
 														<input
 															type="email"
 															id="user-email"
@@ -276,14 +342,18 @@
 													</div>
 
 													<div class="form-group">
-														<label for="user-name">{{ $t('contrib_submit_user_name') }}</label>
+														<label for="user-name"
+															>{{ $t('contrib_submit_user_name')
+															}}</label
+														>
 														<input
 															type="text"
 															id="user-name"
 															name="user-name"
 															required />
 														<div class="input-hint">
-															{{ $t('contrib_submit_user_name_hint') }}
+															{{ $t('contrib_submit_user_name_hint')
+															}}
 														</div>
 													</div>
 

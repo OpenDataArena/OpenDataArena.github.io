@@ -307,18 +307,18 @@ export const lang_configurations = {
 			"The final training configurations for the LLaMA and Qwen model families are summarized below.",
 		config_test_settings: "Testing Settings",
 		config_test_framework:
-			'<strong>Framework:</strong> <a href="https://github.com/opencompass-ai/opencompass/tree/v0.4.2" target="_blank" class="repo-link"><u>OpenCompass version 0.4.2</u></a>',
+			'<strong>Framework:</strong> <a href="https://github.com/open-compass/opencompass/tree/0.4.2" target="_blank" class="repo-link"><u>OpenCompass version 0.4.2</u></a>',
 		config_test_param_title: "Parameter Details",
 		config_test_1:
 			"To achieve reliable and fair comparisons of model performance, we design a standardized and reproducible evaluation pipeline based on extensive preliminary experiments and analysis. Key aspects include:",
 		config_test_1_1:
-			'Evaluation strictly follows official protocols or widely adopted tools in the community, such as <a href="https://github.com/openai/math-eval-harness" target="_blank" class="repo-link"><code><u>math-eval-harness</u></code></a> and <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="repo-link"><code><u>lm-evaluation-harness</u></code></a>, to ensure consistency and comparability with existing benchmarks.',
+			'Evaluation strictly follows official protocols or widely adopted tools in the community, such as <a href="https://github.com/ZubinGou/math-evaluation-harness" target="_blank" class="repo-link"><code><u>math-eval-harness</u></code></a> and <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="repo-link"><code><u>lm-evaluation-harness</u></code></a>, to ensure consistency and comparability with existing benchmarks.',
 		config_test_1_2:
 			"To mitigate potential performance bias caused by inaccurate answer extraction, we employ high-performance models to assist in post-processing:",
 		config_test_1_2_1:
 			"For <strong>code-related benchmarks</strong>, we adopt the default evaluation logic provided by the original tools.",
 		config_test_1_2_2:
-			'For <strong>non-code benchmarks</strong>, we use powerful large models (e.g.,<a href="https://github.com/IAAR-Shanghai/xVerify" target="_blank" class="repo-link"><code><u>xVerify</u></code></a>, <a href="https://github.com/KbsdJames/Omni-Judge" target="_blank" class="repo-link"><code><u>Omni-Judge</u></code></a>) to extract and evaluate answers, ensuring higher accuracy and robustness in the results.',
+			'For <strong>non-code benchmarks</strong>, we use powerful large models (e.g.,<a href="https://github.com/IAAR-Shanghai/xVerify" target="_blank" class="repo-link"><code><u>xVerify</u></code></a>, <a href="https://huggingface.co/KbsdJames/Omni-Judge" target="_blank" class="repo-link"><code><u>Omni-Judge</u></code></a>) to extract and evaluate answers, ensuring higher accuracy and robustness in the results.',
 		config_test_2:
 			"The detailed evaluation configurations used in our testing tools are listed below.",
 		config_test_3:
@@ -515,7 +515,7 @@ export const lang_tools = {
 		tools_1_1_title:
 			'🔧 Train Tool: <a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/model_train" target="_blank" class="repo-link"><code><u> model_train</u></code></a>',
 		tools_1_1_1:
-			'Built upon the widely used <a href="https://github.com/huggingface/llama-factory" target="_blank" class="repo-link"><strong><u>LLaMA Factory</u></strong></a> training framework.',
+			'Built upon the widely used <a href="https://github.com/hiyouga/LLaMA-Factory" target="_blank" class="repo-link"><strong><u>LLaMA Factory</u></strong></a> training framework.',
 		tools_1_1_2:
 			"Standardized training pipeline supporting major open-source models such as <u><strong>LLaMA</strong></u>, <u><strong>Qwen</strong></u>, and others.",
 		tools_1_1_3:
@@ -525,11 +525,11 @@ export const lang_tools = {
 		tools_1_2_title:
 			'🔧 Test Tool: <a href="https://github.com/OpenDataArena/OpenDataArena-Tool/tree/main/model_eval" target="_blank" class="repo-link"><code><u>model_eval</u></code></a>',
 		tools_1_2_1:
-			'Built on the popular <a href="https://github.com/opencompass-ai/opencompass" target="_blank" class="repo-link"><strong><u>OpenCompass</u></strong></a> evaluation framework.',
+			'Built on the popular <a href="https://github.com/open-compass/opencompass" target="_blank" class="repo-link"><strong><u>OpenCompass</u></strong></a> evaluation framework.',
 		tools_1_2_2:
 			"Unified evaluation pipeline compatible with a variety of tasks (e.g., code generation, mathematical reasoning, open-domain QA).",
 		tools_1_2_3:
-			'Aligned with mainstream tools such as <a href="https://github.com/openai/math-eval-harness" target="_blank" class="repo-link"><code><u>math-eval-harness</u></code></a> and <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="repo-link"><code><u>lm-evaluation-harness</u></code></a>.',
+			'Aligned with mainstream tools such as <a href="https://github.com/ZubinGou/math-evaluation-harness" target="_blank" class="repo-link"><code><u>math-eval-harness</u></code></a> and <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="repo-link"><code><u>lm-evaluation-harness</u></code></a>.',
 		tools_1_2_4:
 			"Supports automated result extraction and formatting, enhancing evaluation efficiency and consistency.",
 		tools_2_title: "Data Scoring Tool (Data Scorer)",
