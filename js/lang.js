@@ -132,10 +132,10 @@ export const lang_index = {
 	},
 	zh: {
 		index_subtitle: "公平、公正、公开的数据竞技场 —— 数据价值评估平台",
-		index_hero_section_left_1: "致力于让每一份数据的价值可衡量、可比较、可验证。",
-		index_hero_section_left_2: "主流 benchmark内容覆盖数学、代码、科学、通用任务等方向。",
-		index_hero_section_left_3: "构建统一流程、可视化榜单、开源打分工具。",
-		index_hero_section_left_4: "社区共建与方法协同推动更可信的数据驱动范式。",
+		index_hero_section_left_1: "致力于让每一份数据的价值可衡量、可比较、可验证",
+		index_hero_section_left_2: "主流 benchmark内容覆盖数学、代码、科学、通用任务等方向",
+		index_hero_section_left_3: "构建统一流程、可视化榜单、开源打分工具",
+		index_hero_section_left_4: "社区共建与方法协同推动更可信的数据驱动范式",
 		index_hero_section_right_1: "为你快速判断数据集质量优劣",
 		index_hero_section_right_2: "让你精准挑选适合某任务的数据",
 		index_hero_section_right_3: "验证你创建/合成的数据好坏",
@@ -177,7 +177,7 @@ export const lang_index = {
 		index_contributor_prefix:
 			"谨此向为 OpenDataArena 作出贡献的优秀研究者与开发者们致谢。诚邀各界同仁携手共建，让 OpenDataArena 更臻完善.",
 		index_contributor_num_1: "数据领域",
-		index_contributor_num_2: "数据评估集",
+		index_contributor_num_2: "基准测试数量",
 		index_contributor_num_3: "数据评价维度",
 		index_contributor_num_4: "数据训练次数",
 		index_contributor_num_5: "数据验证次数",
