@@ -355,6 +355,18 @@ export const lang_configurations = {
 			"<strong>Diversity Balance:</strong> Maintain diversity and balance across different domains",
 		config_dataset_quality_assurance_4:
 			"<strong>Regular Updates:</strong> Periodically update selections based on community feedback and newly released high-quality datasets",
+		config_scorer_title:
+			"Scorer Function Settings",
+		config_scorer_prefix:
+			"To facilitate multi-dimensional evaluation of data quality and performance, we provide a variety of scorers. These scorers are classified into three categories based on their technical implementation:",
+		config_scorer_1:
+			'<strong>LLM-as-a-Judge Scorers:</strong> Utilize a Large Language Model (LLM) to act as a "judge," providing a comprehensive evaluation of the data.',
+		config_scorer_2:
+			"<strong>Model-based Scorers:</strong> Leverage pre-trained models (e.g., classification or regression models) to precisely calculate specific metrics.",
+		config_scorer_3:
+			"<strong>Heuristic Scorers:</strong> Employ pre-defined rules and algorithms (such as keyword matching, text length, etc.) for rapid scoring.",
+		config_scorer_ending:
+			'For detailed implementation principles and usage instructions for each scorer, please consult the <a href="https://opendataarena-tool.readthedocs.io/en/latest/" target="_blank" class="repo-link">wiki documentation</a>.',
 	},
 	zh: {
 		config_train_settings: "训练设置",
@@ -416,6 +428,18 @@ export const lang_configurations = {
 			"<strong>多样性平衡：</strong> 维持不同领域与题型的多样性与平衡",
 		config_dataset_quality_assurance_4:
 			"<strong>定期更新：</strong> 基于社区反馈与新发布的高质量数据集定期更新选择",
+		config_scorer_title:
+			"打分函数配置",
+		config_scorer_prefix:
+			"为实现多维度的数据质量与效果评估，我们提供了多种打分器（Scorer）。这些打分器在技术实现上可分为三类：",
+		config_scorer_1:
+			'<strong>LLM-as-a-Judge 打分器:</strong> 调用大语言模型（LLM）作为“裁判”，对数据进行综合性评价。',
+		config_scorer_2:
+			"<strong>Model-based 打分器:</strong> 利用预先训练好的模型（如分类模型、回归模型等）来精准计算特定指标。",
+		config_scorer_3:
+			"<strong>启发式（Heuristic）打分器:</strong> 通过预设的规则和算法（如关键词匹配、文本长度等）进行快速评分。",
+		config_scorer_ending:
+			'每种打分器的详细实现原理和使用说明，请查阅<a href="https://opendataarena-tool.readthedocs.io/en/latest/" target="_blank" class="repo-link">说明文档</a>。',
 	},
 };
 

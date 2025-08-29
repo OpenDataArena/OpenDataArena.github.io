@@ -555,7 +555,7 @@
 						<i class="fas fa-database"></i>{{ $t('config_dataset_selection_rules') }}
 					</h2>
 
-					<!-- 前言段落（富文本） -->
+					<!-- 前言段落 -->
 					<p v-html="$t('config_dataset_prefix')"></p>
 
 					<!-- 筛选条件标题 -->
@@ -633,6 +633,17 @@
 						<li v-html="$t('config_dataset_quality_assurance_3')"></li>
 						<li v-html="$t('config_dataset_quality_assurance_4')"></li>
 					</ul>
+				</section>
+				<!-- Scorer function -->
+				<section class="rules-section">
+					<h2><i class="fa fa-edit"></i>{{ $t('config_scorer_title') }}</h2>
+					<p v-html="$t('config_scorer_prefix')"></p>
+						<ol>
+							<li v-html="$t('config_scorer_1')"></li>
+							<li v-html="$t('config_scorer_2')"></li>
+							<li v-html="$t('config_scorer_3')"></li>
+						</ol>
+					<p v-html="$t('config_scorer_ending')"></p>
 				</section>
 			</div>
 
