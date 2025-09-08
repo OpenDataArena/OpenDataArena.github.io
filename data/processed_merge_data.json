@@ -3563,7 +3563,7 @@
       "size_precise": "1227291",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -4394,7 +4394,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -5064,7 +5064,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -6230,7 +6230,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -15039,7 +15039,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -17335,7 +17335,7 @@
       "size_precise": "600000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -18166,7 +18166,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -18997,7 +18997,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -19828,7 +19828,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -20659,7 +20659,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -21490,7 +21490,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -22321,7 +22321,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -23152,7 +23152,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
       "tag": "code"
     },
     {
@@ -23487,7 +23487,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
       "tag": "code"
     },
     {
@@ -23822,7 +23822,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -24653,7 +24653,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
       "tag": "code"
     },
     {
@@ -26118,7 +26118,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
       "tag": "code"
     },
     {
@@ -26453,7 +26453,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
       "tag": "code"
     },
     {
@@ -26788,7 +26788,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -29614,7 +29614,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -30445,7 +30445,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -36273,7 +36273,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -37439,7 +37439,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -38868,7 +38868,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
       "paper_link": "https://huggingface.co/blog/open-r1",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"
     },
     {
@@ -39167,7 +39167,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
       "tag": "general,math,science"
     },
     {
@@ -40064,7 +40064,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -41858,7 +41858,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -45439,7 +45439,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -45738,8 +45738,2998 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
       "tag": "general,math"
+    },
+    {
+      "id": 91,
+      "name": "OpenThoughts3-1.2M",
+      "domain": "reasoning",
+      "general_avg": 45.47,
+      "math_avg": 71.82,
+      "code_avg": 67.0,
+      "reasoning_avg": 54.25,
+      "overall_avg": 59.63,
+      "overall_efficiency": 0.022741,
+      "general_efficiency": 0.005357,
+      "math_efficiency": 0.046522,
+      "code_efficiency": 0.031541,
+      "reasoning_efficiency": 0.007545,
+      "general_scores": [
+        68.51,
+        31.7,
+        48.38,
+        33.305
+      ],
+      "math_scores": [
+        91.66,
+        93.8,
+        44.78,
+        68.84,
+        60.0
+      ],
+      "code_scores": [
+        78.66,
+        79.38,
+        31.9,
+        78.05
+      ],
+      "reasoning_scores": [
+        82.71,
+        70.65,
+        28.79,
+        32.8586957,
+        56.24
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.51
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 31.7
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 48.38
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 33.3
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 91.66
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 93.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 44.78
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.84
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 60.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 78.66
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 79.38
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 31.9
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 78.05
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 82.71
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 70.65
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.79
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 32.86
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 56.24
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 6.43,
+          "math_avg": 55.83,
+          "code_avg": 37.85,
+          "reasoning_avg": 9.05,
+          "overall_avg": 27.29,
+          "overall_efficiency": 0.022741,
+          "general_efficiency": 0.005357,
+          "math_efficiency": 0.046522,
+          "code_efficiency": 0.031541,
+          "reasoning_efficiency": 0.007545,
+          "general_task_scores": [
+            4.14,
+            11.36,
+            11.73,
+            -1.53
+          ],
+          "math_task_scores": [
+            35.25,
+            74.6,
+            40.44,
+            68.84,
+            60.0
+          ],
+          "code_task_scores": [
+            51.22,
+            24.91,
+            28.32,
+            46.95
+          ],
+          "reasoning_task_scores": [
+            2.37,
+            8.09,
+            -1.01,
+            1.66,
+            34.16
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -11.07,
+          "math_avg": 37.97,
+          "code_avg": 14.76,
+          "reasoning_avg": 3.03,
+          "overall_avg": 11.17,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -12.39,
+            -28.63,
+            7.4,
+            -10.66
+          ],
+          "math_task_scores": [
+            5.99,
+            45.6,
+            32.16,
+            54.45,
+            51.66
+          ],
+          "code_task_scores": [
+            10.98,
+            8.17,
+            22.22,
+            17.68
+          ],
+          "reasoning_task_scores": [
+            3.39,
+            7.8,
+            4.55,
+            -9.3,
+            8.72
+          ]
+        }
+      },
+      "affiliation": "Stanford University",
+      "year": "2025",
+      "size": "1.2M",
+      "size_precise": "1200000",
+      "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts3-1.2M",
+      "paper_link": "https://arxiv.org/abs/2506.04178",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts3-1_2M-all_scored",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 92,
+      "name": "MegaScience",
+      "domain": "reasoning",
+      "general_avg": 50.8,
+      "math_avg": 38.85,
+      "code_avg": 40.35,
+      "reasoning_avg": 50.99,
+      "overall_avg": 45.25,
+      "overall_efficiency": 0.010296,
+      "general_efficiency": 0.009377,
+      "math_efficiency": 0.018242,
+      "code_efficiency": 0.008941,
+      "reasoning_efficiency": 0.004623,
+      "general_scores": [
+        61.06,
+        40.68,
+        52.19,
+        49.2607143
+      ],
+      "math_scores": [
+        79.08,
+        56.8,
+        21.86,
+        28.19,
+        8.33
+      ],
+      "code_scores": [
+        54.88,
+        55.64,
+        10.04,
+        40.85
+      ],
+      "reasoning_scores": [
+        87.8,
+        66.62,
+        31.31,
+        25.3804348,
+        43.84
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.06
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 40.68
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 52.19
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 49.26
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 79.08
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 56.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.86
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.19
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 8.33
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 54.88
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 55.64
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 10.04
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 40.85
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 87.8
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 66.62
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 31.31
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 25.38
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 43.84
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 11.75,
+          "math_avg": 22.86,
+          "code_avg": 11.2,
+          "reasoning_avg": 5.79,
+          "overall_avg": 12.9,
+          "overall_efficiency": 0.010296,
+          "general_efficiency": 0.009377,
+          "math_efficiency": 0.018242,
+          "code_efficiency": 0.008941,
+          "reasoning_efficiency": 0.004623,
+          "general_task_scores": [
+            -3.31,
+            20.34,
+            15.54,
+            14.43
+          ],
+          "math_task_scores": [
+            22.67,
+            37.6,
+            17.52,
+            28.19,
+            8.33
+          ],
+          "code_task_scores": [
+            27.44,
+            1.17,
+            6.46,
+            9.75
+          ],
+          "reasoning_task_scores": [
+            7.46,
+            4.06,
+            1.51,
+            -5.82,
+            21.76
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -5.74,
+          "math_avg": 5.01,
+          "code_avg": -11.88,
+          "reasoning_avg": -0.23,
+          "overall_avg": -3.21,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -19.84,
+            -19.65,
+            11.21,
+            5.3
+          ],
+          "math_task_scores": [
+            -6.59,
+            8.6,
+            9.24,
+            13.8,
+            -0.01
+          ],
+          "code_task_scores": [
+            -12.8,
+            -15.57,
+            0.36,
+            -19.52
+          ],
+          "reasoning_task_scores": [
+            8.48,
+            3.77,
+            7.07,
+            -16.78,
+            -3.68
+          ]
+        }
+      },
+      "affiliation": "MegaScience",
+      "year": "2025",
+      "size": "1.25M",
+      "size_precise": "1253230",
+      "link": "https://huggingface.co/datasets/MegaScience/MegaScience",
+      "paper_link": "https://arxiv.org/abs/2507.16812",
+      "scored_link": "",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 93,
+      "name": "TextbookReasoning",
+      "domain": "reasoning",
+      "general_avg": 49.47,
+      "math_avg": 31.18,
+      "code_avg": 39.34,
+      "reasoning_avg": 48.45,
+      "overall_avg": 42.11,
+      "overall_efficiency": 0.014979,
+      "general_efficiency": 0.015995,
+      "math_efficiency": 0.023299,
+      "code_efficiency": 0.015636,
+      "reasoning_efficiency": 0.004987,
+      "general_scores": [
+        70.79,
+        37.4225,
+        47.5,
+        42.175
+      ],
+      "math_scores": [
+        74.0,
+        43.0,
+        18.59,
+        17.8,
+        2.49875
+      ],
+      "code_scores": [
+        53.66,
+        58.37,
+        7.53,
+        37.8
+      ],
+      "reasoning_scores": [
+        81.69,
+        63.29,
+        30.3,
+        25.9130435,
+        41.04
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 70.79
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 37.42
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 47.5
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 42.18
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 74.0
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 43.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 18.59
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 17.8
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 2.5
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 53.66
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 58.37
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 7.53
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 37.8
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 81.69
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 63.29
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 30.3
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 25.91
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 41.04
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 10.43,
+          "math_avg": 15.19,
+          "code_avg": 10.19,
+          "reasoning_avg": 3.25,
+          "overall_avg": 9.76,
+          "overall_efficiency": 0.014979,
+          "general_efficiency": 0.015995,
+          "math_efficiency": 0.023299,
+          "code_efficiency": 0.015636,
+          "reasoning_efficiency": 0.004987,
+          "general_task_scores": [
+            6.42,
+            17.08,
+            10.85,
+            7.35
+          ],
+          "math_task_scores": [
+            17.59,
+            23.8,
+            14.25,
+            17.8,
+            2.5
+          ],
+          "code_task_scores": [
+            26.22,
+            3.9,
+            3.95,
+            6.7
+          ],
+          "reasoning_task_scores": [
+            1.35,
+            0.73,
+            0.5,
+            -5.29,
+            18.96
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -7.07,
+          "math_avg": -2.67,
+          "code_avg": -12.89,
+          "reasoning_avg": -2.77,
+          "overall_avg": -6.35,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -10.11,
+            -22.9,
+            6.52,
+            -1.78
+          ],
+          "math_task_scores": [
+            -11.67,
+            -5.2,
+            5.97,
+            3.41,
+            -5.84
+          ],
+          "code_task_scores": [
+            -14.02,
+            -12.84,
+            -2.15,
+            -22.57
+          ],
+          "reasoning_task_scores": [
+            2.37,
+            0.44,
+            6.06,
+            -16.25,
+            -6.48
+          ]
+        }
+      },
+      "affiliation": "MegaScience",
+      "year": "2025",
+      "size": "652k",
+      "size_precise": "651840",
+      "link": "https://huggingface.co/datasets/MegaScience/TextbookReasoning",
+      "paper_link": "https://arxiv.org/abs/2507.16812",
+      "scored_link": "",
+      "tag": "general,math,science"
+    },
+    {
+      "id": 94,
+      "name": "doocs-leetcode-solutions",
+      "domain": "reasoning",
+      "general_avg": 21.8,
+      "math_avg": 20.48,
+      "code_avg": 0.0,
+      "reasoning_avg": 26.44,
+      "overall_avg": 22.91,
+      "overall_efficiency": -0.550318,
+      "general_efficiency": -1.005517,
+      "math_efficiency": 0.262086,
+      "code_efficiency": -1.69986,
+      "reasoning_efficiency": -1.093993,
+      "general_scores": [
+        36.18,
+        20.7625,
+        17.96,
+        12.3157143
+      ],
+      "math_scores": [
+        72.25,
+        9.8,
+        19.92,
+        0.45,
+        0.0
+      ],
+      "code_scores": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reasoning_scores": [
+        57.63,
+        33.41,
+        16.16,
+        5.70652174,
+        19.28
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 36.18
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 20.76
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 17.96
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 12.32
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 72.25
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 9.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 19.92
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 0.45
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 57.63
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 33.41
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 16.16
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 5.71
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 19.28
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -17.24,
+          "math_avg": 4.49,
+          "code_avg": -29.15,
+          "reasoning_avg": -18.76,
+          "overall_avg": -9.44,
+          "overall_efficiency": -0.550318,
+          "general_efficiency": -1.005517,
+          "math_efficiency": 0.262086,
+          "code_efficiency": -1.69986,
+          "reasoning_efficiency": -1.093993,
+          "general_task_scores": [
+            -28.19,
+            0.42,
+            -18.69,
+            -22.51
+          ],
+          "math_task_scores": [
+            15.84,
+            -9.4,
+            15.58,
+            0.45,
+            0.0
+          ],
+          "code_task_scores": [
+            -27.44,
+            -54.47,
+            -3.58,
+            -31.1
+          ],
+          "reasoning_task_scores": [
+            -22.71,
+            -29.15,
+            -13.64,
+            -25.49,
+            -2.8
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -34.74,
+          "math_avg": -13.36,
+          "code_avg": -52.24,
+          "reasoning_avg": -24.78,
+          "overall_avg": -25.55,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -44.72,
+            -39.56,
+            -23.02,
+            -31.64
+          ],
+          "math_task_scores": [
+            -13.42,
+            -38.4,
+            7.3,
+            -13.94,
+            -8.34
+          ],
+          "code_task_scores": [
+            -67.68,
+            -71.21,
+            -9.68,
+            -60.37
+          ],
+          "reasoning_task_scores": [
+            -21.69,
+            -29.44,
+            -8.08,
+            -36.45,
+            -28.24
+          ]
+        }
+      },
+      "affiliation": "olegshulyakov",
+      "year": "2025",
+      "size": "17k",
+      "size_precise": "17147",
+      "link": "https://huggingface.co/datasets/olegshulyakov/doocs-leetcode-solutions",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "code"
+    },
+    {
+      "id": 95,
+      "name": "gsm8k-aug",
+      "domain": "reasoning",
+      "general_avg": 54.25,
+      "math_avg": 27.29,
+      "code_avg": 34.77,
+      "reasoning_avg": 41.34,
+      "overall_avg": 39.41,
+      "overall_efficiency": 0.018329,
+      "general_efficiency": 0.039439,
+      "math_efficiency": 0.029314,
+      "code_efficiency": 0.014574,
+      "reasoning_efficiency": -0.01001,
+      "general_scores": [
+        62.59,
+        52.1025,
+        59.35,
+        42.9771429
+      ],
+      "math_scores": [
+        87.11,
+        29.0,
+        12.13,
+        4.9,
+        3.33
+      ],
+      "code_scores": [
+        0.0,
+        68.09,
+        11.83,
+        59.15
+      ],
+      "reasoning_scores": [
+        29.49,
+        67.16,
+        29.29,
+        44.7391304,
+        36.0
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 62.59
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 52.1
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 59.35
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 42.98
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 87.11
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 12.13
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 4.9
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 3.33
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 68.09
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 11.83
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 59.15
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.49
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 67.16
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.29
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 44.74
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 36.0
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 15.21,
+          "math_avg": 11.3,
+          "code_avg": 5.62,
+          "reasoning_avg": -3.86,
+          "overall_avg": 7.07,
+          "overall_efficiency": 0.018329,
+          "general_efficiency": 0.039439,
+          "math_efficiency": 0.029314,
+          "code_efficiency": 0.014574,
+          "reasoning_efficiency": -0.01001,
+          "general_task_scores": [
+            -1.78,
+            31.76,
+            22.7,
+            8.15
+          ],
+          "math_task_scores": [
+            30.7,
+            9.8,
+            7.79,
+            4.9,
+            3.33
+          ],
+          "code_task_scores": [
+            -27.44,
+            13.62,
+            8.25,
+            28.05
+          ],
+          "reasoning_task_scores": [
+            -50.85,
+            4.6,
+            -0.51,
+            13.54,
+            13.92
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -2.29,
+          "math_avg": -6.55,
+          "code_avg": -17.47,
+          "reasoning_avg": -9.88,
+          "overall_avg": -9.05,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -18.31,
+            -8.23,
+            18.37,
+            -0.98
+          ],
+          "math_task_scores": [
+            1.44,
+            -19.2,
+            -0.49,
+            -9.49,
+            -5.01
+          ],
+          "code_task_scores": [
+            -67.68,
+            -3.12,
+            2.15,
+            -1.22
+          ],
+          "reasoning_task_scores": [
+            -49.83,
+            4.31,
+            5.05,
+            2.58,
+            -11.52
+          ]
+        }
+      },
+      "affiliation": "whynlp",
+      "year": "2025",
+      "size": "386k",
+      "size_precise": "385620",
+      "link": "https://huggingface.co/datasets/whynlp/gsm8k-aug",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 96,
+      "name": "DAG-Reasoning-DeepSeek-R1-0528",
+      "domain": "reasoning",
+      "general_avg": 24.84,
+      "math_avg": 11.35,
+      "code_avg": 9.05,
+      "reasoning_avg": 4.99,
+      "overall_avg": 12.56,
+      "overall_efficiency": -4.84528,
+      "general_efficiency": -3.479191,
+      "math_efficiency": -1.136141,
+      "code_efficiency": -4.921645,
+      "reasoning_efficiency": -9.844142,
+      "general_scores": [
+        68.44,
+        29.17,
+        1.29,
+        0.44857143
+      ],
+      "math_scores": [
+        49.36,
+        1.4,
+        5.69,
+        0.3,
+        0.0
+      ],
+      "code_scores": [
+        0.0,
+        36.19,
+        0.0,
+        0.0
+      ],
+      "reasoning_scores": [
+        11.53,
+        2.88,
+        1.52,
+        5.0326087,
+        4.0
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.44
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 29.17
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 1.29
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.45
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 49.36
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 1.4
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 5.69
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 0.3
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 36.19
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 11.53
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 2.88
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 1.52
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 5.03
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 4.0
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -14.21,
+          "math_avg": -4.64,
+          "code_avg": -20.1,
+          "reasoning_avg": -40.2,
+          "overall_avg": -19.79,
+          "overall_efficiency": -4.84528,
+          "general_efficiency": -3.479191,
+          "math_efficiency": -1.136141,
+          "code_efficiency": -4.921645,
+          "reasoning_efficiency": -9.844142,
+          "general_task_scores": [
+            4.07,
+            8.83,
+            -35.36,
+            -34.38
+          ],
+          "math_task_scores": [
+            -7.05,
+            -17.8,
+            1.35,
+            0.3,
+            0.0
+          ],
+          "code_task_scores": [
+            -27.44,
+            -18.28,
+            -3.58,
+            -31.1
+          ],
+          "reasoning_task_scores": [
+            -68.81,
+            -59.68,
+            -28.28,
+            -26.17,
+            -18.08
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -31.7,
+          "math_avg": -22.49,
+          "code_avg": -43.19,
+          "reasoning_avg": -46.23,
+          "overall_avg": -35.9,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -12.46,
+            -31.16,
+            -39.69,
+            -43.51
+          ],
+          "math_task_scores": [
+            -36.31,
+            -46.8,
+            -6.93,
+            -14.09,
+            -8.34
+          ],
+          "code_task_scores": [
+            -67.68,
+            -35.02,
+            -9.68,
+            -60.37
+          ],
+          "reasoning_task_scores": [
+            -67.79,
+            -59.97,
+            -22.72,
+            -37.13,
+            -43.52
+          ]
+        }
+      },
+      "affiliation": "sequelbox",
+      "year": "2025",
+      "size": "4k",
+      "size_precise": "4084",
+      "link": "https://huggingface.co/datasets/sequelbox/DAG-Reasoning-DeepSeek-R1-0528",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "science"
+    },
+    {
+      "id": 97,
+      "name": "SYNTHETIC-2-SFT-verified",
+      "domain": "reasoning",
+      "general_avg": 49.93,
+      "math_avg": 63.05,
+      "code_avg": 30.01,
+      "reasoning_avg": 56.78,
+      "overall_avg": 49.94,
+      "overall_efficiency": 0.167734,
+      "general_efficiency": 0.103709,
+      "math_efficiency": 0.448591,
+      "code_efficiency": 0.008222,
+      "reasoning_efficiency": 0.110415,
+      "general_scores": [
+        57.39,
+        37.54,
+        53.67,
+        51.1064286
+      ],
+      "math_scores": [
+        89.39,
+        86.8,
+        50.99,
+        61.42,
+        26.665
+      ],
+      "code_scores": [
+        31.1,
+        56.81,
+        8.96,
+        23.17
+      ],
+      "reasoning_scores": [
+        88.47,
+        82.59,
+        26.77,
+        29.75,
+        56.32
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 57.39
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 37.54
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 53.67
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 51.11
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 89.39
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 86.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 50.99
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.42
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 26.66
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 31.1
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 56.81
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 8.96
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 23.17
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 88.47
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 82.59
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 26.77
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 29.75
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 56.32
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 10.88,
+          "math_avg": 47.06,
+          "code_avg": 0.86,
+          "reasoning_avg": 11.58,
+          "overall_avg": 17.6,
+          "overall_efficiency": 0.167734,
+          "general_efficiency": 0.103709,
+          "math_efficiency": 0.448591,
+          "code_efficiency": 0.008222,
+          "reasoning_efficiency": 0.110415,
+          "general_task_scores": [
+            -6.98,
+            17.2,
+            17.02,
+            16.28
+          ],
+          "math_task_scores": [
+            32.98,
+            67.6,
+            46.65,
+            61.42,
+            26.66
+          ],
+          "code_task_scores": [
+            3.66,
+            2.34,
+            5.38,
+            -7.93
+          ],
+          "reasoning_task_scores": [
+            8.13,
+            20.03,
+            -3.03,
+            -1.45,
+            34.24
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -6.62,
+          "math_avg": 29.21,
+          "code_avg": -22.22,
+          "reasoning_avg": 5.56,
+          "overall_avg": 1.48,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -23.51,
+            -22.79,
+            12.69,
+            7.15
+          ],
+          "math_task_scores": [
+            3.72,
+            38.6,
+            38.37,
+            47.03,
+            18.32
+          ],
+          "code_task_scores": [
+            -36.58,
+            -14.4,
+            -0.72,
+            -37.2
+          ],
+          "reasoning_task_scores": [
+            9.15,
+            19.74,
+            2.53,
+            -12.41,
+            8.8
+          ]
+        }
+      },
+      "affiliation": "PrimeIntellect",
+      "year": "2025",
+      "size": "105k",
+      "size_precise": "104913",
+      "link": "https://huggingface.co/datasets/PrimeIntellect/SYNTHETIC-2-SFT-verified",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 98,
+      "name": "omega-explorative",
+      "domain": "reasoning",
+      "general_avg": 30.12,
+      "math_avg": 7.73,
+      "code_avg": 6.22,
+      "reasoning_avg": 28.02,
+      "overall_avg": 18.02,
+      "overall_efficiency": -0.333326,
+      "general_efficiency": -0.207784,
+      "math_efficiency": -0.192254,
+      "code_efficiency": -0.533528,
+      "reasoning_efficiency": -0.399738,
+      "general_scores": [
+        57.03,
+        22.295,
+        24.29,
+        16.8607143
+      ],
+      "math_scores": [
+        22.21,
+        8.0,
+        4.43,
+        4.01,
+        0.0
+      ],
+      "code_scores": [
+        0.0,
+        24.9,
+        0.0,
+        0.0
+      ],
+      "reasoning_scores": [
+        57.63,
+        23.82,
+        24.75,
+        12.2282609,
+        21.68
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 57.03
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 22.3
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 24.29
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 16.86
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 22.21
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 8.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 4.43
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 4.01
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 24.9
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 57.63
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 23.82
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 24.75
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 12.23
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.68
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -8.93,
+          "math_avg": -8.26,
+          "code_avg": -22.92,
+          "reasoning_avg": -17.17,
+          "overall_avg": -14.32,
+          "overall_efficiency": -0.333326,
+          "general_efficiency": -0.207784,
+          "math_efficiency": -0.192254,
+          "code_efficiency": -0.533528,
+          "reasoning_efficiency": -0.399738,
+          "general_task_scores": [
+            -7.34,
+            1.96,
+            -12.36,
+            -17.97
+          ],
+          "math_task_scores": [
+            -34.2,
+            -11.2,
+            0.09,
+            4.01,
+            0.0
+          ],
+          "code_task_scores": [
+            -27.44,
+            -29.57,
+            -3.58,
+            -31.1
+          ],
+          "reasoning_task_scores": [
+            -22.71,
+            -38.74,
+            -5.05,
+            -18.97,
+            -0.4
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -26.42,
+          "math_avg": -26.11,
+          "code_avg": -46.01,
+          "reasoning_avg": -23.2,
+          "overall_avg": -30.44,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -23.87,
+            -38.03,
+            -16.69,
+            -27.1
+          ],
+          "math_task_scores": [
+            -63.46,
+            -40.2,
+            -8.19,
+            -10.38,
+            -8.34
+          ],
+          "code_task_scores": [
+            -67.68,
+            -46.31,
+            -9.68,
+            -60.37
+          ],
+          "reasoning_task_scores": [
+            -21.69,
+            -39.03,
+            0.51,
+            -29.93,
+            -25.84
+          ]
+        }
+      },
+      "affiliation": "Allen AI",
+      "year": "2025",
+      "size": "43k",
+      "size_precise": "42964",
+      "link": "https://huggingface.co/datasets/allenai/omega-explorative",
+      "paper_link": "https://arxiv.org/html/2507.00432v1",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 99,
+      "name": "LIMO",
+      "domain": "reasoning",
+      "general_avg": 23.37,
+      "math_avg": 15.69,
+      "code_avg": 14.29,
+      "reasoning_avg": 22.54,
+      "overall_avg": 18.97,
+      "overall_efficiency": -16.369313,
+      "general_efficiency": -19.192275,
+      "math_efficiency": -0.369645,
+      "code_efficiency": -18.182375,
+      "reasoning_efficiency": -27.732957,
+      "general_scores": [
+        45.36,
+        17.86,
+        21.91,
+        8.33428571
+      ],
+      "math_scores": [
+        61.49,
+        9.8,
+        5.96,
+        1.19,
+        0.0
+      ],
+      "code_scores": [
+        0.0,
+        56.81,
+        0.36,
+        0.0
+      ],
+      "reasoning_scores": [
+        47.8,
+        18.52,
+        7.58,
+        17.5108696,
+        21.28
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 45.36
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 17.86
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.91
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 8.33
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.49
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 9.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 5.96
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 1.19
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 56.81
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.36
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 47.8
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 18.52
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 7.58
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 17.51
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.28
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -15.68,
+          "math_avg": -0.3,
+          "code_avg": -14.86,
+          "reasoning_avg": -22.66,
+          "overall_avg": -13.37,
+          "overall_efficiency": -16.369313,
+          "general_efficiency": -19.192275,
+          "math_efficiency": -0.369645,
+          "code_efficiency": -18.182375,
+          "reasoning_efficiency": -27.732957,
+          "general_task_scores": [
+            -19.01,
+            -2.48,
+            -14.74,
+            -26.5
+          ],
+          "math_task_scores": [
+            5.08,
+            -9.4,
+            1.62,
+            1.19,
+            0.0
+          ],
+          "code_task_scores": [
+            -27.44,
+            2.34,
+            -3.22,
+            -31.1
+          ],
+          "reasoning_task_scores": [
+            -32.54,
+            -44.04,
+            -22.22,
+            -13.69,
+            -0.8
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -33.18,
+          "math_avg": -18.16,
+          "code_avg": -37.94,
+          "reasoning_avg": -28.68,
+          "overall_avg": -29.49,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -35.54,
+            -42.46,
+            -19.07,
+            -35.63
+          ],
+          "math_task_scores": [
+            -24.18,
+            -38.4,
+            -6.66,
+            -13.2,
+            -8.34
+          ],
+          "code_task_scores": [
+            -67.68,
+            -14.4,
+            -9.32,
+            -60.37
+          ],
+          "reasoning_task_scores": [
+            -31.52,
+            -44.33,
+            -16.66,
+            -24.65,
+            -26.24
+          ]
+        }
+      },
+      "affiliation": "GAIR",
+      "year": "2025",
+      "size": "817",
+      "size_precise": "817",
+      "link": "https://huggingface.co/datasets/GAIR/LIMO",
+      "paper_link": "https://arxiv.org/abs/2502.03387",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 100,
+      "name": "LIMO-v2",
+      "domain": "reasoning",
+      "general_avg": 26.94,
+      "math_avg": 16.59,
+      "code_avg": 10.8,
+      "reasoning_avg": 17.97,
+      "overall_avg": 18.07,
+      "overall_efficiency": -17.837427,
+      "general_efficiency": -15.130469,
+      "math_efficiency": 0.7525,
+      "code_efficiency": -22.9375,
+      "reasoning_efficiency": -34.034239,
+      "general_scores": [
+        70.67,
+        16.735,
+        14.46,
+        5.90214286
+      ],
+      "math_scores": [
+        62.47,
+        11.6,
+        6.07,
+        2.82,
+        0.0
+      ],
+      "code_scores": [
+        0.0,
+        43.19,
+        0.0,
+        0.0
+      ],
+      "reasoning_scores": [
+        38.64,
+        14.88,
+        3.54,
+        15.6630435,
+        17.12
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 70.67
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 16.74
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 14.46
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 5.9
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 62.47
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 11.6
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 6.07
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 2.82
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 43.19
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 38.64
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 14.88
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 3.54
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 15.66
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 17.12
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -12.1,
+          "math_avg": 0.6,
+          "code_avg": -18.35,
+          "reasoning_avg": -27.23,
+          "overall_avg": -14.27,
+          "overall_efficiency": -17.837427,
+          "general_efficiency": -15.130469,
+          "math_efficiency": 0.7525,
+          "code_efficiency": -22.9375,
+          "reasoning_efficiency": -34.034239,
+          "general_task_scores": [
+            6.3,
+            -3.6,
+            -22.19,
+            -28.93
+          ],
+          "math_task_scores": [
+            6.06,
+            -7.6,
+            1.73,
+            2.82,
+            0.0
+          ],
+          "code_task_scores": [
+            -27.44,
+            -11.28,
+            -3.58,
+            -31.1
+          ],
+          "reasoning_task_scores": [
+            -41.7,
+            -47.68,
+            -26.26,
+            -15.54,
+            -4.96
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -29.6,
+          "math_avg": -17.25,
+          "code_avg": -41.44,
+          "reasoning_avg": -33.25,
+          "overall_avg": -30.38,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -10.23,
+            -43.59,
+            -26.52,
+            -38.06
+          ],
+          "math_task_scores": [
+            -23.2,
+            -36.6,
+            -6.55,
+            -11.57,
+            -8.34
+          ],
+          "code_task_scores": [
+            -67.68,
+            -28.02,
+            -9.68,
+            -60.37
+          ],
+          "reasoning_task_scores": [
+            -40.68,
+            -47.97,
+            -20.7,
+            -26.5,
+            -30.4
+          ]
+        }
+      },
+      "affiliation": "GAIR",
+      "year": "2025",
+      "size": "800",
+      "size_precise": "800",
+      "link": "https://huggingface.co/datasets/GAIR/LIMO-v2",
+      "paper_link": "https://arxiv.org/abs/2502.03387",
+      "scored_link": "",
+      "tag": "math"
     }
   ],
   "qwen": [
@@ -49306,7 +52296,7 @@
       "size_precise": "1227291",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -50137,7 +53127,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -50807,7 +53797,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -51973,7 +54963,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -60782,7 +63772,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -63078,7 +66068,7 @@
       "size_precise": "600000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -63909,7 +66899,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -64740,7 +67730,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -65571,7 +68561,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -66402,7 +69392,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -67233,7 +70223,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -68064,7 +71054,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -68895,7 +71885,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
       "tag": "code"
     },
     {
@@ -69230,7 +72220,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
       "tag": "code"
     },
     {
@@ -69565,7 +72555,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -70396,7 +73386,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
       "tag": "code"
     },
     {
@@ -71861,7 +74851,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
       "tag": "code"
     },
     {
@@ -72196,7 +75186,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
       "tag": "code"
     },
     {
@@ -72531,7 +75521,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -75359,7 +78349,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -76190,7 +79180,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -82020,7 +85010,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -83186,7 +86176,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -84038,9 +87028,27 @@
         61.28,
         48.8825,
         61.31,
+        50.0907143,
+        61.28,
+        48.8825,
+        61.31,
+        50.0907143,
+        61.28,
+        48.8825,
+        61.31,
         50.0907143
       ],
       "math_scores": [
+        83.55,
+        49.2,
+        18.81,
+        16.17,
+        3.33,
+        83.55,
+        49.2,
+        18.81,
+        16.17,
+        3.33,
         83.55,
         49.2,
         18.81,
@@ -84051,9 +87059,27 @@
         76.22,
         72.76,
         10.04,
+        65.85,
+        76.22,
+        72.76,
+        10.04,
+        65.85,
+        76.22,
+        72.76,
+        10.04,
         65.85
       ],
       "reasoning_scores": [
+        16.95,
+        67.48,
+        32.83,
+        39.98913,
+        43.12,
+        16.95,
+        67.48,
+        32.83,
+        39.98913,
+        43.12,
         16.95,
         67.48,
         32.83,
@@ -84337,9 +87363,27 @@
         82.73,
         48.36,
         62.45,
+        29.8157143,
+        82.73,
+        48.36,
+        62.45,
+        29.8157143,
+        82.73,
+        48.36,
+        62.45,
         29.8157143
       ],
       "math_scores": [
+        93.4,
+        82.0,
+        32.45,
+        51.04,
+        16.67,
+        93.4,
+        82.0,
+        32.45,
+        51.04,
+        16.67,
         93.4,
         82.0,
         32.45,
@@ -84350,9 +87394,27 @@
         29.27,
         74.71,
         8.24,
+        52.44,
+        29.27,
+        74.71,
+        8.24,
+        52.44,
+        29.27,
+        74.71,
+        8.24,
         52.44
       ],
       "reasoning_scores": [
+        18.98,
+        67.71,
+        20.71,
+        34.826087,
+        51.44,
+        18.98,
+        67.71,
+        20.71,
+        34.826087,
+        51.44,
         18.98,
         67.71,
         20.71,
@@ -84615,7 +87677,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
       "paper_link": "https://huggingface.co/blog/open-r1",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"
     },
     {
@@ -84636,9 +87698,27 @@
         83.74,
         42.26,
         64.18,
+        53.9678571,
+        83.74,
+        42.26,
+        64.18,
+        53.9678571,
+        83.74,
+        42.26,
+        64.18,
         53.9678571
       ],
       "math_scores": [
+        93.93,
+        77.4,
+        27.26,
+        53.9678571,
+        18.335,
+        93.93,
+        77.4,
+        27.26,
+        53.9678571,
+        18.335,
         93.93,
         77.4,
         27.26,
@@ -84649,9 +87729,27 @@
         63.41,
         73.15,
         11.47,
+        61.59,
+        63.41,
+        73.15,
+        11.47,
+        61.59,
+        63.41,
+        73.15,
+        11.47,
         61.59
       ],
       "reasoning_scores": [
+        34.24,
+        71.11,
+        26.77,
+        34.76087,
+        46.4,
+        34.24,
+        71.11,
+        26.77,
+        34.76087,
+        46.4,
         34.24,
         71.11,
         26.77,
@@ -84914,7 +88012,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
       "tag": "general,math,science"
     },
     {
@@ -84935,9 +88033,27 @@
         83.44,
         41.2775,
         64.71,
+        50.6421429,
+        83.44,
+        41.2775,
+        64.71,
+        50.6421429,
+        83.44,
+        41.2775,
+        64.71,
         50.6421429
       ],
       "math_scores": [
+        92.12,
+        75.2,
+        25.07,
+        39.76,
+        18.335,
+        92.12,
+        75.2,
+        25.07,
+        39.76,
+        18.335,
         92.12,
         75.2,
         25.07,
@@ -84948,9 +88064,27 @@
         4.27,
         72.37,
         13.26,
+        64.63,
+        4.27,
+        72.37,
+        13.26,
+        64.63,
+        4.27,
+        72.37,
+        13.26,
         64.63
       ],
       "reasoning_scores": [
+        23.73,
+        69.8,
+        19.19,
+        33.673913,
+        48.08,
+        23.73,
+        69.8,
+        19.19,
+        33.673913,
+        48.08,
         23.73,
         69.8,
         19.19,
@@ -85234,9 +88368,27 @@
         62.4,
         27.34,
         39.08,
+        20.3564286,
+        62.4,
+        27.34,
+        39.08,
+        20.3564286,
+        62.4,
+        27.34,
+        39.08,
         20.3564286
       ],
       "math_scores": [
+        85.44,
+        72.0,
+        25.34,
+        37.39,
+        13.335,
+        85.44,
+        72.0,
+        25.34,
+        37.39,
+        13.335,
         85.44,
         72.0,
         25.34,
@@ -85247,9 +88399,27 @@
         57.32,
         62.26,
         13.62,
+        53.66,
+        57.32,
+        62.26,
+        13.62,
+        53.66,
+        57.32,
+        62.26,
+        13.62,
         53.66
       ],
       "reasoning_scores": [
+        72.2,
+        41.41,
+        19.19,
+        26.27,
+        40.16,
+        72.2,
+        41.41,
+        19.19,
+        26.27,
+        40.16,
         72.2,
         41.41,
         19.19,
@@ -85520,13 +88690,13 @@
       "name": "OpenThoughts-114k",
       "domain": "reasoning",
       "general_avg": 59.64,
-      "math_avg": 56.92,
+      "math_avg": 60.41,
       "code_avg": 57.23,
       "reasoning_avg": 42.58,
-      "overall_avg": 54.09,
-      "overall_efficiency": 0.070977,
+      "overall_avg": 54.97,
+      "overall_efficiency": 0.078626,
       "general_efficiency": 0.071938,
-      "math_efficiency": 0.150613,
+      "math_efficiency": 0.181212,
       "code_efficiency": 0.062217,
       "reasoning_efficiency": -0.000862,
       "general_scores": [
@@ -85540,7 +88710,15 @@
         83.6,
         32.99,
         53.26,
-        22.4975
+        22.4975,
+        91.89,
+        82.2,
+        52.37,
+        23.3,
+        91.13,
+        82.4,
+        53.26,
+        24.1675
       ],
       "code_scores": [
         68.9,
@@ -85600,7 +88778,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 92.27
+                "score": 91.76
               }
             ]
           },
@@ -85609,7 +88787,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 83.6
+                "score": 82.73
               }
             ]
           },
@@ -85627,7 +88805,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 53.26
+                "score": 52.96
               }
             ]
           },
@@ -85636,7 +88814,7 @@
             "metrics": [
               {
                 "metric": "accuracy avg",
-                "score": 22.5
+                "score": 23.32
               }
             ]
           }
@@ -85730,13 +88908,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 8.2,
-          "math_avg": 17.16,
+          "math_avg": 20.65,
           "code_avg": 7.09,
           "reasoning_avg": -0.1,
-          "overall_avg": 8.09,
-          "overall_efficiency": 0.070977,
+          "overall_avg": 8.96,
+          "overall_efficiency": 0.078626,
           "general_efficiency": 0.071938,
-          "math_efficiency": 0.150613,
+          "math_efficiency": 0.181212,
           "code_efficiency": 0.062217,
           "reasoning_efficiency": -0.000862,
           "general_task_scores": [
@@ -85746,11 +88924,11 @@
             11.33
           ],
           "math_task_scores": [
-            12.29,
-            33.4,
+            11.78,
+            32.53,
             6.95,
-            17.35,
-            15.83
+            17.05,
+            16.65
           ],
           "code_task_scores": [
             -8.54,
@@ -85768,10 +88946,10 @@
         },
         "vs_instruct": {
           "general_avg": -6.57,
-          "math_avg": 6.92,
+          "math_avg": 10.41,
           "code_avg": 5.9,
           "reasoning_avg": -0.36,
-          "overall_avg": 1.47,
+          "overall_avg": 2.35,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -85784,11 +88962,11 @@
             -1.66
           ],
           "math_task_scores": [
-            0.0,
-            5.8,
+            -0.51,
+            4.93,
             3.59,
-            12.31,
-            12.92
+            12.01,
+            13.74
           ],
           "code_task_scores": [
             4.88,
@@ -85811,7 +88989,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -87605,7 +90783,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -89305,13 +92483,13 @@
       "name": "AM-Thinking-v1-Distilled-code",
       "domain": "reasoning",
       "general_avg": 49.86,
-      "math_avg": 50.98,
+      "math_avg": 54.59,
       "code_avg": 68.68,
       "reasoning_avg": 44.39,
-      "overall_avg": 53.48,
-      "overall_efficiency": 0.023065,
+      "overall_avg": 54.38,
+      "overall_efficiency": 0.025851,
       "general_efficiency": -0.004878,
-      "math_efficiency": 0.034637,
+      "math_efficiency": 0.04578,
       "code_efficiency": 0.057228,
       "reasoning_efficiency": 0.005273,
       "general_scores": [
@@ -89325,7 +92503,15 @@
         69.4,
         31.93,
         42.14,
-        23.335
+        23.335,
+        87.49,
+        69.6,
+        44.66,
+        23.33,
+        85.22,
+        72.0,
+        47.48,
+        25.0
       ],
       "code_scores": [
         78.05,
@@ -89385,7 +92571,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 88.1
+                "score": 86.94
               }
             ]
           },
@@ -89394,7 +92580,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 69.4
+                "score": 70.33
               }
             ]
           },
@@ -89412,7 +92598,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 42.14
+                "score": 44.76
               }
             ]
           },
@@ -89421,7 +92607,7 @@
             "metrics": [
               {
                 "metric": "accuracy avg",
-                "score": 23.34
+                "score": 23.89
               }
             ]
           }
@@ -89515,13 +92701,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -1.58,
-          "math_avg": 11.22,
+          "math_avg": 14.83,
           "code_avg": 18.54,
           "reasoning_avg": 1.71,
-          "overall_avg": 7.47,
-          "overall_efficiency": 0.023065,
+          "overall_avg": 8.37,
+          "overall_efficiency": 0.025851,
           "general_efficiency": -0.004878,
-          "math_efficiency": 0.034637,
+          "math_efficiency": 0.04578,
           "code_efficiency": 0.057228,
           "reasoning_efficiency": 0.005273,
           "general_task_scores": [
@@ -89531,11 +92717,11 @@
             -7.14
           ],
           "math_task_scores": [
-            8.12,
-            19.2,
+            6.96,
+            20.13,
             5.89,
-            6.23,
-            16.67
+            8.85,
+            17.22
           ],
           "code_task_scores": [
             0.61,
@@ -89553,10 +92739,10 @@
         },
         "vs_instruct": {
           "general_avg": -16.34,
-          "math_avg": 0.98,
+          "math_avg": 4.59,
           "code_avg": 17.35,
           "reasoning_avg": 1.45,
-          "overall_avg": 0.86,
+          "overall_avg": 1.76,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -89569,11 +92755,11 @@
             -20.13
           ],
           "math_task_scores": [
-            -4.17,
-            -8.4,
+            -5.33,
+            -7.47,
             2.53,
-            1.19,
-            13.76
+            3.81,
+            14.31
           ],
           "code_task_scores": [
             14.03,
@@ -90100,13 +93286,13 @@
       "name": "AM-Thinking-v1-Distilled-math",
       "domain": "reasoning",
       "general_avg": 57.74,
-      "math_avg": 76.78,
+      "math_avg": 79.76,
       "code_avg": 39.45,
       "reasoning_avg": 44.75,
-      "overall_avg": 54.68,
-      "overall_efficiency": 0.015541,
+      "overall_avg": 55.42,
+      "overall_efficiency": 0.016875,
       "general_efficiency": 0.01128,
-      "math_efficiency": 0.066332,
+      "math_efficiency": 0.071667,
       "code_efficiency": -0.019162,
       "reasoning_efficiency": 0.003713,
       "general_scores": [
@@ -90120,7 +93306,15 @@
         96.2,
         60.55,
         73.0,
-        60.0
+        60.0,
+        94.09,
+        96.4,
+        72.55,
+        63.34,
+        92.87,
+        96.2,
+        74.18,
+        63.335
       ],
       "code_scores": [
         48.17,
@@ -90180,7 +93374,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 94.16
+                "score": 93.71
               }
             ]
           },
@@ -90189,7 +93383,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 96.2
+                "score": 96.27
               }
             ]
           },
@@ -90207,7 +93401,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 73.0
+                "score": 73.24
               }
             ]
           },
@@ -90216,7 +93410,7 @@
             "metrics": [
               {
                 "metric": "accuracy avg",
-                "score": 60.0
+                "score": 62.22
               }
             ]
           }
@@ -90310,13 +93504,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 6.3,
-          "math_avg": 37.02,
+          "math_avg": 40.0,
           "code_avg": -10.69,
           "reasoning_avg": 2.07,
-          "overall_avg": 8.67,
-          "overall_efficiency": 0.015541,
+          "overall_avg": 9.42,
+          "overall_efficiency": 0.016875,
           "general_efficiency": 0.01128,
-          "math_efficiency": 0.066332,
+          "math_efficiency": 0.071667,
           "code_efficiency": -0.019162,
           "reasoning_efficiency": 0.003713,
           "general_task_scores": [
@@ -90326,11 +93520,11 @@
             4.3
           ],
           "math_task_scores": [
-            14.18,
-            46.0,
+            13.73,
+            46.07,
             34.51,
-            37.09,
-            53.33
+            37.33,
+            55.55
           ],
           "code_task_scores": [
             -29.27,
@@ -90348,10 +93542,10 @@
         },
         "vs_instruct": {
           "general_avg": -8.47,
-          "math_avg": 26.78,
+          "math_avg": 29.76,
           "code_avg": -11.88,
           "reasoning_avg": 1.81,
-          "overall_avg": 2.06,
+          "overall_avg": 2.8,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -90364,11 +93558,11 @@
             -8.69
           ],
           "math_task_scores": [
-            1.89,
-            18.4,
+            1.44,
+            18.47,
             31.15,
-            32.05,
-            50.42
+            32.29,
+            52.64
           ],
           "code_task_scores": [
             -15.85,
@@ -90895,13 +94089,13 @@
       "name": "Light-R1-SFTData",
       "domain": "reasoning",
       "general_avg": 55.54,
-      "math_avg": 64.39,
+      "math_avg": 67.51,
       "code_avg": 38.84,
       "reasoning_avg": 51.85,
-      "overall_avg": 52.65,
-      "overall_efficiency": 0.083694,
+      "overall_avg": 53.43,
+      "overall_efficiency": 0.093504,
       "general_efficiency": 0.051514,
-      "math_efficiency": 0.310062,
+      "math_efficiency": 0.3493,
       "code_efficiency": -0.142311,
       "reasoning_efficiency": 0.11551,
       "general_scores": [
@@ -90915,7 +94109,15 @@
         88.0,
         43.34,
         60.24,
-        38.335
+        38.335,
+        91.96,
+        87.2,
+        60.98,
+        37.5,
+        91.05,
+        87.0,
+        62.46,
+        37.5
       ],
       "code_scores": [
         45.73,
@@ -90975,7 +94177,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 92.04
+                "score": 91.68
               }
             ]
           },
@@ -90984,7 +94186,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 88.0
+                "score": 87.4
               }
             ]
           },
@@ -91002,7 +94204,7 @@
             "metrics": [
               {
                 "metric": "accuracy",
-                "score": 60.24
+                "score": 61.23
               }
             ]
           },
@@ -91011,7 +94213,7 @@
             "metrics": [
               {
                 "metric": "accuracy avg",
-                "score": 38.34
+                "score": 37.78
               }
             ]
           }
@@ -91105,13 +94307,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 4.09,
-          "math_avg": 24.63,
+          "math_avg": 27.75,
           "code_avg": -11.3,
           "reasoning_avg": 9.18,
-          "overall_avg": 6.65,
-          "overall_efficiency": 0.083694,
+          "overall_avg": 7.43,
+          "overall_efficiency": 0.093504,
           "general_efficiency": 0.051514,
-          "math_efficiency": 0.310062,
+          "math_efficiency": 0.3493,
           "code_efficiency": -0.142311,
           "reasoning_efficiency": 0.11551,
           "general_task_scores": [
@@ -91121,11 +94323,11 @@
             2.01
           ],
           "math_task_scores": [
-            12.06,
-            37.8,
+            11.7,
+            37.2,
             17.3,
-            24.33,
-            31.67
+            25.32,
+            31.11
           ],
           "code_task_scores": [
             -31.71,
@@ -91143,10 +94345,10 @@
         },
         "vs_instruct": {
           "general_avg": -10.67,
-          "math_avg": 14.39,
+          "math_avg": 17.51,
           "code_avg": -12.49,
           "reasoning_avg": 8.92,
-          "overall_avg": 0.04,
+          "overall_avg": 0.81,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -91159,11 +94361,11 @@
             -10.98
           ],
           "math_task_scores": [
-            -0.23,
-            10.2,
+            -0.59,
+            9.6,
             13.94,
-            19.29,
-            28.76
+            20.28,
+            28.2
           ],
           "code_task_scores": [
             -18.29,
@@ -91186,7 +94388,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
       "tag": "general,math,code,science"
     },
     {
@@ -91485,8 +94687,2998 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
       "tag": "general,math"
+    },
+    {
+      "id": 91,
+      "name": "OpenThoughts3-1.2M",
+      "domain": "reasoning",
+      "general_avg": 45.47,
+      "math_avg": 71.82,
+      "code_avg": 67.0,
+      "reasoning_avg": 54.25,
+      "overall_avg": 59.63,
+      "overall_efficiency": 0.011356,
+      "general_efficiency": -0.004975,
+      "math_efficiency": 0.026714,
+      "code_efficiency": 0.014046,
+      "reasoning_efficiency": 0.009643,
+      "general_scores": [
+        68.51,
+        31.7,
+        48.38,
+        33.305
+      ],
+      "math_scores": [
+        91.66,
+        93.8,
+        44.78,
+        68.84,
+        60.0
+      ],
+      "code_scores": [
+        78.66,
+        79.38,
+        31.9,
+        78.05
+      ],
+      "reasoning_scores": [
+        82.71,
+        70.65,
+        28.79,
+        32.8586957,
+        56.24
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.51
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 31.7
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 48.38
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 33.3
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 91.66
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 93.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 44.78
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.84
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 60.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 78.66
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 79.38
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 31.9
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 78.05
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 82.71
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 70.65
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.79
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 32.86
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 56.24
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -5.97,
+          "math_avg": 32.06,
+          "code_avg": 16.86,
+          "reasoning_avg": 11.57,
+          "overall_avg": 13.63,
+          "overall_efficiency": 0.011356,
+          "general_efficiency": -0.004975,
+          "math_efficiency": 0.026714,
+          "code_efficiency": 0.014046,
+          "reasoning_efficiency": 0.009643,
+          "general_task_scores": [
+            0.2,
+            -3.79,
+            -9.36,
+            -10.94
+          ],
+          "math_task_scores": [
+            11.68,
+            43.6,
+            18.74,
+            32.93,
+            53.33
+          ],
+          "code_task_scores": [
+            1.22,
+            7.78,
+            23.66,
+            34.76
+          ],
+          "reasoning_task_scores": [
+            46.11,
+            1.19,
+            -6.06,
+            -6.34,
+            22.96
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -20.73,
+          "math_avg": 21.82,
+          "code_avg": 15.67,
+          "reasoning_avg": 11.31,
+          "overall_avg": 7.01,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            1.31,
+            -41.26,
+            -19.06,
+            -23.93
+          ],
+          "math_task_scores": [
+            -0.61,
+            16.0,
+            15.38,
+            27.89,
+            50.42
+          ],
+          "code_task_scores": [
+            14.64,
+            4.67,
+            20.79,
+            22.56
+          ],
+          "reasoning_task_scores": [
+            57.29,
+            -0.97,
+            -5.05,
+            -9.59,
+            14.88
+          ]
+        }
+      },
+      "affiliation": "Stanford University",
+      "year": "2025",
+      "size": "1.2M",
+      "size_precise": "1200000",
+      "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts3-1.2M",
+      "paper_link": "https://arxiv.org/abs/2506.04178",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts3-1_2M-all_scored",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 92,
+      "name": "MegaScience",
+      "domain": "reasoning",
+      "general_avg": 61.75,
+      "math_avg": 51.55,
+      "code_avg": 58.59,
+      "reasoning_avg": 40.87,
+      "overall_avg": 53.19,
+      "overall_efficiency": 0.005732,
+      "general_efficiency": 0.008221,
+      "math_efficiency": 0.009412,
+      "code_efficiency": 0.00674,
+      "reasoning_efficiency": -0.001443,
+      "general_scores": [
+        75.9,
+        48.075,
+        65.34,
+        57.6728571
+      ],
+      "math_scores": [
+        90.14,
+        77.8,
+        28.66,
+        44.51,
+        16.665
+      ],
+      "code_scores": [
+        79.27,
+        68.09,
+        15.05,
+        71.95
+      ],
+      "reasoning_scores": [
+        15.93,
+        71.77,
+        36.36,
+        31.1630435,
+        49.12
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 75.9
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 48.08
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 65.34
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 57.67
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 90.14
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 77.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.66
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 44.51
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 16.66
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 79.27
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 68.09
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 15.05
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 71.95
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 15.93
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 71.77
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 36.36
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 31.16
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 49.12
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 10.3,
+          "math_avg": 11.79,
+          "code_avg": 8.45,
+          "reasoning_avg": -1.81,
+          "overall_avg": 7.18,
+          "overall_efficiency": 0.005732,
+          "general_efficiency": 0.008221,
+          "math_efficiency": 0.009412,
+          "code_efficiency": 0.00674,
+          "reasoning_efficiency": -0.001443,
+          "general_task_scores": [
+            7.59,
+            12.59,
+            7.6,
+            13.43
+          ],
+          "math_task_scores": [
+            10.16,
+            27.6,
+            2.62,
+            8.6,
+            9.99
+          ],
+          "code_task_scores": [
+            1.83,
+            -3.51,
+            6.81,
+            28.66
+          ],
+          "reasoning_task_scores": [
+            -20.67,
+            2.31,
+            1.51,
+            -8.04,
+            15.84
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -4.46,
+          "math_avg": 1.55,
+          "code_avg": 7.26,
+          "reasoning_avg": -2.07,
+          "overall_avg": 0.57,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            8.7,
+            -24.88,
+            -2.1,
+            0.44
+          ],
+          "math_task_scores": [
+            -2.13,
+            0.0,
+            -0.74,
+            3.56,
+            7.08
+          ],
+          "code_task_scores": [
+            15.25,
+            -6.62,
+            3.94,
+            16.46
+          ],
+          "reasoning_task_scores": [
+            -9.49,
+            0.15,
+            2.52,
+            -11.29,
+            7.76
+          ]
+        }
+      },
+      "affiliation": "MegaScience",
+      "year": "2025",
+      "size": "1.25M",
+      "size_precise": "1253230",
+      "link": "https://huggingface.co/datasets/MegaScience/MegaScience",
+      "paper_link": "https://arxiv.org/abs/2507.16812",
+      "scored_link": "",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 93,
+      "name": "TextbookReasoning",
+      "domain": "reasoning",
+      "general_avg": 62.85,
+      "math_avg": 48.06,
+      "code_avg": 57.84,
+      "reasoning_avg": 41.1,
+      "overall_avg": 52.46,
+      "overall_efficiency": 0.009905,
+      "general_efficiency": 0.017504,
+      "math_efficiency": 0.012727,
+      "code_efficiency": 0.011805,
+      "reasoning_efficiency": -0.002415,
+      "general_scores": [
+        79.73,
+        49.155,
+        67.73,
+        54.8014286
+      ],
+      "math_scores": [
+        90.98,
+        73.6,
+        28.23,
+        40.8,
+        6.67
+      ],
+      "code_scores": [
+        82.93,
+        65.76,
+        12.54,
+        70.12
+      ],
+      "reasoning_scores": [
+        21.02,
+        71.42,
+        28.79,
+        34.3695652,
+        49.92
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 79.73
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 49.16
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 67.73
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 54.8
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 90.98
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 73.6
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.23
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 40.8
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 6.67
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 82.93
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 65.76
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 12.54
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 70.12
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.02
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 71.42
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 28.79
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 34.37
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 49.92
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 11.41,
+          "math_avg": 8.3,
+          "code_avg": 7.7,
+          "reasoning_avg": -1.57,
+          "overall_avg": 6.46,
+          "overall_efficiency": 0.009905,
+          "general_efficiency": 0.017504,
+          "math_efficiency": 0.012727,
+          "code_efficiency": 0.011805,
+          "reasoning_efficiency": -0.002415,
+          "general_task_scores": [
+            11.42,
+            13.67,
+            9.99,
+            10.56
+          ],
+          "math_task_scores": [
+            11.0,
+            23.4,
+            2.19,
+            4.89,
+            0.0
+          ],
+          "code_task_scores": [
+            5.49,
+            -5.84,
+            4.3,
+            26.83
+          ],
+          "reasoning_task_scores": [
+            -15.58,
+            1.96,
+            -6.06,
+            -4.83,
+            16.64
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -3.35,
+          "math_avg": -1.94,
+          "code_avg": 6.51,
+          "reasoning_avg": -1.83,
+          "overall_avg": -0.16,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            12.53,
+            -23.8,
+            0.29,
+            -2.43
+          ],
+          "math_task_scores": [
+            -1.29,
+            -4.2,
+            -1.17,
+            -0.15,
+            -2.91
+          ],
+          "code_task_scores": [
+            18.91,
+            -8.95,
+            1.43,
+            14.63
+          ],
+          "reasoning_task_scores": [
+            -4.4,
+            -0.2,
+            -5.05,
+            -8.08,
+            8.56
+          ]
+        }
+      },
+      "affiliation": "MegaScience",
+      "year": "2025",
+      "size": "652k",
+      "size_precise": "651840",
+      "link": "https://huggingface.co/datasets/MegaScience/TextbookReasoning",
+      "paper_link": "https://arxiv.org/abs/2507.16812",
+      "scored_link": "",
+      "tag": "general,math,science"
+    },
+    {
+      "id": 94,
+      "name": "doocs-leetcode-solutions",
+      "domain": "reasoning",
+      "general_avg": 47.69,
+      "math_avg": 32.8,
+      "code_avg": 3.05,
+      "reasoning_avg": 33.21,
+      "overall_avg": 29.19,
+      "overall_efficiency": -0.98086,
+      "general_efficiency": -0.218973,
+      "math_efficiency": -0.405785,
+      "code_efficiency": -2.746398,
+      "reasoning_efficiency": -0.552284,
+      "general_scores": [
+        49.97,
+        41.9625,
+        56.6,
+        42.2264286
+      ],
+      "math_scores": [
+        87.11,
+        50.0,
+        26.9,
+        0.0,
+        0.0
+      ],
+      "code_scores": [
+        12.2,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reasoning_scores": [
+        31.53,
+        70.09,
+        34.34,
+        28.0,
+        2.08
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 49.97
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 41.96
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 56.6
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 42.23
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 87.11
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 50.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 26.9
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 12.2
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 31.53
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 70.09
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 34.34
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 28.0
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 2.08
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -3.75,
+          "math_avg": -6.96,
+          "code_avg": -47.09,
+          "reasoning_avg": -9.47,
+          "overall_avg": -16.82,
+          "overall_efficiency": -0.98086,
+          "general_efficiency": -0.218973,
+          "math_efficiency": -0.405785,
+          "code_efficiency": -2.746398,
+          "reasoning_efficiency": -0.552284,
+          "general_task_scores": [
+            -18.34,
+            6.47,
+            -1.14,
+            -2.01
+          ],
+          "math_task_scores": [
+            7.13,
+            -0.2,
+            0.86,
+            -35.91,
+            -6.67
+          ],
+          "code_task_scores": [
+            -65.24,
+            -71.6,
+            -8.24,
+            -43.29
+          ],
+          "reasoning_task_scores": [
+            -5.07,
+            0.63,
+            -0.51,
+            -11.2,
+            -31.2
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -18.52,
+          "math_avg": -17.2,
+          "code_avg": -48.28,
+          "reasoning_avg": -9.73,
+          "overall_avg": -23.43,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -17.23,
+            -31.0,
+            -10.84,
+            -15.0
+          ],
+          "math_task_scores": [
+            -5.16,
+            -27.8,
+            -2.5,
+            -40.95,
+            -9.58
+          ],
+          "code_task_scores": [
+            -51.82,
+            -74.71,
+            -11.11,
+            -55.49
+          ],
+          "reasoning_task_scores": [
+            6.11,
+            -1.53,
+            0.5,
+            -14.45,
+            -39.28
+          ]
+        }
+      },
+      "affiliation": "olegshulyakov",
+      "year": "2025",
+      "size": "17k",
+      "size_precise": "17147",
+      "link": "https://huggingface.co/datasets/olegshulyakov/doocs-leetcode-solutions",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "code"
+    },
+    {
+      "id": 95,
+      "name": "gsm8k-aug",
+      "domain": "reasoning",
+      "general_avg": 54.22,
+      "math_avg": 27.26,
+      "code_avg": 34.92,
+      "reasoning_avg": 41.35,
+      "overall_avg": 39.44,
+      "overall_efficiency": -0.01703,
+      "general_efficiency": 0.007205,
+      "math_efficiency": -0.03241,
+      "code_efficiency": -0.039476,
+      "reasoning_efficiency": -0.003438,
+      "general_scores": [
+        62.58,
+        51.9675,
+        59.33,
+        43.0135714
+      ],
+      "math_scores": [
+        87.19,
+        29.0,
+        12.04,
+        4.75,
+        3.33
+      ],
+      "code_scores": [
+        0.0,
+        68.09,
+        11.83,
+        59.76
+      ],
+      "reasoning_scores": [
+        29.49,
+        67.22,
+        29.29,
+        44.7608696,
+        36.0
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 62.58
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 51.97
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 59.33
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 43.01
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 87.19
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 12.04
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 4.75
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 3.33
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 68.09
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 11.83
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 59.76
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.49
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 67.22
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 29.29
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 44.76
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 36.0
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 2.78,
+          "math_avg": -12.5,
+          "code_avg": -15.22,
+          "reasoning_avg": -1.33,
+          "overall_avg": -6.57,
+          "overall_efficiency": -0.01703,
+          "general_efficiency": 0.007205,
+          "math_efficiency": -0.03241,
+          "code_efficiency": -0.039476,
+          "reasoning_efficiency": -0.003438,
+          "general_task_scores": [
+            -5.73,
+            16.48,
+            1.59,
+            -1.23
+          ],
+          "math_task_scores": [
+            7.21,
+            -21.2,
+            -14.0,
+            -31.16,
+            -3.34
+          ],
+          "code_task_scores": [
+            -77.44,
+            -3.51,
+            3.59,
+            16.47
+          ],
+          "reasoning_task_scores": [
+            -7.11,
+            -2.24,
+            -5.56,
+            5.56,
+            2.72
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -11.99,
+          "math_avg": -22.74,
+          "code_avg": -16.41,
+          "reasoning_avg": -1.58,
+          "overall_avg": -13.18,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -4.62,
+            -20.99,
+            -8.11,
+            -14.22
+          ],
+          "math_task_scores": [
+            -5.08,
+            -48.8,
+            -17.36,
+            -36.2,
+            -6.25
+          ],
+          "code_task_scores": [
+            -64.02,
+            -6.62,
+            0.72,
+            4.27
+          ],
+          "reasoning_task_scores": [
+            4.07,
+            -4.4,
+            -4.55,
+            2.31,
+            -5.36
+          ]
+        }
+      },
+      "affiliation": "whynlp",
+      "year": "2025",
+      "size": "386k",
+      "size_precise": "385620",
+      "link": "https://huggingface.co/datasets/whynlp/gsm8k-aug",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 96,
+      "name": "DAG-Reasoning-DeepSeek-R1-0528",
+      "domain": "reasoning",
+      "general_avg": 56.1,
+      "math_avg": 46.13,
+      "code_avg": 36.7,
+      "reasoning_avg": 42.24,
+      "overall_avg": 45.29,
+      "overall_efficiency": -0.174557,
+      "general_efficiency": 1.139814,
+      "math_efficiency": 1.559501,
+      "code_efficiency": -3.290891,
+      "reasoning_efficiency": -0.106652,
+      "general_scores": [
+        61.77,
+        46.75,
+        64.3,
+        51.5778571
+      ],
+      "math_scores": [
+        86.88,
+        68.0,
+        25.23,
+        38.87,
+        11.665
+      ],
+      "code_scores": [
+        0.61,
+        73.54,
+        12.9,
+        59.76
+      ],
+      "reasoning_scores": [
+        26.78,
+        71.29,
+        35.86,
+        30.4021739,
+        46.88
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.77
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 46.75
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 64.3
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 51.58
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 86.88
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 25.23
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 38.87
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 11.66
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.61
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 73.54
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 12.9
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 59.76
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 26.78
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 71.29
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 35.86
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 30.4
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 46.88
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 4.66,
+          "math_avg": 6.37,
+          "code_avg": -13.44,
+          "reasoning_avg": -0.44,
+          "overall_avg": -0.71,
+          "overall_efficiency": -0.174557,
+          "general_efficiency": 1.139814,
+          "math_efficiency": 1.559501,
+          "code_efficiency": -3.290891,
+          "reasoning_efficiency": -0.106652,
+          "general_task_scores": [
+            -6.54,
+            11.26,
+            6.56,
+            7.34
+          ],
+          "math_task_scores": [
+            6.9,
+            17.8,
+            -0.81,
+            2.96,
+            4.99
+          ],
+          "code_task_scores": [
+            -76.83,
+            1.94,
+            4.66,
+            16.47
+          ],
+          "reasoning_task_scores": [
+            -9.82,
+            1.83,
+            1.01,
+            -8.8,
+            13.6
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -10.11,
+          "math_avg": -3.87,
+          "code_avg": -14.63,
+          "reasoning_avg": -0.69,
+          "overall_avg": -7.33,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -5.43,
+            -26.21,
+            -3.14,
+            -5.65
+          ],
+          "math_task_scores": [
+            -5.39,
+            -9.8,
+            -4.17,
+            -2.08,
+            2.08
+          ],
+          "code_task_scores": [
+            -63.41,
+            -1.17,
+            1.79,
+            4.27
+          ],
+          "reasoning_task_scores": [
+            1.36,
+            -0.33,
+            2.02,
+            -12.05,
+            5.52
+          ]
+        }
+      },
+      "affiliation": "sequelbox",
+      "year": "2025",
+      "size": "4k",
+      "size_precise": "4084",
+      "link": "https://huggingface.co/datasets/sequelbox/DAG-Reasoning-DeepSeek-R1-0528",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "science"
+    },
+    {
+      "id": 97,
+      "name": "SYNTHETIC-2-SFT-verified",
+      "domain": "reasoning",
+      "general_avg": 51.31,
+      "math_avg": 69.8,
+      "code_avg": 40.09,
+      "reasoning_avg": 58.87,
+      "overall_avg": 55.02,
+      "overall_efficiency": 0.085912,
+      "general_efficiency": -0.001251,
+      "math_efficiency": 0.28637,
+      "code_efficiency": -0.095842,
+      "reasoning_efficiency": 0.154369,
+      "general_scores": [
+        50.1,
+        35.545,
+        64.72,
+        54.8878571
+      ],
+      "math_scores": [
+        92.12,
+        90.0,
+        54.54,
+        67.36,
+        45.0
+      ],
+      "code_scores": [
+        42.07,
+        66.93,
+        11.11,
+        40.24
+      ],
+      "reasoning_scores": [
+        93.22,
+        81.07,
+        31.82,
+        29.4565217,
+        58.8
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 50.1
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 35.54
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 64.72
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 54.89
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 92.12
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 90.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 54.54
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 67.36
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 45.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 42.07
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 66.93
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 11.11
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 40.24
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 93.22
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 81.07
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 31.82
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 29.46
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 58.8
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -0.13,
+          "math_avg": 30.04,
+          "code_avg": -10.06,
+          "reasoning_avg": 16.2,
+          "overall_avg": 9.01,
+          "overall_efficiency": 0.085912,
+          "general_efficiency": -0.001251,
+          "math_efficiency": 0.28637,
+          "code_efficiency": -0.095842,
+          "reasoning_efficiency": 0.154369,
+          "general_task_scores": [
+            -18.21,
+            0.05,
+            6.98,
+            10.65
+          ],
+          "math_task_scores": [
+            12.14,
+            39.8,
+            28.5,
+            31.45,
+            38.33
+          ],
+          "code_task_scores": [
+            -35.37,
+            -4.67,
+            2.87,
+            -3.05
+          ],
+          "reasoning_task_scores": [
+            56.62,
+            11.61,
+            -3.03,
+            -9.74,
+            25.52
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -14.9,
+          "math_avg": 19.8,
+          "code_avg": -11.24,
+          "reasoning_avg": 15.94,
+          "overall_avg": 2.4,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -17.1,
+            -37.42,
+            -2.72,
+            -2.34
+          ],
+          "math_task_scores": [
+            -0.15,
+            12.2,
+            25.14,
+            26.41,
+            35.42
+          ],
+          "code_task_scores": [
+            -21.95,
+            -7.78,
+            0.0,
+            -15.25
+          ],
+          "reasoning_task_scores": [
+            67.8,
+            9.45,
+            -2.02,
+            -12.99,
+            17.44
+          ]
+        }
+      },
+      "affiliation": "PrimeIntellect",
+      "year": "2025",
+      "size": "105k",
+      "size_precise": "104913",
+      "link": "https://huggingface.co/datasets/PrimeIntellect/SYNTHETIC-2-SFT-verified",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "general,math,code,science"
+    },
+    {
+      "id": 98,
+      "name": "omega-explorative",
+      "domain": "reasoning",
+      "general_avg": 41.46,
+      "math_avg": 16.7,
+      "code_avg": 52.23,
+      "reasoning_avg": 37.78,
+      "overall_avg": 37.04,
+      "overall_efficiency": -0.20861,
+      "general_efficiency": -0.232339,
+      "math_efficiency": -0.536728,
+      "code_efficiency": 0.048529,
+      "reasoning_efficiency": -0.113903,
+      "general_scores": [
+        63.88,
+        39.0525,
+        61.29,
+        1.62642857
+      ],
+      "math_scores": [
+        37.07,
+        27.0,
+        12.31,
+        7.12,
+        0.0
+      ],
+      "code_scores": [
+        73.17,
+        71.21,
+        5.38,
+        59.15
+      ],
+      "reasoning_scores": [
+        24.41,
+        65.05,
+        35.86,
+        42.6413043,
+        20.96
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 63.88
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 39.05
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.29
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 1.63
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 37.07
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 27.0
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 12.31
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 7.12
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 73.17
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 71.21
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 5.38
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 59.15
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 24.41
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 65.05
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 35.86
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 42.64
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 20.96
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -9.98,
+          "math_avg": -23.06,
+          "code_avg": 2.09,
+          "reasoning_avg": -4.89,
+          "overall_avg": -8.96,
+          "overall_efficiency": -0.20861,
+          "general_efficiency": -0.232339,
+          "math_efficiency": -0.536728,
+          "code_efficiency": 0.048529,
+          "reasoning_efficiency": -0.113903,
+          "general_task_scores": [
+            -4.43,
+            3.56,
+            3.55,
+            -42.61
+          ],
+          "math_task_scores": [
+            -42.91,
+            -23.2,
+            -13.73,
+            -28.79,
+            -6.67
+          ],
+          "code_task_scores": [
+            -4.27,
+            -0.39,
+            -2.86,
+            15.86
+          ],
+          "reasoning_task_scores": [
+            -12.19,
+            -4.41,
+            1.01,
+            3.44,
+            -12.32
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -24.75,
+          "math_avg": -33.3,
+          "code_avg": 0.9,
+          "reasoning_avg": -5.15,
+          "overall_avg": -15.58,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            -3.32,
+            -33.91,
+            -6.15,
+            -55.6
+          ],
+          "math_task_scores": [
+            -55.2,
+            -50.8,
+            -17.09,
+            -33.83,
+            -9.58
+          ],
+          "code_task_scores": [
+            9.15,
+            -3.5,
+            -5.73,
+            3.66
+          ],
+          "reasoning_task_scores": [
+            -1.01,
+            -6.57,
+            2.02,
+            0.19,
+            -20.4
+          ]
+        }
+      },
+      "affiliation": "Allen AI",
+      "year": "2025",
+      "size": "43k",
+      "size_precise": "42964",
+      "link": "https://huggingface.co/datasets/allenai/omega-explorative",
+      "paper_link": "https://arxiv.org/html/2507.00432v1",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 99,
+      "name": "LIMO",
+      "domain": "reasoning",
+      "general_avg": 60.73,
+      "math_avg": 44.0,
+      "code_avg": 57.92,
+      "reasoning_avg": 53.81,
+      "overall_avg": 54.11,
+      "overall_efficiency": 9.924711,
+      "general_efficiency": 11.365295,
+      "math_efficiency": 5.193084,
+      "code_efficiency": 9.519584,
+      "reasoning_efficiency": 13.620882,
+      "general_scores": [
+        73.51,
+        53.2925,
+        61.47,
+        54.6471429
+      ],
+      "math_scores": [
+        92.12,
+        66.8,
+        21.64,
+        34.87,
+        4.58375
+      ],
+      "code_scores": [
+        83.54,
+        70.82,
+        17.56,
+        59.76
+      ],
+      "reasoning_scores": [
+        90.85,
+        55.62,
+        35.35,
+        38.8913043,
+        48.32
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 73.51
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 53.29
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 61.47
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 54.65
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 92.12
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 66.8
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 21.64
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 34.87
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 4.58
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 83.54
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 70.82
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 17.56
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 59.76
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 90.85
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 55.62
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 35.35
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 38.89
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 48.32
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": 9.29,
+          "math_avg": 4.24,
+          "code_avg": 7.78,
+          "reasoning_avg": 11.13,
+          "overall_avg": 8.11,
+          "overall_efficiency": 9.924711,
+          "general_efficiency": 11.365295,
+          "math_efficiency": 5.193084,
+          "code_efficiency": 9.519584,
+          "reasoning_efficiency": 13.620882,
+          "general_task_scores": [
+            5.2,
+            17.8,
+            3.73,
+            10.41
+          ],
+          "math_task_scores": [
+            12.14,
+            16.6,
+            -4.4,
+            -1.04,
+            -2.09
+          ],
+          "code_task_scores": [
+            6.1,
+            -0.78,
+            9.32,
+            16.47
+          ],
+          "reasoning_task_scores": [
+            54.25,
+            -13.84,
+            0.5,
+            -0.31,
+            15.04
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -5.48,
+          "math_avg": -6.0,
+          "code_avg": 6.59,
+          "reasoning_avg": 10.87,
+          "overall_avg": 1.49,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            6.31,
+            -19.67,
+            -5.97,
+            -2.58
+          ],
+          "math_task_scores": [
+            -0.15,
+            -11.0,
+            -7.76,
+            -6.08,
+            -5.0
+          ],
+          "code_task_scores": [
+            19.52,
+            -3.89,
+            6.45,
+            4.27
+          ],
+          "reasoning_task_scores": [
+            65.43,
+            -16.0,
+            1.51,
+            -3.56,
+            6.96
+          ]
+        }
+      },
+      "affiliation": "GAIR",
+      "year": "2025",
+      "size": "817",
+      "size_precise": "817",
+      "link": "https://huggingface.co/datasets/GAIR/LIMO",
+      "paper_link": "https://arxiv.org/abs/2502.03387",
+      "scored_link": "",
+      "tag": "math"
+    },
+    {
+      "id": 100,
+      "name": "LIMO-v2",
+      "domain": "reasoning",
+      "general_avg": 50.73,
+      "math_avg": 37.8,
+      "code_avg": 30.03,
+      "reasoning_avg": 37.41,
+      "overall_avg": 38.99,
+      "overall_efficiency": -8.767965,
+      "general_efficiency": -0.897321,
+      "math_efficiency": -2.445,
+      "code_efficiency": -25.140625,
+      "reasoning_efficiency": -6.588913,
+      "general_scores": [
+        81.41,
+        32.34,
+        50.86,
+        38.2964286
+      ],
+      "math_scores": [
+        88.7,
+        55.6,
+        15.79,
+        22.26,
+        6.67
+      ],
+      "code_scores": [
+        0.61,
+        69.65,
+        1.08,
+        48.78
+      ],
+      "reasoning_scores": [
+        64.75,
+        43.03,
+        12.63,
+        30.3043478,
+        36.32
+      ],
+      "task_details": {
+        "general_tasks": [
+          {
+            "task_name": "Drop",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 81.41
+              }
+            ]
+          },
+          {
+            "task_name": "IFEval",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 32.34
+              }
+            ]
+          },
+          {
+            "task_name": "AGIEval",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 50.86
+              }
+            ]
+          },
+          {
+            "task_name": "mmlu pro",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 38.3
+              }
+            ]
+          }
+        ],
+        "math_tasks": [
+          {
+            "task_name": "GSM8k",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 88.7
+              }
+            ]
+          },
+          {
+            "task_name": "MATH500",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 55.6
+              }
+            ]
+          },
+          {
+            "task_name": "Omni-MATH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 15.79
+              }
+            ]
+          },
+          {
+            "task_name": "OlympiadBenchMath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 22.26
+              }
+            ]
+          },
+          {
+            "task_name": "AIME2024",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 6.67
+              }
+            ]
+          }
+        ],
+        "code_tasks": [
+          {
+            "task_name": "humaneval",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 0.61
+              }
+            ]
+          },
+          {
+            "task_name": "MBPP",
+            "metrics": [
+              {
+                "metric": "score",
+                "score": 69.65
+              }
+            ]
+          },
+          {
+            "task_name": "LCB(v5)",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 1.08
+              }
+            ]
+          },
+          {
+            "task_name": "humaneval+",
+            "metrics": [
+              {
+                "metric": "pass@1",
+                "score": 48.78
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "ARC-C",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 64.75
+              }
+            ]
+          },
+          {
+            "task_name": "BBH",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 43.03
+              }
+            ]
+          },
+          {
+            "task_name": "GPQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 12.63
+              }
+            ]
+          },
+          {
+            "task_name": "CaLM",
+            "metrics": [
+              {
+                "metric": "accuracy avg",
+                "score": 30.3
+              }
+            ]
+          },
+          {
+            "task_name": "KOR-Bench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 36.32
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_base": {
+          "general_avg": -0.72,
+          "math_avg": -1.96,
+          "code_avg": -20.11,
+          "reasoning_avg": -5.27,
+          "overall_avg": -7.01,
+          "overall_efficiency": -8.767965,
+          "general_efficiency": -0.897321,
+          "math_efficiency": -2.445,
+          "code_efficiency": -25.140625,
+          "reasoning_efficiency": -6.588913,
+          "general_task_scores": [
+            13.1,
+            -3.15,
+            -6.88,
+            -5.94
+          ],
+          "math_task_scores": [
+            8.72,
+            5.4,
+            -10.25,
+            -13.65,
+            0.0
+          ],
+          "code_task_scores": [
+            -76.83,
+            -1.95,
+            -7.16,
+            5.49
+          ],
+          "reasoning_task_scores": [
+            28.15,
+            -26.43,
+            -22.22,
+            -8.9,
+            3.04
+          ]
+        },
+        "vs_instruct": {
+          "general_avg": -15.48,
+          "math_avg": -12.2,
+          "code_avg": -21.3,
+          "reasoning_avg": -5.53,
+          "overall_avg": -13.63,
+          "overall_efficiency": 0,
+          "general_efficiency": 0,
+          "math_efficiency": 0,
+          "code_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_task_scores": [
+            14.21,
+            -40.62,
+            -16.58,
+            -18.93
+          ],
+          "math_task_scores": [
+            -3.57,
+            -22.2,
+            -13.61,
+            -18.69,
+            -2.91
+          ],
+          "code_task_scores": [
+            -63.41,
+            -5.06,
+            -10.03,
+            -6.71
+          ],
+          "reasoning_task_scores": [
+            39.33,
+            -28.59,
+            -21.21,
+            -12.15,
+            -5.04
+          ]
+        }
+      },
+      "affiliation": "GAIR",
+      "year": "2025",
+      "size": "800",
+      "size_precise": "800",
+      "link": "https://huggingface.co/datasets/GAIR/LIMO-v2",
+      "paper_link": "https://arxiv.org/abs/2502.03387",
+      "scored_link": "",
+      "tag": "math"
     }
   ]
 }
