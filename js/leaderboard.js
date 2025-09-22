@@ -18,7 +18,7 @@ const app = createApp({
 		// --- Add missing reactive state refs ---
 		const loading = ref(false);
 		const error = ref(null);
-		const rawData = ref({ llama: [], qwen: [] });
+		const rawData = ref({ llama: [], qwen: [], qwen3: [] });
 		const currentModel = ref("llama");
 		const improvementType = ref("vs_base");
 
@@ -71,6 +71,7 @@ const app = createApp({
 		const models = ref([
 			{ id: "llama", nameKey: "lb_llama_family", icon: "fas fa-robot" },
 			{ id: "qwen", nameKey: "lb_qwen_family", icon: "fas fa-microchip" },
+			{ id: "qwen3", nameKey: "lb_qwen3_family", icon: "fas fa-microchip" },
 		]);
 
 		// 选择比较基准的函数
@@ -100,6 +101,7 @@ const app = createApp({
 				rawData.value = {
 					llama: generateMockData("LLaMA"),
 					qwen: generateMockData("Qwen"),
+					qwen3: generateMockData("Qwen3"),
 				};
 			} finally {
 				loading.value = false;

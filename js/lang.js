@@ -189,8 +189,9 @@ export const lang_index = {
 export const lang_leaderboard = {
 	en: {
 		lb_model_family: "Model Family",
-		lb_llama_family: "Llama Family",
-		lb_qwen_family: "Qwen Family",
+		lb_llama_family: "Llama-3.1 Family",
+		lb_qwen_family: "Qwen2.5 Family",
+		lb_qwen3_family: "Qwen3 Family",
 		lb_include: "include",
 		lb_only: "only",
 		lb_dataset_tags: "Dataset Tags",
@@ -212,8 +213,9 @@ export const lang_leaderboard = {
 	},
 	zh: {
 		lb_model_family: "模型系列",
-		lb_llama_family: "Llama 系列",
-		lb_qwen_family: "Qwen 系列",
+		lb_llama_family: "Llama-3.1 系列",
+		lb_qwen_family: "Qwen2.5 系列",
+		lb_qwen3_family: "Qwen3 系列",
 		lb_include: "包含",
 		lb_only: "仅有",
 		lb_dataset_tags: "数据集标签",
