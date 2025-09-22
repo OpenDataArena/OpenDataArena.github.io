@@ -49920,11 +49920,11 @@
       "code_avg": 14.77,
       "reasoning_avg": 49.1,
       "overall_avg": 43.76,
-      "overall_efficiency": 0,
-      "general_efficiency": 0,
-      "math_efficiency": 0,
-      "code_efficiency": 0,
-      "reasoning_efficiency": 0,
+      "overall_efficiency": 0.015867,
+      "general_efficiency": 0.006954,
+      "math_efficiency": 0.071074,
+      "code_efficiency": -0.019994,
+      "reasoning_efficiency": 0.005431,
       "general_scores": [
         81.28,
         30.5025,
@@ -50130,11 +50130,11 @@
           "code_avg": -14.38,
           "reasoning_avg": 3.91,
           "overall_avg": 11.41,
-          "overall_efficiency": 0,
-          "general_efficiency": 0,
-          "math_efficiency": 0,
-          "code_efficiency": 0,
-          "reasoning_efficiency": 0,
+          "overall_efficiency": 0.015867,
+          "general_efficiency": 0.006954,
+          "math_efficiency": 0.071074,
+          "code_efficiency": -0.019994,
+          "reasoning_efficiency": 0.005431,
           "general_task_scores": [
             16.91,
             10.16,
@@ -50200,7 +50200,15 @@
             3.04
           ]
         }
-      }
+      },
+      "affiliation": "miromind-ai",
+      "year": "2025",
+      "size": "719k",
+      "size_precise": "719232",
+      "link": "https://huggingface.co/datasets/miromind-ai/MiroMind-M1-SFT-719K",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "math"
     }
   ],
   "qwen": [
@@ -100627,11 +100635,11 @@
       "code_avg": 26.29,
       "reasoning_avg": 51.54,
       "overall_avg": 50.21,
-      "overall_efficiency": 0,
-      "general_efficiency": 0,
-      "math_efficiency": 0,
-      "code_efficiency": 0,
-      "reasoning_efficiency": 0,
+      "overall_efficiency": 0.005848,
+      "general_efficiency": 0.000829,
+      "math_efficiency": 0.043402,
+      "code_efficiency": -0.033161,
+      "reasoning_efficiency": 0.012323,
       "general_scores": [
         82.25,
         30.59,
@@ -100837,11 +100845,11 @@
           "code_avg": -23.85,
           "reasoning_avg": 8.86,
           "overall_avg": 4.21,
-          "overall_efficiency": 0,
-          "general_efficiency": 0,
-          "math_efficiency": 0,
-          "code_efficiency": 0,
-          "reasoning_efficiency": 0,
+          "overall_efficiency": 0.005848,
+          "general_efficiency": 0.000829,
+          "math_efficiency": 0.043402,
+          "code_efficiency": -0.033161,
+          "reasoning_efficiency": 0.012323,
           "general_task_scores": [
             13.94,
             -4.9,
@@ -100907,352 +100915,15 @@
             10.08
           ]
         }
-      }
-    },
-    {
-      "id": 107,
-      "name": "instruct",
-      "domain": "reasoning",
-      "general_avg": 57.61,
-      "math_avg": 57.34,
-      "code_avg": 52.64,
-      "reasoning_avg": 48.57,
-      "overall_avg": 54.04,
-      "overall_efficiency": 0,
-      "general_efficiency": 0,
-      "math_efficiency": 0,
-      "code_efficiency": 0,
-      "reasoning_efficiency": 0,
-      "general_scores": [
-        67.2,
-        72.96,
-        67.44,
-        57.2342857,
-        78.78,
-        49.08,
-        58.02,
-        46.2514286,
-        83.49,
-        28.0475,
-        39.43,
-        42.3685714,
-        55.4,
-        62.57,
-        66.09,
-        47.36071428571429
-      ],
-      "math_scores": [
-        92.27,
-        77.8,
-        29.4,
-        40.95,
-        9.58375,
-        85.44,
-        62.6,
-        28.18,
-        28.34,
-        19.5825,
-        88.93,
-        92.8,
-        57.77,
-        70.03,
-        56.67,
-        88.48,
-        77.6,
-        43.86,
-        53.26,
-        43.33
-      ],
-      "code_scores": [
-        64.02,
-        74.71,
-        11.11,
-        55.49,
-        78.66,
-        70.43,
-        27.96,
-        72.56,
-        40.85,
-        58.75,
-        10.75,
-        46.95,
-        75.61,
-        74.32,
-        15.41,
-        64.63
-      ],
-      "reasoning_scores": [
-        25.42,
-        71.62,
-        33.84,
-        42.445652,
-        41.36,
-        74.24,
-        68.87,
-        32.32,
-        35.206522,
-        45.2,
-        72.54,
-        61.69,
-        18.18,
-        26.01087,
-        49.44,
-        88.14,
-        68.66,
-        31.31,
-        36.684782608695656,
-        48.16
-      ],
-      "task_details": {
-        "general_tasks": [
-          {
-            "task_name": "Drop",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 71.22
-              }
-            ]
-          },
-          {
-            "task_name": "IFEval",
-            "metrics": [
-              {
-                "metric": "accuracy avg",
-                "score": 53.16
-              }
-            ]
-          },
-          {
-            "task_name": "AGIEval",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 57.74
-              }
-            ]
-          },
-          {
-            "task_name": "mmlu pro",
-            "metrics": [
-              {
-                "metric": "accuracy avg",
-                "score": 48.3
-              }
-            ]
-          }
-        ],
-        "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 88.78
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 77.7
-              }
-            ]
-          },
-          {
-            "task_name": "Omni-MATH",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 39.8
-              }
-            ]
-          },
-          {
-            "task_name": "OlympiadBenchMath",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 48.14
-              }
-            ]
-          },
-          {
-            "task_name": "AIME2024",
-            "metrics": [
-              {
-                "metric": "accuracy avg",
-                "score": 32.29
-              }
-            ]
-          }
-        ],
-        "code_tasks": [
-          {
-            "task_name": "humaneval",
-            "metrics": [
-              {
-                "metric": "pass@1",
-                "score": 64.78
-              }
-            ]
-          },
-          {
-            "task_name": "MBPP",
-            "metrics": [
-              {
-                "metric": "score",
-                "score": 69.55
-              }
-            ]
-          },
-          {
-            "task_name": "LCB(v5)",
-            "metrics": [
-              {
-                "metric": "pass@1",
-                "score": 16.31
-              }
-            ]
-          },
-          {
-            "task_name": "humaneval+",
-            "metrics": [
-              {
-                "metric": "pass@1",
-                "score": 59.91
-              }
-            ]
-          }
-        ],
-        "reasoning_tasks": [
-          {
-            "task_name": "ARC-C",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 65.08
-              }
-            ]
-          },
-          {
-            "task_name": "BBH",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 67.71
-              }
-            ]
-          },
-          {
-            "task_name": "GPQA",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 28.91
-              }
-            ]
-          },
-          {
-            "task_name": "CaLM",
-            "metrics": [
-              {
-                "metric": "accuracy avg",
-                "score": 35.09
-              }
-            ]
-          },
-          {
-            "task_name": "KOR-Bench",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 46.04
-              }
-            ]
-          }
-        ]
       },
-      "improvement": {
-        "vs_base": {
-          "general_avg": 6.16,
-          "math_avg": 17.58,
-          "code_avg": 2.5,
-          "reasoning_avg": 5.89,
-          "overall_avg": 8.03,
-          "overall_efficiency": 0,
-          "general_efficiency": 0,
-          "math_efficiency": 0,
-          "code_efficiency": 0,
-          "reasoning_efficiency": 0,
-          "general_task_scores": [
-            2.91,
-            17.67,
-            0.0,
-            4.06
-          ],
-          "math_task_scores": [
-            8.8,
-            27.5,
-            13.76,
-            12.23,
-            25.62
-          ],
-          "code_task_scores": [
-            -12.66,
-            -2.05,
-            8.07,
-            16.62
-          ],
-          "reasoning_task_scores": [
-            28.48,
-            -1.75,
-            -5.94,
-            -4.11,
-            12.76
-          ]
-        },
-        "vs_instruct": {
-          "general_avg": -8.6,
-          "math_avg": 7.34,
-          "code_avg": 1.31,
-          "reasoning_avg": 5.63,
-          "overall_avg": 1.42,
-          "overall_efficiency": 0,
-          "general_efficiency": 0,
-          "math_efficiency": 0,
-          "code_efficiency": 0,
-          "reasoning_efficiency": 0,
-          "general_task_scores": [
-            4.02,
-            -19.8,
-            -9.7,
-            -8.93
-          ],
-          "math_task_scores": [
-            -3.49,
-            -0.1,
-            10.4,
-            7.19,
-            22.71
-          ],
-          "code_task_scores": [
-            0.76,
-            -5.16,
-            5.2,
-            4.42
-          ],
-          "reasoning_task_scores": [
-            39.66,
-            -3.91,
-            -4.93,
-            -7.36,
-            4.68
-          ]
-        }
-      }
+      "affiliation": "miromind-ai",
+      "year": "2025",
+      "size": "719k",
+      "size_precise": "719232",
+      "link": "https://huggingface.co/datasets/miromind-ai/MiroMind-M1-SFT-719K",
+      "paper_link": "",
+      "scored_link": "",
+      "tag": "math"
     }
   ],
   "qwen3": [
