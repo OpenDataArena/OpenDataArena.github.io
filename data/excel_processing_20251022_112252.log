@@ -1,0 +1,2486 @@
+2025-10-22 11:22:52 - excel_processor - INFO - ==================================================
+2025-10-22 11:22:52 - excel_processor - INFO - 开始处理Excel文件
+2025-10-22 11:22:52 - excel_processor - INFO - 日志文件: excel_processing_20251022_112252.log
+2025-10-22 11:22:52 - excel_processor - INFO - ==================================================
+2025-10-22 11:22:52 - excel_processor - INFO - --- 加载数据集属性信息 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 成功加载 117 个数据集属性，ID范围: 2-118
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 处理工作表: llama ---
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测表头和列布局 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到表头行: 1
+2025-10-22 11:22:52 - excel_processor - INFO - 使用默认列配置:
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL: 列 ['D', 'E', 'F', 'G'] (索引 [3, 4, 5, 6])
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH: 列 ['H', 'I', 'J', 'K', 'L'] (索引 [7, 8, 9, 10, 11])
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE: 列 ['M', 'N', 'O', 'P'] (索引 [12, 13, 14, 15])
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING: 列 ['Q', 'R', 'S', 'T', 'U'] (索引 [16, 17, 18, 19, 20])
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 提取小任务信息 ---
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL:
+2025-10-22 11:22:52 - excel_processor - INFO -     D: Drop (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     E: IFEval (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     F: AGIEval (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     G: mmlu pro (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH:
+2025-10-22 11:22:52 - excel_processor - INFO -     H: GSM8k (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     I: MATH500 (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     J: Omni-MATH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     K: OlympiadBenchMath (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     L: AIME2024 (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE:
+2025-10-22 11:22:52 - excel_processor - INFO -     M: humaneval (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     N: MBPP (score)
+2025-10-22 11:22:52 - excel_processor - INFO -     O: LCB(v5) (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     P: humaneval+ (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING:
+2025-10-22 11:22:52 - excel_processor - INFO -     Q: ARC-C (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     R: BBH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     S: GPQA (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     T: CaLM (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     U: KOR-Bench (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测领域分布 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'general' 开始于行 6
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'math' 开始于行 66
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'code' 开始于行 170
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'reasoning' 开始于行 282
+2025-10-22 11:22:52 - excel_processor - INFO -   general: 行 6 - 65
+2025-10-22 11:22:52 - excel_processor - INFO -   math: 行 66 - 169
+2025-10-22 11:22:52 - excel_processor - INFO -   code: 行 170 - 281
+2025-10-22 11:22:52 - excel_processor - INFO -   reasoning: 行 282 - 445
+2025-10-22 11:22:52 - excel_processor - INFO - 找到base行: 第4行
+2025-10-22 11:22:52 - excel_processor - INFO - 找到instruct行: 第5行
+2025-10-22 11:22:52 - excel_processor - INFO - Base行分数 - General: 39.05, Math: 15.99, Code: 29.15, Reasoning: 45.20, Overall: 32.34
+2025-10-22 11:22:52 - excel_processor - INFO - Instruct行分数 - General: 56.54, Math: 33.84, Code: 52.23, Reasoning: 51.22, Overall: 48.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GPT4All [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 29.66
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 28.34
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca_GPT4 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.65
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolly [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 28.13
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_70k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.17
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_V2_196k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 32.90
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMA [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 34.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Orca-agentinstruct-1M-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 43.35
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenHermes-2.5 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.43
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SelfInstruct [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 17.10
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu3-sft-mixture [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 41.14
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolphin-flan1m-alpaca-uncensored [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.84
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Pro-10K-GPT4o-mini [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.23
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: open-instruct-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 25.02
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MMOS [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 20.58
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GSM8K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 21.58
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Competition_Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 27.56
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathInstruct-2 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 27.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-CoT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.81
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-TIR [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 32.30
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MetaMathQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 22.87
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathInstruct [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.30
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math_qa [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 21.00
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CAMEL-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 27.66
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-0.01 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.78
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.44
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-algebra [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 26.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: ScaleQuest-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.26
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepMath-103K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.97
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GammaCorpus-CoT-Math-170k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 28.70
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: orca-math-word-problems-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 29.50
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: dart-math-hard [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 32.53
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-math-gsm8k-v1 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 25.18
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-College [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-Grade-School [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 25.52
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WebInstruct-CFT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 34.32
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MATH-plus [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.21
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math-gpt-4o-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.15
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-1.5 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 31.63
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathFusionQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.97
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: hercules-v1.0 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 41.73
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeAlpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 28.19
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage2 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.97
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeFeedback-Filtered-Instruction [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.75
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: evol-codealpaca-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 36.65
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magicoder-OSS-Instruct-75K [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 31.63
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-Feedback [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 36.42
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Critic-GPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 19.10
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-oss-instruct-sc2-exec-filter-50k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 25.62
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 34.36
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-code [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 26.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: KodCode-V1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 25.69
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-instruct-starcoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 11 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 14 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 24.12
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Evol-Instruct-Code-80k-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: code_instructions_122k_alpaca_style [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 29.73
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: python_code_instructions_18k_alpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 31.37
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Python-Code-23k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 11 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 34.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: golang-coder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 14 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 20.34
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: EpiCoder-func-380k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 22.68
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: InstructCoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.62
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TACO-verified [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 22.74
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: synthetic_text_to_sql [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 9.37
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-text-to-python-fintech-en-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 22.77
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: sql-create-context [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 13.71
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: apigen-function-calling [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 7.78
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-290k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-74k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.86
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: FrontendCookbook [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 21.84
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: instructional_code-search-net-python [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 13.64
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Platypus [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 31.03
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenR1-Math-220k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.87
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.17
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 31.00
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Bespoke-Stratos-17k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 24.81
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts-114k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 43.22
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: R1-Distill-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 21.63
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenO1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 36.79
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: o1-journey [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 16.25
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Raiden-DeepSeek-R1 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.82
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.40
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V1-150K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 41.33
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-QwQ [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.47
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-base-20k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.49
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: medical-o1-reasoning-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 5.68
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SCP-116K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.22
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-code [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.88
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-math [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 51.06
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Light-R1-SFTData [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.65
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Fast-Math-R1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 30.52
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts3-1.2M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 59.63
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathReasoning-cot [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MegaScience [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.25
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: rStar-Coder [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.74
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TextbookReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 42.11
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenScienceReasoning-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: doocs-leetcode-solutions [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 22.91
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gsm8k-aug [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.41
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DAG-Reasoning-DeepSeek-R1-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 12.56
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Omega-Forge-1M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SYNTHETIC-2-SFT-verified [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.94
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OmniThought-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 54.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenCodeReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: omega-explorative [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 18.02
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 18.97
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO-v2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 18.07
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Z1-Code-Reasoning-107K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 33.64
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepScaleR-Preview-Dataset [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 14.12
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MiroMind-M1-SFT-719K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 43.76
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: codeforces-cots [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 17.49
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Mixture-of-Thoughts [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+llama 工作表处理完成: 107 个数据集
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 处理工作表: qwen ---
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测表头和列布局 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到表头行: 1
+2025-10-22 11:22:52 - excel_processor - INFO - 使用默认列配置:
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL: 列 ['D', 'E', 'F', 'G'] (索引 [3, 4, 5, 6])
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH: 列 ['H', 'I', 'J', 'K', 'L'] (索引 [7, 8, 9, 10, 11])
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE: 列 ['M', 'N', 'O', 'P'] (索引 [12, 13, 14, 15])
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING: 列 ['Q', 'R', 'S', 'T', 'U'] (索引 [16, 17, 18, 19, 20])
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 提取小任务信息 ---
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL:
+2025-10-22 11:22:52 - excel_processor - INFO -     D: Drop (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     E: IFEval (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     F: AGIEval (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     G: mmlu pro (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH:
+2025-10-22 11:22:52 - excel_processor - INFO -     H: GSM8k (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     I: MATH500 (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     J: Omni-MATH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     K: OlympiadBenchMath (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     L: AIME2024 (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE:
+2025-10-22 11:22:52 - excel_processor - INFO -     M: humaneval (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     N: MBPP (score)
+2025-10-22 11:22:52 - excel_processor - INFO -     O: LCB(v5) (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     P: humaneval+ (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING:
+2025-10-22 11:22:52 - excel_processor - INFO -     Q: ARC-C (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     R: BBH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     S: GPQA (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     T: CaLM (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     U: KOR-Bench (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测领域分布 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'general' 开始于行 6
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'math' 开始于行 66
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'code' 开始于行 170
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'reasoning' 开始于行 282
+2025-10-22 11:22:52 - excel_processor - INFO -   general: 行 6 - 65
+2025-10-22 11:22:52 - excel_processor - INFO -   math: 行 66 - 169
+2025-10-22 11:22:52 - excel_processor - INFO -   code: 行 170 - 281
+2025-10-22 11:22:52 - excel_processor - INFO -   reasoning: 行 282 - 445
+2025-10-22 11:22:52 - excel_processor - INFO - 找到base行: 第4行
+2025-10-22 11:22:52 - excel_processor - INFO - 找到instruct行: 第5行
+2025-10-22 11:22:52 - excel_processor - INFO - Base行分数 - General: 51.44, Math: 39.76, Code: 50.14, Reasoning: 42.68, Overall: 46.01
+2025-10-22 11:22:52 - excel_processor - INFO - Instruct行分数 - General: 66.21, Math: 50.00, Code: 51.33, Reasoning: 42.94, Overall: 52.62
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GPT4All [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.44
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.22
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca_GPT4 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.82
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolly [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.07
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_70k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.92
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_V2_196k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.55
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMA [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.66
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Orca-agentinstruct-1M-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.36
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenHermes-2.5 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.18
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SelfInstruct [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 26.70
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu3-sft-mixture [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.72
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolphin-flan1m-alpaca-uncensored [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.47
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Pro-10K-GPT4o-mini [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: open-instruct-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.31
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MMOS [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.23
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GSM8K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.50
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Competition_Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.71
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathInstruct-2 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.76
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-CoT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-TIR [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.94
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MetaMathQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathInstruct [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.92
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math_qa [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CAMEL-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.11
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-0.01 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.34
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.82
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-algebra [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.52
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: ScaleQuest-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.27
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepMath-103K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.14
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GammaCorpus-CoT-Math-170k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.26
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: orca-math-word-problems-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.01
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: dart-math-hard [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.73
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-math-gsm8k-v1 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.19
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-College [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.47
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-Grade-School [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 40.14
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WebInstruct-CFT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MATH-plus [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.36
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math-gpt-4o-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.89
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-1.5 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathFusionQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 51.31
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: hercules-v1.0 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.45
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeAlpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.45
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage2 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.66
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeFeedback-Filtered-Instruction [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: evol-codealpaca-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.24
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magicoder-OSS-Instruct-75K [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.73
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-Feedback [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.15
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Critic-GPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 43.56
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-oss-instruct-sc2-exec-filter-50k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.70
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.95
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-code [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 51.01
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: KodCode-V1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.25
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-instruct-starcoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 35.53
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Evol-Instruct-Code-80k-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.05
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: code_instructions_122k_alpaca_style [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.12
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: python_code_instructions_18k_alpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Python-Code-23k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.13
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: golang-coder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 42.74
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: EpiCoder-func-380k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.84
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: InstructCoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.45
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TACO-verified [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 42.06
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: synthetic_text_to_sql [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-text-to-python-fintech-en-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 51.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: sql-create-context [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.85
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: apigen-function-calling [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 36.98
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-290k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.43
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-74k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: FrontendCookbook [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.29
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: instructional_code-search-net-python [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.74
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Platypus [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.47
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenR1-Math-220k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.71
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.57
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.91
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Bespoke-Stratos-17k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 12 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 15 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 42.64
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts-114k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 54.09
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: R1-Distill-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.97
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenO1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.62
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: o1-journey [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Raiden-DeepSeek-R1 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.65
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.44
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V1-150K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.94
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-QwQ [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.27
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-base-20k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.11
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: medical-o1-reasoning-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.31
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SCP-116K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.00
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-code [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.81
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-math [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 54.84
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Light-R1-SFTData [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.65
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Fast-Math-R1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.61
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts3-1.2M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 59.63
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathReasoning-cot [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MegaScience [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.19
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: rStar-Coder [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TextbookReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 52.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenScienceReasoning-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: doocs-leetcode-solutions [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 29.19
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gsm8k-aug [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 39.44
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DAG-Reasoning-DeepSeek-R1-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 45.29
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Omega-Forge-1M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SYNTHETIC-2-SFT-verified [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 55.02
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OmniThought-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 55.77
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenCodeReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.59
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: omega-explorative [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 37.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 54.11
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO-v2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 38.99
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Z1-Code-Reasoning-107K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.72
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepScaleR-Preview-Dataset [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 14.58
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MiroMind-M1-SFT-719K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.21
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: codeforces-cots [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 26.76
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Mixture-of-Thoughts [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+qwen 工作表处理完成: 108 个数据集
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 处理工作表: qwen3 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测表头和列布局 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到表头行: 1
+2025-10-22 11:22:52 - excel_processor - INFO - 使用 qwen3 特定的列配置:
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL: 列 ['D', 'E', 'F', 'G'] (索引 [3, 4, 5, 6])
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH: 列 ['H', 'I', 'J', 'K', 'L', 'M'] (索引 [7, 8, 9, 10, 11, 12])
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE: 列 ['N', 'O', 'P', 'Q'] (索引 [13, 14, 15, 16])
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING: 列 ['R', 'S', 'T', 'U', 'V'] (索引 [17, 18, 19, 20, 21])
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 提取小任务信息 ---
+2025-10-22 11:22:52 - excel_processor - INFO -   GENERAL:
+2025-10-22 11:22:52 - excel_processor - INFO -     D: Drop (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     E: IFEval (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     F: AGIEval (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     G: mmlu pro (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   MATH:
+2025-10-22 11:22:52 - excel_processor - INFO -     H: GSM8k (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     I: MATH500 (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     J: Omni-MATH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     K: OlympiadBenchMath (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     L: AIME2024 (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     M: AIME2025 (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -   CODE:
+2025-10-22 11:22:52 - excel_processor - INFO -     N: humaneval (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     O: MBPP (score)
+2025-10-22 11:22:52 - excel_processor - INFO -     P: LCB(v5) (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -     Q: humaneval+ (pass@1)
+2025-10-22 11:22:52 - excel_processor - INFO -   REASONING:
+2025-10-22 11:22:52 - excel_processor - INFO -     R: ARC-C (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     S: BBH (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     T: GPQA (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO -     U: CaLM (accuracy avg)
+2025-10-22 11:22:52 - excel_processor - INFO -     V: KOR-Bench (accuracy)
+2025-10-22 11:22:52 - excel_processor - INFO - 
+--- 检测领域分布 ---
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'general' 开始于行 6
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'math' 开始于行 66
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'code' 开始于行 170
+2025-10-22 11:22:52 - excel_processor - INFO - 找到领域 'reasoning' 开始于行 282
+2025-10-22 11:22:52 - excel_processor - INFO -   general: 行 6 - 65
+2025-10-22 11:22:52 - excel_processor - INFO -   math: 行 66 - 169
+2025-10-22 11:22:52 - excel_processor - INFO -   code: 行 170 - 281
+2025-10-22 11:22:52 - excel_processor - INFO -   reasoning: 行 282 - 445
+2025-10-22 11:22:52 - excel_processor - INFO - 找到base行: 第4行
+2025-10-22 11:22:52 - excel_processor - INFO - 找到instruct行: 第5行
+2025-10-22 11:22:52 - excel_processor - INFO - Base行分数 - General: 58.67, Math: 44.49, Code: 52.36, Reasoning: 50.57, Overall: 51.52
+2025-10-22 11:22:52 - excel_processor - INFO - Instruct行分数 - General: 80.04, Math: 77.51, Code: 61.23, Reasoning: 60.56, Overall: 69.84
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GPT4All [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Alpaca_GPT4 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolly [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_70k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WizardLM_evol_instruct_V2_196k [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMA [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Orca-agentinstruct-1M-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenHermes-2.5 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SelfInstruct [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu3-sft-mixture [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.86
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Dolphin-flan1m-alpaca-uncensored [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Pro-10K-GPT4o-mini [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: open-instruct-v1 [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MMOS [领域: general]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GSM8K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Competition_Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathInstruct-2 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-CoT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-TIR [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MetaMathQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathInstruct [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math_qa [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CAMEL-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-0.01 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-algebra [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 40.93
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: ScaleQuest-Math [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepMath-103K [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: GammaCorpus-CoT-Math-170k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: orca-math-word-problems-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: dart-math-hard [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-math-gsm8k-v1 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-College [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Maths-Grade-School [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: WebInstruct-CFT [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MATH-plus [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: math-gpt-4o-200k [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.80
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: NuminaMath-1.5 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MathFusionQA [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: hercules-v1.0 [领域: math]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 46.58
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeAlpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage2 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: CodeFeedback-Filtered-Instruction [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.08
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: evol-codealpaca-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magicoder-OSS-Instruct-75K [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-Feedback [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 5 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 48.16
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Critic-GPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-oss-instruct-sc2-exec-filter-50k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: opc-sft-stage1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: tulu-3-sft-personas-code [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: KodCode-V1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: self-instruct-starcoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Evol-Instruct-Code-80k-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: code_instructions_122k_alpaca_style [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: python_code_instructions_18k_alpaca [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Python-Code-23k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: golang-coder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: EpiCoder-func-380k [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 42.36
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: InstructCoder [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TACO-verified [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: synthetic_text_to_sql [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gretel-text-to-python-fintech-en-v1 [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: sql-create-context [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: apigen-function-calling [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-290k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Code-74k-ShareGPT [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: FrontendCookbook [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: instructional_code-search-net-python [领域: code]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Platypus [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenR1-Math-220k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.74
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: QwQ-LongCoT-130K-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Bespoke-Stratos-17k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts-114k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 57.94
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: R1-Distill-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenO1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.42
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: o1-journey [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Raiden-DeepSeek-R1 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 47.46
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.09
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V1-150K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 44.07
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Magpie-Reasoning-V2-250K-CoT-QwQ [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: reasoning-base-20k [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: medical-o1-reasoning-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SCP-116K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-code [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 59.04
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: AM-Thinking-v1-Distilled-math [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 62.02
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Light-R1-SFTData [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 58.41
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Fast-Math-R1-SFT [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 53.06
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenThoughts3-1.2M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenMathReasoning-cot [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MegaScience [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 56.14
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: rStar-Coder [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: TextbookReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenScienceReasoning-2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: doocs-leetcode-solutions [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: gsm8k-aug [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DAG-Reasoning-DeepSeek-R1-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Open-Omega-Forge-1M [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: SYNTHETIC-2-SFT-verified [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 57.14
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OmniThought-0528 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 59.69
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: OpenCodeReasoning [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: omega-explorative [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 49.15
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: LIMO-v2 [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 50.26
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Z1-Code-Reasoning-107K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: DeepScaleR-Preview-Dataset [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: MiroMind-M1-SFT-719K [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 6 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 4 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 5 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ✅ 已添加: 综合 60.70
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: codeforces-cots [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理数据集: Mixture-of-Thoughts [领域: reasoning]
+2025-10-22 11:22:52 - excel_processor - INFO -   General: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Math: 0 个有效数据, 6 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Code: 0 个有效数据, 4 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   Reasoning: 0 个有效数据, 5 个任务
+2025-10-22 11:22:52 - excel_processor - INFO -   ❌ 跳过: 无有效数据
+2025-10-22 11:22:52 - excel_processor - INFO - 
+qwen3 工作表处理完成: 25 个数据集
+2025-10-22 11:22:52 - excel_processor - INFO - 
+处理后的数据已保存到 processed_leaderboard_data.json
+2025-10-22 11:22:52 - excel_processor - INFO - 
+llama 示例数据 (前3个):
+2025-10-22 11:22:52 - excel_processor - INFO -     Tag: general
+2025-10-22 11:22:52 - excel_processor - INFO -   领域分布: {'instruct': 1, 'base': 1, 'general': 15, 'math': 26, 'code': 28, 'reasoning': 36}
+2025-10-22 11:22:52 - excel_processor - INFO - 
+qwen 示例数据 (前3个):
+2025-10-22 11:22:52 - excel_processor - INFO -     Tag: general
+2025-10-22 11:22:52 - excel_processor - INFO -   领域分布: {'instruct': 1, 'base': 1, 'general': 15, 'math': 26, 'code': 28, 'reasoning': 37}
+2025-10-22 11:22:52 - excel_processor - INFO - 
+qwen3 示例数据 (前3个):
+2025-10-22 11:22:52 - excel_processor - INFO -     Tag: general,math,code,science
+2025-10-22 11:22:52 - excel_processor - INFO -   领域分布: {'instruct': 1, 'base': 1, 'general': 1, 'math': 3, 'code': 3, 'reasoning': 16}
+2025-10-22 11:22:52 - excel_processor - INFO - ==================================================
+2025-10-22 11:22:52 - excel_processor - INFO - 处理完成！
+2025-10-22 11:22:52 - excel_processor - INFO - 结果已保存到 processed_leaderboard_data.json
+2025-10-22 11:22:52 - excel_processor - INFO - 详细日志已保存到 excel_processing_20251022_112252.log
+2025-10-22 11:22:52 - excel_processor - INFO - ==================================================
