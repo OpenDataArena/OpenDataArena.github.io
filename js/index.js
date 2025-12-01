@@ -448,6 +448,9 @@ const app = createApp({
 		function goToDataComparison() {
 			window.location.href = "data-comparison.html?id=87";
 		}
+		function goToDataLineage() {
+			window.location.href = "data-lineage.html?id=87";
+		}
 
 		// —— 模板引用的辅助：避免渲染期未定义 ——
 		const improvementType = ref("vs_base"); // 新增：improvement类型选择
@@ -1057,6 +1060,7 @@ const app = createApp({
 			codeTop5WithBase,
 			goToLeaderboard,
 			goToDataComparison,
+			goToDataLineage,
 
 			// radar
 			renderRadarLegend,

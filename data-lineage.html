@@ -135,24 +135,16 @@
 		</div>
 		<div id="app" v-cloak class="app-hidden">
 			<header class="header" :data-lang="i18nLang">
-				<div class="title-container nav-left" style="align-items: center; gap: 12px">
-					<a
-						href="index.html"
-						class="nav-logo-link"
-						style="display: flex; align-items: center"
-					>
-						<img
-							src="./img/OpenDataArena_logo.svg"
-							alt="OpenDataArena Logo"
-							style="height: 44px; width: auto"
-						/>
-					</a>
+				<div class="title-container nav-left">
 					<div class="nav-title-group">
-						<h1 class="nav-main-title" style="line-height: 1">
-							<a href="index.html" class="nav-home-link"> OpenDataArena </a>
-						</h1>
-						<div class="nav-slogan" style="margin: 2px 0 0 0">
-							{{ $t('all_slogan') }}
+						<img src="./img/OpenDataArena_logo.svg" alt="OpenDataArena Logo" class="nav-logo">
+						<div class="nav-text-group">
+							<h1 class="nav-main-title">
+								<a href="index.html" class="nav-home-link">
+									OpenDataArena
+								</a>
+							</h1>
+							<div class="nav-slogan">{{ $t('all_slogan') }}</div>
 						</div>
 					</div>
 				</div>

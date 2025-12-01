@@ -157,11 +157,11 @@ if (appElement && document.getElementById("appPage")) {
                 // 尝试从图例中获取节点数量，如果获取不到则从DOM中计算
                 const legendText = legend.textContent || '';
                 const match = legendText.match(/(\d+)\s*(个节点|nodes)/);
-                let nodeCount = match ? parseInt(match[1]) : document.querySelectorAll('.node').length;
+                let nodeCount = match ? parseInt(match[1]) : document.querySelectorAll('#visualization .node').length;
                 if (!nodeCount || nodeCount === 0) {
-                    nodeCount = document.querySelectorAll('.node').length;
+                    nodeCount = document.querySelectorAll('#visualization .node').length;
                 }
-                updateLegend(currentRoots, nodeCount);
+                updateLegend(currentRoots, nodeCount, '#legend');
             }
             
             // 更新首页的图例
@@ -283,11 +283,29 @@ if (appElement && document.getElementById("appPage")) {
         // 首页可视化
         function initHomeVisualization() {
             if (!document.getElementById('homeViz')) return;
-            // 确保容器有实际大小，使用视口尺寸确保居中
+            
+            // 检查 D3.js 是否已加载
+            if (typeof d3 === 'undefined') {
+                console.error('D3.js is not loaded. Please ensure d3.v7.min.js is included in the page.');
+                return;
+            }
+            
+            // 确保容器有实际大小，使用 hero-section 的实际尺寸
             const container = document.getElementById('homeViz');
-            // 使用视口尺寸而不是容器尺寸，确保相对于屏幕居中
-            const width = window.innerWidth;
-            const height = window.innerHeight;
+            // 获取 hero-section 的实际尺寸
+            const heroSection = container.closest('.hero-section');
+            let width, height;
+            
+            if (heroSection) {
+                const rect = heroSection.getBoundingClientRect();
+                width = rect.width;
+                height = rect.height;
+            } else {
+                // 回退到容器尺寸
+                const rect = container.getBoundingClientRect();
+                width = rect.width || window.innerWidth;
+                height = rect.height || window.innerHeight;
+            }
 
             const svg = d3.select('#homeViz')
                 .append('svg')
@@ -298,10 +316,11 @@ if (appElement && document.getElementById("appPage")) {
             const g = svg.append('g');
 
             // 计算避开中间卡片的布局区域（修复坐标系问题）
-            const centerCard = document.querySelector('.center-card');
+            // 支持两种页面结构：data_lineage/index.html 的 .center-card 和 index.html 的 .hero-content
+            const centerCard = document.querySelector('.center-card') || document.querySelector('.hero-content') || document.querySelector('.row.align-items-center');
             let centerRegion = null;
             if (centerCard) {
-                // 获取卡片相对于视窗的位置（center-card 使用 position: fixed）
+                // 获取卡片相对于视窗的位置
                 const cardRect = centerCard.getBoundingClientRect();
                 
                 // 获取容器相对于视窗的位置
@@ -326,11 +345,11 @@ if (appElement && document.getElementById("appPage")) {
 
             // 使用D3的力导向布局，让节点避开中央区域（优化参数以提高性能）
             const simulation = d3.forceSimulation()
-                .force('link', d3.forceLink().id(d => d.id).distance(50).strength(0.4))
-                .force('charge', d3.forceManyBody().strength(-120))
+                .force('link', d3.forceLink().id(d => d.id).distance(80).strength(0.4))
+                .force('charge', d3.forceManyBody().strength(-180))
                 .force('x', d3.forceX(width / 2).strength(0.03))
                 .force('y', d3.forceY(height / 2).strength(0.03))
-                .force('collision', d3.forceCollide().radius(d => d.size + 8).strength(0.8))
+                .force('collision', d3.forceCollide().radius(d => d.size + 12).strength(0.8))
                 .alphaDecay(0.05) // 加速模拟衰减
                 .velocityDecay(0.4); // 快速停止
 
@@ -404,7 +423,7 @@ if (appElement && document.getElementById("appPage")) {
 
                     return {
                         id,
-                        size: Math.min(20, 10 + degree / 7),
+                        size: Math.min(30, 15 + degree / 5),
                         color: targetColors[i % targetColors.length],
                         isCentral: true,
                         degree: degree,
@@ -439,7 +458,7 @@ if (appElement && document.getElementById("appPage")) {
 
                             nodes.push({
                                 id: edge.target,
-                                size: 6 + Math.min(10, targetConnections.length / 3),
+                                size: 9 + Math.min(15, targetConnections.length / 2),
                                 color: sourceInCentral.color,
                                 opacity: 0.4,
                                 degree: targetConnections.length,
@@ -472,7 +491,7 @@ if (appElement && document.getElementById("appPage")) {
 
                             nodes.push({
                                 id: edge.source,
-                                size: 6 + Math.min(10, sourceConnections.length / 3),
+                                size: 9 + Math.min(15, sourceConnections.length / 2),
                                 color: targetInCentral.color,
                                 opacity: 0.4,
                                 degree: sourceConnections.length,
@@ -506,7 +525,7 @@ if (appElement && document.getElementById("appPage")) {
 
                         midLevelNodes.push({
                             id: `${node.id}_mid_${i}`,
-                            size: 4 + Math.random() * 6,
+                            size: 6 + Math.random() * 9,
                             color: node.color,
                             opacity: 0.3,
                             isMid: true,
@@ -618,9 +637,9 @@ if (appElement && document.getElementById("appPage")) {
 
                 nodeElements.append('text')
                     .attr('dx', 0)
-                    .attr('dy', d => d.size + 12)
+                    .attr('dy', d => d.size + 15)
                     .attr('text-anchor', 'middle')
-                    .attr('font-size', d => d.isCentral ? '9px' : '7px')
+                    .attr('font-size', d => d.isCentral ? '11px' : '8px')
                     .attr('fill', 'rgba(255, 255, 255, 0.4)')
                     .attr('font-weight', 500)
                     .attr('pointer-events', 'none')
@@ -710,7 +729,8 @@ if (appElement && document.getElementById("appPage")) {
             const g = svg.append('g');
 
             // 计算避开中间卡片的布局区域（修复坐标系问题）
-            const centerCard = document.querySelector('.center-card');
+            // 支持两种页面结构：data_lineage/index.html 的 .center-card 和 index.html 的 .hero-content
+            const centerCard = document.querySelector('.center-card') || document.querySelector('.hero-content') || document.querySelector('.row.align-items-center');
             let centerRegion = null;
             if (centerCard) {
                 // 获取容器相对于视窗的位置
@@ -4127,9 +4147,15 @@ if (appElement && document.getElementById("appPage")) {
             const loadingDiv = document.getElementById('indexLineageLoading');
             const errorDiv = document.getElementById('indexLineageError');
             
+            // 确保 loadingDiv 和 errorDiv 存在
+            if (!loadingDiv || !errorDiv) {
+                console.warn('Loading or error div not found for index lineage visualization');
+                return;
+            }
+            
             try {
-                loadingDiv.style.display = 'block';
-                errorDiv.style.display = 'none';
+                if (loadingDiv) loadingDiv.style.display = 'block';
+                if (errorDiv) errorDiv.style.display = 'none';
 
                 // 确保数据已加载
                 if (!dataInfo || Object.keys(dataInfo).length === 0) {
@@ -4255,6 +4281,9 @@ if (appElement && document.getElementById("appPage")) {
         window.indexLineageResetZoom = indexLineageResetZoom;
 
         window.addEventListener('load', function() {
+            // 初始化首页背景可视化（不依赖数据加载）
+            initHomeVisualization();
+            
             // 仅当存在应用页面相关元素时才加载完整图数据
             if (document.getElementById('appPage')) {
                 loadGraphData().then(() => {
@@ -4266,11 +4295,27 @@ if (appElement && document.getElementById("appPage")) {
                 });
             }
             
-            initHomeVisualization();
-            
-            // 初始化首页数据血缘可视化
+            // 初始化首页数据血缘可视化（需要等待数据加载）
             if (document.getElementById('indexLineageVisualization')) {
-                initIndexLineageVisualization();
+                // 确保数据已加载后再初始化可视化
+                if (dataInfo && Object.keys(dataInfo).length > 0) {
+                    // 数据已加载，直接初始化
+                    initIndexLineageVisualization();
+                } else {
+                    // 数据未加载，先加载数据再初始化
+                    loadGraphData().then(() => {
+                        initIndexLineageVisualization();
+                    }).catch((error) => {
+                        console.error('Failed to load graph data for index visualization:', error);
+                        const errorDiv = document.getElementById('indexLineageError');
+                        if (errorDiv) {
+                            errorDiv.textContent = t('genealogy_loadFailed') + error.message;
+                            errorDiv.style.display = 'block';
+                        }
+                        const loadingDiv = document.getElementById('indexLineageLoading');
+                        if (loadingDiv) loadingDiv.style.display = 'none';
+                    });
+                }
                 
                 // 监听首页的语言切换事件（通过监听 localStorage 变化）
                 const originalSetItem = localStorage.setItem;

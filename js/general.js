@@ -410,6 +410,74 @@ export function createToolsI18nPlugin() {
 	};
 }
 
+export function createDataLineageI18nPlugin() {
+	return {
+		install(app) {
+			const cur = getCurrentLang();
+			const V = window.Vue || {};
+			__i18nLangRef = V.ref ? V.ref(cur) : { value: cur };
+
+			// 全局翻译函数：优先 data_lineage，再 all，支持简单占位符递归替换
+			app.config.globalProperties.$t = function (key, params = {}) {
+				const lang = (__i18nLangRef?.value || "en").toLowerCase();
+				const cur = lang.startsWith("zh") ? "zh" : "en";
+
+				// 当前语言与英文的双层回退
+				const LlineageCur = (LANG.lang_data_lineage && (LANG.lang_data_lineage[cur] || {})) || {};
+				const LallCur = (LANG.lang_all && (LANG.lang_all[cur] || {})) || {};
+				const LlineageEn = (LANG.lang_data_lineage && (LANG.lang_data_lineage.en || {})) || {};
+				const LallEn = (LANG.lang_all && (LANG.lang_all.en || {})) || {};
+
+				const lookup = (k) => LlineageCur[k] ?? LallCur[k] ?? LlineageEn[k] ?? LallEn[k] ?? null;
+
+				let str = lookup(key);
+				if (str == null) return key;
+
+				// 占位符插值：{child_key} 和参数替换
+				const re = /\{([a-zA-Z0-9_]+)\}/g;
+				for (let i = 0; i < 3; i++) {
+					re.lastIndex = 0;
+					const next = String(str).replace(re, (m, k) => {
+						// 先尝试参数替换
+						if (params && params[k] !== undefined) {
+							return String(params[k]);
+						}
+						// 再尝试查找嵌套的翻译键
+						const v = lookup(k);
+						return v != null ? String(v) : m;
+					});
+					if (next === str) break;
+					str = next;
+				}
+				
+				// 额外的参数替换（用于非嵌套的参数，如 {targets}, {time} 等）
+				if (params && Object.keys(params).length > 0) {
+					Object.keys(params).forEach(paramKey => {
+						str = str.replace(new RegExp(`\\{${paramKey}\\}`, 'g'), String(params[paramKey]));
+					});
+				}
+				
+				return str;
+			};
+
+			// 可注入对象
+			app.provide("i18n", {
+				langRef: __i18nLangRef,
+				set(lang) {
+					setCurrentLang(lang);
+					if (__i18nLangRef) __i18nLangRef.value = lang;
+				},
+				toggle() {
+					const next = getCurrentLang() === "zh" ? "en" : "zh";
+					setCurrentLang(next);
+					if (__i18nLangRef) __i18nLangRef.value = next;
+					return next;
+				},
+			});
+		},
+	};
+}
+
 export function initI18nForIndex() {
 	const bind = () => {
 		// 1) 同步 <html lang>

@@ -6,14 +6,16 @@
 }
 
 .hero-section {
-	background: linear-gradient(90deg, #f0f4ff 0%, #eaf0fa 100%);
+	background: #243866;
 	padding: 48px 0 32px 0;
-	border-radius: 0 0 18px 18px;
+	border-radius: 0;
 	box-shadow: 0 2px 16px rgba(16, 57, 162, 0.04);
 	min-height: calc(100vh - var(--header-height));
 	display: flex;
 	flex-direction: column; /* use column so vertical centering is via main axis */
 	justify-content: center; /* vertically center the .row within the section */
+	position: relative;
+	overflow: hidden;
 	/* CTA theme vars (scoped to hero only to avoid global impact) */
 	--adm-radius-s: 4px;
 	--adm-radius-m: 8px;
@@ -63,6 +65,21 @@
 	--theme-color-0: rgba(52, 119, 235, 0);
 }
 
+.home-visualization {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.hero-section .row.align-items-center {
+	position: relative;
+	z-index: 1;
+}
+
 .container {
 	max-width: 1400px;
 	margin: 0 auto;
@@ -99,7 +116,7 @@
 	margin-top: 0.9rem;
 	margin-bottom: 1.1rem;
 	font-size: 1.3rem;
-	color: #1a53c1;
+	color: #ffffff;
 	font-weight: 600;
 	letter-spacing: 0.01em;
 }
@@ -109,6 +126,7 @@
 	margin-top: 0;
 	font-size: 1.05rem;
 	line-height: 1.8;
+	color: #ffffff;
 }
 
 .hero-content p:last-child {
@@ -224,7 +242,7 @@
 .hero-title {
 	font-size: clamp(2.2rem, 3.2vw + 1.6rem, 30rem);
 	font-weight: 800;
-	color: #1039a2;
+	color: #ffffff;
 	letter-spacing: 1px;
 	font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
 		"Microsoft YaHei", sans-serif;
@@ -244,7 +262,7 @@
 /* ============ CTA unified grid & two-line button ============ */
 .hero-content .cta-grid {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(240px, 1fr));
+	grid-template-columns: repeat(5, minmax(240px, 1fr));
 	gap: 20px; /* 原 16px → 20px */
 	justify-content: center;
 	align-items: stretch;
@@ -262,25 +280,21 @@
 	white-space: normal;
 	align-self: stretch;
 
-	/* 更贴合 hero-section 的柔和蓝调 */
+	/* 浅色背景以适应深色 hero-section */
+	background: linear-gradient(90deg, #ffffff 0%, #f8fafc 100%);
+	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: var(--adm-radius-l); /* 12px 的圆角 */
 	
-	box-shadow: 0 3px 12px rgba(16, 57, 162, 0.08); /* 稍柔和的投影 */
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15); /* 深色背景上的投影 */
 	transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease,
 		background 0.18s ease;
 }
 
 .hero-content .cta-btn:hover {
 	transform: translateY(-1px);
-	border-color: rgba(52, 119, 235, 0.36);
-	box-shadow: 0 6px 18px rgba(52, 119, 235, 0.16);
-	background: linear-gradient(
-			140deg,
-			rgba(157, 199, 254, 0.16) 0%,
-			rgba(255, 255, 255, 0.1) 45%,
-			rgba(157, 199, 254, 0.16) 100%
-		),
-		linear-gradient(90deg, #e9f1ff 0%, #eef3fb 100%);
+	border-color: rgba(255, 255, 255, 0.4);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+	background: linear-gradient(90deg, #ffffff 0%, #f0f4ff 100%);
 }
 
 .hero-content .cta-btn:focus-visible {
@@ -320,7 +334,7 @@
 	gap: 10px; /* 图标与文字间距略增 */
 	font-size: 1.06rem; /* 略放大标题 */
 	font-weight: 700;
-	color: #1039a2; /* 与 hero 主色相呼应 */
+	color: #1a53c1; /* 深蓝色文字 */
 	letter-spacing: 0.2px; /* 细微字距，提升质感 */
 	text-align: center;
 	width: 100%;
@@ -341,12 +355,12 @@
 	display: block;
 	font-size: 0.95rem; /* 说明稍大一点，更易读 */
 	font-weight: 400; /* 取消加粗 */
-	color: var(--text-secondary, #58627a);
+	color: #58627a; /* 灰色文字 */
 	line-height: 1.55;
 	white-space: normal;
 	overflow-wrap: anywhere;
 	word-break: break-word;
-	text-align: center; /* 左对齐说明 */
+	text-align: center; /* 居中说明 */
 	margin-top: 2px;
 }
 
@@ -494,6 +508,125 @@
 	gap: 40px;
 	align-items: stretch; /* ensure items stretch to the tallest in the row */
 	width: 100%;
+}
+
+.summary-leaderboard-flex-lineage {
+	display: grid;
+	grid-template-columns: minmax(340px, 1fr); /* Single column for lineage graph */
+	gap: 40px;
+	align-items: stretch;
+	width: 100%;
+}
+
+.svg-container-index {
+	padding: 32px;
+	overflow: auto;
+	background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+	position: relative;
+	border-top: 1px solid #e5e5ea;
+	min-height: 600px;
+}
+
+/* 确保首页数据血缘图例显示在左边 */
+#indexLineageLegend {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: auto;
+	bottom: auto;
+	background: rgba(255, 255, 255, 0.95);
+	padding: 20px;
+	border-radius: 16px;
+	box-shadow:
+		0 0 0 1px rgba(0, 0, 0, 0.06),
+		0 8px 24px rgba(0, 0, 0, 0.12);
+	font-size: 14px;
+	z-index: 100;
+	max-width: 320px;
+	backdrop-filter: blur(20px);
+}
+
+/* 图例项样式，与 data-lineage.css 保持一致 */
+#indexLineageLegend .legend-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+#indexLineageLegend .legend-item:last-child {
+	margin-bottom: 0;
+}
+
+#indexLineageLegend .legend-color {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	margin-right: 10px;
+	flex-shrink: 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#indexLineageLegend .legend-multi {
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+	flex-shrink: 0;
+	border-radius: 50%;
+}
+
+/* 缩放控件样式，与 data-lineage.css 保持一致 */
+.svg-container-index .zoom-controls,
+#indexLineageZoomControls {
+	position: absolute !important;
+	top: 20px !important;
+	right: 20px !important;
+	left: auto !important;
+	bottom: auto !important;
+	background: rgba(255, 255, 255, 0.95);
+	padding: 12px;
+	border-radius: 16px;
+	box-shadow:
+		0 0 0 1px rgba(0, 0, 0, 0.06),
+		0 8px 24px rgba(0, 0, 0, 0.12);
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	backdrop-filter: blur(20px);
+	margin: 0;
+}
+
+.svg-container-index .zoom-btn,
+#indexLineageZoomControls .zoom-btn {
+	background: #f5f5f7;
+	color: #1d1d1f;
+	border: none;
+	padding: 10px 14px;
+	border-radius: 10px;
+	font-size: 20px;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	min-width: 44px;
+	font-weight: 600;
+}
+
+.svg-container-index .zoom-btn:hover,
+#indexLineageZoomControls .zoom-btn:hover {
+	background: #0071e3;
+	color: white;
+	transform: scale(1.05);
+}
+
+.svg-container-index .zoom-btn:active,
+#indexLineageZoomControls .zoom-btn:active {
+	transform: scale(0.98);
+}
+
+.svg-container-index .zoom-btn:disabled,
+#indexLineageZoomControls .zoom-btn:disabled {
+	background: #f5f5f7;
+	color: #ccc;
+	cursor: not-allowed;
 }
 
 .summary-leaderboard-header {

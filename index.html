@@ -7,6 +7,7 @@
 		<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
 		<script type="module" src="./js/index.js"></script>
 		<link rel="stylesheet" href="./css/general.css" />
 		<link rel="stylesheet" href="./css/index.css" />
@@ -127,19 +128,24 @@
 			<header class="header" :data-lang="i18nLang">
 				<div class="title-container nav-left">
 					<div class="nav-title-group">
-						<h1 class="nav-main-title">
-							<a href="index.html" class="nav-home-link">
-								<img src="./img/OpenDataArena_logo.svg" alt="OpenDataArena Logo" style="height: 1.2em; margin-right: 8px; vertical-align: middle;">
-								OpenDataArena
-							</a>
-						</h1>
-						<div class="nav-slogan" style="margin-left: 80px;">{{ $t('all_slogan') }}</div>
+						<img src="./img/OpenDataArena_logo.svg" alt="OpenDataArena Logo" class="nav-logo">
+						<div class="nav-text-group">
+							<h1 class="nav-main-title">
+								<a href="index.html" class="nav-home-link">
+									OpenDataArena
+								</a>
+							</h1>
+							<div class="nav-slogan">{{ $t('all_slogan') }}</div>
+						</div>
 					</div>
 				</div>
 				<nav class="nav-right">
 					<ul class="nav-list">
 						<li class="nav-item">
 							<a href="leaderboard.html">{{ $t('all_leaderboard') }}</a>
+						</li>
+						<li class="nav-item">
+							<a href="data-lineage.html">{{ $t('all_data_genealogy') }}</a>
 						</li>
 						<li class="nav-item">
 							<a href="data-comparison.html?id=87">{{ $t('all_data_comparison') }}</a>
@@ -160,7 +166,7 @@
 								:title="langAriaLabel"
 								style="cursor: pointer">
 								<img
-									src="./icon/lang.svg"
+									src="./icon/lang-white.svg"
 									class="lang-icon-img"
 									alt=""
 									aria-hidden="true" />
@@ -205,6 +211,7 @@
 
 			<!-- Hero Section -->
 			<section id="home" class="hero-section">
+				<div id="homeViz" class="home-visualization"></div>
 				<div class="row align-items-center">
 					<!-- Hero Section right part-->
 					<div class="col-lg-7">
@@ -212,10 +219,7 @@
 							<div class="hero-title-row">
 								<h1 class="hero-title">OpenDataArena</h1>
 							</div>
-							<h3>{{ $t('index_subtitle') }}</h3>
-							<p style="margin-top: 20px">✨ {{ $t('index_hero_section_left_1') }}</p>
-							<p>✨ {{ $t('index_hero_section_left_2') }}</p>
-							<p>✨ {{ $t('index_hero_section_left_3') }}</p>
+							<h3 style="margin-bottom: 30px">{{ $t('index_subtitle') }}</h3>
 							<div class="cta-grid">
 								<a
 									href="https://github.com/OpenDataArena/OpenDataArena-Tool"
@@ -234,6 +238,26 @@
 											<span>{{ $t('index_tool') }}</span>
 										</span>
 										<span class="btn-sub" v-html="$t('index_news_1')"></span>
+									</div>
+								</a>
+
+								<a
+									href="data-lineage.html"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="subscribe-btn cta-btn">
+									<div class="btn-text">
+										<span class="btn-title">
+											<i
+												class="fas fa-dna"
+												style="
+													margin-top: 2px;
+													margin-bottom: -2px;
+													margin-right: -2px;
+												"></i>
+											<span>{{ $t('index_data_genealogy') }}</span>
+										</span>
+										<span class="btn-sub" v-html="$t('index_genealogy_cta')"></span>
 									</div>
 								</a>
 
@@ -587,6 +611,60 @@
 				</div>
 			</section>
 
+			<!-- data lineage -->
+			<section class="summary-leaderboard-section">
+				<div class="summary-leaderboard-flex-lineage">
+					<div class="summary-leaderboard-table">
+						<!-- 标题行 -->
+						<div
+							class="summary-leaderboard-header"
+							@click="goToDataLineage"
+							@keyup.enter="goToDataLineage"
+							tabindex="0">
+							<span class="summary-leaderboard-title">
+								<i class="fas fa-dna"></i> {{ $t('all_data_genealogy') }}
+							</span>
+						</div>
+						<div class="svg-container-index">
+							<div id="indexLineageLoading" class="loading" style="display: none">
+								<div>{{ $t('genealogy_loadingText') }}</div>
+							</div>
+							<div id="indexLineageError" class="error" style="display: none"></div>
+							<div id="indexLineageVisualization"></div>
+							<div id="indexLineageLegend" class="legend" style="display: none"></div>
+							<div id="indexLineageZoomControls" class="zoom-controls" style="display: none">
+								<button
+									class="zoom-btn"
+									onclick="indexLineageZoomIn()"
+									:title="$t('genealogy_zoomInTitle')">
+									+
+								</button>
+								<button
+									class="zoom-btn"
+									onclick="indexLineageZoomOut()"
+									:title="$t('genealogy_zoomOutTitle')">
+									−
+								</button>
+								<button
+									class="zoom-btn"
+									onclick="indexLineageResetZoom()"
+									:title="$t('genealogy_resetZoomTitle')">
+									⌂
+								</button>
+							</div>
+						</div>
+						<div class="summary-leaderboard-footer">
+							<a
+								href="data-lineage.html?id=91"
+								class="summary-leaderboard-link enhanced-link">
+								{{ $t('index_dl_cta') }}
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<!-- radar -->
 			<section class="summary-leaderboard-section">
 				<div class="summary-leaderboard-flex-radar">
@@ -745,5 +823,6 @@
 				</div>
 			</footer>
 		</div>
+		<script type="module" src="./js/data-lineage.js"></script>
 	</body>
 </html>

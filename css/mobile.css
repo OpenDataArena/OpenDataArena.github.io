@@ -228,7 +228,7 @@
 
 	.hero-section {
 		padding: 28px 0 22px 0;
-		border-radius: 0 0 14px 14px;
+		border-radius: 0;
 	}
 
 	.hero-title {
