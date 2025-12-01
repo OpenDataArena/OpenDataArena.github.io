@@ -2,7 +2,17 @@
 .DS_Store
 Thumbs.db
 
-code/
+data/*.py
+data/*.xlsx
+data/filter_results.json
+data/filter_statistics.json
+data/processed_leaderboard_data.json
+data/processed_score_data.json
+data/filtered_leaderboard_data.json
+data/*.md
+utils/
+deploy.sh
+
 
 # Python
 __pycache__/
