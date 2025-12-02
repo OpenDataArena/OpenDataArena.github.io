@@ -63,7 +63,7 @@ export const lang_all = {
 		all_reasoning: "推理",
 		all_science: "科学",
 		all_spatial: "空间",
-		all_infographic: "信息图",
+		all_infographic: "图表",
 	},
 };
 

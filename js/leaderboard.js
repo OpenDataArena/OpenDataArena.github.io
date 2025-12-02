@@ -835,6 +835,24 @@ const app = createApp({
 				tags.push(...parsedTags);
 			}
 
+			// Multi Model 模式下，按照指定顺序排序标签
+			if (leaderboardType.value === 'mm') {
+				const tagOrder = ['general', 'reasoning', 'spatial', 'infographic'];
+				return tags.sort((a, b) => {
+					const indexA = tagOrder.indexOf(a.toLowerCase());
+					const indexB = tagOrder.indexOf(b.toLowerCase());
+					// 如果标签在顺序列表中，按照顺序排序
+					if (indexA !== -1 && indexB !== -1) {
+						return indexA - indexB;
+					}
+					// 如果只有一个在列表中，在列表中的排在前面
+					if (indexA !== -1) return -1;
+					if (indexB !== -1) return 1;
+					// 如果都不在列表中，保持原有顺序
+					return 0;
+				});
+			}
+
 			return tags;
 		};
 
@@ -887,8 +905,8 @@ const app = createApp({
 				math: "fas fa-calculator",
 				code: "fas fa-code",
 				reasoning: "fas fa-brain",
-				spatial: "fas fa-map",
-				infographic: "fas fa-image",
+				spatial: "fas fa-globe",
+				infographic: "fas fa-pie-chart",
 			};
 
 			return typeIcons[type.toLowerCase()] || "fas fa-list-ol";
@@ -902,8 +920,8 @@ const app = createApp({
 				code: "fas fa-code",
 				science: "fas fa-flask",
 				reasoning: "fas fa-brain",
-				spatial: "fas fa-map",
-				infographic: "fas fa-image",
+				spatial: "fas fa-globe",
+				infographic: "fas fa-pie-chart",
 			};
 
 			return tagIcons[tag.toLowerCase()] || "fas fa-tag";

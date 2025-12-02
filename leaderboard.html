@@ -509,8 +509,16 @@
 											<i :class="getSortIcon('code_avg')" class="sort-icon"></i>
 										</th>
 									</template>
-									<!-- Multi Model 模式：显示 Spatial 和 Infographic -->
+									<!-- Multi Model 模式：显示 Reasoning, Spatial 和 Infographic -->
 									<template v-if="leaderboardType === 'mm'">
+										<th
+											class="score-col sortable"
+											@click="sortBy('reasoning_avg'); highlightColumn('reasoning_avg')">
+											{{ $t('all_reasoning') }}
+											<i
+												:class="getSortIcon('reasoning_avg')"
+												class="sort-icon"></i>
+										</th>
 										<th
 											class="score-col sortable"
 											@click="sortBy('spatial_avg'); highlightColumn('spatial_avg')">
@@ -524,7 +532,9 @@
 											<i :class="getSortIcon('infographic_avg')" class="sort-icon"></i>
 										</th>
 									</template>
+									<!-- LLM 模式：显示 Reasoning -->
 									<th
+										v-if="leaderboardType === 'llm'"
 										class="score-col sortable"
 										@click="sortBy('reasoning_avg'); highlightColumn('reasoning_avg')">
 										{{ $t('all_reasoning') }}
@@ -710,8 +720,30 @@
 											</div>
 										</td>
 									</template>
-									<!-- Multi Model 模式：显示 Spatial 和 Infographic -->
+									<!-- Multi Model 模式：显示 Reasoning, Spatial 和 Infographic -->
 									<template v-if="leaderboardType === 'mm'">
+										<td
+											class="score-col"
+											:class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
+											<div class="score-container">
+												<span class="score-value"
+													>{{
+													formatScoreWithImprovement(dataset.reasoning_avg,
+													dataset.improvement &&
+													dataset.improvement.reasoning_avg, dataset,
+													improvementType).score }}</span
+												>
+												<span
+													v-if="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement && dataset.improvement.reasoning_avg, dataset, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(dataset.reasoning_avg, dataset.improvement && dataset.improvement.reasoning_avg, dataset, improvementType).diffClass">
+													{{ formatScoreWithImprovement(dataset.reasoning_avg,
+													dataset.improvement &&
+													dataset.improvement.reasoning_avg, dataset,
+													improvementType).diffText }}
+												</span>
+											</div>
+										</td>
 										<td
 											class="score-col"
 											:class="{ 'highlighted-col': highlightedColumn === 'spatial_avg' }">
@@ -751,7 +783,9 @@
 											</div>
 										</td>
 									</template>
+									<!-- LLM 模式：显示 Reasoning -->
 									<td
+										v-if="leaderboardType === 'llm'"
 										class="score-col"
 										:class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
 										<div class="score-container">
