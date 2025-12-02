@@ -5,83 +5,167 @@
 	background: var(--background-primary);
 }
 
+/* Ant Design Tabs 样式 */
+.ant-tabs-nav-wrap {
+	margin-bottom: 1.5rem;
+	padding: 0;
+	width: 100%;
+}
+
+.ant-tabs-nav-list {
+	position: relative;
+	display: flex;
+	transition: transform 0.3s;
+	flex-wrap: nowrap;
+	width: 100%;
+}
+
+.ant-tabs-tab {
+	position: relative;
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	padding: 16px 0;
+	font-size: 16px;
+	background: transparent;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.ant-tabs-tab-btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.ant-tabs-tab-btn:focus-visible {
+	outline: 2px solid var(--primary-color, #3477eb);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.model-list-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 8px 16px;
+	color: rgba(0, 0, 0, 0.45);
+	font-size: 18px;
+	font-weight: 500;
+	transition: color 0.3s;
+	width: 100%;
+}
+
+.model-list-title i {
+	font-size: 20px;
+	transition: opacity 0.3s;
+}
+
+.model-list-title.active-title {
+	color: var(--primary-color, #3477eb);
+}
+
+.model-list-title.active-title i {
+	opacity: 1;
+}
+
+.ant-tabs-tab-active .model-list-title {
+	color: var(--primary-color, #3477eb);
+}
+
+.ant-tabs-tab:hover .model-list-title {
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.ant-tabs-tab-active:hover .model-list-title {
+	color: var(--primary-color, #3477eb);
+}
+
+/* 下划线指示器 */
+.ant-tabs-ink-bar {
+	position: absolute;
+	bottom: 0;
+	height: 2px;
+	background: var(--primary-color, #3477eb);
+	pointer-events: none;
+}
+
+.ant-tabs-ink-bar-animated {
+	transition: left 0.3s, width 0.3s;
+}
+
 .controls-section {
 	padding: 0 0 1.5rem;
 	margin-bottom: 0.5rem;
 	margin-top: -0.5rem;
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
-}
-
-.control-row {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
 	gap: 1.5rem;
-	align-items: flex-end;
-	flex-wrap: wrap;
 	padding-left: 20px;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding-right: 20px;
 	margin-top: 20px;
 }
 
-.control-row:first-child {
-	justify-content: flex-start;
-	align-items: center;
-	padding-right: 20px;
-	gap: 1rem;
+.control-row {
+	display: contents; /* 让子元素直接参与 grid 布局 */
 }
 
+/* 左上：Model Family */
 .control-row:first-child .model-switcher {
-	flex: 0 0 auto;
-}
-
-.control-row:first-child .improvement-type-section {
-	flex: 0 0 auto;
-}
-
-.control-row:first-child .type-buttons-section {
-	flex: 0 0 auto;
-}
-
-.control-row:first-child .search-box-container {
-	flex: 0 0 auto;
-	margin-left: 0;
-	margin-bottom: -2.5rem;
-}
-
-.control-row:first-child .size-range-section {
-	flex: 0 0 auto;
-	margin-left: auto;
-	width: 245px;
-	margin-bottom: -2.5rem;
-}
-
-.control-row:last-child {
+	grid-column: 1;
+	grid-row: 1;
 	display: flex;
-	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+
+/* 右上：Dataset Size Range 和 Search 的组合容器 */
+.size-range-search-wrapper {
+	grid-column: 2;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
 	align-items: flex-end;
-	gap: 1.5rem;
-	padding-left: 20px;
-	padding-right: 20px;
 }
 
+.size-range-search-wrapper .size-range-section,
+.size-range-search-wrapper .search-box-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+/* 左下：Dataset Tags */
 .control-row:last-child .data-tag-buttons-section {
-	flex: 1;
-	min-width: 0;
+	grid-column: 1;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
 }
 
-.control-row:last-child .size-range-section {
-	flex: 0 0 auto;
-	min-width: 250px;
-	max-width: 300px;
-}
-
-.control-row:last-child .search-box-container {
-	flex: 0 0 auto;
-	min-width: 200px;
-	margin-left: auto;
-	margin-top: 2rem;
+/* 右下：Benchmark Domain */
+.control-row:last-child .type-buttons-section {
+	grid-column: 2;
+	grid-row: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
 }
 
 .control-row:last-child .data-tag-buttons-section label,
@@ -93,7 +177,7 @@
 	margin-bottom: -1rem;
 	margin-top: 0.25rem;
 	line-height: 1;
-	margin-left: 1rem;
+	margin-left: 0;
 }
 
 .model-switcher,
@@ -182,8 +266,8 @@
 
 .size-slider-wrapper {
 	position: relative;
-	padding: 10px;
-	margin: 10px 0;
+	padding: 20px 10px 0px 10px;
+	/* margin: 10px 0; */
 }
 
 .size-slider-track {
@@ -511,13 +595,54 @@
 	border-color: #3f51b5;
 }
 
+.tag-button[data-type="spatial"] {
+	background-color: #fce4ec;
+	color: #c2185b;
+	border-color: #f8bbd0;
+}
+
+.tag-button[data-type="spatial"]:hover {
+	background-color: #f8bbd0;
+	color: #ad1457;
+	border-color: #f48fb1;
+}
+
+.tag-button[data-type="spatial"].active {
+	background-color: #c2185b;
+	color: white;
+	border-color: #c2185b;
+}
+
+.tag-button[data-type="infographic"] {
+	background-color: #e0f2f1;
+	color: #00695c;
+	border-color: #b2dfdb;
+}
+
+.tag-button[data-type="infographic"]:hover {
+	background-color: #b2dfdb;
+	color: #004d40;
+	border-color: #80cbc4;
+}
+
+.tag-button[data-type="infographic"].active {
+	background-color: #00695c;
+	color: white;
+	border-color: #00695c;
+}
+
 .type-buttons-section {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	margin-left: auto;
+	margin-left: 0;
 	flex-shrink: 0;
 	margin-right: 0;
+}
+
+.control-row:last-child .type-buttons-section {
+	margin-left: 0;
+	padding-left: 0;
 }
 
 .type-buttons-container {
@@ -649,6 +774,42 @@
 	background-color: #3f51b5;
 	color: white;
 	border-color: #3f51b5;
+}
+
+.type-button[data-type="spatial"] {
+	background-color: #fce4ec;
+	color: #c2185b;
+	border-color: #f8bbd0;
+}
+
+.type-button[data-type="spatial"]:hover {
+	background-color: #f8bbd0;
+	color: #ad1457;
+	border-color: #f48fb1;
+}
+
+.type-button[data-type="spatial"].active {
+	background-color: #c2185b;
+	color: white;
+	border-color: #c2185b;
+}
+
+.type-button[data-type="infographic"] {
+	background-color: #e0f2f1;
+	color: #00695c;
+	border-color: #b2dfdb;
+}
+
+.type-button[data-type="infographic"]:hover {
+	background-color: #b2dfdb;
+	color: #004d40;
+	border-color: #80cbc4;
+}
+
+.type-button[data-type="infographic"].active {
+	background-color: #00695c;
+	color: white;
+	border-color: #00695c;
 }
 
 .leaderboard-container {

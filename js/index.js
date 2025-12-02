@@ -184,7 +184,7 @@ const app = createApp({
 		const loadData = async () => {
 			try {
 				loading.value = true;
-				const response = await fetch("./data/processed_merge_data.json");
+				const response = await fetch("./data/llm/llm.json");
 				if (!response.ok) {
 					throw new Error("Failed to load data");
 				}

@@ -89,7 +89,7 @@ const app = createApp({
 					throw new Error("Dataset ID not specified");
 				}
 
-				const response = await fetch("./data/processed_merge_data.json");
+				const response = await fetch("./data/llm/llm.json");
 				if (!response.ok) {
 					throw new Error("Failed to load data");
 				}

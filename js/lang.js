@@ -29,6 +29,8 @@ export const lang_all = {
 		all_code: "Code",
 		all_science: "Science",
 		all_reasoning: "Reasoning",
+		all_spatial: "Spatial",
+		all_infographic: "Infographic",
 	},
 	zh: {
 		all_slogan: "让数据价值触手可及",
@@ -60,6 +62,8 @@ export const lang_all = {
 		all_code: "代码",
 		all_reasoning: "推理",
 		all_science: "科学",
+		all_spatial: "空间",
+		all_infographic: "信息图",
 	},
 };
 
@@ -373,6 +377,7 @@ export const lang_leaderboard = {
 		lb_llama_family: "Llama-3.1 Family",
 		lb_qwen_family: "Qwen2.5 Family",
 		lb_qwen3_family: "Qwen3 Family",
+		lb_qwen3vl_family: "Qwen3-VL Family",
 		lb_include: "include",
 		lb_only: "only",
 		lb_dataset_tags: "Dataset Tags",
@@ -391,12 +396,15 @@ export const lang_leaderboard = {
 		// Tooltip for baseline indicator
 		lb_tooltip_baseline_base: "Currently using Base Model as comparison baseline",
 		lb_tooltip_baseline_instruct: "Currently using Instruct Model as comparison baseline",
+		lb_large_language_model: "Large Language Model",
+		lb_multi_model: "Multi Model",
 	},
 	zh: {
 		lb_model_family: "模型系列",
 		lb_llama_family: "Llama-3.1 系列",
 		lb_qwen_family: "Qwen2.5 系列",
 		lb_qwen3_family: "Qwen3 系列",
+		lb_qwen3vl_family: "Qwen3-VL 系列",
 		lb_include: "包含",
 		lb_only: "仅有",
 		lb_dataset_tags: "数据集标签",
@@ -411,10 +419,12 @@ export const lang_leaderboard = {
 		lb_avg_score: "平均分",
 		lb_efficiency: "效率",
 		lb_efficiency_tip:
-			"效率度量的是每单位数据规模（以千为单位）所带来的提升幅度。\n其计算方法是：先计算当前数据集的平均分比基准平均分高出多少，再将这个差值除以数据集的规模（单位为 “k”，即千）。\n数值越高，表示在相同数据量下获得分数提升的效率越高。",
+			"效率度量的是每单位数据规模（以千为单位）所带来的提升幅度。\n其计算方法是：先计算当前数据集的平均分比基准平均分高出多少，再将这个差值除以数据集的规模（单位为 \"k\"，即千）。\n数值越高，表示在相同数据量下获得分数提升的效率越高。",
 		// Tooltip for baseline indicator
 		lb_tooltip_baseline_base: "当前使用 Base 模型作为对比基准",
 		lb_tooltip_baseline_instruct: "当前使用 Instruct 模型作为对比基准",
+		lb_large_language_model: "大语言模型",
+		lb_multi_model: "多模态模型",
 	},
 };
 

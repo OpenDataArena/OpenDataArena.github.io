@@ -720,6 +720,24 @@ footer {
 	border-color: #ffcc02;
 }
 
+.tag-icon.tag-reasoning {
+	background: #e8eaf6;
+	color: #3f51b5;
+	border-color: #c5cae9;
+}
+
+.tag-icon.tag-spatial {
+	background: #fce4ec;
+	color: #c2185b;
+	border-color: #f8bbd0;
+}
+
+.tag-icon.tag-infographic {
+	background: #e0f2f1;
+	color: #00695c;
+	border-color: #b2dfdb;
+}
+
 .tag-icon:hover {
 	background: var(--primary-color);
 	color: white;

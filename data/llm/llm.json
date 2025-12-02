@@ -36548,7 +36548,7 @@
       "year": "2025",
       "size": "94k",
       "size_precise": "93733",
-      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
+      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k",
       "paper_link": "https://huggingface.co/blog/open-r1",
       "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"
@@ -84757,7 +84757,7 @@
       "year": "2025",
       "size": "94k",
       "size_precise": "93733",
-      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k  (default)",
+      "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k",
       "paper_link": "https://huggingface.co/blog/open-r1",
       "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
       "tag": "math"

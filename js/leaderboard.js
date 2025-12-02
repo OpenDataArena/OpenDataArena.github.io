@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initI18nForIndex();
 });
 
-const { createApp, ref, computed, onMounted } = Vue;
+const { createApp, ref, computed, onMounted, watch, nextTick } = Vue;
 
 const app = createApp({
 	setup() {
@@ -19,6 +19,8 @@ const app = createApp({
 		const loading = ref(false);
 		const error = ref(null);
 		const rawData = ref({ llama: [], qwen: [], qwen3: [] });
+		const mmData = ref([]); // Multi Model 数据
+		const leaderboardType = ref("llm"); // 'llm' 或 'mm'
 		const currentModel = ref("llama");
 		const improvementType = ref("vs_base");
 
@@ -60,6 +62,18 @@ const app = createApp({
 
 		onMounted(() => {
 			loadData();
+			// 使用多重延迟确保 DOM 完全渲染后再更新下划线位置
+			nextTick(() => {
+				setTimeout(() => {
+					updateInkBarPosition();
+					// 再次延迟确保样式已应用
+					setTimeout(() => {
+						updateInkBarPosition();
+					}, 50);
+				}, 100);
+			});
+			// 监听窗口大小变化
+			window.addEventListener('resize', updateInkBarPosition);
 		});
 
 		// Reactive language key for i18n: trigger re-render when language changes
@@ -68,18 +82,39 @@ const app = createApp({
 			return r && r.value ? r.value : "en";
 		});
 
-		const models = ref([
+		const llmModels = ref([
 			{ id: "llama", nameKey: "lb_llama_family", icon: "fas fa-robot" },
 			{ id: "qwen", nameKey: "lb_qwen_family", icon: "fas fa-microchip" },
 			{ id: "qwen3", nameKey: "lb_qwen3_family", icon: "fas fa-microchip" },
 		]);
 
+		const mmModels = ref([
+			{ id: "qwen3vl", nameKey: "lb_qwen3vl_family", icon: "fas fa-images" },
+		]);
+
+		// 计算属性：根据 leaderboardType 返回对应的模型列表
+		const models = computed(() => {
+			return leaderboardType.value === 'mm' ? mmModels.value : llmModels.value;
+		});
+
 		// 选择比较基准的函数
 		const selectBaseline = (dataset) => {
-			if (dataset.domain === "base") {
-				improvementType.value = "vs_base";
-			} else if (dataset.domain === "instruct") {
-				improvementType.value = "vs_instruct";
+			// Multi Model 模式下：
+			// domain="instruct" 对应 vs_instruct（选中 instruct baseline）
+			// domain="thinking" 对应 vs_thinking（选中 thinking baseline）
+			if (leaderboardType.value === 'mm') {
+				if (dataset.domain === "instruct") {
+					improvementType.value = "vs_instruct";
+				} else if (dataset.domain === "thinking") {
+					improvementType.value = "vs_thinking";
+				}
+			} else {
+				// LLM 模式：使用 domain 字段判断
+				if (dataset.domain === "base") {
+					improvementType.value = "vs_base";
+				} else if (dataset.domain === "instruct") {
+					improvementType.value = "vs_instruct";
+				}
 			}
 		};
 
@@ -87,12 +122,37 @@ const app = createApp({
 		const loadData = async () => {
 			try {
 				loading.value = true;
-				const response = await fetch("./data/processed_merge_data.json");
-				if (!response.ok) {
-					throw new Error("Failed to load data");
+				// 加载 Large Language Model 数据
+				const llmResponse = await fetch("./data/llm/llm.json");
+				if (!llmResponse.ok) {
+					throw new Error("Failed to load LLM data");
 				}
-				const data = await response.json();
-				rawData.value = data;
+				const llmData = await llmResponse.json();
+				rawData.value = llmData;
+				
+				// 加载 Multi Model 数据
+				try {
+					const mmResponse = await fetch("./data/mm/mm.json");
+					if (mmResponse.ok) {
+						const mmDataLoaded = await mmResponse.json();
+						// mm.json 的结构是 { "qwen3vl": [...] }
+						if (mmDataLoaded && typeof mmDataLoaded === 'object') {
+							// 提取 qwen3vl 数组
+							mmData.value = mmDataLoaded.qwen3vl || [];
+						} else if (Array.isArray(mmDataLoaded)) {
+							mmData.value = mmDataLoaded;
+						} else {
+							mmData.value = [];
+						}
+					} else {
+						console.warn("Multi Model data not found, using empty array");
+						mmData.value = [];
+					}
+				} catch (mmErr) {
+					console.warn("Error loading Multi Model data:", mmErr);
+					mmData.value = [];
+				}
+				
 				error.value = null;
 			} catch (err) {
 				console.error("Error loading data:", err);
@@ -103,8 +163,15 @@ const app = createApp({
 					qwen: generateMockData("Qwen"),
 					qwen3: generateMockData("Qwen3"),
 				};
+				mmData.value = [];
 			} finally {
 				loading.value = false;
+				// 数据加载完成后更新下划线位置
+				nextTick(() => {
+					setTimeout(() => {
+						updateInkBarPosition();
+					}, 150);
+				});
 			}
 		};
 
@@ -165,6 +232,10 @@ const app = createApp({
 
 		// 计算属性：当前数据
 		const currentData = computed(() => {
+			if (leaderboardType.value === 'mm') {
+				// Multi-model 模式：使用 mmData，只有一个模型系列
+				return mmData.value || [];
+			}
 			return rawData.value[currentModel.value] || [];
 		});
 
@@ -232,6 +303,12 @@ const app = createApp({
 
 		// 计算属性：可用的标签列表
 		const availableTags = computed(() => {
+			if (leaderboardType.value === 'mm') {
+				// Multi-model 模式：固定标签列表
+				return ['general', 'reasoning', 'spatial', 'infographic'];
+			}
+
+			// LLM 模式：从数据中提取标签
 			if (!currentData.value.length) return [];
 			const allTags = new Set();
 
@@ -253,8 +330,14 @@ const app = createApp({
 			return Array.from(allTags).sort();
 		});
 
-		// 计算属性：有序的标签列表（确保general、math、code、science、reasoning顺序）
+		// 计算属性：有序的标签列表
 		const orderedTags = computed(() => {
+			if (leaderboardType.value === 'mm') {
+				// Multi-model 模式：固定顺序
+				return ['general', 'reasoning', 'spatial', 'infographic'];
+			}
+
+			// LLM 模式：按照优先级排序
 			const tags = availableTags.value;
 			const orderedTagsPriority = ["general", "math", "code", "science", "reasoning"];
 
@@ -804,6 +887,8 @@ const app = createApp({
 				math: "fas fa-calculator",
 				code: "fas fa-code",
 				reasoning: "fas fa-brain",
+				spatial: "fas fa-map",
+				infographic: "fas fa-image",
 			};
 
 			return typeIcons[type.toLowerCase()] || "fas fa-list-ol";
@@ -817,6 +902,8 @@ const app = createApp({
 				code: "fas fa-code",
 				science: "fas fa-flask",
 				reasoning: "fas fa-brain",
+				spatial: "fas fa-map",
+				infographic: "fas fa-image",
 			};
 
 			return tagIcons[tag.toLowerCase()] || "fas fa-tag";
@@ -894,6 +981,10 @@ const app = createApp({
 						actualImprovementValue = dataset.improvement[improvementType].code_avg;
 					} else if (Math.abs(score - (dataset.reasoning_avg || 0)) < 0.1) {
 						actualImprovementValue = dataset.improvement[improvementType].reasoning_avg;
+					} else if (Math.abs(score - (dataset.spatial_avg || 0)) < 0.1) {
+						actualImprovementValue = dataset.improvement[improvementType].spatial_avg;
+					} else if (Math.abs(score - (dataset.infographic_avg || 0)) < 0.1) {
+						actualImprovementValue = dataset.improvement[improvementType].infographic_avg;
 					}
 				}
 
@@ -931,11 +1022,21 @@ const app = createApp({
 
 		// 方法：检查是否是base模型
 		const isBaseModel = (dataset) => {
+			// Multi Model 模式下：domain="thinking" 作为 base baseline（类似 llm.json 中的 base）
+			if (leaderboardType.value === 'mm') {
+				return dataset.domain === "thinking";
+			}
+			// LLM 模式下：domain="base" 作为 base baseline
 			return dataset.domain === "base";
 		};
 
 		// 方法：检查是否是instruct模型
 		const isInstructModel = (dataset) => {
+			// Multi Model 模式下：domain="instruct" 作为 instruct baseline（类似 llm.json 中的 instruct）
+			if (leaderboardType.value === 'mm') {
+				return dataset.domain === "instruct";
+			}
+			// LLM 模式下：domain="instruct" 作为 instruct baseline
 			return dataset.domain === "instruct";
 		};
 
@@ -1325,9 +1426,9 @@ const app = createApp({
 			selectedType = null,
 			improvementType = "vs_base"
 		) => {
-			if (isBaseModel(dataset)) return "-"; // base 不参与排名
+			if (isBaseModel(dataset) || isInstructModel(dataset)) return "-"; // base 和 instruct 不参与排名
 			const ranks = calculateRanks(
-				data.filter((item) => !isBaseModel(item)),
+				data.filter((item) => !isBaseModel(item) && !isInstructModel(item)),
 				scoreKey,
 				isDetailed,
 				selectedType,
@@ -1449,6 +1550,84 @@ const app = createApp({
 			};
 		}
 
+		// 下划线指示器位置状态
+		const inkBarStyle = ref({
+			left: '0px',
+			width: '0px',
+			transform: 'translateX(-50%)',
+		});
+
+		// 方法：更新下划线指示器位置
+		const updateInkBarPosition = (retryCount = 0) => {
+			const maxRetries = 5;
+			nextTick(() => {
+				const tabs = document.querySelectorAll('.ant-tabs-tab');
+				const activeTab = leaderboardType.value === 'llm' ? 'llm' : 'mm';
+				let activeTabElement = null;
+				
+				tabs.forEach((tab) => {
+					const nodeKey = tab.getAttribute('data-node-key');
+					if (nodeKey === activeTab) {
+						activeTabElement = tab;
+					}
+				});
+				
+				if (activeTabElement) {
+					const rect = activeTabElement.getBoundingClientRect();
+					const navList = document.querySelector('.ant-tabs-nav-list');
+					if (navList && rect.width > 0) {
+						const navRect = navList.getBoundingClientRect();
+						const left = rect.left - navRect.left + rect.width / 2;
+						const width = rect.width;
+						inkBarStyle.value = {
+							left: left + 'px',
+							width: width + 'px',
+							transform: 'translateX(-50%)',
+						};
+						return; // 成功更新，退出
+					}
+				}
+				
+				// 如果更新失败且还有重试次数，则重试
+				if (retryCount < maxRetries) {
+					setTimeout(() => {
+						updateInkBarPosition(retryCount + 1);
+					}, 50 * (retryCount + 1)); // 递增延迟
+				}
+			});
+		};
+
+		// 方法：获取下划线指示器样式
+		const getInkBarStyle = () => {
+			return inkBarStyle.value;
+		};
+
+		// 监听 leaderboardType 变化，更新下划线位置并重置 currentModel
+		watch(leaderboardType, (newType) => {
+			// 重置 currentModel
+			if (newType === 'mm') {
+				currentModel.value = 'qwen3vl';
+				// Multi Model 模式下：默认选择 id 0 的数据集作为对比的 baseline (vs_instruct)
+				improvementType.value = 'vs_instruct';
+			} else {
+				currentModel.value = 'llama';
+				// LLM 模式下：默认使用 vs_base
+				improvementType.value = 'vs_base';
+			}
+			// 如果切换 leaderboard 类型时，当前选中的类型在新类型中不存在，则重置为 All
+			if (selectedType.value) {
+				const llmTypes = ['general', 'math', 'code', 'reasoning'];
+				const mmTypes = ['general', 'reasoning', 'spatial', 'infographic'];
+				const validTypes = newType === 'mm' ? mmTypes : llmTypes;
+				if (!validTypes.includes(selectedType.value)) {
+					selectedType.value = '';
+				}
+			}
+			// 更新下划线位置
+			updateInkBarPosition();
+		});
+
+
 		// --- Return all methods/props used by the template and helpers ---
 		return {
 			// state
@@ -1456,6 +1635,8 @@ const app = createApp({
 			loading,
 			error,
 			rawData,
+			mmData,
+			leaderboardType,
 			currentModel,
 			improvementType,
 			searchQuery,
@@ -1553,6 +1734,9 @@ const app = createApp({
 			efficiencyTooltipPositionDetail,
 			setEfficiencyTooltipPositionDetail,
 			setEfficiencyTooltipPositionMain,
+			
+			// ink bar style
+			getInkBarStyle,
 		};
 	},
 });

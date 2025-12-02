@@ -224,6 +224,44 @@
 
 			<!-- 主容器 -->
 			<div class="main-container-lb" v-show="!loading">
+				<!-- Leaderboard 类型切换 -->
+				<div class="ant-tabs-nav-wrap">
+					<div class="ant-tabs-nav-list">
+						<div
+							data-node-key="llm"
+							class="ant-tabs-tab"
+							:class="{ 'ant-tabs-tab-active': leaderboardType === 'llm' }">
+							<div
+								role="tab"
+								:aria-selected="leaderboardType === 'llm'"
+								class="ant-tabs-tab-btn"
+								:tabindex="leaderboardType === 'llm' ? '0' : '-1'"
+								@click="leaderboardType = 'llm'">
+								<div class="model-list-title" :class="{ 'active-title': leaderboardType === 'llm' }">
+									<i class="fas fa-language"></i>
+									<div>{{ $t('lb_large_language_model') }}</div>
+								</div>
+							</div>
+						</div>
+						<div
+							data-node-key="mm"
+							class="ant-tabs-tab"
+							:class="{ 'ant-tabs-tab-active': leaderboardType === 'mm' }">
+							<div
+								role="tab"
+								:aria-selected="leaderboardType === 'mm'"
+								class="ant-tabs-tab-btn"
+								:tabindex="leaderboardType === 'mm' ? '0' : '-1'"
+								@click="leaderboardType = 'mm'">
+								<div class="model-list-title" :class="{ 'active-title': leaderboardType === 'mm' }">
+									<i class="fas fa-images"></i>
+									<div>{{ $t('lb_multi_model') }}</div>
+								</div>
+							</div>
+						</div>
+						<div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" :style="getInkBarStyle()"></div>
+					</div>
+				</div>
 				<!-- 控制区域 -->
 				<div class="controls-section">
 					<!-- 第一行：模型系列、数据量区间和搜索框 -->
@@ -242,62 +280,65 @@
 								</button>
 							</div>
 						</div>
-						<!-- 数据量区间滑动条 -->
-						<div class="size-range-section">
-							<label>{{ $t('lb_dataset_size_range') }}</label>
-							<div class="size-slider-container">
-								<div class="size-slider-wrapper">
-									<div class="size-slider-track">
-										<div
-											class="size-slider-range"
-											:style="getRangeStyle()"></div>
-										<input
-											ref="minSlider"
-											type="range"
-											class="size-slider size-slider-min"
-											:min="0"
-											:max="7"
-											:value="sizeRangeMin"
-											@input="updateSizeRangeMin($event)"
-											@change="updateSizeRangeMin($event)"
-											@mousedown="onSliderMouseDown"
-											@touchstart="onSliderMouseDown" />
-										<input
-											ref="maxSlider"
-											type="range"
-											class="size-slider size-slider-max"
-											:min="0"
-											:max="7"
-											:value="sizeRangeMax"
-											@input="updateSizeRangeMax($event)"
-											@change="updateSizeRangeMax($event)"
-											@mousedown="onSliderMouseDown"
-											@touchstart="onSliderMouseDown" />
-									</div>
-									<div class="size-slider-labels">
-										<span class="size-label-min"
-											>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMin))
-											}}</span
-										>
-										<span class="size-label-max"
-											>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMax))
-											}}</span
-										>
+						<!-- 右上：Dataset Size Range 和 Search 的组合容器 -->
+						<div class="size-range-search-wrapper">
+							<!-- 数据量区间滑动条 -->
+							<div class="size-range-section">
+								<label>{{ $t('lb_dataset_size_range') }}</label>
+								<div class="size-slider-container">
+									<div class="size-slider-wrapper">
+										<div class="size-slider-track">
+											<div
+												class="size-slider-range"
+												:style="getRangeStyle()"></div>
+											<input
+												ref="minSlider"
+												type="range"
+												class="size-slider size-slider-min"
+												:min="0"
+												:max="7"
+												:value="sizeRangeMin"
+												@input="updateSizeRangeMin($event)"
+												@change="updateSizeRangeMin($event)"
+												@mousedown="onSliderMouseDown"
+												@touchstart="onSliderMouseDown" />
+											<input
+												ref="maxSlider"
+												type="range"
+												class="size-slider size-slider-max"
+												:min="0"
+												:max="7"
+												:value="sizeRangeMax"
+												@input="updateSizeRangeMax($event)"
+												@change="updateSizeRangeMax($event)"
+												@mousedown="onSliderMouseDown"
+												@touchstart="onSliderMouseDown" />
+										</div>
+										<div class="size-slider-labels">
+											<span class="size-label-min"
+												>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMin))
+												}}</span
+											>
+											<span class="size-label-max"
+												>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMax))
+												}}</span
+											>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- 搜索框 -->
-						<div class="search-box-container">
-							<div class="search-box">
-								<i class="fas fa-search"></i>
-								<input
-									id="search-input-main"
-									type="text"
-									v-model="searchQuery"
-									:key="'ph-' + i18nLang"
-									:placeholder="$t('lb_search_datasets')"
-									class="search-input" />
+							<!-- 搜索框 -->
+							<div class="search-box-container">
+								<div class="search-box">
+									<i class="fas fa-search"></i>
+									<input
+										id="search-input-main"
+										type="text"
+										v-model="searchQuery"
+										:key="'ph-' + i18nLang"
+										:placeholder="$t('lb_search_datasets')"
+										class="search-input" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -358,15 +399,30 @@
 									@click="selectType('')">
 									{{ $t('lb_all') }}
 								</button>
-								<button
-									v-for="type in ['general', 'math', 'code', 'reasoning']"
-									:key="type"
-									class="type-button"
-									:data-type="type"
-									:class="{ active: selectedType === type }"
-									@click="selectType(type)">
-									<i :class="getTypeIcon(type)"></i> {{ $t('all_' + type) }}
-								</button>
+								<!-- LLM 模式：显示 general, math, code, reasoning -->
+								<template v-if="leaderboardType === 'llm'">
+									<button
+										v-for="type in ['general', 'math', 'code', 'reasoning']"
+										:key="type"
+										class="type-button"
+										:data-type="type"
+										:class="{ active: selectedType === type }"
+										@click="selectType(type)">
+										<i :class="getTypeIcon(type)"></i> {{ $t('all_' + type) }}
+									</button>
+								</template>
+								<!-- Multi Model 模式：显示 general, reasoning, spatial, infographic -->
+								<template v-if="leaderboardType === 'mm'">
+									<button
+										v-for="type in ['general', 'reasoning', 'spatial', 'infographic']"
+										:key="type"
+										class="type-button"
+										:data-type="type"
+										:class="{ active: selectedType === type }"
+										@click="selectType(type)">
+										<i :class="getTypeIcon(type)"></i> {{ $t('all_' + type) }}
+									</button>
+								</template>
 							</div>
 						</div>
 					</div>
@@ -438,18 +494,36 @@
 											:class="getSortIcon('general_avg')"
 											class="sort-icon"></i>
 									</th>
-									<th
-										class="score-col sortable"
-										@click="sortBy('math_avg'); highlightColumn('math_avg')">
-										{{ $t('all_math') }}
-										<i :class="getSortIcon('math_avg')" class="sort-icon"></i>
-									</th>
-									<th
-										class="score-col sortable"
-										@click="sortBy('code_avg'); highlightColumn('code_avg')">
-										{{ $t('all_code') }}
-										<i :class="getSortIcon('code_avg')" class="sort-icon"></i>
-									</th>
+									<!-- LLM 模式：显示 Math 和 Code -->
+									<template v-if="leaderboardType === 'llm'">
+										<th
+											class="score-col sortable"
+											@click="sortBy('math_avg'); highlightColumn('math_avg')">
+											{{ $t('all_math') }}
+											<i :class="getSortIcon('math_avg')" class="sort-icon"></i>
+										</th>
+										<th
+											class="score-col sortable"
+											@click="sortBy('code_avg'); highlightColumn('code_avg')">
+											{{ $t('all_code') }}
+											<i :class="getSortIcon('code_avg')" class="sort-icon"></i>
+										</th>
+									</template>
+									<!-- Multi Model 模式：显示 Spatial 和 Infographic -->
+									<template v-if="leaderboardType === 'mm'">
+										<th
+											class="score-col sortable"
+											@click="sortBy('spatial_avg'); highlightColumn('spatial_avg')">
+											{{ $t('all_spatial') }}
+											<i :class="getSortIcon('spatial_avg')" class="sort-icon"></i>
+										</th>
+										<th
+											class="score-col sortable"
+											@click="sortBy('infographic_avg'); highlightColumn('infographic_avg')">
+											{{ $t('all_infographic') }}
+											<i :class="getSortIcon('infographic_avg')" class="sort-icon"></i>
+										</th>
+									</template>
 									<th
 										class="score-col sortable"
 										@click="sortBy('reasoning_avg'); highlightColumn('reasoning_avg')">
@@ -466,13 +540,13 @@
 									:key="dataset.id"
 									class="table-row"
 									:class="{ 
-                                    'base-row': dataset.domain === 'base',
-                                    'instruct-row': dataset.domain === 'instruct'
+                                    'base-row': isBaseModel(dataset),
+                                    'instruct-row': isInstructModel(dataset)
                                 }"
 									@click="selectBaseline(dataset)">
 									<td class="rank-col">
 										<div
-											v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+											v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 											class="rank-badge"
 											:class="getRankClass(getRank(dataset, filteredDataForRanking, (sortColumn === 'year' || sortColumn === 'name' || sortColumn === 'size') ? 'overall_avg' : sortColumn, false, null, improvementType) - 1)">
 											{{ getRank(dataset, filteredDataForRanking, (sortColumn
@@ -482,18 +556,18 @@
 										</div>
 										<!-- 只为当前选中的比较基准显示标记 -->
 										<div
-											v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')"
+											v-if="(isBaseModel(dataset) && (improvementType === 'vs_base' || improvementType === 'vs_thinking')) || (isInstructModel(dataset) && improvementType === 'vs_instruct')"
 											class="baseline-indicator active"
 											@mouseenter="showTooltip = true"
 											@mouseleave="showTooltip = false">
 											<i
-												v-if="dataset.domain === 'base'"
+												v-if="isBaseModel(dataset)"
 												class="fas fa-bullseye"></i>
 											<i
-												v-if="dataset.domain === 'instruct'"
+												v-if="isInstructModel(dataset)"
 												class="fas fa-bullseye"></i>
 											<div v-if="showTooltip" class="custom-tooltip">
-												{{ dataset.domain === 'base' ?
+												{{ isBaseModel(dataset) ?
 												$t('lb_tooltip_baseline_base') :
 												$t('lb_tooltip_baseline_instruct') }}
 											</div>
@@ -504,7 +578,7 @@
 											<div class="dataset-name-with-tags">
 												<!-- ! id_1 -->
 												<a
-													v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+													v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 													:href="'data-lineage.html?id=' + dataset.id"
 													class="dataset-link"
 													>{{ dataset.name }}</a
@@ -514,7 +588,7 @@
 												>
 												<!-- 显示标签图标 -->
 												<div
-													v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+													v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 													class="dataset-tags">
 													<span
 														v-for="tag in getDatasetTags(dataset)"
@@ -528,21 +602,19 @@
 												</div>
 											</div>
 											<div
-												v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+												v-if="dataset.affiliation && !isBaseModel(dataset) && !isInstructModel(dataset)"
 												class="dataset-affiliation">
 												{{ dataset.affiliation }}
 											</div>
 										</div>
 									</td>
 									<td class="year-col">
-										{{ dataset.domain === 'base' || dataset.domain ===
-										'instruct' ? '-' : dataset.year }}
+										{{ isBaseModel(dataset) || isInstructModel(dataset) ? '-' : dataset.year }}
 									</td>
 									<td
 										class="size-col"
 										:class="{ 'highlighted-col': highlightedColumn === 'size' }">
-										{{ dataset.domain === 'base' || dataset.domain ===
-										'instruct' ? '-' : dataset.size }}
+										{{ isBaseModel(dataset) || isInstructModel(dataset) ? '-' : dataset.size }}
 									</td>
 									<td
 										class="score-col overall-score"
@@ -597,44 +669,88 @@
 											</span>
 										</div>
 									</td>
-									<td
-										class="score-col"
-										:class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
-										<div class="score-container">
-											<span class="score-value"
-												>{{ formatScoreWithImprovement(dataset.math_avg,
-												dataset.improvement && dataset.improvement.math_avg,
-												dataset, improvementType).score }}</span
-											>
-											<span
-												v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffText"
-												class="score-diff"
-												:class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffClass">
-												{{ formatScoreWithImprovement(dataset.math_avg,
-												dataset.improvement && dataset.improvement.math_avg,
-												dataset, improvementType).diffText }}
-											</span>
-										</div>
-									</td>
-									<td
-										class="score-col"
-										:class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
-										<div class="score-container">
-											<span class="score-value"
-												>{{ formatScoreWithImprovement(dataset.code_avg,
-												dataset.improvement && dataset.improvement.code_avg,
-												dataset, improvementType).score }}</span
-											>
-											<span
-												v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffText"
-												class="score-diff"
-												:class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffClass">
-												{{ formatScoreWithImprovement(dataset.code_avg,
-												dataset.improvement && dataset.improvement.code_avg,
-												dataset, improvementType).diffText }}
-											</span>
-										</div>
-									</td>
+									<!-- LLM 模式：显示 Math 和 Code -->
+									<template v-if="leaderboardType === 'llm'">
+										<td
+											class="score-col"
+											:class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
+											<div class="score-container">
+												<span class="score-value"
+													>{{ formatScoreWithImprovement(dataset.math_avg,
+													dataset.improvement && dataset.improvement.math_avg,
+													dataset, improvementType).score }}</span
+												>
+												<span
+													v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffClass">
+													{{ formatScoreWithImprovement(dataset.math_avg,
+													dataset.improvement && dataset.improvement.math_avg,
+													dataset, improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+										<td
+											class="score-col"
+											:class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
+											<div class="score-container">
+												<span class="score-value"
+													>{{ formatScoreWithImprovement(dataset.code_avg,
+													dataset.improvement && dataset.improvement.code_avg,
+													dataset, improvementType).score }}</span
+												>
+												<span
+													v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffClass">
+													{{ formatScoreWithImprovement(dataset.code_avg,
+													dataset.improvement && dataset.improvement.code_avg,
+													dataset, improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+									</template>
+									<!-- Multi Model 模式：显示 Spatial 和 Infographic -->
+									<template v-if="leaderboardType === 'mm'">
+										<td
+											class="score-col"
+											:class="{ 'highlighted-col': highlightedColumn === 'spatial_avg' }">
+											<div class="score-container">
+												<span class="score-value"
+													>{{ formatScoreWithImprovement(dataset.spatial_avg,
+													dataset.improvement && dataset.improvement.spatial_avg,
+													dataset, improvementType).score }}</span
+												>
+												<span
+													v-if="formatScoreWithImprovement(dataset.spatial_avg, dataset.improvement && dataset.improvement.spatial_avg, dataset, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(dataset.spatial_avg, dataset.improvement && dataset.improvement.spatial_avg, dataset, improvementType).diffClass">
+													{{ formatScoreWithImprovement(dataset.spatial_avg,
+													dataset.improvement && dataset.improvement.spatial_avg,
+													dataset, improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+										<td
+											class="score-col"
+											:class="{ 'highlighted-col': highlightedColumn === 'infographic_avg' }">
+											<div class="score-container">
+												<span class="score-value"
+													>{{ formatScoreWithImprovement(dataset.infographic_avg,
+													dataset.improvement && dataset.improvement.infographic_avg,
+													dataset, improvementType).score }}</span
+												>
+												<span
+													v-if="formatScoreWithImprovement(dataset.infographic_avg, dataset.improvement && dataset.improvement.infographic_avg, dataset, improvementType).diffText"
+													class="score-diff"
+													:class="formatScoreWithImprovement(dataset.infographic_avg, dataset.improvement && dataset.improvement.infographic_avg, dataset, improvementType).diffClass">
+													{{ formatScoreWithImprovement(dataset.infographic_avg,
+													dataset.improvement && dataset.improvement.infographic_avg,
+													dataset, improvementType).diffText }}
+												</span>
+											</div>
+										</td>
+									</template>
 									<td
 										class="score-col"
 										:class="{ 'highlighted-col': highlightedColumn === 'reasoning_avg' }">
@@ -760,13 +876,13 @@
 									:key="dataset.id"
 									class="table-row"
 									:class="{ 
-                                    'base-row': dataset.domain === 'base',
-                                    'instruct-row': dataset.domain === 'instruct'
+                                    'base-row': isBaseModel(dataset),
+                                    'instruct-row': isInstructModel(dataset)
                                 }"
 									@click="selectBaseline(dataset)">
 									<td class="rank-col">
 										<div
-											v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+											v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 											class="rank-badge"
 											:class="getRankClass(getRank(dataset, detailedFilteredDataForRanking, (detailedSortColumn === 'year' || detailedSortColumn === 'name' || detailedSortColumn === 'size') ? 'average' : (detailedSortColumn || 'average'), true, selectedType, improvementType) - 1)">
 											{{ getRank(dataset, detailedFilteredDataForRanking,
@@ -776,18 +892,18 @@
 											improvementType) }}
 										</div>
 										<div
-											v-if="(dataset.domain === 'base' && improvementType === 'vs_base') || (dataset.domain === 'instruct' && improvementType === 'vs_instruct')"
+											v-if="(isBaseModel(dataset) && (improvementType === 'vs_base' || improvementType === 'vs_thinking')) || (isInstructModel(dataset) && improvementType === 'vs_instruct')"
 											class="baseline-indicator active"
 											@mouseenter="showTooltip = true"
 											@mouseleave="showTooltip = false">
 											<i
-												v-if="dataset.domain === 'base'"
+												v-if="isBaseModel(dataset)"
 												class="fas fa-bullseye"></i>
 											<i
-												v-if="dataset.domain === 'instruct'"
+												v-if="isInstructModel(dataset)"
 												class="fas fa-bullseye"></i>
 											<div v-if="showTooltip" class="custom-tooltip">
-												{{ dataset.domain === 'base' ?
+												{{ isBaseModel(dataset) ?
 												$t('lb_tooltip_baseline_base') :
 												$t('lb_tooltip_baseline_instruct') }}
 											</div>
@@ -798,13 +914,13 @@
 											<div class="dataset-name-with-tags">
 												<!-- ! id_2 -->
 												<!-- <a
-                                                    v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct' && dataset.evaluation_score !== none"
+                                                    v-if="!isBaseModel(dataset) && !isInstructModel(dataset) && dataset.evaluation_score !== none"
                                                     :href="`data-comparison.html?id=${dataset.id}`"
                                                     class="dataset-link"
                                                     >{{ dataset.name }}</a
                                                 > -->
 												<a
-													v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+													v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 													:href="'data-lineage.html?id=' + dataset.id"
 													class="dataset-link"
 													>{{ dataset.name }}</a
@@ -813,7 +929,7 @@
 													>{{ dataset.name }}</span
 												>
 												<div
-													v-if="dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+													v-if="!isBaseModel(dataset) && !isInstructModel(dataset)"
 													class="dataset-tags">
 													<span
 														v-for="tag in getDatasetTags(dataset)"
@@ -827,21 +943,19 @@
 												</div>
 											</div>
 											<div
-												v-if="dataset.affiliation && dataset.domain !== 'base' && dataset.domain !== 'instruct'"
+												v-if="dataset.affiliation && !isBaseModel(dataset) && !isInstructModel(dataset)"
 												class="dataset-affiliation">
 												{{ dataset.affiliation }}
 											</div>
 										</div>
 									</td>
 									<td class="year-col">
-										{{ dataset.domain === 'base' || dataset.domain ===
-										'instruct' ? '-' : dataset.year }}
+										{{ isBaseModel(dataset) || isInstructModel(dataset) ? '-' : dataset.year }}
 									</td>
 									<td
 										class="size-col"
 										:class="{ 'highlighted-col': highlightedDetailedColumn === 'size' }">
-										{{ dataset.domain === 'base' || dataset.domain ===
-										'instruct' ? '-' : dataset.size }}
+										{{ isBaseModel(dataset) || isInstructModel(dataset) ? '-' : dataset.size }}
 									</td>
 									<td
 										class="score-col overall-score"

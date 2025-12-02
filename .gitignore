@@ -2,16 +2,18 @@
 .DS_Store
 Thumbs.db
 
-data/*.py
-data/*.xlsx
-data/filter_results.json
-data/filter_statistics.json
-data/processed_leaderboard_data.json
-data/processed_score_data.json
-data/filtered_leaderboard_data.json
-data/*.md
+data/filter/
+data/llm/*.py
+data/llm/*.xlsx
+data/llm/*.md
+data/llm/llm_leaderboard.json
+data/llm/llm_score.json
+data/mm/*.py
+data/mm/*.xlsx
+data/mm/*.log
 utils/
 deploy.sh
+server.py
 
 
 # Python

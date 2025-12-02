@@ -355,11 +355,11 @@ if (appElement && document.getElementById("appPage")) {
 
             // 加载真实数据
             Promise.all([
-                fetch('data/graph.jsonl').then(r => {
-                    if (!r.ok) throw new Error('Failed to load graph.jsonl');
+                fetch('data/lineage/graph.jsonl').then(r => {
+                    if (!r.ok) throw new Error('Failed to load lineage/graph.jsonl');
                     return r.text();
                 }),
-                fetch('data/lineage_data.jsonl').then(r => {
+                fetch('data/lineage/lineage_data.jsonl').then(r => {
                     if (!r.ok) throw new Error('Failed to load data.jsonl');
                     return r.text();
                 })
@@ -910,8 +910,8 @@ if (appElement && document.getElementById("appPage")) {
                 }
             }
 
-            // 加载 graph.jsonl
-            return fetch('data/graph.jsonl')
+            // 加载 lineage/graph.jsonl
+            return fetch('data/lineage/graph.jsonl')
                 .then(response => {
                     if (!response.ok) throw new Error('无法加载图数据');
                     return response.text();
@@ -922,7 +922,7 @@ if (appElement && document.getElementById("appPage")) {
                     window.adjacencyMap = buildAdjacencyMap(graphData);
 
                     // 加载 data.jsonl
-                    return fetch('data/lineage_data.jsonl');
+                    return fetch('data/lineage/lineage_data.jsonl');
                 })
                 .then(response => {
                     if (!response.ok) throw new Error('无法加载数据集信息');
@@ -4016,9 +4016,9 @@ if (appElement && document.getElementById("appPage")) {
         // 加载id2name映射文件并查找target名称
         async function loadTargetFromId(datasetId) {
             try {
-                const response = await fetch('./data/id2name.jsonl');
+                const response = await fetch('./data/lineage/id2name.jsonl');
                 if (!response.ok) {
-                    throw new Error('Failed to load id2name.jsonl');
+                    throw new Error('Failed to load lineage/id2name.jsonl');
                 }
                 
                 const text = await response.text();
@@ -4038,13 +4038,13 @@ if (appElement && document.getElementById("appPage")) {
                             }
                         }
                     } catch (e) {
-                        console.warn('Failed to parse line in id2name.jsonl:', line, e);
+                        console.warn('Failed to parse line in lineage/id2name.jsonl:', line, e);
                     }
                 }
                 
                 return null;
             } catch (error) {
-                console.error('Error loading id2name.jsonl:', error);
+                console.error('Error loading lineage/id2name.jsonl:', error);
                 return null;
             }
         }
@@ -4098,7 +4098,7 @@ if (appElement && document.getElementById("appPage")) {
         // 加载target并触发可视化
         async function loadAndVisualizeTarget(datasetId, silent = false) {
             try {
-                // 从id2name.jsonl查找target名称
+                // 从lineage/id2name.jsonl查找target名称
                 const targetName = await loadTargetFromId(datasetId);
                 
                 if (!targetName) {
@@ -4162,7 +4162,7 @@ if (appElement && document.getElementById("appPage")) {
                     await loadGraphData();
                 }
 
-                // 从id2name.jsonl查找id=87对应的target名称
+                // 从lineage/id2name.jsonl查找id=87对应的target名称
                 const targetName = await loadTargetFromId('91');
                 
                 if (!targetName) {
@@ -4290,7 +4290,7 @@ if (appElement && document.getElementById("appPage")) {
                     // 数据加载完成后，检查是否需要自动加载target
                     autoLoadTargetFromUrl();
                 }).catch(() => {
-                    // 即使加载失败，也尝试自动加载（可能id2name.jsonl可以正常加载）
+                    // 即使加载失败，也尝试自动加载（可能lineage/id2name.jsonl可以正常加载）
                     autoLoadTargetFromUrl();
                 });
             }
