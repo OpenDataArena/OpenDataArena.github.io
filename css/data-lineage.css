@@ -230,16 +230,9 @@
         }
 
 .app-page .container {
-            max-width: 1400px;
-            margin: 40px auto;
-            background: linear-gradient(180deg, var(--color-gray-100) 0%, var(--color-gray-50) 100%);
-            border-radius: 20px;
-            box-shadow:
-                0 0 0 1px var(--shadow-light),
-                0 20px 40px var(--shadow-medium),
-                0 60px 120px var(--shadow-heavy);
-            overflow: hidden;
-            border: 1px solid var(--color-gray-200);
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 16px;
         }
 
 .app-page .header {
@@ -270,8 +263,6 @@
         }
 
 .app-page .controls {
-            padding: 32px 60px;
-            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
         }
 
 .app-page .form-group {
@@ -436,7 +427,6 @@
             overflow: auto;
             background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
             position: relative;
-            border-top: 1px solid var(--color-gray-200);
             min-height: 600px;
         }
 
@@ -1430,7 +1420,6 @@
             }
 
 .app-page .controls {
-                padding: 24px 20px;
             }
 
             .form-row {
@@ -1610,7 +1599,6 @@
             }
 
 .app-page .controls {
-                padding: 28px 40px;
             }
 
             .form-row {
@@ -1730,5 +1718,65 @@
         .lang-switch-btn:active {
             transform: translateY(0);
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dataset Card Styles - Ensure Font Awesome icons display correctly */
+        /* Override .dataset-header * font-family rule with higher specificity */
+        /* Target all i elements within dataset-header that have Font Awesome classes */
+        .dataset-header.comparison-card i[class*="fa-"],
+        .dataset-header.comparison-card i[class*="fas"],
+        .dataset-header.comparison-card i[class*="far"],
+        .dataset-header.comparison-card i[class*="fab"],
+        .dataset-header.comparison-card .external-link i,
+        .dataset-header.comparison-card .dataset-affiliation i,
+        .dataset-header.comparison-card .tag-badge i,
+        .dataset-header.comparison-card .comparison-card-header i,
+        .dataset-header.comparison-card .comparison-card-body i {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            line-height: 1 !important;
+            vertical-align: middle !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            speak: none;
+        }
+
+        /* Ensure Font Awesome pseudo-elements are visible */
+        .dataset-header.comparison-card i[class*="fa-"]::before,
+        .dataset-header.comparison-card i[class*="fas"]::before,
+        .dataset-header.comparison-card i[class*="far"]::before,
+        .dataset-header.comparison-card i[class*="fab"]::before,
+        .dataset-header.comparison-card .external-link i::before,
+        .dataset-header.comparison-card .dataset-affiliation i::before,
+        .dataset-header.comparison-card .tag-badge i::before,
+        .dataset-header.comparison-card .comparison-card-header i::before,
+        .dataset-header.comparison-card .comparison-card-body i::before {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+        }
+
+        .dataset-header.comparison-card .external-link i {
+            margin-right: 6px;
+        }
+
+        .dataset-header.comparison-card .tag-badge i {
+            margin-right: 4px;
+        }
+
+        .dataset-header.comparison-card .dataset-affiliation i {
+            margin-right: 6px;
+        }
+
+        /* Ensure chevron icons are visible */
+        .dataset-header.comparison-card .comparison-card-header i.fa-chevron-up,
+        .dataset-header.comparison-card .comparison-card-header i.fa-chevron-down {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
         }
     </style>

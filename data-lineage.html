@@ -19,6 +19,7 @@
 		/>
 		<script src="https://d3js.org/d3.v7.min.js"></script>
 		<link rel="stylesheet" href="./css/data-lineage.css" />
+		<link rel="stylesheet" href="./css/data-comparison.css" />
 		<!-- Google tag (gtag.js) -->
 		<script>
 			(function () {
@@ -235,14 +236,121 @@
 				"
 			>
 				<div class="container">
-					<div class="header">
-						<h1>{{ $t('genealogy_appTitle') }}</h1>
-						<p>{{ $t('genealogy_appSubtitle') }}</p>
+					<!-- Header -->
+					<div
+						class="data-comparison-header"
+						style="width: 100%; margin: 0 auto; margin-bottom: 20px">
+						<h1 class="data-comparison-title">
+							<i class="fas fa-project-diagram"></i>{{ $t('genealogy_appTitle') }}
+						</h1>
+						<p style="margin-bottom: 10px">{{ $t('genealogy_appSubtitle') }}{{ $t('genealogy_tipText') }}</p>
+					</div>
+
+					<!-- Dataset Card -->
+					<div v-if="datasetId && datasetInfo" class="comparison-cards" style="margin-top: 32px; margin-bottom: 32px;">
+						<div
+							class="dataset-header comparison-card"
+							:style="getCardStyle(0)">
+							<div
+								class="comparison-card-header"
+								@click="toggleCardCollapse()"
+								:style="getCardHeaderStyle(0)">
+								<div style="display: flex; align-items: center; width: 100%">
+									<span
+										class="comparison-card-title"
+										style="flex: 1; display: flex; align-items: center">
+										{{ getDisplayName(datasetInfo.name) }}
+										<span class="external-links" style="margin-left: 14px">
+											<a
+												v-if="datasetInfo.link"
+												:href="datasetInfo.link"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="external-link">
+												<i class="fas fa-database"></i>
+												Hugging Face
+											</a>
+											<a
+												v-if="datasetInfo.scored_link"
+												:href="datasetInfo.scored_link"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="external-link">
+												<i class="fas fa-pencil-square"></i>
+												{{ $t('comparison_scored_link') }}
+											</a>
+											<a
+												v-if="datasetInfo.paper_link"
+												:href="datasetInfo.paper_link"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="external-link">
+												<i class="fas fa-file-alt"></i>
+												{{ $t('comparison_paper') }}
+											</a>
+										</span>
+									</span>
+									<span style="margin-left: auto; display: flex; align-items: center">
+										<i
+											:class="cardCollapsed ? 'fas fa-chevron-down' : 'fas fa-chevron-up'"
+											style="font-size: 1.2rem"></i>
+									</span>
+								</div>
+							</div>
+							<div
+								v-show="!cardCollapsed"
+								class="comparison-card-body"
+								:style="getCardStyle(0)">
+								<div
+									v-if="datasetInfo.affiliation"
+									class="dataset-affiliation">
+									<i class="fas fa-building"></i> {{ datasetInfo.affiliation }}
+								</div>
+								<div class="dataset-basic-info">
+									<div class="info-item">
+										<div class="info-label">
+											{{ $t('comparison_release_year') }}
+										</div>
+										<div class="info-value">
+											{{ datasetInfo.year || 'N/A' }}
+										</div>
+									</div>
+									<div class="info-item">
+										<div class="info-label">
+											{{ $t('comparison_dataset_size') }}
+										</div>
+										<div class="info-value">
+											{{ datasetInfo.size || 'N/A' }}
+										</div>
+									</div>
+									<div class="info-item">
+										<div class="info-label">{{ $t('comparison_tags') }}</div>
+										<div class="info-value">
+											<span
+												v-for="tag in getDatasetTags(datasetInfo)"
+												:key="tag"
+												class="tag-badge">
+												<i :class="getTagIcon(tag)"></i>
+												{{ $t('all_' + tag.toLowerCase()) !== ('all_' +
+												tag.toLowerCase()) ? $t('all_' + tag.toLowerCase()) :
+												getTagDisplayName(tag) }}
+											</span>
+										</div>
+									</div>
+									<div class="info-item">
+										<div class="info-label">
+											{{ $t('comparison_overall_average') }}
+										</div>
+										<div class="info-value">
+											{{ formatScore(datasetInfo.overall_avg) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<div class="controls">
-						<div class="info">{{ $t('genealogy_tipText') }}</div>
-
 						<div class="form-row">
 							<div class="form-group">
 								<label>{{ $t('genealogy_targetDatasetLabel') }}</label>

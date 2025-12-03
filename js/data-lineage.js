@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initI18nForIndex();
 });
 
-const { createApp, computed, watch } = Vue;
+const { createApp, computed, watch, ref, onMounted } = Vue;
 
 const app = createApp({
 	setup() {
@@ -48,10 +48,163 @@ const app = createApp({
 			}
 		});
 
+		// Dataset card related
+		const datasetId = ref(null);
+		const datasetInfo = ref(null);
+		const cardCollapsed = ref(false); // 默认展开
+
+		// 获取 URL 参数
+		const getUrlParams = () => {
+			const urlParams = new URLSearchParams(window.location.search);
+			const id = urlParams.get("id");
+			return { id };
+		};
+
+		// 加载数据集信息
+		const loadDatasetInfo = async () => {
+			const { id } = getUrlParams();
+			if (!id) {
+				datasetId.value = null;
+				datasetInfo.value = null;
+				return;
+			}
+
+			datasetId.value = id;
+
+			try {
+				const response = await fetch("./data/llm/llm.json");
+				if (!response.ok) {
+					throw new Error("Failed to load data");
+				}
+
+				const data = await response.json();
+				// 尝试从 llama 数据中查找
+				const llamaData = data["llama"] || [];
+				let foundDataset = llamaData.find(
+					(d) => d.id.toString() === id.toString()
+				);
+
+				// 如果没找到，尝试从 qwen 数据中查找
+				if (!foundDataset) {
+					const qwenData = data["qwen"] || [];
+					foundDataset = qwenData.find(
+						(d) => d.id.toString() === id.toString()
+					);
+				}
+
+				// 如果还是没找到，尝试从 qwen3 数据中查找
+				if (!foundDataset) {
+					const qwen3Data = data["qwen3"] || [];
+					foundDataset = qwen3Data.find(
+						(d) => d.id.toString() === id.toString()
+					);
+				}
+
+				datasetInfo.value = foundDataset || null;
+			} catch (err) {
+				console.error("Error loading dataset info:", err);
+				datasetInfo.value = null;
+			}
+		};
+
+		// 卡片样式
+		const chartColorBase = [
+			{ rgb: "30, 64, 175" },
+			{ rgb: "200, 30, 38" },
+			{ rgb: "0, 128, 64" },
+			{ rgb: "204, 102, 0" },
+			{ rgb: "110, 36, 150" },
+		];
+
+		const getCardStyle = (idx) => {
+			const rgb = chartColorBase[idx % chartColorBase.length].rgb;
+			return {
+				background: `rgba(${rgb}, 1)`,
+				color: "#fff",
+				border: "none",
+				boxShadow: "0 2px 8px 0 rgba(30,64,175,0.04)",
+			};
+		};
+
+		const getCardHeaderStyle = (idx) => getCardStyle(idx);
+
+		// 切换卡片折叠
+		const toggleCardCollapse = () => {
+			cardCollapsed.value = !cardCollapsed.value;
+		};
+
+		// 获取显示的数据集名字
+		const getDisplayName = (datasetName) => {
+			const displayNameMapping = {
+				"meta-llama/Llama-3.1-8B-Instruct": "Instruct Model",
+				"meta-llama/Llama-3.1-8B": "Base Model",
+			};
+			return displayNameMapping[datasetName] || datasetName;
+		};
+
+		// 获取数据集标签
+		const getDatasetTags = (dataset) => {
+			const tags = [];
+			const tagStr = dataset.tag || "";
+			if (tagStr) {
+				const parsedTags = tagStr
+					.split(",")
+					.map((t) => t.trim())
+					.filter((t) => t);
+				tags.push(...parsedTags);
+			}
+			return tags;
+		};
+
+		// 获取标签图标
+		const getTagIcon = (tag) => {
+			const tagIcons = {
+				general: "fas fa-book",
+				math: "fas fa-calculator",
+				code: "fas fa-code",
+				science: "fas fa-flask",
+				reasoning: "fas fa-brain",
+				spatial: "fas fa-map",
+				infographic: "fas fa-image",
+			};
+
+			return tagIcons[tag.toLowerCase()] || "fas fa-tag";
+		};
+
+		// 获取标签显示名称
+		const getTagDisplayName = (tag) => {
+			if (!tag) return "";
+			return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase();
+		};
+
+		// 格式化分数
+		const formatScore = (score) => {
+			if (typeof score === "number") {
+				return (Math.round(score * 10) / 10).toFixed(1);
+			}
+			return "0.0";
+		};
+
+		// 在组件挂载时加载数据集信息
+		onMounted(() => {
+			loadDatasetInfo();
+		});
+
 		return {
 			i18nLang,
 			toggleLang,
 			langAriaLabel,
+			datasetId,
+			datasetInfo,
+			cardCollapsed,
+			getCardStyle,
+			getCardHeaderStyle,
+			toggleCardCollapse,
+			getDisplayName,
+			getDatasetTags,
+			getTagIcon,
+			getTagDisplayName,
+			formatScore,
 		};
 	},
 });

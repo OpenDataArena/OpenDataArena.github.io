@@ -282,62 +282,62 @@
 						</div>
 						<!-- 右上：Dataset Size Range 和 Search 的组合容器 -->
 						<div class="size-range-search-wrapper">
-							<!-- 数据量区间滑动条 -->
-							<div class="size-range-section">
-								<label>{{ $t('lb_dataset_size_range') }}</label>
-								<div class="size-slider-container">
-									<div class="size-slider-wrapper">
-										<div class="size-slider-track">
-											<div
-												class="size-slider-range"
-												:style="getRangeStyle()"></div>
-											<input
-												ref="minSlider"
-												type="range"
-												class="size-slider size-slider-min"
-												:min="0"
-												:max="7"
-												:value="sizeRangeMin"
-												@input="updateSizeRangeMin($event)"
-												@change="updateSizeRangeMin($event)"
-												@mousedown="onSliderMouseDown"
-												@touchstart="onSliderMouseDown" />
-											<input
-												ref="maxSlider"
-												type="range"
-												class="size-slider size-slider-max"
-												:min="0"
-												:max="7"
-												:value="sizeRangeMax"
-												@input="updateSizeRangeMax($event)"
-												@change="updateSizeRangeMax($event)"
-												@mousedown="onSliderMouseDown"
-												@touchstart="onSliderMouseDown" />
-										</div>
-										<div class="size-slider-labels">
-											<span class="size-label-min"
-												>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMin))
-												}}</span
-											>
-											<span class="size-label-max"
-												>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMax))
-												}}</span
-											>
-										</div>
+						<!-- 数据量区间滑动条 -->
+						<div class="size-range-section">
+							<label>{{ $t('lb_dataset_size_range') }}</label>
+							<div class="size-slider-container">
+								<div class="size-slider-wrapper">
+									<div class="size-slider-track">
+										<div
+											class="size-slider-range"
+											:style="getRangeStyle()"></div>
+										<input
+											ref="minSlider"
+											type="range"
+											class="size-slider size-slider-min"
+											:min="0"
+											:max="7"
+											:value="sizeRangeMin"
+											@input="updateSizeRangeMin($event)"
+											@change="updateSizeRangeMin($event)"
+											@mousedown="onSliderMouseDown"
+											@touchstart="onSliderMouseDown" />
+										<input
+											ref="maxSlider"
+											type="range"
+											class="size-slider size-slider-max"
+											:min="0"
+											:max="7"
+											:value="sizeRangeMax"
+											@input="updateSizeRangeMax($event)"
+											@change="updateSizeRangeMax($event)"
+											@mousedown="onSliderMouseDown"
+											@touchstart="onSliderMouseDown" />
+									</div>
+									<div class="size-slider-labels">
+										<span class="size-label-min"
+											>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMin))
+											}}</span
+										>
+										<span class="size-label-max"
+											>{{ formatSizeLabel(getSizeValueFromIndex(sizeRangeMax))
+											}}</span
+										>
 									</div>
 								</div>
 							</div>
-							<!-- 搜索框 -->
-							<div class="search-box-container">
-								<div class="search-box">
-									<i class="fas fa-search"></i>
-									<input
-										id="search-input-main"
-										type="text"
-										v-model="searchQuery"
-										:key="'ph-' + i18nLang"
-										:placeholder="$t('lb_search_datasets')"
-										class="search-input" />
+						</div>
+						<!-- 搜索框 -->
+						<div class="search-box-container">
+							<div class="search-box">
+								<i class="fas fa-search"></i>
+								<input
+									id="search-input-main"
+									type="text"
+									v-model="searchQuery"
+									:key="'ph-' + i18nLang"
+									:placeholder="$t('lb_search_datasets')"
+									class="search-input" />
 								</div>
 							</div>
 						</div>
@@ -401,15 +401,15 @@
 								</button>
 								<!-- LLM 模式：显示 general, math, code, reasoning -->
 								<template v-if="leaderboardType === 'llm'">
-									<button
-										v-for="type in ['general', 'math', 'code', 'reasoning']"
-										:key="type"
-										class="type-button"
-										:data-type="type"
-										:class="{ active: selectedType === type }"
-										@click="selectType(type)">
-										<i :class="getTypeIcon(type)"></i> {{ $t('all_' + type) }}
-									</button>
+								<button
+									v-for="type in ['general', 'math', 'code', 'reasoning']"
+									:key="type"
+									class="type-button"
+									:data-type="type"
+									:class="{ active: selectedType === type }"
+									@click="selectType(type)">
+									<i :class="getTypeIcon(type)"></i> {{ $t('all_' + type) }}
+								</button>
 								</template>
 								<!-- Multi Model 模式：显示 general, reasoning, spatial, infographic -->
 								<template v-if="leaderboardType === 'mm'">
@@ -496,18 +496,18 @@
 									</th>
 									<!-- LLM 模式：显示 Math 和 Code -->
 									<template v-if="leaderboardType === 'llm'">
-										<th
-											class="score-col sortable"
-											@click="sortBy('math_avg'); highlightColumn('math_avg')">
-											{{ $t('all_math') }}
-											<i :class="getSortIcon('math_avg')" class="sort-icon"></i>
-										</th>
-										<th
-											class="score-col sortable"
-											@click="sortBy('code_avg'); highlightColumn('code_avg')">
-											{{ $t('all_code') }}
-											<i :class="getSortIcon('code_avg')" class="sort-icon"></i>
-										</th>
+									<th
+										class="score-col sortable"
+										@click="sortBy('math_avg'); highlightColumn('math_avg')">
+										{{ $t('all_math') }}
+										<i :class="getSortIcon('math_avg')" class="sort-icon"></i>
+									</th>
+									<th
+										class="score-col sortable"
+										@click="sortBy('code_avg'); highlightColumn('code_avg')">
+										{{ $t('all_code') }}
+										<i :class="getSortIcon('code_avg')" class="sort-icon"></i>
+									</th>
 									</template>
 									<!-- Multi Model 模式：显示 Reasoning, Spatial 和 Infographic -->
 									<template v-if="leaderboardType === 'mm'">
@@ -681,44 +681,44 @@
 									</td>
 									<!-- LLM 模式：显示 Math 和 Code -->
 									<template v-if="leaderboardType === 'llm'">
-										<td
-											class="score-col"
-											:class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
-											<div class="score-container">
-												<span class="score-value"
-													>{{ formatScoreWithImprovement(dataset.math_avg,
-													dataset.improvement && dataset.improvement.math_avg,
-													dataset, improvementType).score }}</span
-												>
-												<span
-													v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffText"
-													class="score-diff"
-													:class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffClass">
-													{{ formatScoreWithImprovement(dataset.math_avg,
-													dataset.improvement && dataset.improvement.math_avg,
-													dataset, improvementType).diffText }}
-												</span>
-											</div>
-										</td>
-										<td
-											class="score-col"
-											:class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
-											<div class="score-container">
-												<span class="score-value"
-													>{{ formatScoreWithImprovement(dataset.code_avg,
-													dataset.improvement && dataset.improvement.code_avg,
-													dataset, improvementType).score }}</span
-												>
-												<span
-													v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffText"
-													class="score-diff"
-													:class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffClass">
-													{{ formatScoreWithImprovement(dataset.code_avg,
-													dataset.improvement && dataset.improvement.code_avg,
-													dataset, improvementType).diffText }}
-												</span>
-											</div>
-										</td>
+									<td
+										class="score-col"
+										:class="{ 'highlighted-col': highlightedColumn === 'math_avg' }">
+										<div class="score-container">
+											<span class="score-value"
+												>{{ formatScoreWithImprovement(dataset.math_avg,
+												dataset.improvement && dataset.improvement.math_avg,
+												dataset, improvementType).score }}</span
+											>
+											<span
+												v-if="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffText"
+												class="score-diff"
+												:class="formatScoreWithImprovement(dataset.math_avg, dataset.improvement && dataset.improvement.math_avg, dataset, improvementType).diffClass">
+												{{ formatScoreWithImprovement(dataset.math_avg,
+												dataset.improvement && dataset.improvement.math_avg,
+												dataset, improvementType).diffText }}
+											</span>
+										</div>
+									</td>
+									<td
+										class="score-col"
+										:class="{ 'highlighted-col': highlightedColumn === 'code_avg' }">
+										<div class="score-container">
+											<span class="score-value"
+												>{{ formatScoreWithImprovement(dataset.code_avg,
+												dataset.improvement && dataset.improvement.code_avg,
+												dataset, improvementType).score }}</span
+											>
+											<span
+												v-if="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffText"
+												class="score-diff"
+												:class="formatScoreWithImprovement(dataset.code_avg, dataset.improvement && dataset.improvement.code_avg, dataset, improvementType).diffClass">
+												{{ formatScoreWithImprovement(dataset.code_avg,
+												dataset.improvement && dataset.improvement.code_avg,
+												dataset, improvementType).diffText }}
+											</span>
+										</div>
+									</td>
 									</template>
 									<!-- Multi Model 模式：显示 Reasoning, Spatial 和 Infographic -->
 									<template v-if="leaderboardType === 'mm'">

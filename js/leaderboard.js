@@ -110,10 +110,10 @@ const app = createApp({
 				}
 			} else {
 				// LLM 模式：使用 domain 字段判断
-				if (dataset.domain === "base") {
-					improvementType.value = "vs_base";
-				} else if (dataset.domain === "instruct") {
-					improvementType.value = "vs_instruct";
+			if (dataset.domain === "base") {
+				improvementType.value = "vs_base";
+			} else if (dataset.domain === "instruct") {
+				improvementType.value = "vs_instruct";
 				}
 			}
 		};

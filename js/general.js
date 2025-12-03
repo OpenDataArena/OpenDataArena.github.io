@@ -417,18 +417,20 @@ export function createDataLineageI18nPlugin() {
 			const V = window.Vue || {};
 			__i18nLangRef = V.ref ? V.ref(cur) : { value: cur };
 
-			// 全局翻译函数：优先 data_lineage，再 all，支持简单占位符递归替换
+			// 全局翻译函数：优先 data_lineage，再 comparison，再 all，支持简单占位符递归替换
 			app.config.globalProperties.$t = function (key, params = {}) {
 				const lang = (__i18nLangRef?.value || "en").toLowerCase();
 				const cur = lang.startsWith("zh") ? "zh" : "en";
 
 				// 当前语言与英文的双层回退
 				const LlineageCur = (LANG.lang_data_lineage && (LANG.lang_data_lineage[cur] || {})) || {};
+				const LcomparisonCur = (LANG.lang_comparison && (LANG.lang_comparison[cur] || {})) || {};
 				const LallCur = (LANG.lang_all && (LANG.lang_all[cur] || {})) || {};
 				const LlineageEn = (LANG.lang_data_lineage && (LANG.lang_data_lineage.en || {})) || {};
+				const LcomparisonEn = (LANG.lang_comparison && (LANG.lang_comparison.en || {})) || {};
 				const LallEn = (LANG.lang_all && (LANG.lang_all.en || {})) || {};
 
-				const lookup = (k) => LlineageCur[k] ?? LallCur[k] ?? LlineageEn[k] ?? LallEn[k] ?? null;
+				const lookup = (k) => LlineageCur[k] ?? LcomparisonCur[k] ?? LallCur[k] ?? LlineageEn[k] ?? LcomparisonEn[k] ?? LallEn[k] ?? null;
 
 				let str = lookup(key);
 				if (str == null) return key;

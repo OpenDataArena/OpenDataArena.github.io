@@ -70,7 +70,7 @@ export const lang_all = {
 export const lang_data_lineage = {
 	en: {
 		genealogy_appTitle: "Data Lineage Analysis",
-		genealogy_appSubtitle: "Explore the relationships and dependencies between datasets",
+		genealogy_appSubtitle: "Explore the relationships and dependencies between datasets. ",
 		genealogy_tipText: "Enter dataset names to visualize their lineage relationships",
 		genealogy_targetDatasetLabel: "Target Dataset",
 		genealogy_targetPlaceholder: "Enter dataset name...",
@@ -155,7 +155,7 @@ export const lang_data_lineage = {
 	},
 	zh: {
 		genealogy_appTitle: "数据血缘分析",
-		genealogy_appSubtitle: "探索数据集之间的关系和依赖",
+		genealogy_appSubtitle: "探索数据集之间的关系和依赖，",
 		genealogy_tipText: "输入数据集名称以可视化其血缘关系",
 		genealogy_targetDatasetLabel: "目标数据集",
 		genealogy_targetPlaceholder: "输入数据集名称...",
