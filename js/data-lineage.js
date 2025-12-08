@@ -1131,17 +1131,32 @@ if (appElement && document.getElementById("appPage")) {
         function buildAdjacencyMap(edges) {
             const map = {};
 
-            edges.forEach(edge => {
+            edges.forEach((edge, index) => {
                 if (!map[edge.target]) {
                     map[edge.target] = [];
                 }
 
-                const parsedMeta = JSON.parse(edge.meta_info);
-                map[edge.target].push({
-                    source: edge.source,
-                    relationship: parsedMeta.relationship,
-                    confidence: parsedMeta.confidence
-                });
+                try {
+                    // 如果 meta_info 已经是对象，直接使用；否则解析 JSON 字符串
+                    let parsedMeta;
+                    if (typeof edge.meta_info === 'string') {
+                        parsedMeta = JSON.parse(edge.meta_info);
+                    } else if (typeof edge.meta_info === 'object') {
+                        parsedMeta = edge.meta_info;
+                    } else {
+                        console.warn(`Line ${index + 1}: Invalid meta_info type for edge ${edge.source} -> ${edge.target}`);
+                        return; // 跳过这一行
+                    }
+
+                    map[edge.target].push({
+                        source: edge.source,
+                        relationship: parsedMeta.relationship || 'unknown',
+                        confidence: parsedMeta.confidence || 0
+                    });
+                } catch (error) {
+                    console.warn(`Line ${index + 1}: Failed to parse meta_info for edge ${edge.source} -> ${edge.target}:`, error);
+                    // 跳过这一行，继续处理其他行
+                }
             });
 
             return map;
