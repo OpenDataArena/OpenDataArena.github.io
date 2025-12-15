@@ -8,6 +8,7 @@ data/llm/*.xlsx
 data/llm/*.md
 data/llm/llm_leaderboard.json
 data/llm/llm_score.json
+data/llm/*.log
 data/mm/*.py
 data/mm/*.xlsx
 data/mm/*.log
