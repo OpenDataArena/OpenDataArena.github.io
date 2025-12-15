@@ -96124,10 +96124,10 @@
       "name": "Qwen3-8B",
       "domain": "instruct",
       "general_avg": 80.04,
-      "math_avg": 68.55,
+      "math_avg": 60.76,
       "code_avg": 74.47,
       "reasoning_avg": 70.83,
-      "overall_avg": 73.47,
+      "overall_avg": 71.53,
       "overall_efficiency": 0.0,
       "general_efficiency": 0.0,
       "math_efficiency": 0.0,
@@ -96140,8 +96140,6 @@
         62.9835714
       ],
       "math_task_scores": [
-        94.62,
-        97.0,
         56.12,
         79.82,
         74.16625,
@@ -96203,24 +96201,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 94.62
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 97.0
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -96386,10 +96366,10 @@
       "name": "Qwen3-8B-base",
       "domain": "base",
       "general_avg": 58.67,
-      "math_avg": 32.03,
+      "math_avg": 16.67,
       "code_avg": 52.36,
       "reasoning_avg": 50.57,
-      "overall_avg": 48.41,
+      "overall_avg": 44.57,
       "overall_efficiency": 0.0,
       "general_efficiency": 0.0,
       "math_efficiency": 0.0,
@@ -96402,8 +96382,6 @@
         56.1885714
       ],
       "math_task_scores": [
-        92.04,
-        79.6,
         30.62,
         47.18,
         6.67,
@@ -96465,24 +96443,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.04
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 79.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -96648,13 +96608,13 @@
       "name": "tulu3-sft-mixture",
       "domain": "general",
       "general_avg": 57.19,
-      "math_avg": 25.37,
+      "math_avg": 11.67,
       "code_avg": 54.76,
       "reasoning_avg": 55.64,
-      "overall_avg": 48.24,
-      "overall_efficiency": -0.00018,
+      "overall_avg": 44.82,
+      "overall_efficiency": 0.000262,
       "general_efficiency": -0.001577,
-      "math_efficiency": -0.007095,
+      "math_efficiency": -0.005326,
       "code_efficiency": 0.00256,
       "reasoning_efficiency": 0.005401,
       "general_task_scores": [
@@ -96664,8 +96624,6 @@
         44.71
       ],
       "math_task_scores": [
-        90.22,
-        56.4,
         19.33,
         34.42,
         4.17,
@@ -96727,24 +96685,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 90.22
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 56.4
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -96898,13 +96838,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -1.48,
-          "math_avg": -6.66,
+          "math_avg": -5.0,
           "code_avg": 2.41,
           "reasoning_avg": 5.07,
-          "overall_avg": -0.17,
-          "overall_efficiency": -0.00018,
+          "overall_avg": 0.25,
+          "overall_efficiency": 0.000262,
           "general_efficiency": -0.001577,
-          "math_efficiency": -0.007095,
+          "math_efficiency": -0.005326,
           "code_efficiency": 0.00256,
           "reasoning_efficiency": 0.005401,
           "general_task_scores": [
@@ -96914,8 +96854,6 @@
             -11.48
           ],
           "math_task_scores": [
-            -1.82,
-            -23.2,
             -11.29,
             -12.76,
             -2.5,
@@ -96940,10 +96878,10 @@
         },
         "vs_instruct": {
           "general_avg": -22.85,
-          "math_avg": -43.18,
+          "math_avg": -49.09,
           "code_avg": -19.7,
           "reasoning_avg": -15.19,
-          "overall_avg": -25.23,
+          "overall_avg": -26.71,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -96956,8 +96894,6 @@
             -18.27
           ],
           "math_task_scores": [
-            -4.4,
-            -40.6,
             -36.79,
             -45.4,
             -70.0,
@@ -97491,13 +97427,13 @@
       "name": "tulu-3-sft-personas-algebra",
       "domain": "math",
       "general_avg": 48.59,
-      "math_avg": 21.11,
+      "math_avg": 7.14,
       "code_avg": 38.55,
       "reasoning_avg": 48.18,
-      "overall_avg": 39.11,
-      "overall_efficiency": -0.465082,
+      "overall_avg": 35.62,
+      "overall_efficiency": -0.447658,
       "general_efficiency": -0.503915,
-      "math_efficiency": -0.546076,
+      "math_efficiency": -0.476384,
       "code_efficiency": -0.6905,
       "reasoning_efficiency": -0.119335,
       "general_task_scores": [
@@ -97507,8 +97443,6 @@
         40.27
       ],
       "math_task_scores": [
-        84.38,
-        55.6,
         16.71,
         23.29,
         2.08,
@@ -97570,24 +97504,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 84.38
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 55.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -97741,13 +97657,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -10.08,
-          "math_avg": -10.92,
+          "math_avg": -9.53,
           "code_avg": -13.81,
           "reasoning_avg": -2.39,
-          "overall_avg": -9.3,
-          "overall_efficiency": -0.465082,
+          "overall_avg": -8.95,
+          "overall_efficiency": -0.447658,
           "general_efficiency": -0.503915,
-          "math_efficiency": -0.546076,
+          "math_efficiency": -0.476384,
           "code_efficiency": -0.6905,
           "reasoning_efficiency": -0.119335,
           "general_task_scores": [
@@ -97757,8 +97673,6 @@
             -15.92
           ],
           "math_task_scores": [
-            -7.66,
-            -24.0,
             -13.91,
             -23.89,
             -4.59,
@@ -97783,10 +97697,10 @@
         },
         "vs_instruct": {
           "general_avg": -31.45,
-          "math_avg": -47.44,
+          "math_avg": -53.62,
           "code_avg": -35.92,
           "reasoning_avg": -22.65,
-          "overall_avg": -34.36,
+          "overall_avg": -35.91,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -97799,8 +97713,6 @@
             -22.71
           ],
           "math_task_scores": [
-            -10.24,
-            -41.4,
             -39.41,
             -56.53,
             -72.09,
@@ -97838,13 +97750,13 @@
       "name": "math-gpt-4o-200k",
       "domain": "math",
       "general_avg": 52.67,
-      "math_avg": 26.55,
+      "math_avg": 11.79,
       "code_avg": 52.43,
       "reasoning_avg": 51.22,
-      "overall_avg": 45.72,
-      "overall_efficiency": -0.01346,
+      "overall_avg": 42.03,
+      "overall_efficiency": -0.012716,
       "general_efficiency": -0.030016,
-      "math_efficiency": -0.027372,
+      "math_efficiency": -0.024394,
       "code_efficiency": 0.000363,
       "reasoning_efficiency": 0.003236,
       "general_task_scores": [
@@ -97854,8 +97766,6 @@
         31.79
       ],
       "math_task_scores": [
-        88.86,
-        67.6,
         24.37,
         32.64,
         7.92,
@@ -97917,24 +97827,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 88.86
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 67.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -98088,13 +97980,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -6.0,
-          "math_avg": -5.48,
+          "math_avg": -4.88,
           "code_avg": 0.07,
           "reasoning_avg": 0.65,
-          "overall_avg": -2.69,
-          "overall_efficiency": -0.01346,
+          "overall_avg": -2.54,
+          "overall_efficiency": -0.012716,
           "general_efficiency": -0.030016,
-          "math_efficiency": -0.027372,
+          "math_efficiency": -0.024394,
           "code_efficiency": 0.000363,
           "reasoning_efficiency": 0.003236,
           "general_task_scores": [
@@ -98104,8 +97996,6 @@
             -24.4
           ],
           "math_task_scores": [
-            -3.18,
-            -12.0,
             -6.25,
             -14.54,
             1.25,
@@ -98130,10 +98020,10 @@
         },
         "vs_instruct": {
           "general_avg": -27.37,
-          "math_avg": -42.0,
+          "math_avg": -48.97,
           "code_avg": -22.04,
           "reasoning_avg": -19.61,
-          "overall_avg": -27.75,
+          "overall_avg": -29.5,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -98146,8 +98036,6 @@
             -31.19
           ],
           "math_task_scores": [
-            -5.76,
-            -29.4,
             -31.75,
             -47.18,
             -66.25,
@@ -98681,13 +98569,13 @@
       "name": "hercules-v1.0",
       "domain": "math",
       "general_avg": 55.2,
-      "math_avg": 21.63,
+      "math_avg": 7.35,
       "code_avg": 48.88,
       "reasoning_avg": 51.56,
-      "overall_avg": 44.32,
-      "overall_efficiency": -0.008837,
+      "overall_avg": 40.75,
+      "overall_efficiency": -0.008255,
       "general_efficiency": -0.007484,
-      "math_efficiency": -0.022452,
+      "math_efficiency": -0.020124,
       "code_efficiency": -0.007526,
       "reasoning_efficiency": 0.002136,
       "general_task_scores": [
@@ -98697,8 +98585,6 @@
         42.62
       ],
       "math_task_scores": [
-        87.04,
-        56.2,
         18.65,
         18.55,
         2.92,
@@ -98760,24 +98646,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 87.04
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 56.2
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -98931,13 +98799,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -3.47,
-          "math_avg": -10.4,
+          "math_avg": -9.32,
           "code_avg": -3.48,
           "reasoning_avg": 0.99,
-          "overall_avg": -4.09,
-          "overall_efficiency": -0.008837,
+          "overall_avg": -3.82,
+          "overall_efficiency": -0.008255,
           "general_efficiency": -0.007484,
-          "math_efficiency": -0.022452,
+          "math_efficiency": -0.020124,
           "code_efficiency": -0.007526,
           "reasoning_efficiency": 0.002136,
           "general_task_scores": [
@@ -98947,8 +98815,6 @@
             -13.57
           ],
           "math_task_scores": [
-            -5.0,
-            -23.4,
             -11.97,
             -28.63,
             -3.75,
@@ -98973,10 +98839,10 @@
         },
         "vs_instruct": {
           "general_avg": -24.84,
-          "math_avg": -46.92,
+          "math_avg": -53.41,
           "code_avg": -25.59,
           "reasoning_avg": -19.27,
-          "overall_avg": -29.15,
+          "overall_avg": -30.78,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -98989,8 +98855,6 @@
             -20.36
           ],
           "math_task_scores": [
-            -7.58,
-            -40.8,
             -37.47,
             -61.27,
             -71.25,
@@ -99524,13 +99388,13 @@
       "name": "CodeFeedback-Filtered-Instruction",
       "domain": "code",
       "general_avg": 52.4,
-      "math_avg": 20.65,
+      "math_avg": 7.67,
       "code_avg": 49.99,
       "reasoning_avg": 48.59,
-      "overall_avg": 42.91,
-      "overall_efficiency": -0.035161,
+      "overall_avg": 39.66,
+      "overall_efficiency": -0.031351,
       "general_efficiency": -0.04004,
-      "math_efficiency": -0.072718,
+      "math_efficiency": -0.05748,
       "code_efficiency": -0.015157,
       "reasoning_efficiency": -0.012662,
       "general_task_scores": [
@@ -99540,8 +99404,6 @@
         40.4
       ],
       "math_task_scores": [
-        83.32,
-        48.8,
         17.84,
         20.77,
         2.5,
@@ -99603,24 +99465,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 83.32
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 48.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -99774,13 +99618,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -6.27,
-          "math_avg": -11.38,
+          "math_avg": -9.0,
           "code_avg": -2.37,
           "reasoning_avg": -1.98,
-          "overall_avg": -5.5,
-          "overall_efficiency": -0.035161,
+          "overall_avg": -4.91,
+          "overall_efficiency": -0.031351,
           "general_efficiency": -0.04004,
-          "math_efficiency": -0.072718,
+          "math_efficiency": -0.05748,
           "code_efficiency": -0.015157,
           "reasoning_efficiency": -0.012662,
           "general_task_scores": [
@@ -99790,8 +99634,6 @@
             -15.79
           ],
           "math_task_scores": [
-            -8.72,
-            -30.8,
             -12.78,
             -26.41,
             -4.17,
@@ -99816,10 +99658,10 @@
         },
         "vs_instruct": {
           "general_avg": -27.64,
-          "math_avg": -47.9,
+          "math_avg": -53.09,
           "code_avg": -24.48,
           "reasoning_avg": -22.24,
-          "overall_avg": -30.56,
+          "overall_avg": -31.87,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -99832,8 +99674,6 @@
             -22.58
           ],
           "math_task_scores": [
-            -11.3,
-            -48.2,
             -38.28,
             -59.05,
             -71.67,
@@ -99871,13 +99711,13 @@
       "name": "EpiCoder-func-380k",
       "domain": "code",
       "general_avg": 33.72,
-      "math_avg": 53.73,
+      "math_avg": 49.39,
       "code_avg": 59.6,
       "reasoning_avg": 24.67,
-      "overall_avg": 42.93,
-      "overall_efficiency": -0.014421,
+      "overall_avg": 41.84,
+      "overall_efficiency": -0.007175,
       "general_efficiency": -0.065645,
-      "math_efficiency": 0.057113,
+      "math_efficiency": 0.086093,
       "code_efficiency": 0.01904,
       "reasoning_efficiency": -0.068163,
       "general_task_scores": [
@@ -99887,8 +99727,6 @@
         2.23
       ],
       "math_task_scores": [
-        88.7,
-        49.2,
         46.48,
         57.86,
         57.5,
@@ -99950,24 +99788,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 88.7
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 49.2
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -100121,13 +99941,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -24.94,
-          "math_avg": 21.7,
+          "math_avg": 32.72,
           "code_avg": 7.24,
           "reasoning_avg": -25.9,
-          "overall_avg": -5.48,
-          "overall_efficiency": -0.014421,
+          "overall_avg": -2.73,
+          "overall_efficiency": -0.007175,
           "general_efficiency": -0.065645,
-          "math_efficiency": 0.057113,
+          "math_efficiency": 0.086093,
           "code_efficiency": 0.01904,
           "reasoning_efficiency": -0.068163,
           "general_task_scores": [
@@ -100137,8 +99957,6 @@
             -53.96
           ],
           "math_task_scores": [
-            -3.34,
-            -30.4,
             15.86,
             10.68,
             50.83,
@@ -100163,10 +99981,10 @@
         },
         "vs_instruct": {
           "general_avg": -46.32,
-          "math_avg": -14.82,
+          "math_avg": -11.37,
           "code_avg": -14.88,
           "reasoning_avg": -46.16,
-          "overall_avg": -30.54,
+          "overall_avg": -29.69,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -100179,8 +99997,6 @@
             -60.75
           ],
           "math_task_scores": [
-            -5.92,
-            -47.8,
             -9.64,
             -21.96,
             -16.67,
@@ -100714,13 +100530,13 @@
       "name": "QwQ-LongCoT-130K",
       "domain": "reasoning",
       "general_avg": 62.65,
-      "math_avg": 39.94,
+      "math_avg": 26.08,
       "code_avg": 57.35,
       "reasoning_avg": 58.61,
-      "overall_avg": 54.64,
-      "overall_efficiency": 0.046782,
+      "overall_avg": 51.17,
+      "overall_efficiency": 0.049595,
       "general_efficiency": 0.029889,
-      "math_efficiency": 0.059448,
+      "math_efficiency": 0.070703,
       "code_efficiency": 0.037471,
       "reasoning_efficiency": 0.060392,
       "general_task_scores": [
@@ -100730,8 +100546,6 @@
         53.84
       ],
       "math_task_scores": [
-        92.72,
-        84.2,
         30.6,
         54.15,
         25.42,
@@ -100793,24 +100607,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.72
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 84.2
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -100964,13 +100760,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 3.98,
-          "math_avg": 7.91,
+          "math_avg": 9.41,
           "code_avg": 4.99,
           "reasoning_avg": 8.04,
-          "overall_avg": 6.23,
-          "overall_efficiency": 0.046782,
+          "overall_avg": 6.6,
+          "overall_efficiency": 0.049595,
           "general_efficiency": 0.029889,
-          "math_efficiency": 0.059448,
+          "math_efficiency": 0.070703,
           "code_efficiency": 0.037471,
           "reasoning_efficiency": 0.060392,
           "general_task_scores": [
@@ -100980,8 +100776,6 @@
             -2.35
           ],
           "math_task_scores": [
-            0.68,
-            4.6,
             -0.02,
             6.97,
             18.75,
@@ -101006,10 +100800,10 @@
         },
         "vs_instruct": {
           "general_avg": -17.39,
-          "math_avg": -28.61,
+          "math_avg": -34.68,
           "code_avg": -17.12,
           "reasoning_avg": -12.22,
-          "overall_avg": -18.83,
+          "overall_avg": -20.36,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -101022,8 +100816,6 @@
             -9.14
           ],
           "math_task_scores": [
-            -1.9,
-            -12.8,
             -25.52,
             -25.67,
             -48.75,
@@ -101061,13 +100853,13 @@
       "name": "OpenThoughts-114k",
       "domain": "reasoning",
       "general_avg": 55.52,
-      "math_avg": 52.36,
+      "math_avg": 40.66,
       "code_avg": 63.5,
       "reasoning_avg": 63.35,
-      "overall_avg": 58.68,
-      "overall_efficiency": 0.090136,
+      "overall_avg": 55.76,
+      "overall_efficiency": 0.098152,
       "general_efficiency": -0.027628,
-      "math_efficiency": 0.178422,
+      "math_efficiency": 0.210484,
       "code_efficiency": 0.097712,
       "reasoning_efficiency": 0.112125,
       "general_task_scores": [
@@ -101077,8 +100869,6 @@
         38.72
       ],
       "math_task_scores": [
-        94.47,
-        92.2,
         45.48,
         71.51,
         47.92,
@@ -101140,24 +100930,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 94.47
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.2
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -101311,13 +101083,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -3.15,
-          "math_avg": 20.33,
+          "math_avg": 23.99,
           "code_avg": 11.13,
           "reasoning_avg": 12.78,
-          "overall_avg": 10.27,
-          "overall_efficiency": 0.090136,
+          "overall_avg": 11.19,
+          "overall_efficiency": 0.098152,
           "general_efficiency": -0.027628,
-          "math_efficiency": 0.178422,
+          "math_efficiency": 0.210484,
           "code_efficiency": 0.097712,
           "reasoning_efficiency": 0.112125,
           "general_task_scores": [
@@ -101327,8 +101099,6 @@
             -17.47
           ],
           "math_task_scores": [
-            2.43,
-            12.6,
             14.86,
             24.33,
             41.25,
@@ -101353,10 +101123,10 @@
         },
         "vs_instruct": {
           "general_avg": -24.52,
-          "math_avg": -16.19,
+          "math_avg": -20.1,
           "code_avg": -10.98,
           "reasoning_avg": -7.48,
-          "overall_avg": -14.79,
+          "overall_avg": -15.77,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -101369,8 +101139,6 @@
             -24.26
           ],
           "math_task_scores": [
-            -0.15,
-            -4.8,
             -10.64,
             -8.31,
             -26.25,
@@ -101408,13 +101176,13 @@
       "name": "OpenO1-SFT",
       "domain": "reasoning",
       "general_avg": 56.7,
-      "math_avg": 31.48,
+      "math_avg": 16.56,
       "code_avg": 52.3,
       "reasoning_avg": 54.15,
-      "overall_avg": 48.66,
-      "overall_efficiency": 0.003181,
+      "overall_avg": 44.93,
+      "overall_efficiency": 0.004577,
       "general_efficiency": -0.025417,
-      "math_efficiency": -0.007048,
+      "math_efficiency": -0.001467,
       "code_efficiency": -0.000772,
       "reasoning_efficiency": 0.046093,
       "general_task_scores": [
@@ -101424,8 +101192,6 @@
         43.7
       ],
       "math_task_scores": [
-        91.05,
-        76.4,
         25.34,
         44.51,
         12.08,
@@ -101487,24 +101253,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 91.05
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 76.4
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -101658,13 +101406,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -1.97,
-          "math_avg": -0.55,
+          "math_avg": -0.11,
           "code_avg": -0.06,
           "reasoning_avg": 3.58,
-          "overall_avg": 0.25,
-          "overall_efficiency": 0.003181,
+          "overall_avg": 0.36,
+          "overall_efficiency": 0.004577,
           "general_efficiency": -0.025417,
-          "math_efficiency": -0.007048,
+          "math_efficiency": -0.001467,
           "code_efficiency": -0.000772,
           "reasoning_efficiency": 0.046093,
           "general_task_scores": [
@@ -101674,8 +101422,6 @@
             -12.49
           ],
           "math_task_scores": [
-            -0.99,
-            -3.2,
             -5.28,
             -2.67,
             5.41,
@@ -101700,10 +101446,10 @@
         },
         "vs_instruct": {
           "general_avg": -23.34,
-          "math_avg": -37.07,
+          "math_avg": -44.2,
           "code_avg": -22.17,
           "reasoning_avg": -16.68,
-          "overall_avg": -24.81,
+          "overall_avg": -26.6,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -101716,8 +101462,6 @@
             -19.28
           ],
           "math_task_scores": [
-            -3.57,
-            -20.6,
             -30.78,
             -35.31,
             -62.09,
@@ -101755,13 +101499,13 @@
       "name": "Raiden-DeepSeek-R1",
       "domain": "reasoning",
       "general_avg": 67.65,
-      "math_avg": 42.33,
+      "math_avg": 28.9,
       "code_avg": 22.3,
       "reasoning_avg": 63.27,
-      "overall_avg": 48.89,
-      "overall_efficiency": 0.007619,
+      "overall_avg": 45.53,
+      "overall_efficiency": 0.015262,
       "general_efficiency": 0.142702,
-      "math_efficiency": 0.163735,
+      "math_efficiency": 0.194307,
       "code_efficiency": -0.477632,
       "reasoning_efficiency": 0.201832,
       "general_task_scores": [
@@ -101771,8 +101515,6 @@
         53.25
       ],
       "math_task_scores": [
-        92.72,
-        86.0,
         36.34,
         58.75,
         27.5,
@@ -101834,24 +101576,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.72
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 86.0
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -102005,13 +101729,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 8.98,
-          "math_avg": 10.3,
+          "math_avg": 12.23,
           "code_avg": -30.06,
           "reasoning_avg": 12.7,
-          "overall_avg": 0.48,
-          "overall_efficiency": 0.007619,
+          "overall_avg": 0.96,
+          "overall_efficiency": 0.015262,
           "general_efficiency": 0.142702,
-          "math_efficiency": 0.163735,
+          "math_efficiency": 0.194307,
           "code_efficiency": -0.477632,
           "reasoning_efficiency": 0.201832,
           "general_task_scores": [
@@ -102021,8 +101745,6 @@
             -2.94
           ],
           "math_task_scores": [
-            0.68,
-            6.4,
             5.72,
             11.57,
             20.83,
@@ -102047,10 +101769,10 @@
         },
         "vs_instruct": {
           "general_avg": -12.39,
-          "math_avg": -26.22,
+          "math_avg": -31.86,
           "code_avg": -52.16,
           "reasoning_avg": -7.56,
-          "overall_avg": -24.58,
+          "overall_avg": -26.0,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -102063,8 +101785,6 @@
             -9.73
           ],
           "math_task_scores": [
-            -1.9,
-            -11.0,
             -19.78,
             -21.07,
             -46.67,
@@ -102102,13 +101822,13 @@
       "name": "Magpie-Reasoning-V2-250K-CoT-Deepseek-R1-Llama-70B",
       "domain": "reasoning",
       "general_avg": 58.84,
-      "math_avg": 33.92,
+      "math_avg": 20.27,
       "code_avg": 48.84,
       "reasoning_avg": 57.71,
-      "overall_avg": 49.83,
-      "overall_efficiency": 0.005678,
+      "overall_avg": 46.42,
+      "overall_efficiency": 0.007383,
       "general_efficiency": 0.000661,
-      "math_efficiency": 0.007571,
+      "math_efficiency": 0.014393,
       "code_efficiency": -0.014064,
       "reasoning_efficiency": 0.028583,
       "general_task_scores": [
@@ -102118,8 +101838,6 @@
         49.07
       ],
       "math_task_scores": [
-        90.83,
-        72.6,
         36.13,
         41.99,
         18.75,
@@ -102181,24 +101899,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 90.83
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 72.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -102352,13 +102052,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 0.17,
-          "math_avg": 1.89,
+          "math_avg": 3.6,
           "code_avg": -3.52,
           "reasoning_avg": 7.14,
-          "overall_avg": 1.42,
-          "overall_efficiency": 0.005678,
+          "overall_avg": 1.85,
+          "overall_efficiency": 0.007383,
           "general_efficiency": 0.000661,
-          "math_efficiency": 0.007571,
+          "math_efficiency": 0.014393,
           "code_efficiency": -0.014064,
           "reasoning_efficiency": 0.028583,
           "general_task_scores": [
@@ -102368,8 +102068,6 @@
             -7.12
           ],
           "math_task_scores": [
-            -1.21,
-            -7.0,
             5.51,
             -5.19,
             12.08,
@@ -102394,10 +102092,10 @@
         },
         "vs_instruct": {
           "general_avg": -21.2,
-          "math_avg": -34.63,
+          "math_avg": -40.49,
           "code_avg": -25.62,
           "reasoning_avg": -13.12,
-          "overall_avg": -23.64,
+          "overall_avg": -25.11,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -102410,8 +102108,6 @@
             -13.91
           ],
           "math_task_scores": [
-            -3.79,
-            -24.4,
             -19.99,
             -37.83,
             -55.42,
@@ -102449,13 +102145,13 @@
       "name": "Magpie-Reasoning-V1-150K",
       "domain": "reasoning",
       "general_avg": 53.98,
-      "math_avg": 17.95,
+      "math_avg": 4.91,
       "code_avg": 48.28,
       "reasoning_avg": 49.26,
-      "overall_avg": 42.37,
-      "overall_efficiency": -0.040272,
+      "overall_avg": 39.11,
+      "overall_efficiency": -0.036409,
       "general_efficiency": -0.031261,
-      "math_efficiency": -0.093843,
+      "math_efficiency": -0.078389,
       "code_efficiency": -0.027167,
       "reasoning_efficiency": -0.008753,
       "general_task_scores": [
@@ -102465,8 +102161,6 @@
         39.97
       ],
       "math_task_scores": [
-        83.4,
-        43.8,
         16.21,
         14.84,
         0.0,
@@ -102528,24 +102222,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 83.4
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 43.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -102699,13 +102375,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -4.69,
-          "math_avg": -14.08,
+          "math_avg": -11.76,
           "code_avg": -4.07,
           "reasoning_avg": -1.31,
-          "overall_avg": -6.04,
-          "overall_efficiency": -0.040272,
+          "overall_avg": -5.46,
+          "overall_efficiency": -0.036409,
           "general_efficiency": -0.031261,
-          "math_efficiency": -0.093843,
+          "math_efficiency": -0.078389,
           "code_efficiency": -0.027167,
           "reasoning_efficiency": -0.008753,
           "general_task_scores": [
@@ -102715,8 +102391,6 @@
             -16.22
           ],
           "math_task_scores": [
-            -8.64,
-            -35.8,
             -14.41,
             -32.34,
             -6.67,
@@ -102741,10 +102415,10 @@
         },
         "vs_instruct": {
           "general_avg": -26.06,
-          "math_avg": -50.6,
+          "math_avg": -55.85,
           "code_avg": -26.18,
           "reasoning_avg": -21.57,
-          "overall_avg": -31.1,
+          "overall_avg": -32.42,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -102757,8 +102431,6 @@
             -23.01
           ],
           "math_task_scores": [
-            -11.22,
-            -53.2,
             -39.91,
             -64.98,
             -74.17,
@@ -103292,13 +102964,13 @@
       "name": "AM-Thinking-v1-Distilled-code",
       "domain": "reasoning",
       "general_avg": 64.85,
-      "math_avg": 47.32,
+      "math_avg": 35.46,
       "code_avg": 75.81,
       "reasoning_avg": 59.31,
-      "overall_avg": 61.82,
-      "overall_efficiency": 0.041399,
+      "overall_avg": 58.86,
+      "overall_efficiency": 0.044102,
       "general_efficiency": 0.019071,
-      "math_efficiency": 0.047204,
+      "math_efficiency": 0.058015,
       "code_efficiency": 0.072377,
       "reasoning_efficiency": 0.026977,
       "general_task_scores": [
@@ -103308,8 +102980,6 @@
         50.77
       ],
       "math_task_scores": [
-        91.05,
-        86.6,
         46.21,
         62.46,
         38.33,
@@ -103371,24 +103041,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 91.05
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 86.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -103542,13 +103194,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 6.18,
-          "math_avg": 15.29,
+          "math_avg": 18.79,
           "code_avg": 23.45,
           "reasoning_avg": 8.74,
-          "overall_avg": 13.41,
-          "overall_efficiency": 0.041399,
+          "overall_avg": 14.29,
+          "overall_efficiency": 0.044102,
           "general_efficiency": 0.019071,
-          "math_efficiency": 0.047204,
+          "math_efficiency": 0.058015,
           "code_efficiency": 0.072377,
           "reasoning_efficiency": 0.026977,
           "general_task_scores": [
@@ -103558,8 +103210,6 @@
             -5.42
           ],
           "math_task_scores": [
-            -0.99,
-            7.0,
             15.59,
             15.28,
             31.66,
@@ -103584,10 +103234,10 @@
         },
         "vs_instruct": {
           "general_avg": -15.19,
-          "math_avg": -21.23,
+          "math_avg": -25.3,
           "code_avg": 1.34,
           "reasoning_avg": -11.52,
-          "overall_avg": -11.65,
+          "overall_avg": -12.67,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -103600,8 +103250,6 @@
             -12.21
           ],
           "math_task_scores": [
-            -3.57,
-            -10.4,
             -9.91,
             -17.36,
             -35.84,
@@ -104135,13 +103783,13 @@
       "name": "AM-Thinking-v1-Distilled-math",
       "domain": "reasoning",
       "general_avg": 65.89,
-      "math_avg": 65.91,
+      "math_avg": 57.48,
       "code_avg": 59.49,
       "reasoning_avg": 63.21,
-      "overall_avg": 63.63,
-      "overall_efficiency": 0.027261,
+      "overall_avg": 61.52,
+      "overall_efficiency": 0.030366,
       "general_efficiency": 0.012934,
-      "math_efficiency": 0.060702,
+      "math_efficiency": 0.073121,
       "code_efficiency": 0.01278,
       "reasoning_efficiency": 0.022647,
       "general_task_scores": [
@@ -104151,8 +103799,6 @@
         56.86
       ],
       "math_task_scores": [
-        95.22,
-        95.6,
         64.5,
         77.45,
         65.83,
@@ -104214,24 +103860,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 95.22
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 95.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -104385,13 +104013,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 7.22,
-          "math_avg": 33.88,
+          "math_avg": 40.81,
           "code_avg": 7.13,
           "reasoning_avg": 12.64,
-          "overall_avg": 15.22,
-          "overall_efficiency": 0.027261,
+          "overall_avg": 16.95,
+          "overall_efficiency": 0.030366,
           "general_efficiency": 0.012934,
-          "math_efficiency": 0.060702,
+          "math_efficiency": 0.073121,
           "code_efficiency": 0.01278,
           "reasoning_efficiency": 0.022647,
           "general_task_scores": [
@@ -104401,8 +104029,6 @@
             0.67
           ],
           "math_task_scores": [
-            3.18,
-            16.0,
             33.88,
             30.27,
             59.16,
@@ -104427,10 +104053,10 @@
         },
         "vs_instruct": {
           "general_avg": -14.15,
-          "math_avg": -2.64,
+          "math_avg": -3.28,
           "code_avg": -14.98,
           "reasoning_avg": -7.62,
-          "overall_avg": -9.84,
+          "overall_avg": -10.01,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -104443,8 +104069,6 @@
             -6.12
           ],
           "math_task_scores": [
-            0.6,
-            -1.4,
             8.38,
             -2.37,
             -8.34,
@@ -104978,13 +104602,13 @@
       "name": "Light-R1-SFTData",
       "domain": "reasoning",
       "general_avg": 64.86,
-      "math_avg": 54.12,
+      "math_avg": 42.95,
       "code_avg": 58.95,
       "reasoning_avg": 63.56,
-      "overall_avg": 60.37,
-      "overall_efficiency": 0.150557,
+      "overall_avg": 57.58,
+      "overall_efficiency": 0.163762,
       "general_efficiency": 0.077864,
-      "math_efficiency": 0.278014,
+      "math_efficiency": 0.330831,
       "code_efficiency": 0.082957,
       "reasoning_efficiency": 0.16352,
       "general_task_scores": [
@@ -104994,8 +104618,6 @@
         57.65
       ],
       "math_task_scores": [
-        93.78,
-        92.6,
         48.53,
         69.73,
         54.58,
@@ -105057,24 +104679,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 93.78
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -105228,13 +104832,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 6.19,
-          "math_avg": 22.09,
+          "math_avg": 26.28,
           "code_avg": 6.59,
           "reasoning_avg": 12.99,
-          "overall_avg": 11.96,
-          "overall_efficiency": 0.150557,
+          "overall_avg": 13.01,
+          "overall_efficiency": 0.163762,
           "general_efficiency": 0.077864,
-          "math_efficiency": 0.278014,
+          "math_efficiency": 0.330831,
           "code_efficiency": 0.082957,
           "reasoning_efficiency": 0.16352,
           "general_task_scores": [
@@ -105244,8 +104848,6 @@
             1.46
           ],
           "math_task_scores": [
-            1.74,
-            13.0,
             17.91,
             22.55,
             47.91,
@@ -105270,10 +104872,10 @@
         },
         "vs_instruct": {
           "general_avg": -15.18,
-          "math_avg": -14.43,
+          "math_avg": -17.81,
           "code_avg": -15.52,
           "reasoning_avg": -7.27,
-          "overall_avg": -13.1,
+          "overall_avg": -13.95,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -105286,8 +104888,6 @@
             -5.33
           ],
           "math_task_scores": [
-            -0.84,
-            -4.4,
             -7.59,
             -10.09,
             -19.59,
@@ -105325,13 +104925,13 @@
       "name": "Fast-Math-R1-SFT",
       "domain": "reasoning",
       "general_avg": 61.6,
-      "math_avg": 44.01,
+      "math_avg": 30.96,
       "code_avg": 54.44,
       "reasoning_avg": 59.23,
-      "overall_avg": 54.82,
-      "overall_efficiency": 0.811596,
+      "overall_avg": 51.56,
+      "overall_efficiency": 0.884566,
       "general_efficiency": 0.371497,
-      "math_efficiency": 1.516526,
+      "math_efficiency": 1.808408,
       "code_efficiency": 0.263291,
       "reasoning_efficiency": 1.096334,
       "general_task_scores": [
@@ -105341,8 +104941,6 @@
         54.42
       ],
       "math_task_scores": [
-        92.8,
-        86.6,
         39.57,
         60.98,
         28.75,
@@ -105404,24 +105002,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 92.8
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 86.6
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -105575,13 +105155,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 2.93,
-          "math_avg": 11.98,
+          "math_avg": 14.29,
           "code_avg": 2.08,
           "reasoning_avg": 8.66,
-          "overall_avg": 6.41,
-          "overall_efficiency": 0.811596,
+          "overall_avg": 6.99,
+          "overall_efficiency": 0.884566,
           "general_efficiency": 0.371497,
-          "math_efficiency": 1.516526,
+          "math_efficiency": 1.808408,
           "code_efficiency": 0.263291,
           "reasoning_efficiency": 1.096334,
           "general_task_scores": [
@@ -105591,8 +105171,6 @@
             -1.77
           ],
           "math_task_scores": [
-            0.76,
-            7.0,
             8.95,
             13.8,
             22.08,
@@ -105617,10 +105195,10 @@
         },
         "vs_instruct": {
           "general_avg": -18.44,
-          "math_avg": -24.54,
+          "math_avg": -29.8,
           "code_avg": -20.03,
           "reasoning_avg": -11.6,
-          "overall_avg": -18.65,
+          "overall_avg": -19.97,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -105633,8 +105211,6 @@
             -8.56
           ],
           "math_task_scores": [
-            -1.82,
-            -10.4,
             -16.55,
             -18.84,
             -45.42,
@@ -105672,13 +105248,13 @@
       "name": "MegaScience",
       "domain": "reasoning",
       "general_avg": 58.37,
-      "math_avg": 41.33,
+      "math_avg": 27.68,
       "code_avg": 62.51,
       "reasoning_avg": 58.45,
-      "overall_avg": 55.16,
-      "overall_efficiency": 0.00539,
+      "overall_avg": 51.75,
+      "overall_efficiency": 0.005731,
       "general_efficiency": -0.00024,
-      "math_efficiency": 0.007421,
+      "math_efficiency": 0.008787,
       "code_efficiency": 0.008101,
       "reasoning_efficiency": 0.006285,
       "general_task_scores": [
@@ -105688,8 +105264,6 @@
         51.47
       ],
       "math_task_scores": [
-        93.4,
-        84.8,
         35.79,
         57.57,
         25.42,
@@ -105751,24 +105325,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 93.4
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 84.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -105922,13 +105478,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -0.3,
-          "math_avg": 9.3,
+          "math_avg": 11.01,
           "code_avg": 10.15,
           "reasoning_avg": 7.88,
-          "overall_avg": 6.75,
-          "overall_efficiency": 0.00539,
+          "overall_avg": 7.18,
+          "overall_efficiency": 0.005731,
           "general_efficiency": -0.00024,
-          "math_efficiency": 0.007421,
+          "math_efficiency": 0.008787,
           "code_efficiency": 0.008101,
           "reasoning_efficiency": 0.006285,
           "general_task_scores": [
@@ -105938,8 +105494,6 @@
             -4.72
           ],
           "math_task_scores": [
-            1.36,
-            5.2,
             5.17,
             10.39,
             18.75,
@@ -105964,10 +105518,10 @@
         },
         "vs_instruct": {
           "general_avg": -21.67,
-          "math_avg": -27.22,
+          "math_avg": -33.08,
           "code_avg": -11.96,
           "reasoning_avg": -12.38,
-          "overall_avg": -18.31,
+          "overall_avg": -19.78,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -105980,8 +105534,6 @@
             -11.51
           ],
           "math_task_scores": [
-            -1.22,
-            -12.2,
             -20.33,
             -22.25,
             -48.75,
@@ -106019,13 +105571,13 @@
       "name": "SYNTHETIC-2-SFT-verified",
       "domain": "reasoning",
       "general_avg": 59.52,
-      "math_avg": 59.8,
+      "math_avg": 50.06,
       "code_avg": 56.14,
       "reasoning_avg": 66.62,
-      "overall_avg": 60.52,
-      "overall_efficiency": 0.115429,
+      "overall_avg": 58.09,
+      "overall_efficiency": 0.128836,
       "general_efficiency": 0.008142,
-      "math_efficiency": 0.264669,
+      "math_efficiency": 0.318297,
       "code_efficiency": 0.036006,
       "reasoning_efficiency": 0.152995,
       "general_task_scores": [
@@ -106035,8 +105587,6 @@
         56.84
       ],
       "math_task_scores": [
-        93.93,
-        93.8,
         58.83,
         71.51,
         58.75,
@@ -106098,24 +105648,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 93.93
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 93.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -106269,13 +105801,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 0.85,
-          "math_avg": 27.77,
+          "math_avg": 33.39,
           "code_avg": 3.78,
           "reasoning_avg": 16.05,
-          "overall_avg": 12.11,
-          "overall_efficiency": 0.115429,
+          "overall_avg": 13.52,
+          "overall_efficiency": 0.128836,
           "general_efficiency": 0.008142,
-          "math_efficiency": 0.264669,
+          "math_efficiency": 0.318297,
           "code_efficiency": 0.036006,
           "reasoning_efficiency": 0.152995,
           "general_task_scores": [
@@ -106285,8 +105817,6 @@
             0.65
           ],
           "math_task_scores": [
-            1.89,
-            14.2,
             28.21,
             24.33,
             52.08,
@@ -106311,10 +105841,10 @@
         },
         "vs_instruct": {
           "general_avg": -20.52,
-          "math_avg": -8.75,
+          "math_avg": -10.7,
           "code_avg": -18.33,
           "reasoning_avg": -4.21,
-          "overall_avg": -12.95,
+          "overall_avg": -13.44,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -106327,8 +105857,6 @@
             -6.14
           ],
           "math_task_scores": [
-            -0.69,
-            -3.2,
             2.71,
             -8.31,
             -15.42,
@@ -106366,13 +105894,13 @@
       "name": "OmniThought-0528",
       "domain": "reasoning",
       "general_avg": 55.76,
-      "math_avg": 61.84,
+      "math_avg": 52.41,
       "code_avg": 68.06,
       "reasoning_avg": 66.03,
-      "overall_avg": 62.92,
-      "overall_efficiency": 0.039759,
+      "overall_avg": 60.57,
+      "overall_efficiency": 0.043824,
       "general_efficiency": -0.007986,
-      "math_efficiency": 0.081661,
+      "math_efficiency": 0.097923,
       "code_efficiency": 0.043022,
       "reasoning_efficiency": 0.042364,
       "general_task_scores": [
@@ -106382,8 +105910,6 @@
         46.18
       ],
       "math_task_scores": [
-        94.24,
-        95.4,
         59.03,
         74.93,
         67.92,
@@ -106445,24 +105971,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 94.24
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 95.4
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -106616,13 +106124,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -2.91,
-          "math_avg": 29.81,
+          "math_avg": 35.74,
           "code_avg": 15.7,
           "reasoning_avg": 15.46,
-          "overall_avg": 14.51,
-          "overall_efficiency": 0.039759,
+          "overall_avg": 16.0,
+          "overall_efficiency": 0.043824,
           "general_efficiency": -0.007986,
-          "math_efficiency": 0.081661,
+          "math_efficiency": 0.097923,
           "code_efficiency": 0.043022,
           "reasoning_efficiency": 0.042364,
           "general_task_scores": [
@@ -106632,8 +106140,6 @@
             -10.01
           ],
           "math_task_scores": [
-            2.2,
-            15.8,
             28.41,
             27.75,
             61.25,
@@ -106658,10 +106164,10 @@
         },
         "vs_instruct": {
           "general_avg": -24.28,
-          "math_avg": -6.71,
+          "math_avg": -8.35,
           "code_avg": -6.41,
           "reasoning_avg": -4.8,
-          "overall_avg": -10.55,
+          "overall_avg": -10.96,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -106674,8 +106180,6 @@
             -16.8
           ],
           "math_task_scores": [
-            -0.38,
-            -1.6,
             2.91,
             -4.89,
             -6.25,
@@ -106713,13 +106217,13 @@
       "name": "LIMO",
       "domain": "reasoning",
       "general_avg": 57.38,
-      "math_avg": 27.21,
+      "math_avg": 13.14,
       "code_avg": 56.84,
       "reasoning_avg": 50.76,
-      "overall_avg": 48.05,
-      "overall_efficiency": -0.445061,
+      "overall_avg": 44.53,
+      "overall_efficiency": -0.048053,
       "general_efficiency": -1.575669,
-      "math_efficiency": -5.904562,
+      "math_efficiency": -4.316533,
       "code_efficiency": 5.480416,
       "reasoning_efficiency": 0.231813,
       "general_task_scores": [
@@ -106729,8 +106233,6 @@
         49.83
       ],
       "math_task_scores": [
-        83.85,
-        69.0,
         21.84,
         31.31,
         12.5,
@@ -106792,24 +106294,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 83.85
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 69.0
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -106963,13 +106447,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": -1.29,
-          "math_avg": -4.82,
+          "math_avg": -3.53,
           "code_avg": 4.48,
           "reasoning_avg": 0.19,
-          "overall_avg": -0.36,
-          "overall_efficiency": -0.445061,
+          "overall_avg": -0.04,
+          "overall_efficiency": -0.048053,
           "general_efficiency": -1.575669,
-          "math_efficiency": -5.904562,
+          "math_efficiency": -4.316533,
           "code_efficiency": 5.480416,
           "reasoning_efficiency": 0.231813,
           "general_task_scores": [
@@ -106979,8 +106463,6 @@
             -6.36
           ],
           "math_task_scores": [
-            -8.19,
-            -10.6,
             -8.78,
             -15.87,
             5.83,
@@ -107005,10 +106487,10 @@
         },
         "vs_instruct": {
           "general_avg": -22.66,
-          "math_avg": -41.34,
+          "math_avg": -47.62,
           "code_avg": -17.63,
           "reasoning_avg": -20.07,
-          "overall_avg": -25.42,
+          "overall_avg": -27.0,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -107021,8 +106503,6 @@
             -13.15
           ],
           "math_task_scores": [
-            -10.77,
-            -28.0,
             -34.28,
             -48.51,
             -61.67,
@@ -107060,13 +106540,13 @@
       "name": "LIMO-v2",
       "domain": "reasoning",
       "general_avg": 61.66,
-      "math_avg": 31.19,
+      "math_avg": 18.88,
       "code_avg": 52.66,
       "reasoning_avg": 54.08,
-      "overall_avg": 49.9,
-      "overall_efficiency": 1.858045,
+      "overall_avg": 46.82,
+      "overall_efficiency": 2.811208,
       "general_efficiency": 3.737612,
-      "math_efficiency": -1.049479,
+      "math_efficiency": 2.76317,
       "code_efficiency": 0.371875,
       "reasoning_efficiency": 4.384674,
       "general_task_scores": [
@@ -107076,8 +106556,6 @@
         51.91
       ],
       "math_task_scores": [
-        74.75,
-        73.8,
         19.42,
         43.47,
         18.75,
@@ -107139,24 +106617,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 74.75
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 73.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -107310,13 +106770,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 2.99,
-          "math_avg": -0.84,
+          "math_avg": 2.21,
           "code_avg": 0.3,
           "reasoning_avg": 3.51,
-          "overall_avg": 1.49,
-          "overall_efficiency": 1.858045,
+          "overall_avg": 2.25,
+          "overall_efficiency": 2.811208,
           "general_efficiency": 3.737612,
-          "math_efficiency": -1.049479,
+          "math_efficiency": 2.76317,
           "code_efficiency": 0.371875,
           "reasoning_efficiency": 4.384674,
           "general_task_scores": [
@@ -107326,8 +106786,6 @@
             -4.28
           ],
           "math_task_scores": [
-            -17.29,
-            -5.8,
             -11.2,
             -3.71,
             12.08,
@@ -107352,10 +106810,10 @@
         },
         "vs_instruct": {
           "general_avg": -18.38,
-          "math_avg": -37.36,
+          "math_avg": -41.88,
           "code_avg": -21.81,
           "reasoning_avg": -16.75,
-          "overall_avg": -23.57,
+          "overall_avg": -24.71,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -107368,8 +106826,6 @@
             -11.07
           ],
           "math_task_scores": [
-            -19.87,
-            -23.2,
             -36.7,
             -36.35,
             -55.42,
@@ -107407,13 +106863,13 @@
       "name": "MiroMind-M1-SFT-719K",
       "domain": "reasoning",
       "general_avg": 64.47,
-      "math_avg": 60.78,
+      "math_avg": 50.78,
       "code_avg": 63.64,
       "reasoning_avg": 65.84,
-      "overall_avg": 63.68,
-      "overall_efficiency": 0.021234,
+      "overall_avg": 61.18,
+      "overall_efficiency": 0.023097,
       "general_efficiency": 0.008066,
-      "math_efficiency": 0.03997,
+      "math_efficiency": 0.047419,
       "code_efficiency": 0.01569,
       "reasoning_efficiency": 0.021225,
       "general_task_scores": [
@@ -107423,8 +106879,6 @@
         55.1
       ],
       "math_task_scores": [
-        94.77,
-        96.8,
         54.47,
         77.0,
         62.92,
@@ -107486,24 +106940,6 @@
           }
         ],
         "math_tasks": [
-          {
-            "task_name": "GSM8k",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 94.77
-              }
-            ]
-          },
-          {
-            "task_name": "MATH500",
-            "metrics": [
-              {
-                "metric": "accuracy",
-                "score": 96.8
-              }
-            ]
-          },
           {
             "task_name": "Omni-MATH",
             "metrics": [
@@ -107657,13 +107093,13 @@
       "improvement": {
         "vs_base": {
           "general_avg": 5.8,
-          "math_avg": 28.75,
+          "math_avg": 34.11,
           "code_avg": 11.28,
           "reasoning_avg": 15.27,
-          "overall_avg": 15.27,
-          "overall_efficiency": 0.021234,
+          "overall_avg": 16.61,
+          "overall_efficiency": 0.023097,
           "general_efficiency": 0.008066,
-          "math_efficiency": 0.03997,
+          "math_efficiency": 0.047419,
           "code_efficiency": 0.01569,
           "reasoning_efficiency": 0.021225,
           "general_task_scores": [
@@ -107673,8 +107109,6 @@
             -1.09
           ],
           "math_task_scores": [
-            2.73,
-            17.2,
             23.85,
             29.82,
             56.25,
@@ -107699,10 +107133,10 @@
         },
         "vs_instruct": {
           "general_avg": -15.57,
-          "math_avg": -7.77,
+          "math_avg": -9.98,
           "code_avg": -10.83,
           "reasoning_avg": -4.99,
-          "overall_avg": -9.79,
+          "overall_avg": -10.35,
           "overall_efficiency": 0,
           "general_efficiency": 0,
           "math_efficiency": 0,
@@ -107715,8 +107149,6 @@
             -7.88
           ],
           "math_task_scores": [
-            0.15,
-            -0.2,
             -1.65,
             -2.82,
             -11.25,
