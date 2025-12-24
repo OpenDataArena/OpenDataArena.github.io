@@ -492,7 +492,7 @@ export const lang_configurations = {
 		config_train_settings: "Training Settings",
 		config_train_framework:
 			'<strong>Framework:</strong> <a href="https://github.com/hiyouga/LLaMA-Factory/tree/v0.9.2" target="_blank" class="repo-link"><u>LLaMA_Factory version 0.9.2</u></a>',
-		config_train_base_model: "<strong>Base Model:</strong> Llama-3.1-8B, Qwen2.5-7B",
+		config_train_base_model: "<strong>Base Model:</strong> Llama-3.1-8B, Qwen2.5-7B, Qwen3-8B-Base",
 		config_train_param_title: "Parameter Details",
 		config_train_param_1:
 			"To ensure fair training and minimize the impact of training configurations on evaluation results, we carefully reference a wide range of existing literature to standardize the hyperparameter settings across different models. This approach helps eliminate performance bias caused by inconsistent training setups.",
@@ -565,7 +565,7 @@ export const lang_configurations = {
 		config_train_settings: "训练设置",
 		config_train_framework:
 			'<strong>训练框架：</strong><a href="https://github.com/hiyouga/LLaMA-Factory/tree/v0.9.2" target="_blank" class="repo-link"><u>LLaMA_Factory version 0.9.2</u></a>',
-		config_train_base_model: "<strong>基础模型：</strong> Llama-3.1-8B, Qwen2.5-7B",
+		config_train_base_model: "<strong>基础模型：</strong> Llama-3.1-8B, Qwen2.5-7B, Qwen3-8B-Base",
 		config_train_param_title: "参数详情",
 		config_train_param_1:
 			"为了确保模型训练的公平性，并最大程度减少训练配置对后续评估结果的干扰，我们广泛参考了现有主流文献中的设置，统一了各类模型的训练参数，以避免因超参差异导致的性能偏差。",

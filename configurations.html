@@ -240,10 +240,11 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>LLaMA</th>
+								<th>Llama</th>
 								<th>Llama for long CoT</th>
-								<th>Qwen</th>
-								<th>Qwen for long CoT</th>
+								<th>Qwen2.5</th>
+								<th>Qwen2.5 for long CoT</th>
+								<th>Qwen3 for long CoT</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -253,23 +254,27 @@
 								<td>8*A100</td>
 								<td>8*A100</td>
 								<td>8*A100</td>
+								<td>8*A100</td>
 							</tr>
 							<tr>
 								<td>Base model</td>
-								<td>Meta-Llama-3.1-8B</td>
-								<td>Meta-Llama-3.1-8B</td>
+								<td>Meta-Llama3.1-8B</td>
+								<td>Meta-Llama3.1-8B</td>
 								<td>Qwen2.5-7B</td>
 								<td>Qwen2.5-7B</td>
+								<td>Qwen3-8B-Base</td>
 							</tr>
 							<tr>
 								<td>deepspeed</td>
-								<td>ds_z2_config</td>
-								<td>ds_z2_config</td>
-								<td>ds_z2_config</td>
-								<td>ds_z2_config</td>
+								<td>ds_z3_config</td>
+								<td>ds_z3_config</td>
+								<td>ds_z3_config</td>
+								<td>ds_z3_config</td>
+								<td>ds_z3_config</td>
 							</tr>
 							<tr>
 								<td>template</td>
+								<td>default</td>
 								<td>default</td>
 								<td>default</td>
 								<td>default</td>
@@ -281,33 +286,38 @@
 								<td>32768</td>
 								<td>4096</td>
 								<td>32768</td>
+								<td>32768</td>
 							</tr>
 							<tr>
 								<td>preprocessing_num_workers</td>
 								<td>16</td>
 								<td>16</td>
-								<td>true</td>
-								<td>true</td>
+								<td>16</td>
+								<td>16</td>
+								<td>16</td>
 							</tr>
 							<tr>
-								<td>Packing</td>
+								<td>packing</td>
 								<td>false</td>
 								<td>true</td>
 								<td>false</td>
 								<td>true</td>
-							</tr>
-							<tr>
-								<td>per_device_train_batch_size</td>
-								<td>4</td>
-								<td>1</td>
-								<td>4</td>
-								<td>1</td>
+								<td>true</td>
 							</tr>
 							<tr>
 								<td>per_device_train_batch_size</td>
 								<td>4</td>
 								<td>2</td>
 								<td>4</td>
+								<td>2</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>gradient_accumulation_steps</td>
+								<td>4</td>
+								<td>2</td>
+								<td>4</td>
+								<td>2</td>
 								<td>2</td>
 							</tr>
 							<tr>
@@ -316,9 +326,11 @@
 								<td>3.0e-5</td>
 								<td>5.0e-6</td>
 								<td>5.0e-5</td>
+								<td>5.0e-5</td>
 							</tr>
 							<tr>
 								<td>use_liger_kernel</td>
+								<td>true</td>
 								<td>true</td>
 								<td>true</td>
 								<td>true</td>
@@ -330,9 +342,11 @@
 								<td>3.0</td>
 								<td>3.0</td>
 								<td>3.0</td>
+								<td>3.0</td>
 							</tr>
 							<tr>
 								<td>lr_scheduler_type</td>
+								<td>cosine</td>
 								<td>cosine</td>
 								<td>cosine</td>
 								<td>cosine</td>
@@ -342,6 +356,7 @@
 								<td>warmup_ratio</td>
 								<td>0.03</td>
 								<td>0.03</td>
+								<td>0.1</td>
 								<td>0.1</td>
 								<td>0.1</td>
 							</tr>
@@ -360,8 +375,9 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>LLaMA</th>
-								<th>Qwen</th>
+								<th>Llama3.1</th>
+								<th>Qwen2.5</th>
+								<th>Qwen3</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -369,9 +385,11 @@
 								<td>max-out-len</td>
 								<td>32768</td>
 								<td>32768</td>
+								<td>32768</td>
 							</tr>
 							<tr>
 								<td>hf-type</td>
+								<td>chat</td>
 								<td>chat</td>
 								<td>chat</td>
 							</tr>
@@ -379,11 +397,31 @@
 								<td>inference setting</td>
 								<td>vllm_llama3_1_8b_instruct</td>
 								<td>vllm_qwen2_5_7b_instruct</td>
+								<td>vllm_qwen3_8b_instruct</td>
 							</tr>
 							<tr>
 								<td>accelerator</td>
 								<td>vllm + cutoff</td>
 								<td>vllm + cutoff</td>
+								<td>vllm + cutoff</td>
+							</tr>
+							<tr>
+								<td>temperature</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0.6</td>
+							</tr>
+							<tr>
+								<td>top-p</td>
+								<td>-</td>
+								<td>-</td>
+								<td>0.95</td>
+							</tr>
+							<tr>
+								<td>top-k</td>
+								<td>-</td>
+								<td>-</td>
+								<td>20</td>
 							</tr>
 						</tbody>
 					</table>
@@ -416,15 +454,15 @@
 								<td><a href="https://huggingface.co/datasets/ucinlp/drop" target="_blank" rel="noopener noreferrer">DROP</a></td>
 								<td>drop_gen_a2697c</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>3shot</td>
-								<td>accuracy</td>
+								<td>3 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>general</td>
 								<td><a href="https://huggingface.co/datasets/google/IFEval" target="_blank" rel="noopener noreferrer">IFEval</a></td>
 								<td>IFEval_gen</td>
 								<td>IFEvaluator</td>
-								<td>0shot</td>
+								<td>0 shot</td>
 								<td>Average accuracy on all IFEval benchmarks</td>
 							</tr>
 							<tr>
@@ -432,15 +470,15 @@
 								<td><a href="https://github.com/ruixiangcui/AGIEval" target="_blank" rel="noopener noreferrer">AGIEval</a></td>
 								<td>agieval_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>general</td>
 								<td><a href="https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro" target="_blank" rel="noopener noreferrer">MMLU-PRO</a></td>
 								<td>mmlu_pro_few_shot_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>5shot</td>
+								<td>5 shot</td>
 								<td>Average accuracy on all mmlu pro benchmarks</td>
 							</tr>
 							<tr>
@@ -448,39 +486,71 @@
 								<td><a href="https://github.com/KbsdJames/Omni-MATH" target="_blank" rel="noopener noreferrer">Omni-MATH</a></td>
 								<td>omni_math_gen</td>
 								<td>KbsdJames/Omni-Judge</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>math</td>
 								<td><a href="https://huggingface.co/datasets/Hothan/OlympiadBench" target="_blank" rel="noopener noreferrer">OlympiadBenchMath</a></td>
-								<td>OlympiadBenchMath_0shot_xver_gen</td>
+								<td>OlympiadBenchMath_0 shot_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>math</td>
 								<td><a href="https://huggingface.co/datasets/openai/gsm8k" target="_blank" rel="noopener noreferrer">GSM8K</a></td>
-								<td>gsm8k_0shot_xver_gen</td>
+								<td>gsm8k_0 shot_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>math</td>
 								<td><a href="https://huggingface.co/datasets/hendrycks/competition_math" target="_blank" rel="noopener noreferrer">MATH-500</a></td>
-								<td>math_prm800k_500_0shot_cot_xver_gen</td>
+								<td>math_prm800k_500_0 shot_cot_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>math</td>
 								<td><a href="https://huggingface.co/datasets/HuggingFaceH4/aime_2024" target="_blank" rel="noopener noreferrer">AIME_2024</a></td>
-								<td>aime2024_repeat8_xver_gen</td>
-								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
+								<td>aime2024_repeat8_cver_gen</td>
+								<td>CompassVerifier-7B</td>
+								<td>0 shot</td>
+								<td>Average accuracy of 8 run</td>
+							</tr>
+							<tr>
+								<td>math</td>
+								<td><a href="https://huggingface.co/datasets/opencompass/AIME2025" target="_blank" rel="noopener noreferrer">AIME_2025</a></td>
+								<td>aime2025_repeat8_cver_gen</td>
+								<td>CompassVerifier-7B</td>
+								<td>0 shot</td>
+								<td>Average accuracy of 8 run</td>
+							</tr>
+							<tr>
+								<td>math</td>
+								<td><a href="https://huggingface.co/datasets/MathArena/hmmt_feb_2025" target="_blank" rel="noopener noreferrer">HMMT_Feb_2025</a></td>
+								<td>hmmt2025_repeat8_cver_gen</td>
+								<td>CompassVerifier-7B</td>
+								<td>0 shot</td>
+								<td>Average accuracy of 8 run</td>
+							</tr>
+							<tr>
+								<td>math</td>
+								<td><a href="https://huggingface.co/datasets/MathArena/cmimc_2025" target="_blank" rel="noopener noreferrer">CMIMC_2025</a></td>
+								<td>cmimc2025_repeat8_cver_gen</td>
+								<td>CompassVerifier-7B</td>
+								<td>0 shot</td>
+								<td>Average accuracy of 8 run</td>
+							</tr>
+							<tr>
+								<td>math</td>
+								<td><a href="https://huggingface.co/datasets/MathArena/brumo_2025" target="_blank" rel="noopener noreferrer">BRUMO_2025</a></td>
+								<td>brumo2025_repeat8_cver_gen</td>
+								<td>CompassVerifier-7B</td>
+								<td>0 shot</td>
 								<td>Average accuracy of 8 run</td>
 							</tr>
 							<tr>
@@ -488,16 +558,16 @@
 								<td><a href="https://huggingface.co/datasets/openai/openai_humaneval" target="_blank" rel="noopener noreferrer">HumanEval</a></td>
 								<td>humaneval_gen_8e312c</td>
 								<td>HumanEvalEvaluator</td>
-								<td>0shot</td>
-								<td>pass@1</td>
+								<td>0 shot</td>
+								<td>Pass@1</td>
 							</tr>
 							<tr>
 								<td>code</td>
 								<td><a href="https://huggingface.co/datasets/evalplus/humanevalplus" target="_blank" rel="noopener noreferrer">HumanEval+</a></td>
 								<td>humaneval_plus_gen_8e312c</td>
 								<td>HumanEvalPlusEvaluator</td>
-								<td>0shot</td>
-								<td>pass@1</td>
+								<td>0 shot</td>
+								<td>Pass@1</td>
 							</tr>
 							<tr>
 								<td>code</td>
@@ -505,38 +575,38 @@
 								<td>sanitized_mbpp_mdblock_gen_a447ff</td>
 								<td>MBPPEvaluator</td>
 								<td>3 shot</td>
-								<td>pass@1</td>
+								<td>Pass@1</td>
 							</tr>
 							<tr>
 								<td>code</td>
 								<td><a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">LiveCodeBench(v5)</a></td>
 								<td>livecodebench_gen</td>
 								<td>LCBCodeGenerationEvaluator</td>
-								<td>0shot</td>
-								<td>pass@1</td>
+								<td>0 shot</td>
+								<td>Pass@1</td>
 							</tr>
 							<tr>
 								<td>reasoning</td>
 								<td><a href="https://arxiv.org/abs/1803.05457" target="_blank" rel="noopener noreferrer">ARC_c</a></td>
 								<td>ARC_c_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>reasoning</td>
 								<td><a href="https://github.com/suzgunmirac/BIG-Bench-Hard" target="_blank" rel="noopener noreferrer">BBH</a></td>
 								<td>bbh_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
-								<td>accuracy</td>
+								<td>0 shot</td>
+								<td>Accuracy</td>
 							</tr>
 							<tr>
 								<td>reasoning</td>
 								<td><a href="https://kor-bench.github.io/" target="_blank" rel="noopener noreferrer">KOR-Bench</a></td>
 								<td>korbench_single_0_shot_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
-								<td>0shot</td>
+								<td>0 shot</td>
 								<td>Average accuracy on all korbench benchmarks</td>
 							</tr>
 							<tr>
@@ -544,7 +614,7 @@
 								<td><a href="https://github.com/dhairyadalal/CALM-Bench" target="_blank" rel="noopener noreferrer">CaLM</a></td>
 								<td>calm</td>
 								<td>CaLMEvaluator</td>
-								<td>0shot</td>
+								<td>0 shot</td>
 								<td>Average accuracy on all calm benchmarks</td>
 							</tr>
 							<tr>
@@ -553,7 +623,7 @@
 								<td>gpqa_xver_gen</td>
 								<td>IAAR-Shanghai/xVerify-9B-C</td>
 								<td>0 shot</td>
-								<td>accuracy</td>
+								<td>Accuracy</td>
 							</tr>
 						</tbody>
 					</table>
