@@ -31,6 +31,7 @@ export const lang_all = {
 		all_reasoning: "Reasoning",
 		all_spatial: "Spatial",
 		all_infographic: "Infographic",
+		all_technical_report: "Technical Report",
 	},
 	zh: {
 		all_slogan: "让数据价值触手可及",
@@ -64,6 +65,7 @@ export const lang_all = {
 		all_science: "科学",
 		all_spatial: "空间",
 		all_infographic: "图表",
+		all_technical_report: "技术报告",
 	},
 };
 

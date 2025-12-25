@@ -16,7 +16,8 @@
 		<link rel="icon" type="image/png" href="./favicon.ico" />
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-			rel="stylesheet" />
+			rel="stylesheet"
+		/>
 		<!-- Google tag (gtag.js) -->
 		<script>
 			(function () {
@@ -73,7 +74,9 @@
 				display: none !important;
 			}
 			/* Keep app hidden until Vue fully mounted to avoid FOUC when v-cloak is removed */
-			.app-hidden { display: none !important; }
+			.app-hidden {
+				display: none !important;
+			}
 			/* --- Preload skeleton (very lightweight) --- */
 			#preload {
 				position: fixed;
@@ -84,7 +87,8 @@
 				justify-content: center;
 				background: #f7f9ff; /* soft background matching hero tone */
 				color: #1f2a55;
-				font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Microsoft Yahei",sans-serif;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+					"PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 			}
 			.preload-box {
 				display: flex;
@@ -92,15 +96,15 @@
 				gap: 12px;
 				padding: 16px 20px;
 				border-radius: 10px;
-				border: 1px solid rgba(52,119,235,0.18);
+				border: 1px solid rgba(52, 119, 235, 0.18);
 				background: #ffffff;
-				box-shadow: 0 6px 22px rgba(16,57,162,0.08);
+				box-shadow: 0 6px 22px rgba(16, 57, 162, 0.08);
 			}
 			.preload-spinner {
 				width: 18px;
 				height: 18px;
-				border: 2px solid rgba(52,119,235,0.18);
-				border-top-color: rgba(52,119,235,0.9);
+				border: 2px solid rgba(52, 119, 235, 0.18);
+				border-top-color: rgba(52, 119, 235, 0.9);
 				border-radius: 50%;
 				animation: oda-spin 0.9s linear infinite;
 			}
@@ -110,10 +114,14 @@
 				letter-spacing: 0.2px;
 			}
 			@keyframes oda-spin {
-				to { transform: rotate(360deg); }
+				to {
+					transform: rotate(360deg);
+				}
 			}
 			@media (prefers-reduced-motion: reduce) {
-				.preload-spinner { animation: none; }
+				.preload-spinner {
+					animation: none;
+				}
 			}
 		</style>
 	</head>
@@ -128,12 +136,14 @@
 			<header class="header" :data-lang="i18nLang">
 				<div class="title-container nav-left">
 					<div class="nav-title-group">
-						<img src="./img/OpenDataArena_logo.svg" alt="OpenDataArena Logo" class="nav-logo">
+						<img
+							src="./img/OpenDataArena_logo.svg"
+							alt="OpenDataArena Logo"
+							class="nav-logo"
+						/>
 						<div class="nav-text-group">
 							<h1 class="nav-main-title">
-								<a href="index.html" class="nav-home-link">
-									OpenDataArena
-								</a>
+								<a href="index.html" class="nav-home-link"> OpenDataArena </a>
 							</h1>
 							<div class="nav-slogan">{{ $t('all_slogan') }}</div>
 						</div>
@@ -164,12 +174,14 @@
 								@click="toggleLang"
 								:aria-label="langAriaLabel"
 								:title="langAriaLabel"
-								style="cursor: pointer">
+								style="cursor: pointer"
+							>
 								<img
 									src="./icon/lang-white.svg"
 									class="lang-icon-img"
 									alt=""
-									aria-hidden="true" />
+									aria-hidden="true"
+								/>
 							</button>
 						</li>
 					</ul>
@@ -225,7 +237,8 @@
 									href="https://github.com/OpenDataArena/OpenDataArena-Tool"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="subscribe-btn cta-btn">
+									class="subscribe-btn cta-btn"
+								>
 									<div class="btn-text">
 										<span class="btn-title">
 											<i
@@ -234,7 +247,8 @@
 													margin-top: 2px;
 													margin-bottom: -2px;
 													margin-right: -2px;
-												"></i>
+												"
+											></i>
 											<span>{{ $t('index_tool') }}</span>
 										</span>
 										<span class="btn-sub" v-html="$t('index_news_1')"></span>
@@ -245,7 +259,8 @@
 									href="data-lineage.html"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="subscribe-btn cta-btn">
+									class="subscribe-btn cta-btn"
+								>
 									<div class="btn-text">
 										<span class="btn-title">
 											<i
@@ -254,10 +269,14 @@
 													margin-top: 2px;
 													margin-bottom: -2px;
 													margin-right: -2px;
-												"></i>
+												"
+											></i>
 											<span>{{ $t('index_data_genealogy') }}</span>
 										</span>
-										<span class="btn-sub" v-html="$t('index_genealogy_cta')"></span>
+										<span
+											class="btn-sub"
+											v-html="$t('index_genealogy_cta')"
+										></span>
 									</div>
 								</a>
 
@@ -265,7 +284,8 @@
 									href="https://github.com/OpenDataArena/OpenDataArena-Tool"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="subscribe-btn cta-btn">
+									class="subscribe-btn cta-btn"
+								>
 									<div class="btn-text">
 										<span class="btn-title">
 											<i
@@ -274,7 +294,8 @@
 													margin-top: 2px;
 													margin-bottom: -2px;
 													margin-right: -2px;
-												"></i>
+												"
+											></i>
 											<span>{{ $t('index_data_scorer') }}</span>
 										</span>
 										<span class="btn-sub" v-html="$t('index_news_2')"></span>
@@ -285,7 +306,8 @@
 									href="https://huggingface.co/OpenDataArena"
 									target="_blank"
 									rel="noopener noreferrer"
-									class="subscribe-btn cta-btn">
+									class="subscribe-btn cta-btn"
+								>
 									<div class="btn-text">
 										<span class="btn-title">
 											<img src="./icon/huggingface.svg" alt="Hugging Face" />
@@ -304,7 +326,8 @@
 													margin-top: 2px;
 													margin-bottom: -2px;
 													margin-right: -2px;
-												"></i>
+												"
+											></i>
 											<span>{{ $t('all_subscribe') }}</span>
 										</span>
 										<span class="btn-sub">{{ $t('index_news_4') }}</span>
@@ -325,13 +348,15 @@
 									name="email"
 									:key="`ph-${i18nLang}`"
 									:placeholder="$t('all_subscribe_hint')"
-									required />
+									required
+								/>
 								<button type="submit">{{ $t('all_subscribe') }}</button>
 							</form>
 							<div
 								id="subscribe-success"
 								class="subscribe-success"
-								style="display: none">
+								style="display: none"
+							>
 								{{ $t('all_subscribe_thanks') }}
 							</div>
 							<div id="subscribe-error" class="subscribe-error" style="display: none">
@@ -351,7 +376,8 @@
 						<div
 							class="summary-leaderboard-header"
 							@click="goToLeaderboard"
-							tabindex="0">
+							tabindex="0"
+						>
 							<span class="summary-leaderboard-title">
 								<i class="fa fa-bar-chart"></i> {{ $t('index_overall') }} {{
 								$t('all_leaderboard') }}
@@ -378,13 +404,15 @@
 										v-for="(row, idx) in summaryLeaderboardRows"
 										:key="row.id"
 										class="table-row"
-										:class="{'base-row': row.domain === 'base'}">
+										:class="{'base-row': row.domain === 'base'}"
+									>
 										<td class="rank-col" style="text-align: center">
 											<span v-if="row.domain === 'base'">-</span>
 											<div
 												v-else
 												class="rank-badge"
-												:class="getRankClass(getRank(row, filteredDataForRanking, 'overall_avg', false, null, improvementType) - 1)">
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'overall_avg', false, null, improvementType) - 1)"
+											>
 												{{ getRank(row, filteredDataForRanking,
 												'overall_avg', false, null, improvementType) }}
 											</div>
@@ -399,7 +427,8 @@
 												>
 												<div
 													v-if="row.affiliation && row.domain !== 'base' && row.domain !== 'instruct'"
-													class="dataset-affiliation">
+													class="dataset-affiliation"
+												>
 													{{ row.affiliation }}
 												</div>
 											</div>
@@ -414,7 +443,8 @@
 												<span
 													v-if="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffText"
 													class="score-diff"
-													:class="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffClass">
+													:class="formatScoreWithImprovement(row.overall_avg, row.improvement?.overall_avg, row, improvementType).diffClass"
+												>
 													{{ formatScoreWithImprovement(row.overall_avg,
 													row.improvement?.overall_avg, row,
 													improvementType).diffText }}
@@ -428,7 +458,8 @@
 						<div class="summary-leaderboard-footer">
 							<a
 								href="leaderboard.html"
-								class="summary-leaderboard-link enhanced-link">
+								class="summary-leaderboard-link enhanced-link"
+							>
 								{{ $t('index_lb_cta') }}
 								<i class="fas fa-arrow-right"></i>
 							</a>
@@ -440,7 +471,8 @@
 						<div
 							class="summary-leaderboard-header"
 							@click="goToLeaderboard"
-							tabindex="0">
+							tabindex="0"
+						>
 							<span class="summary-leaderboard-title">
 								<i class="fas fa-calculator"></i> {{ $t('all_math') }} {{
 								$t('all_leaderboard') }}
@@ -465,13 +497,15 @@
 										v-for="(row, idx) in mathTop5WithBase"
 										:key="row.id || ('base-'+idx)"
 										class="table-row"
-										:class="{'base-row': row.domain === 'base'}">
+										:class="{'base-row': row.domain === 'base'}"
+									>
 										<td class="rank-col" style="text-align: center">
 											<span v-if="row.domain === 'base'">-</span>
 											<div
 												v-else
 												class="rank-badge"
-												:class="getRankClass(getRank(row, filteredDataForRanking, 'math_avg', false, null, improvementType) - 1)">
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'math_avg', false, null, improvementType) - 1)"
+											>
 												{{ getRank(row, filteredDataForRanking, 'math_avg',
 												false, null, improvementType) }}
 											</div>
@@ -486,7 +520,8 @@
 												>
 												<div
 													v-if="row.affiliation"
-													class="dataset-affiliation">
+													class="dataset-affiliation"
+												>
 													{{ row.affiliation }}
 												</div>
 											</div>
@@ -501,7 +536,8 @@
 												<span
 													v-if="formatScoreWithImprovement(row.math_avg, row.improvement?.math_avg, row, improvementType).diffText && row.domain !== 'base'"
 													class="score-diff"
-													:class="formatScoreWithImprovement(row.math_avg, row.improvement?.math_avg, row, improvementType).diffClass">
+													:class="formatScoreWithImprovement(row.math_avg, row.improvement?.math_avg, row, improvementType).diffClass"
+												>
 													{{ formatScoreWithImprovement(row.math_avg,
 													row.improvement?.math_avg, row,
 													improvementType).diffText }}
@@ -515,7 +551,8 @@
 						<div class="summary-leaderboard-footer">
 							<a
 								href="leaderboard.html"
-								class="summary-leaderboard-link enhanced-link">
+								class="summary-leaderboard-link enhanced-link"
+							>
 								{{ $t('index_lb_cta') }}
 								<i class="fas fa-arrow-right"></i>
 							</a>
@@ -527,7 +564,8 @@
 						<div
 							class="summary-leaderboard-header"
 							@click="goToLeaderboard"
-							tabindex="0">
+							tabindex="0"
+						>
 							<span class="summary-leaderboard-title">
 								<i class="fas fa-code"></i> {{ $t('all_code') }} {{
 								$t('all_leaderboard') }}
@@ -552,13 +590,15 @@
 										v-for="(row, idx) in codeTop5WithBase"
 										:key="row.id || ('base-'+idx)"
 										class="table-row"
-										:class="{'base-row': row.domain === 'base'}">
+										:class="{'base-row': row.domain === 'base'}"
+									>
 										<td class="rank-col" style="text-align: center">
 											<span v-if="row.domain === 'base'">-</span>
 											<div
 												v-else
 												class="rank-badge"
-												:class="getRankClass(getRank(row, filteredDataForRanking, 'code_avg', false, null, improvementType) - 1)">
+												:class="getRankClass(getRank(row, filteredDataForRanking, 'code_avg', false, null, improvementType) - 1)"
+											>
 												{{ getRank(row, filteredDataForRanking, 'code_avg',
 												false, null, improvementType) }}
 											</div>
@@ -573,7 +613,8 @@
 												>
 												<div
 													v-if="row.affiliation"
-													class="dataset-affiliation">
+													class="dataset-affiliation"
+												>
 													{{ row.affiliation }}
 												</div>
 											</div>
@@ -588,7 +629,8 @@
 												<span
 													v-if="formatScoreWithImprovement(row.code_avg, row.improvement?.code_avg, row, improvementType).diffText && row.domain !== 'base'"
 													class="score-diff"
-													:class="formatScoreWithImprovement(row.code_avg, row.improvement?.code_avg, row, improvementType).diffClass">
+													:class="formatScoreWithImprovement(row.code_avg, row.improvement?.code_avg, row, improvementType).diffClass"
+												>
 													{{ formatScoreWithImprovement(row.code_avg,
 													row.improvement?.code_avg, row,
 													improvementType).diffText }}
@@ -602,7 +644,8 @@
 						<div class="summary-leaderboard-footer">
 							<a
 								href="leaderboard.html"
-								class="summary-leaderboard-link enhanced-link">
+								class="summary-leaderboard-link enhanced-link"
+							>
 								{{ $t('index_lb_cta') }}
 								<i class="fas fa-arrow-right"></i>
 							</a>
@@ -620,7 +663,8 @@
 							class="summary-leaderboard-header"
 							@click="goToDataLineage"
 							@keyup.enter="goToDataLineage"
-							tabindex="0">
+							tabindex="0"
+						>
 							<span class="summary-leaderboard-title">
 								<i class="fas fa-dna"></i> {{ $t('all_data_genealogy') }}
 							</span>
@@ -632,23 +676,30 @@
 							<div id="indexLineageError" class="error" style="display: none"></div>
 							<div id="indexLineageVisualization"></div>
 							<div id="indexLineageLegend" class="legend" style="display: none"></div>
-							<div id="indexLineageZoomControls" class="zoom-controls" style="display: none">
+							<div
+								id="indexLineageZoomControls"
+								class="zoom-controls"
+								style="display: none"
+							>
 								<button
 									class="zoom-btn"
 									onclick="indexLineageZoomIn()"
-									:title="$t('genealogy_zoomInTitle')">
+									:title="$t('genealogy_zoomInTitle')"
+								>
 									+
 								</button>
 								<button
 									class="zoom-btn"
 									onclick="indexLineageZoomOut()"
-									:title="$t('genealogy_zoomOutTitle')">
+									:title="$t('genealogy_zoomOutTitle')"
+								>
 									−
 								</button>
 								<button
 									class="zoom-btn"
 									onclick="indexLineageResetZoom()"
-									:title="$t('genealogy_resetZoomTitle')">
+									:title="$t('genealogy_resetZoomTitle')"
+								>
 									⌂
 								</button>
 							</div>
@@ -656,7 +707,8 @@
 						<div class="summary-leaderboard-footer">
 							<a
 								href="data-lineage.html?id=91"
-								class="summary-leaderboard-link enhanced-link">
+								class="summary-leaderboard-link enhanced-link"
+							>
 								{{ $t('index_dl_cta') }}
 								<i class="fas fa-arrow-right"></i>
 							</a>
@@ -674,7 +726,8 @@
 							class="summary-leaderboard-header"
 							@click="goToDataComparison"
 							@keyup.enter="goToDataComparison"
-							tabindex="0">
+							tabindex="0"
+						>
 							<span class="summary-leaderboard-title">
 								<i class="fas fa-balance-scale"></i> {{ $t('all_data_comparison') }}
 							</span>
@@ -710,7 +763,8 @@
 						<div class="summary-leaderboard-footer">
 							<a
 								href="data-comparison.html?id=87"
-								class="summary-leaderboard-link enhanced-link">
+								class="summary-leaderboard-link enhanced-link"
+							>
 								{{ $t('index_cmp_cta') }}
 								<i class="fas fa-arrow-right"></i>
 							</a>
@@ -735,11 +789,13 @@
 						:key="contributor.id"
 						:href="contributor.github"
 						target="_blank"
-						rel="noopener noreferrer">
+						rel="noopener noreferrer"
+					>
 						<img
 							:src="contributor.avatar"
 							:alt="contributor.name"
-							:title="contributor.name" />
+							:title="contributor.name"
+						/>
 						<div class="contributor-tooltip">
 							<strong>{{ contributor.name }}</strong>
 						</div>
@@ -792,14 +848,16 @@
 							<a
 								href="https://opendatalab.github.io"
 								target="_blank"
-								rel="noopener noreferrer">
+								rel="noopener noreferrer"
+							>
 								<i class="fas fa-globe"></i>
 								{{ $t('all_opendatalab_research') }}
 							</a>
 							<a
 								href="https://opendatalab.org.cn"
 								target="_blank"
-								rel="noopener noreferrer">
+								rel="noopener noreferrer"
+							>
 								<i class="fas fa-home"></i>
 								{{ $t('all_opendatalab') }}
 							</a>
@@ -807,13 +865,22 @@
 								href="https://github.com/OpenDataArena/OpenDataArena-Tool"
 								class="github-repo-link"
 								target="_blank"
-								rel="noopener noreferrer">
+								rel="noopener noreferrer"
+							>
 								<i class="fab fa-github"></i>
 								{{ $t('all_repository') }}
 							</a>
 							<a href="mailto:opendataarena@163.com" class="contact-link">
 								<i class="fas fa-envelope"></i>
 								{{ $t('all_contact_us') }}
+							</a>
+							<a
+								href="https://arxiv.org/abs/2512.14051"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i class="fas fa-file-pdf"></i>
+								{{ $t('all_technical_report') }}
 							</a>
 						</div>
 					</div>
