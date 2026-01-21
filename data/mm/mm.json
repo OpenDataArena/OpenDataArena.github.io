@@ -6055,8 +6055,8 @@
       },
       "affiliation": "UCLA",
       "year": "2025",
-      "size": "3.3k",
-      "size_precise": "3.3k",
+      "size": "3.3K",
+      "size_precise": "3.3K",
       "link": "https://huggingface.co/datasets/ydeng9/OpenVLThinker-sft-iter3",
       "paper_link": "https://arxiv.org/abs/2503.17352",
       "scored_link": "",
@@ -6366,8 +6366,8 @@
       },
       "affiliation": "allenai",
       "year": "2017",
-      "size": "12.6k",
-      "size_precise": "12.6k",
+      "size": "12.6K",
+      "size_precise": "12.6K",
       "link": "https://huggingface.co/datasets/OpenDataArena/FineReason/viewer/FineVision-tqa",
       "paper_link": "https://ai2-website.s3.amazonaws.com/publications/CVPR17_TQA.pdf",
       "scored_link": "",
@@ -6677,8 +6677,8 @@
       },
       "affiliation": "UCLA",
       "year": "2022",
-      "size": "6.2k",
-      "size_precise": "6.2k",
+      "size": "6.2K",
+      "size_precise": "6.2K",
       "link": "https://huggingface.co/datasets/derek-thomas/ScienceQA",
       "paper_link": "https://arxiv.org/abs/2209.09513",
       "scored_link": "",
@@ -6988,8 +6988,8 @@
       },
       "affiliation": "University of Waterloo",
       "year": "2025",
-      "size": "264k",
-      "size_precise": "264k",
+      "size": "264K",
+      "size_precise": "264K",
       "link": "https://huggingface.co/datasets/HuggingFaceM4/FineVision/viewer/visualwebinstruct(filtered)",
       "paper_link": "https://arxiv.org/abs/2503.10582",
       "scored_link": "",
@@ -7614,6 +7614,317 @@
       "size_precise": "2.5M",
       "link": "https://huggingface.co/datasets/facebook/HoneyBee",
       "paper_link": "https://arxiv.org/abs/2510.12225",
+      "scored_link": "",
+      "tag": "spatial,general,reasoning,infographic"
+    },
+    {
+      "id": 25,
+      "name": "OpenMMReasoner-SFT-874K",
+      "domain": "dataset",
+      "spatial_avg": 85.51,
+      "reasoning_avg": 70.83,
+      "general_avg": 71.78,
+      "infographic_avg": 76.9,
+      "overall_avg": 76.25,
+      "overall_efficiency": 0.00243,
+      "spatial_efficiency": -0.000888,
+      "reasoning_efficiency": 0.005009,
+      "general_efficiency": 0.003292,
+      "infographic_efficiency": 0.002285,
+      "spatial_task_scores": [
+        79.69,
+        91.33
+      ],
+      "reasoning_task_scores": [
+        76.0,
+        43.75,
+        67.41,
+        72.12,
+        59.28,
+        80.51,
+        96.73
+      ],
+      "general_task_scores": [
+        68.28,
+        89.46,
+        72.55,
+        69.6,
+        65.44,
+        65.33
+      ],
+      "infographic_task_scores": [
+        84.44,
+        86.7,
+        50.3,
+        86.15
+      ],
+      "task_details": {
+        "spatial_tasks": [
+          {
+            "task_name": "CV-Bench-2D",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 79.69
+              }
+            ]
+          },
+          {
+            "task_name": "CV-Bench-3D",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 91.33
+              }
+            ]
+          }
+        ],
+        "reasoning_tasks": [
+          {
+            "task_name": "MathVista_MINI",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 76.0
+              }
+            ]
+          },
+          {
+            "task_name": "MathVision_MINI",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 43.75
+              }
+            ]
+          },
+          {
+            "task_name": "MathVerse_MINI",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 67.41
+              }
+            ]
+          },
+          {
+            "task_name": "Dynamath",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 72.12
+              }
+            ]
+          },
+          {
+            "task_name": "LogicVista",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 59.28
+              }
+            ]
+          },
+          {
+            "task_name": "AI2D",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 80.51
+              }
+            ]
+          },
+          {
+            "task_name": "ScienceQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 96.73
+              }
+            ]
+          }
+        ],
+        "general_tasks": [
+          {
+            "task_name": "SEEDBench2",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 68.28
+              }
+            ]
+          },
+          {
+            "task_name": "MMBench_DEV_EN_V11",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 89.46
+              }
+            ]
+          },
+          {
+            "task_name": "RealWorldQA",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 72.55
+              }
+            ]
+          },
+          {
+            "task_name": "MMStar",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 69.6
+              }
+            ]
+          },
+          {
+            "task_name": "MMMU_VAL",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 65.44
+              }
+            ]
+          },
+          {
+            "task_name": "MMMU_DEV",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 65.33
+              }
+            ]
+          }
+        ],
+        "infographic_tasks": [
+          {
+            "task_name": "ChartQA_TEST",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 84.44
+              }
+            ]
+          },
+          {
+            "task_name": "OCRBench",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 86.7
+              }
+            ]
+          },
+          {
+            "task_name": "CharXiv_reasoning_val",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 50.3
+              }
+            ]
+          },
+          {
+            "task_name": "CharXiv_descriptive_val",
+            "metrics": [
+              {
+                "metric": "accuracy",
+                "score": 86.15
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "vs_instruct": {
+          "spatial_avg": -0.78,
+          "reasoning_avg": 4.38,
+          "general_avg": 2.88,
+          "infographic_avg": 2.0,
+          "overall_avg": 2.12,
+          "overall_efficiency": 0.00243,
+          "spatial_efficiency": -0.000888,
+          "reasoning_efficiency": 0.005009,
+          "general_efficiency": 0.003292,
+          "infographic_efficiency": 0.002285,
+          "spatial_task_scores": [
+            0.27,
+            -1.84
+          ],
+          "reasoning_task_scores": [
+            0.7,
+            2.3,
+            12.26,
+            3.62,
+            7.6,
+            2.24,
+            1.94
+          ],
+          "general_task_scores": [
+            0.51,
+            -0.24,
+            1.57,
+            0.67,
+            8.11,
+            6.67
+          ],
+          "infographic_task_scores": [
+            7.12,
+            -2.9,
+            2.3,
+            1.48
+          ]
+        },
+        "vs_thinking": {
+          "spatial_avg": -0.03,
+          "reasoning_avg": 1.26,
+          "general_avg": 0.58,
+          "infographic_avg": 1.91,
+          "overall_avg": 0.93,
+          "overall_efficiency": 0,
+          "spatial_efficiency": 0,
+          "reasoning_efficiency": 0,
+          "general_efficiency": 0,
+          "infographic_efficiency": 0,
+          "spatial_task_scores": [
+            1.53,
+            -1.59
+          ],
+          "reasoning_task_scores": [
+            -1.2,
+            5.92,
+            -4.85,
+            3.64,
+            4.25,
+            -2.33,
+            3.37
+          ],
+          "general_task_scores": [
+            -1.44,
+            -1.33,
+            0.52,
+            -1.27,
+            4.33,
+            2.66
+          ],
+          "infographic_task_scores": [
+            -0.12,
+            3.4,
+            2.4,
+            1.95
+          ]
+        }
+      },
+      "affiliation": "MiroMind",
+      "year": "2025",
+      "size": "874K",
+      "size_precise": "874K",
+      "link": "https://huggingface.co/datasets/OpenMMReasoner/OpenMMReasoner-SFT-874K",
+      "paper_link": "https://arxiv.org/abs/2511.16334",
       "scored_link": "",
       "tag": "spatial,general,reasoning,infographic"
     }

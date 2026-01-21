@@ -12,6 +12,7 @@ data/llm/*.log
 data/mm/*.py
 data/mm/*.xlsx
 data/mm/*.log
+data/mm/mm_old.json
 utils/
 deploy.sh
 server.py
