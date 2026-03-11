@@ -1338,7 +1338,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/vicgalle/alpaca-gpt4",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/alpaca_gpt4_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/alpaca_gpt4",
       "tag": "general",
       "evaluation_score": {
         "Q_scores": {
@@ -3329,7 +3329,7 @@
       "size_precise": "1227291",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/orca-agentinstruct",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -4124,7 +4124,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/openhermes_clean",
       "tag": "general,math,code,science"
     },
     {
@@ -4722,7 +4722,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/tulu-3-sft-mixture",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -5816,7 +5816,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/magpiepro_10k_gptmini",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -7807,7 +7807,7 @@
       "size_precise": "1000000",
       "link": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
       "paper_link": "https://arxiv.org/abs/2410.01560",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/openmathinstruct-2_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/openmathinstruct-2",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -8602,7 +8602,7 @@
       "size_precise": "859494",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath-cot_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/numinamath-cot",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -11789,7 +11789,7 @@
       "size_precise": "1003467",
       "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math",
       "paper_link": "https://arxiv.org/abs/2410.18693",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ScaleQuest-Math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/ScaleQuest-Math",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -12584,7 +12584,7 @@
       "size_precise": "309066",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K",
       "paper_link": "https://arxiv.org/abs/2504.11456",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/DeepMath-103K",
       "tag": "math"
     },
     {
@@ -13182,7 +13182,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
       "paper_link": "https://arxiv.org/pdf/2402.14830",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-math-word-problems-200k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/orca-math-word-problems-200k",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -13977,7 +13977,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/dart-math-hard",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -15071,7 +15071,7 @@
       "size_precise": "969980",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Maths-College_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Maths-College",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -16165,7 +16165,7 @@
       "size_precise": "600000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/webinstructcft",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -16960,7 +16960,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/mathplus",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -17755,7 +17755,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/mathgpt4o200k",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -18550,7 +18550,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/numinamath1_5",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -19345,7 +19345,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MathFusionQA",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -20140,7 +20140,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/herculesv1",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -20935,7 +20935,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_alpaca_20k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -21730,7 +21730,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/opc-sft-stage2",
       "tag": "code"
     },
     {
@@ -22029,7 +22029,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/CodeFeedback-Filtered-Instruction",
       "tag": "code"
     },
     {
@@ -22328,7 +22328,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/evol-codealpaca-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -23123,7 +23123,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Magicoder-OSS-Instruct-75K",
       "tag": "code"
     },
     {
@@ -23422,7 +23422,7 @@
       "size_precise": "66383",
       "link": "https://huggingface.co/datasets/m-a-p/Code-Feedback",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Code-Feedback_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Code-Feedback",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -24516,7 +24516,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Self-oss-Instruct",
       "tag": "code"
     },
     {
@@ -24815,7 +24815,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/opc-sft-stage1",
       "tag": "code"
     },
     {
@@ -25114,7 +25114,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/tulu-3-sft-personas-code",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -25909,7 +25909,7 @@
       "size_precise": "484097",
       "link": "https://huggingface.co/datasets/KodCode/KodCode-V1",
       "paper_link": "https://arxiv.org/abs/2503.02951",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/KodCode-V1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/KodCode-V1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -27003,7 +27003,7 @@
       "size_precise": "78264",
       "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Evol-Instruct-Code-80k-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Evol-Instruct-Code-80k-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -27798,7 +27798,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_instructions_122k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -28593,7 +28593,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_instructions_18k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -29388,7 +29388,7 @@
       "size_precise": "22608",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Python-Code-23k-ShareGPT_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Python-Code-23k-ShareGPT",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -30482,7 +30482,7 @@
       "size_precise": "380000",
       "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k",
       "paper_link": "https://arxiv.org/abs/2501.04694",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/EpiCoder-func-380k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/EpiCoder-func-380k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -31277,7 +31277,7 @@
       "size_precise": "108391",
       "link": "https://huggingface.co/datasets/likaixin/InstructCoder",
       "paper_link": "https://arxiv.org/abs/2310.20329",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/InstructCoder_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/InstructCoder",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -32670,7 +32670,7 @@
       "size_precise": "22500",
       "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/gretel-text-to-python-fintech-en-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/gretel-text-to-python-fintech-en-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -34063,7 +34063,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code290k_sharegpt",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -35157,7 +35157,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/frontedcookbook",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -36550,7 +36550,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k",
       "paper_link": "https://huggingface.co/blog/open-r1",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenR1-Math",
       "tag": "math"
     },
     {
@@ -36849,7 +36849,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/QwQ-LongCoT",
       "tag": "general,math,science"
     },
     {
@@ -37746,7 +37746,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenThoughts",
       "tag": "general,math,code,science"
     },
     {
@@ -38045,7 +38045,7 @@
       "size_precise": "171647",
       "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/R1-Distill-SFT-math",
       "tag": "general,math"
     },
     {
@@ -38344,7 +38344,7 @@
       "size_precise": "77685",
       "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT",
       "paper_link": "https://arxiv.org/abs/2504.13828",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenO1-SFT",
       "tag": "general"
     },
     {
@@ -38942,7 +38942,7 @@
       "size_precise": "62925",
       "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Raiden-DeepSeek-R1",
       "tag": "general"
     },
     {
@@ -39540,7 +39540,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/magpiev1_150k",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -40335,7 +40335,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Magpie-Reasoning-V2-250K-CoT-QwQ-math",
       "tag": "general,math,science"
     },
     {
@@ -41531,7 +41531,7 @@
       "size_precise": "323965",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/code.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-code_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-code",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -42326,7 +42326,7 @@
       "size_precise": "558129",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/math.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-math",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -43121,7 +43121,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Light-R1-SFTData",
       "tag": "general,math,code,science"
     },
     {
@@ -43420,7 +43420,7 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Fast-Math-R1-SFT",
       "tag": "general,math"
     },
     {
@@ -43719,7 +43719,7 @@
       "size_precise": "1200000",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts3-1.2M",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts3-1_2M-all_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenThoughts3-1_2M",
       "tag": "general,math,code,science"
     },
     {
@@ -44018,7 +44018,7 @@
       "size_precise": "1253230",
       "link": "https://huggingface.co/datasets/MegaScience/MegaScience",
       "paper_link": "https://arxiv.org/abs/2507.16812",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MegaScience",
       "tag": "general,math,code,science"
     },
     {
@@ -44317,7 +44317,7 @@
       "size_precise": "989843",
       "link": "https://huggingface.co/datasets/microsoft/rStar-Coder",
       "paper_link": "https://arxiv.org/abs/2505.21297",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/rStar-Coder-sft",
       "tag": "code"
     },
     {
@@ -45214,7 +45214,7 @@
       "size_precise": "385620",
       "link": "https://huggingface.co/datasets/whynlp/gsm8k-aug",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/gsm8k-aug",
       "tag": "math"
     },
     {
@@ -45812,7 +45812,7 @@
       "size_precise": "104913",
       "link": "https://huggingface.co/datasets/PrimeIntellect/SYNTHETIC-2-SFT-verified",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/SYNTHETIC-2-SFT-verified",
       "tag": "general,math,code,science"
     },
     {
@@ -46111,7 +46111,7 @@
       "size_precise": "364988",
       "link": "https://huggingface.co/datasets/alibaba-pai/OmniThought-0528",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OmniThought-0528",
       "tag": "general,math,code,science"
     },
     {
@@ -46709,7 +46709,7 @@
       "size_precise": "817",
       "link": "https://huggingface.co/datasets/GAIR/LIMO",
       "paper_link": "https://arxiv.org/abs/2502.03387",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/LIMO",
       "tag": "math"
     },
     {
@@ -47606,7 +47606,7 @@
       "size_precise": "719232",
       "link": "https://huggingface.co/datasets/miromind-ai/MiroMind-M1-SFT-719K",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MiroMind-M1-SFT-719K",
       "tag": "math"
     },
     {
@@ -49248,7 +49248,7 @@
       "size_precise": "52002",
       "link": "https://huggingface.co/datasets/vicgalle/alpaca-gpt4",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/alpaca_gpt4_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/alpaca_gpt4",
       "tag": "general",
       "evaluation_score": {
         "Q_scores": {
@@ -51239,7 +51239,7 @@
       "size_precise": "1227291",
       "link": "https://huggingface.co/datasets/microsoft/orca-agentinstruct-1M-v1",
       "paper_link": "https://arxiv.org/abs/2407.03502",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-agentinstruct-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/orca-agentinstruct",
       "tag": "general,math,code",
       "evaluation_score": {
         "Q_scores": {
@@ -52034,7 +52034,7 @@
       "size_precise": "1001551",
       "link": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenHermes-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/openhermes_clean",
       "tag": "general,math,code,science"
     },
     {
@@ -52632,7 +52632,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/tulu-3-sft-mixture",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -53726,7 +53726,7 @@
       "size_precise": "10000",
       "link": "https://huggingface.co/datasets/Mxode/Magpie-Pro-10K-GPT4o-mini",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiepro_10k_gptmini_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/magpiepro_10k_gptmini",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -55717,7 +55717,7 @@
       "size_precise": "1000000",
       "link": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
       "paper_link": "https://arxiv.org/abs/2410.01560",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/openmathinstruct-2_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/openmathinstruct-2",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -56512,7 +56512,7 @@
       "size_precise": "859494",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath-cot_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/numinamath-cot",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -59699,7 +59699,7 @@
       "size_precise": "1003467",
       "link": "https://huggingface.co/datasets/dyyyyyyyy/ScaleQuest-Math",
       "paper_link": "https://arxiv.org/abs/2410.18693",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ScaleQuest-Math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/ScaleQuest-Math",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -60494,7 +60494,7 @@
       "size_precise": "309066",
       "link": "https://huggingface.co/datasets/zwhe99/DeepMath-103K",
       "paper_link": "https://arxiv.org/abs/2504.11456",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/DeepMath-103K",
       "tag": "math"
     },
     {
@@ -61092,7 +61092,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
       "paper_link": "https://arxiv.org/pdf/2402.14830",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/orca-math-word-problems-200k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/orca-math-word-problems-200k",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -61887,7 +61887,7 @@
       "size_precise": "585392",
       "link": "https://huggingface.co/datasets/hkust-nlp/dart-math-hard",
       "paper_link": "https://arxiv.org/abs/2407.13690",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/hkust-nlp__dart-math-hard_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/dart-math-hard",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -62981,7 +62981,7 @@
       "size_precise": "969980",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Maths-College",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Maths-College_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Maths-College",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -64075,7 +64075,7 @@
       "size_precise": "600000",
       "link": "https://huggingface.co/datasets/TIGER-Lab/WebInstruct-CFT",
       "paper_link": "https://arxiv.org/abs/2501.17703",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/webinstructcft_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/webinstructcft",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -64870,7 +64870,7 @@
       "size_precise": "893929",
       "link": "https://huggingface.co/datasets/TIGER-Lab/MATH-plus",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathplus_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/mathplus",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -65665,7 +65665,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/mathgpt4o200k",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -66460,7 +66460,7 @@
       "size_precise": "896215",
       "link": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5",
       "paper_link": "http://faculty.bicmr.pku.edu.cn/~dongbin/Publications/numina_dataset.pdf",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/numinamath1_5_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/numinamath1_5",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -67255,7 +67255,7 @@
       "size_precise": "59892",
       "link": "https://huggingface.co/datasets/QizhiPei/MathFusionQA",
       "paper_link": "https://arxiv.org/abs/2503.16212",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathfusionqa_all_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MathFusionQA",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -68050,7 +68050,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/herculesv1",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -68845,7 +68845,7 @@
       "size_precise": "20022",
       "link": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
       "paper_link": "https://github.com/sahil280114/codealpaca",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_alpaca_20k-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_alpaca_20k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -69640,7 +69640,7 @@
       "size_precise": "436347",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage2",
       "paper_link": "https://arxiv.org/abs/2411.04905",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage2_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/opc-sft-stage2",
       "tag": "code"
     },
     {
@@ -69939,7 +69939,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/CodeFeedback-Filtered-Instruction",
       "tag": "code"
     },
     {
@@ -70238,7 +70238,7 @@
       "size_precise": "111272",
       "link": "https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1",
       "paper_link": "https://arxiv.org/abs/2306.08568",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/theblackcat102__evol-codealpaca-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/evol-codealpaca-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -71033,7 +71033,7 @@
       "size_precise": "75197",
       "link": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
       "paper_link": "https://openai.com/zh-Hans-CN/policies/usage-policies/",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Magicoder-OSS-Instruct-75K-shuffle_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Magicoder-OSS-Instruct-75K",
       "tag": "code"
     },
     {
@@ -71332,7 +71332,7 @@
       "size_precise": "66383",
       "link": "https://huggingface.co/datasets/m-a-p/Code-Feedback",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Code-Feedback_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Code-Feedback",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -72426,7 +72426,7 @@
       "size_precise": "50661",
       "link": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Self-oss-Instruct_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Self-oss-Instruct",
       "tag": "code"
     },
     {
@@ -72725,7 +72725,7 @@
       "size_precise": "1027064",
       "link": "https://huggingface.co/datasets/OpenCoder-LLM/opc-sft-stage1",
       "paper_link": "https://arxiv.org/pdf/2411.04905",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenCoder-LLM__opc-sft-stage1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/opc-sft-stage1",
       "tag": "code"
     },
     {
@@ -73024,7 +73024,7 @@
       "size_precise": "34999",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-personas-code",
       "paper_link": "https://arxiv.org/pdf/2411.15124",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/allenai__tulu-3-sft-personas-code_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/tulu-3-sft-personas-code",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -73819,7 +73819,7 @@
       "size_precise": "484097",
       "link": "https://huggingface.co/datasets/KodCode/KodCode-V1",
       "paper_link": "https://arxiv.org/abs/2503.02951",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/KodCode-V1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/KodCode-V1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -74913,7 +74913,7 @@
       "size_precise": "78264",
       "link": "https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Evol-Instruct-Code-80k-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Evol-Instruct-Code-80k-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -75708,7 +75708,7 @@
       "size_precise": "121959",
       "link": "https://huggingface.co/datasets/TokenBender/code_instructions_122k_alpaca_style https://huggingface.co/datasets/iamtarun/code_instructions_120k_alpaca",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_122k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_instructions_122k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -76503,7 +76503,7 @@
       "size_precise": "18612",
       "link": "https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code_instructions_18k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code_instructions_18k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -77298,7 +77298,7 @@
       "size_precise": "22608",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Python-Code-23k-ShareGPT",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/Python-Code-23k-ShareGPT_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Python-Code-23k-ShareGPT",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -78392,7 +78392,7 @@
       "size_precise": "380000",
       "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k",
       "paper_link": "https://arxiv.org/abs/2501.04694",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/EpiCoder-func-380k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/EpiCoder-func-380k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -79187,7 +79187,7 @@
       "size_precise": "108391",
       "link": "https://huggingface.co/datasets/likaixin/InstructCoder",
       "paper_link": "https://arxiv.org/abs/2310.20329",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/InstructCoder_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/InstructCoder",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -80580,7 +80580,7 @@
       "size_precise": "22500",
       "link": "https://huggingface.co/datasets/gretelai/gretel-text-to-python-fintech-en-v1",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/gretel-text-to-python-fintech-en-v1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/gretel-text-to-python-fintech-en-v1",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -81973,7 +81973,7 @@
       "size_precise": "289094",
       "link": "https://huggingface.co/datasets/ajibawa-2023/Code-290k-ShareGPT",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/code290k_sharegpt_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/code290k_sharegpt",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -83067,7 +83067,7 @@
       "size_precise": "45448",
       "link": "https://huggingface.co/datasets/Tensoic/FrontendCookbook",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/frontedcookbook_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/frontedcookbook",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -84460,7 +84460,7 @@
       "size_precise": "93733",
       "link": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k",
       "paper_link": "https://huggingface.co/blog/open-r1",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenR1-Math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenR1-Math",
       "tag": "math"
     },
     {
@@ -84759,7 +84759,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/QwQ-LongCoT",
       "tag": "general,math,science"
     },
     {
@@ -85656,7 +85656,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenThoughts",
       "tag": "general,math,code,science"
     },
     {
@@ -85955,7 +85955,7 @@
       "size_precise": "171647",
       "link": "https://huggingface.co/datasets/ServiceNow-AI/R1-Distill-SFT",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/R1-Distill-SFT-math",
       "tag": "general,math"
     },
     {
@@ -86254,7 +86254,7 @@
       "size_precise": "77685",
       "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT",
       "paper_link": "https://arxiv.org/abs/2504.13828",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenO1-SFT",
       "tag": "general"
     },
     {
@@ -86852,7 +86852,7 @@
       "size_precise": "62925",
       "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Raiden-DeepSeek-R1",
       "tag": "general"
     },
     {
@@ -87450,7 +87450,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/magpiev1_150k",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -88245,7 +88245,7 @@
       "size_precise": "249922",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V2-250K-CoT-QwQ",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Magpie-Reasoning-V2-250K-CoT-QwQ-math",
       "tag": "general,math,science"
     },
     {
@@ -89441,7 +89441,7 @@
       "size_precise": "323965",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/code.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-code_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-code",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -90236,7 +90236,7 @@
       "size_precise": "558129",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/math.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-math",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -91031,7 +91031,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Light-R1-SFTData",
       "tag": "general,math,code,science"
     },
     {
@@ -91330,7 +91330,7 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Fast-Math-R1-SFT",
       "tag": "general,math"
     },
     {
@@ -91629,7 +91629,7 @@
       "size_precise": "1200000",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts3-1.2M",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts3-1_2M-all_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenThoughts3-1_2M",
       "tag": "general,math,code,science"
     },
     {
@@ -91928,7 +91928,7 @@
       "size_precise": "1253230",
       "link": "https://huggingface.co/datasets/MegaScience/MegaScience",
       "paper_link": "https://arxiv.org/abs/2507.16812",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MegaScience",
       "tag": "general,math,code,science"
     },
     {
@@ -92227,7 +92227,7 @@
       "size_precise": "989843",
       "link": "https://huggingface.co/datasets/microsoft/rStar-Coder",
       "paper_link": "https://arxiv.org/abs/2505.21297",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/rStar-Coder-sft",
       "tag": "code"
     },
     {
@@ -93124,7 +93124,7 @@
       "size_precise": "385620",
       "link": "https://huggingface.co/datasets/whynlp/gsm8k-aug",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/gsm8k-aug",
       "tag": "math"
     },
     {
@@ -93722,7 +93722,7 @@
       "size_precise": "104913",
       "link": "https://huggingface.co/datasets/PrimeIntellect/SYNTHETIC-2-SFT-verified",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/SYNTHETIC-2-SFT-verified",
       "tag": "general,math,code,science"
     },
     {
@@ -94021,7 +94021,7 @@
       "size_precise": "364988",
       "link": "https://huggingface.co/datasets/alibaba-pai/OmniThought-0528",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OmniThought-0528",
       "tag": "general,math,code,science"
     },
     {
@@ -94320,7 +94320,7 @@
       "size_precise": "752713",
       "link": "https://huggingface.co/datasets/nvidia/OpenCodeReasoning",
       "paper_link": "https://arxiv.org/abs/2504.01943",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenCodeReasoning",
       "tag": "code"
     },
     {
@@ -94918,7 +94918,7 @@
       "size_precise": "817",
       "link": "https://huggingface.co/datasets/GAIR/LIMO",
       "paper_link": "https://arxiv.org/abs/2502.03387",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/LIMO",
       "tag": "math"
     },
     {
@@ -95815,7 +95815,7 @@
       "size_precise": "719232",
       "link": "https://huggingface.co/datasets/miromind-ai/MiroMind-M1-SFT-719K",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MiroMind-M1-SFT-719K",
       "tag": "math"
     },
     {
@@ -99379,7 +99379,7 @@
       "size_precise": "939343",
       "link": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
       "paper_link": "https://arxiv.org/abs/2411.15124",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/tulu-3-sft-mixture_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/tulu-3-sft-mixture",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -100569,7 +100569,7 @@
       "size_precise": "200035",
       "link": "https://huggingface.co/datasets/PawanKrd/math-gpt-4o-200k",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/mathgpt4o200k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/mathgpt4o200k",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -101412,7 +101412,7 @@
       "size_precise": "463022",
       "link": "https://huggingface.co/datasets/Locutusque/hercules-v1.0?not-for-all-audiences=true",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/herculesv1_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/herculesv1",
       "tag": "general,math,code,science",
       "evaluation_score": {
         "Q_scores": {
@@ -102255,7 +102255,7 @@
       "size_precise": "156526",
       "link": "https://huggingface.co/datasets/m-a-p/CodeFeedback-Filtered-Instruction",
       "paper_link": "https://arxiv.org/abs/2402.14658",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/m-a-p__CodeFeedback-Filtered-Instruction_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/CodeFeedback-Filtered-Instruction",
       "tag": "code"
     },
     {
@@ -102602,7 +102602,7 @@
       "size_precise": "380000",
       "link": "https://huggingface.co/datasets/microsoft/EpiCoder-func-380k",
       "paper_link": "https://arxiv.org/abs/2501.04694",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/EpiCoder-func-380k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/EpiCoder-func-380k",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -103445,7 +103445,7 @@
       "size_precise": "133102",
       "link": "https://huggingface.co/datasets/amphora/QwQ-LongCoT-130K",
       "paper_link": "",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/QwQ-LongCoT_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/QwQ-LongCoT",
       "tag": "general,math,science"
     },
     {
@@ -103792,7 +103792,7 @@
       "size_precise": "113957",
       "link": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
       "paper_link": "https://arxiv.org/abs/2506.04178",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/OpenThoughts_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenThoughts",
       "tag": "general,math,code,science"
     },
     {
@@ -104139,7 +104139,7 @@
       "size_precise": "77685",
       "link": "https://huggingface.co/datasets/O1-OPEN/OpenO1-SFT",
       "paper_link": "https://arxiv.org/abs/2504.13828",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OpenO1-SFT",
       "tag": "general"
     },
     {
@@ -104486,7 +104486,7 @@
       "size_precise": "62925",
       "link": "https://huggingface.co/datasets/sequelbox/Raiden-DeepSeek-R1",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Raiden-DeepSeek-R1",
       "tag": "general"
     },
     {
@@ -105180,7 +105180,7 @@
       "size_precise": "150000",
       "link": "https://huggingface.co/datasets/Magpie-Align/Magpie-Reasoning-V1-150K",
       "paper_link": "https://arxiv.org/abs/2406.08464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/magpiev1_150k_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/magpiev1_150k",
       "tag": "general,math,science",
       "evaluation_score": {
         "Q_scores": {
@@ -106023,7 +106023,7 @@
       "size_precise": "323965",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/code.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-code_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-code",
       "tag": "code",
       "evaluation_score": {
         "Q_scores": {
@@ -106866,7 +106866,7 @@
       "size_precise": "558129",
       "link": "https://huggingface.co/datasets/a-m-team/AM-Thinking-v1-Distilled/blob/main/math.jsonl",
       "paper_link": "https://arxiv.org/abs/2505.14464",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/AM-Thinking-v1-Distilled-math_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/AM-Thinking-v1-Distilled-math",
       "tag": "math",
       "evaluation_score": {
         "Q_scores": {
@@ -107709,7 +107709,7 @@
       "size_precise": "79439",
       "link": "https://huggingface.co/datasets/qihoo360/Light-R1-SFTData",
       "paper_link": "https://arxiv.org/abs/2503.10460",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/qihoo360_Light-R1-SFTData_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Light-R1-SFTData",
       "tag": "general,math,code,science"
     },
     {
@@ -108056,7 +108056,7 @@
       "size_precise": "7900",
       "link": "https://huggingface.co/datasets/RabotniKuma/Fast-Math-R1-SFT",
       "paper_link": "https://arxiv.org/abs/2507.08267",
-      "scored_link": "https://huggingface.co/datasets/OpenDataArena/RabotniKuma_Fast-Math-R1-SFT_train_scored",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/Fast-Math-R1-SFT",
       "tag": "general,math"
     },
     {
@@ -108403,7 +108403,7 @@
       "size_precise": "1253230",
       "link": "https://huggingface.co/datasets/MegaScience/MegaScience",
       "paper_link": "https://arxiv.org/abs/2507.16812",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MegaScience",
       "tag": "general,math,code,science"
     },
     {
@@ -108750,7 +108750,7 @@
       "size_precise": "104913",
       "link": "https://huggingface.co/datasets/PrimeIntellect/SYNTHETIC-2-SFT-verified",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/SYNTHETIC-2-SFT-verified",
       "tag": "general,math,code,science"
     },
     {
@@ -109097,7 +109097,7 @@
       "size_precise": "364988",
       "link": "https://huggingface.co/datasets/alibaba-pai/OmniThought-0528",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/OmniThought-0528",
       "tag": "general,math,code,science"
     },
     {
@@ -109444,7 +109444,7 @@
       "size_precise": "817",
       "link": "https://huggingface.co/datasets/GAIR/LIMO",
       "paper_link": "https://arxiv.org/abs/2502.03387",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/LIMO",
       "tag": "math"
     },
     {
@@ -110138,7 +110138,7 @@
       "size_precise": "719232",
       "link": "https://huggingface.co/datasets/miromind-ai/MiroMind-M1-SFT-719K",
       "paper_link": "",
-      "scored_link": "",
+      "scored_link": "https://huggingface.co/datasets/OpenDataArena/ODA-scored-data-2603/viewer/MiroMind-M1-SFT-719K",
       "tag": "math"
     },
     {
