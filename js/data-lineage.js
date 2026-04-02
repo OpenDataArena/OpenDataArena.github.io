@@ -218,11 +218,11 @@ app.config.errorHandler = (err, instance, info) => {
 };
 
 // Mount and expose the component proxy directly (Vue 3 returns proxy from mount)
-// 只在 data-lineage.html 页面挂载 Vue 应用，index.html 有自己的 Vue 应用
+// 只在 data-lineage/website/index.html 页面挂载 Vue 应用，index.html 有自己的 Vue 应用
 let vmInstance = null;
 const appElement = document.getElementById("app");
 if (appElement && document.getElementById("appPage")) {
-	// 只在存在 appPage 元素时才挂载（data-lineage.html 的特征）
+	// 只在存在 appPage 元素时才挂载（data-lineage/website/index.html 的特征）
 	try {
 		vmInstance = app.mount("#app");
 		window.vm = vmInstance;

@@ -449,7 +449,7 @@ const app = createApp({
 			window.location.href = "data-comparison.html?id=87";
 		}
 		function goToDataLineage() {
-			window.location.href = "data-lineage.html?id=87";
+			window.location.href = "data-lineage/website/index.html?id=87";
 		}
 
 		// —— 模板引用的辅助：避免渲染期未定义 ——
