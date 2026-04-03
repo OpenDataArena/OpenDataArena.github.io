@@ -33,13 +33,13 @@
 }
 
 .tools-header {
-	text-align: left;
+	text-align: center;
 	margin-bottom: 3rem;
 	padding: 2rem;
 	background: linear-gradient(
-		180deg,
+		135deg,
 		var(--background-secondary) 0%,
-		var(--background-accent) 50%
+		var(--background-accent) 100%
 	);
 	border-radius: var(--radius-lg);
 	border: 1px solid var(--border-light);
@@ -56,17 +56,3 @@
 	gap: 1rem;
 }
 
-a.repo-link {
-	color: var(--text-primary) !important;
-	text-decoration: none !important;
-	font-weight: 500;
-	transition: color 0.2s;
-}
-a.repo-link i {
-	margin-left: 6px;
-	font-size: 0.95em;
-	vertical-align: middle;
-}
-a.repo-link:hover {
-	color: var(--primary-color) !important;
-}

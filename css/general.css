@@ -1,8 +1,8 @@
 :root {
 	/* --- Dark theme palette (aligned with data-lineage) --- */
-	--primary-color: #4f8cff;
-	--primary-light: #6ba3ff;
-	--primary-dark: #3a6fd8;
+	--primary-color: #7aa2f7;
+	--primary-light: #9bb8fa;
+	--primary-dark: #5d8ce0;
 	--accent-color: #a78bfa;
 	--accent-green: #34d399;
 	--text-primary: #e8edf8;
@@ -17,7 +17,7 @@
 	--success-color: #34d399;
 	--warning-color: #fbbf24;
 	--error-color: #f87171;
-	--glow: rgba(79, 140, 255, 0.15);
+	--glow: rgba(122, 162, 247, 0.15);
 	--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3);
 	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
 	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
@@ -46,6 +46,40 @@ body {
 	position: relative;
 }
 
+/* Global link color for dark theme */
+a {
+	color: var(--primary-light);
+	transition: color 0.2s ease;
+}
+a:hover {
+	color: var(--primary-color);
+}
+a:visited {
+	color: var(--accent-color);
+}
+
+/* Dark theme form elements */
+input, select, textarea {
+	background: var(--background-secondary);
+	color: var(--text-primary);
+	border: 1px solid var(--border-medium);
+	border-radius: var(--radius-sm);
+}
+input:focus, select:focus, textarea:focus {
+	outline: none;
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 2px rgba(122, 162, 247, 0.15);
+}
+input::placeholder, textarea::placeholder {
+	color: var(--text-light);
+}
+input[type="checkbox"], input[type="radio"] {
+	accent-color: var(--primary-color);
+}
+input[type="range"] {
+	accent-color: var(--primary-color);
+}
+
 /* Grid texture overlay */
 body::before {
 	content: "";
@@ -54,8 +88,8 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(rgba(79,140,255,0.03) 1px, transparent 1px),
-				linear-gradient(90deg, rgba(79,140,255,0.03) 1px, transparent 1px);
+	background: linear-gradient(rgba(122,162,247,0.03) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(122,162,247,0.03) 1px, transparent 1px);
 	background-size: 48px 48px;
 	pointer-events: none;
 	z-index: 0;
@@ -82,7 +116,7 @@ body > * {
 
 /* Headings use Syne */
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Syne", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+	font-family: "Space Grotesk", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Monospace / data */
@@ -129,7 +163,7 @@ code, pre, .mono {
 	color: var(--primary-color);
 	margin: 0;
 	letter-spacing: 1px;
-	font-family: "Syne", "DM Sans", "Segoe UI", sans-serif;
+	font-family: "Space Grotesk", "DM Sans", "Segoe UI", sans-serif;
 }
 
 .header h1 {
@@ -181,12 +215,12 @@ code, pre, .mono {
 
 .nav-main-title {
 	font-size: 1.08rem;
-	font-weight: 800;
+	font-weight: 700;
 	margin: 0;
 	padding: 0;
 	color: #ffffff !important;
 	letter-spacing: 0.03em;
-	font-family: "Syne", "DM Sans", "Segoe UI", sans-serif;
+	font-family: "Space Grotesk", "DM Sans", "Segoe UI", sans-serif;
 	background: none !important;
 	-webkit-background-clip: unset !important;
 	background-clip: unset !important;
@@ -259,9 +293,9 @@ code, pre, .mono {
 }
 
 .nav-item a:hover {
-	background: rgba(79, 140, 255, 0.12);
+	background: rgba(122, 162, 247, 0.12);
 	color: #ffffff;
-	box-shadow: 0 0 12px rgba(79, 140, 255, 0.1);
+	box-shadow: 0 0 12px rgba(122, 162, 247, 0.1);
 }
 
 /* Loading and Error States */
@@ -396,7 +430,7 @@ code, pre, .mono {
 }
 .fab-main:hover {
 	background: var(--primary-dark);
-	box-shadow: 0 4px 20px rgba(79, 140, 255, 0.3);
+	box-shadow: 0 4px 20px rgba(122, 162, 247, 0.3);
 }
 
 .table-container {
@@ -450,10 +484,10 @@ code, pre, .mono {
 	transition: all 0.2s ease;
 }
 .table tbody tr:hover {
-	background: rgba(79, 140, 255, 0.08);
+	background: rgba(122, 162, 247, 0.08);
 }
 .ranking-table tbody tr:hover {
-	background-color: rgba(79, 140, 255, 0.08) !important;
+	background-color: rgba(122, 162, 247, 0.08) !important;
 }
 .table tbody tr:last-child td {
 	border-bottom: none;
@@ -463,7 +497,7 @@ code, pre, .mono {
 }
 .ranking-table th.highlighted-col,
 .ranking-table td.highlighted-col {
-	background-color: rgba(79, 140, 255, 0.06) !important;
+	background-color: rgba(122, 162, 247, 0.06) !important;
 	color: var(--text-primary) !important;
 }
 .ranking-table th.highlighted-col .sort-icon,
@@ -485,19 +519,19 @@ code, pre, .mono {
 }
 
 .table-row.base-row {
-	background-color: rgba(79, 140, 255, 0.04);
+	background-color: rgba(122, 162, 247, 0.04);
 }
 
 .table-row.base-row:hover {
-	background-color: rgba(79, 140, 255, 0.1);
+	background-color: rgba(122, 162, 247, 0.1);
 }
 
 .table-row.instruct-row {
-	background-color: rgba(79, 140, 255, 0.04);
+	background-color: rgba(122, 162, 247, 0.04);
 }
 
 .table-row.instruct-row:hover {
-	background-color: rgba(79, 140, 255, 0.1);
+	background-color: rgba(122, 162, 247, 0.1);
 }
 /* Rank Badge */
 .rank-badge {
@@ -691,10 +725,10 @@ footer {
 
 .links-container a:hover {
 	color: var(--primary-color);
-	border-color: rgba(79, 140, 255, 0.3);
-	background: rgba(79, 140, 255, 0.08);
+	border-color: rgba(122, 162, 247, 0.3);
+	background: rgba(122, 162, 247, 0.08);
 	transform: translateY(-2px);
-	box-shadow: 0 4px 16px rgba(79, 140, 255, 0.15);
+	box-shadow: 0 4px 16px rgba(122, 162, 247, 0.15);
 }
 
 .footer-copyright {
@@ -824,10 +858,61 @@ footer {
 }
 
 .lang-toggle-btn:hover {
-	background: rgba(79, 140, 255, 0.12);
+	background: rgba(122, 162, 247, 0.12);
 }
 
 .nav-item {
 	display: flex;
 	align-items: center;
+}
+
+/* ===== Shared Guide Header (used by contribution, configurations, tools) ===== */
+.guide-header-wrapper {
+	max-width: 1200px;
+	margin: 20px auto 0 auto;
+}
+
+.guide-header {
+	text-align: center;
+	margin-bottom: 3rem;
+	padding: 2rem;
+	background: linear-gradient(
+		135deg,
+		var(--background-secondary) 0%,
+		var(--background-accent) 100%
+	);
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-light);
+}
+
+.guide-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--primary-color);
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.guide-subtitle {
+	font-size: 1.2rem;
+	color: var(--text-secondary);
+	max-width: 800px;
+	margin: 0 auto;
+	line-height: 1.6;
+}
+
+/* ===== Shared Link Style (repo-link) ===== */
+a.repo-link {
+	color: var(--primary-light) !important;
+	text-decoration: underline dotted !important;
+	text-underline-offset: 3px;
+	font-weight: 500;
+	transition: color 0.2s;
+}
+a.repo-link:hover {
+	color: var(--accent-color) !important;
+	text-decoration: underline solid !important;
 }

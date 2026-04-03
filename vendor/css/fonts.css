@@ -36,32 +36,25 @@
   src: url(../fonts/dm-sans-500.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Syne';
+  font-family: 'Space Grotesk';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-display: swap;
-  src: url(../fonts/syne-400.ttf) format('truetype');
+  src: url(../fonts/space-grotesk-500.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Syne';
+  font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../fonts/syne-600.ttf) format('truetype');
+  src: url(../fonts/space-grotesk-600.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Syne';
+  font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(../fonts/syne-700.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(../fonts/syne-800.ttf) format('truetype');
+  src: url(../fonts/space-grotesk-700.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Playfair Display';

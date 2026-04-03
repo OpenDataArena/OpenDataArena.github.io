@@ -456,12 +456,12 @@
 
 	/* 取消 hover 专属的颜色变化，改为 active/ focus 更明显 */
 	.summary-leaderboard-header:hover {
-		background: linear-gradient(90deg, #e9efff 0%, #fff 80%);
-		color: #1c2452;
-		box-shadow: 0 2px 16px 0 rgba(50, 80, 200, 0.04);
+		background: rgba(122, 162, 247, 0.1);
+		color: var(--primary-color);
+		box-shadow: 0 2px 16px 0 rgba(122, 162, 247, 0.08);
 	}
 	.summary-leaderboard-header:active {
-		background: linear-gradient(90deg, #dbe7ff 0%, #f7f9ff 80%);
+		background: rgba(122, 162, 247, 0.15);
 	}
 
 	/* 列表滚动体验改善 */
@@ -926,10 +926,10 @@
 
 	/* 减弱 hover 效果 */
 	.compare-dataset-item:hover {
-		background: #f5f7fb;
+		background: rgba(122, 162, 247, 0.08);
 	}
 	.domain-tab:hover {
-		background: #eef2ff;
+		background: rgba(122, 162, 247, 0.06);
 	}
 
 	/* 滚动体验 */

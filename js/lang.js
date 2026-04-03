@@ -491,6 +491,8 @@ export const lang_comparison = {
 
 export const lang_configurations = {
 	en: {
+		config_guide_title: "Configuration Guide",
+		config_guide_prefix: "This page details the training and testing configurations, dataset selection rules, and evaluation scoring methods used in OpenDataArena. All settings are standardized to ensure fair and reproducible evaluation results.",
 		config_train_settings: "Training Settings",
 		config_train_framework:
 			'<strong>Framework:</strong> <a href="https://github.com/hiyouga/LLaMA-Factory/tree/v0.9.2" target="_blank" class="repo-link"><u>LLaMA_Factory version 0.9.2</u></a>',
@@ -564,6 +566,8 @@ export const lang_configurations = {
 			'For detailed implementation principles and usage instructions for each scorer, please consult the <a href="https://opendataarena-tool.readthedocs.io/en/latest/" target="_blank" class="repo-link">wiki documentation</a>.',
 	},
 	zh: {
+		config_guide_title: "配置指南",
+		config_guide_prefix: "本页面详细介绍了 OpenDataArena 所使用的训练配置、测试配置、数据集选择规则以及评估评分方法。所有配置均经过标准化设置，以确保评估结果的公平性与可复现性。",
 		config_train_settings: "训练设置",
 		config_train_framework:
 			'<strong>训练框架：</strong><a href="https://github.com/hiyouga/LLaMA-Factory/tree/v0.9.2" target="_blank" class="repo-link"><u>LLaMA_Factory version 0.9.2</u></a>',

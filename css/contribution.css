@@ -4,38 +4,6 @@
 	padding: 2rem;
 }
 
-.guide-header {
-	text-align: center;
-	margin-bottom: 3rem;
-	padding: 2rem;
-	background: linear-gradient(
-		135deg,
-		var(--background-secondary) 0%,
-		var(--background-accent) 100%
-	);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-light);
-}
-
-.guide-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: var(--primary-dark);
-	margin-bottom: 1rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
-}
-
-.guide-subtitle {
-	font-size: 1.2rem;
-	color: var(--text-secondary);
-	max-width: 800px;
-	margin: 0 auto;
-	line-height: 1.6;
-}
-
 .guide-sections {
     display: grid;
     gap: 2rem;
@@ -197,21 +165,21 @@
 
 /* 代码高亮样式 */
 .code-block code .comment {
-    color: #6a737d;
+    color: #8b949e;
     font-style: italic;
 }
 
 .code-block code .keyword {
-    color: #d73a49;
+    color: #ff7b72;
     font-weight: 600;
 }
 
 .code-block code .string {
-    color: #032f62;
+    color: #a5d6ff;
 }
 
 .code-block code .function {
-    color: #6f42c1;
+    color: #d2a8ff;
 }
 
 .code-header {
