@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	initI18nForIndex();
 });
 
+// Set Chart.js global defaults for dark theme
+if (typeof Chart !== "undefined") {
+	Chart.defaults.color = "#e8edf8";
+	Chart.defaults.borderColor = "rgba(255, 255, 255, 0.1)";
+	Chart.defaults.scale.ticks.backdropColor = "transparent";
+}
+
 const { createApp, ref, computed, onMounted, watch } = Vue;
 
 const app = createApp({
@@ -528,7 +535,7 @@ const app = createApp({
 							max: 10,
 							ticks: {
 								stepSize: 2,
-								color: "#94a3b8",
+								color: "#94a3c0",
 								callback: function (value) {
 									return [0, 2, 4, 6, 8, 10].includes(value) ? value : "";
 								},
@@ -542,10 +549,16 @@ const app = createApp({
 									weight: "600",
 									family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 								},
-								color: "#000000",
+								color: "#e8edf8",
 								padding: 20,
 								centerPointLabels: false,
 								display: true,
+							},
+							grid: {
+								color: "rgba(255, 255, 255, 0.1)",
+							},
+							angleLines: {
+								color: "rgba(255, 255, 255, 0.1)",
 							},
 						},
 					},
@@ -559,7 +572,7 @@ const app = createApp({
 							max: 1,
 							ticks: {
 								stepSize: 0.2,
-								color: "#94a3b8",
+								color: "#94a3c0",
 								callback: function (value) {
 									return [0.0, 0.2, 0.4, 0.6, 0.8, 1.0].includes(
 										Number(value.toFixed(1))
@@ -577,10 +590,16 @@ const app = createApp({
 									weight: "600",
 									family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 								},
-								color: "#000000",
+								color: "#e8edf8",
 								padding: 20,
 								centerPointLabels: false,
 								display: true,
+							},
+							grid: {
+								color: "rgba(255, 255, 255, 0.1)",
+							},
+							angleLines: {
+								color: "rgba(255, 255, 255, 0.1)",
 							},
 						},
 					},
@@ -603,6 +622,7 @@ const app = createApp({
 								labels: {
 									padding: 20,
 									usePointStyle: true,
+									color: "#e8edf8",
 									font: {
 										size: 12,
 										weight: "500",
@@ -613,7 +633,7 @@ const app = createApp({
 								display: datasets.length === 1, // 只有单个数据集时显示
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -629,10 +649,10 @@ const app = createApp({
 								beginAtZero: true,
 								max: 100,
 								grid: {
-									color: "rgba(30, 64, 175, 0.1)",
+									color: "rgba(255, 255, 255, 0.1)",
 								},
 								angleLines: {
-									color: "rgba(30, 64, 175, 0.15)",
+									color: "rgba(255, 255, 255, 0.1)",
 								},
 								pointLabels: {
 									font: {
@@ -640,14 +660,14 @@ const app = createApp({
 										weight: "600",
 										family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 									},
-									color: "#000000",
+									color: "#e8edf8",
 									padding: 20,
 									centerPointLabels: false,
 									display: true,
 								},
 								ticks: {
 									stepSize: 20,
-									color: "#94a3b8",
+									color: "#94a3c0",
 									backdrop: {
 										color: "transparent",
 									},
@@ -965,7 +985,7 @@ const app = createApp({
 								display: qData.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -987,7 +1007,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1002,7 +1022,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1079,7 +1099,7 @@ const app = createApp({
 								display: qaData.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1101,7 +1121,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1116,7 +1136,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1234,7 +1254,7 @@ const app = createApp({
 								display: openQ.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: { size: 12, weight: "600" },
 								formatter: (value) => value.toFixed(1),
 								offset: 8,
@@ -1320,7 +1340,7 @@ const app = createApp({
 								display: relQA.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: { size: 12, weight: "600" },
 								formatter: (value) => value.toFixed(1),
 								offset: 8,
@@ -1471,7 +1491,7 @@ const app = createApp({
 								display: deitaQ.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1493,7 +1513,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1508,7 +1528,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1599,7 +1619,7 @@ const app = createApp({
 								display: dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1621,7 +1641,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1636,7 +1656,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1773,7 +1793,7 @@ const app = createApp({
 								display: deitaQualityData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1795,7 +1815,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1810,7 +1830,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1886,7 +1906,7 @@ const app = createApp({
 								display: ifdData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1908,7 +1928,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1923,7 +1943,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1999,7 +2019,7 @@ const app = createApp({
 								display: rewardModelData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#000000",
+								color: "#e8edf8",
 								font: {
 									size: 12,
 									weight: "600",
@@ -2021,7 +2041,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -2036,7 +2056,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(30, 64, 175, 0.08)",
+									color: "rgba(255, 255, 255, 0.08)",
 								},
 								ticks: {
 									font: { size: 12 },

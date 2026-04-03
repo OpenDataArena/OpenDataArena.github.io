@@ -21,21 +21,21 @@ def main():
     os.chdir(DIRECTORY)
     
     with socketserver.TCPServer(("", PORT), MyHTTPRequestHandler) as httpd:
-        print(f"服务器启动成功!")
-        print(f"目录: {DIRECTORY}")
-        print(f"访问地址: http://localhost:{PORT}")
-        print(f"主页: http://localhost:{PORT}/index.html")
+        print(f"Server started!")
+        print(f"Directory: {DIRECTORY}")
+        print(f"Access address: http://localhost:{PORT}")
+        print(f"Home page: http://localhost:{PORT}/index.html")
         print("-" * 50)
         
         try:
             webbrowser.open(f'http://localhost:{PORT}/index.html')
         except:
-            print("请手动打开浏览器访问上述地址")
+            print("Please open the browser to access the above address")
         
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\n服务器已停止")
+            print("\nServer stopped")
 
 if __name__ == "__main__":
     main()

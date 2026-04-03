@@ -8,6 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 		<script type="module" src="./js/data-comparison.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="./css/general.css" />
 		<link rel="stylesheet" href="./css/data-comparison.css" />
 		<link rel="stylesheet" href="./css/mobile.css" />
@@ -151,7 +152,7 @@
 							<a href="leaderboard.html">{{ $t('all_leaderboard') }}</a>
 						</li>
 						<li class="nav-item">
-							<a href="data-lineage/website/index.html">{{ $t('all_data_genealogy') }}</a>
+							<a href="data-lineage/website/index.html" target="_blank">{{ $t('all_data_genealogy') }}</a>
 						</li>
 						<li class="nav-item">
 							<a href="data-comparison.html?id=87">{{ $t('all_data_comparison') }}</a>
@@ -554,7 +555,7 @@
 							<h3 class="dynamic-chart-title">Heuristic (Answer Length)</h3>
 							<table class="heuristic-table">
 								<thead>
-									<tr style="background: #f3f4f6">
+									<tr style="background: var(--background-accent)">
 										<th>{{ $t('comparison_dataset') }}</th>
 										<th>{{ $t('comparison_min') }}</th>
 										<th>{{ $t('comparison_max') }}</th>

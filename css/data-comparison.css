@@ -13,7 +13,7 @@
 .data-comparison-title {
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: var(--primary-dark);
+	color: var(--primary-color);
 	margin-bottom: 1rem;
 	display: flex;
 	align-items: center;
@@ -29,15 +29,15 @@
 }
 
 .compare-selection {
-	background: #f8fafc;
+	background: var(--background-accent);
 	padding: 20px;
 	border-radius: 12px;
-	border: 1px solid #e2e8f0;
+	border: 1px solid var(--border-light);
 }
 
 .compare-dropdown label {
 	font-weight: 600;
-	color: #374151;
+	color: var(--text-primary);
 	margin-bottom: 15px;
 	display: block;
 }
@@ -45,9 +45,9 @@
 .compare-dataset-list {
 	max-height: 300px;
 	overflow-y: auto;
-	border: 1px solid #d1d5db;
+	border: 1px solid var(--border-light);
 	border-radius: 8px;
-	background: white;
+	background: var(--background-secondary);
 }
 
 .compare-dataset-item {
@@ -55,7 +55,7 @@
 	align-items: center;
 	gap: 12px;
 	padding: 12px 16px;
-	border-bottom: 1px solid #f3f4f6;
+	border-bottom: 1px solid var(--border-light);
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
@@ -65,12 +65,12 @@
 }
 
 .compare-dataset-item:hover {
-	background: #f1f5f9;
+	background: rgba(79,140,255,0.08);
 }
 
 .compare-dataset-item.selected {
-	background: #dbeafe;
-	border-left: 4px solid #1e40af;
+	background: rgba(79,140,255,0.12);
+	border-left: 4px solid #4f8cff;
 }
 
 .compare-dataset-item input[type="checkbox"] {
@@ -82,12 +82,12 @@
 .compare-dataset-item .dataset-name {
 	flex: 1;
 	font-weight: 500;
-	color: #111827;
+	color: var(--text-primary);
 }
 
 .compare-dataset-item .dataset-domain {
-	background: #e5e7eb;
-	color: #374151;
+	background: rgba(255,255,255,0.08);
+	color: var(--text-secondary);
 	padding: 2px 8px;
 	border-radius: 12px;
 	font-size: 0.75rem;
@@ -120,27 +120,27 @@
 
 /* 比较数据集列表中的标签颜色样式 */
 .compare-dataset-item .tag-badge[data-type="general"] {
-	background-color: #e3f2fd;
-	color: #1976d2;
-	border-color: #bbdefb;
+	background-color: rgba(25,118,210,0.12);
+	color: #64b5f6;
+	border-color: rgba(25,118,210,0.25);
 }
 
 .compare-dataset-item .tag-badge[data-type="math"] {
-	background-color: #f3e5f5;
-	color: #7b1fa2;
-	border-color: #e1bee7;
+	background-color: rgba(123,31,162,0.12);
+	color: #ce93d8;
+	border-color: rgba(123,31,162,0.25);
 }
 
 .compare-dataset-item .tag-badge[data-type="code"] {
-	background-color: #e8f5e8;
-	color: #388e3c;
-	border-color: #c8e6c9;
+	background-color: rgba(56,142,60,0.12);
+	color: #81c784;
+	border-color: rgba(56,142,60,0.25);
 }
 
 .compare-dataset-item .tag-badge[data-type="science"] {
-	background-color: #fff3e0;
-	color: #f57c00;
-	border-color: #ffcc02;
+	background-color: rgba(245,124,0,0.12);
+	color: #ffb74d;
+	border-color: rgba(245,124,0,0.25);
 }
 
 .compare-actions {
@@ -256,8 +256,8 @@
 }
 
 .comparison-card {
-	background: #fff;
-	border: 1.5px solid #e5e7eb;
+	background: var(--background-secondary);
+	border: 1.5px solid var(--border-light);
 	border-radius: 12px;
 	margin-bottom: 18px;
 	box-shadow: 0 2px 8px 0 rgba(30, 64, 175, 0.04);
@@ -278,7 +278,7 @@
 }
 
 .comparison-card-header:hover {
-	background: #e0e7ef;
+	background: rgba(79,140,255,0.08);
 }
 
 .comparison-card-title {
@@ -295,7 +295,7 @@
 
 .comparison-card-body {
 	padding: 18px 24px 4px 24px;
-	background: #fff;
+	background: var(--background-secondary);
 	animation: fadeIn 0.2s;
 }
 
@@ -311,7 +311,7 @@
 }
 
 .comparison-card-body .dataset-affiliation {
-	color: #fff !important;
+	color: var(--text-secondary) !important;
 }
 
 .comparison-card-header,
@@ -323,7 +323,7 @@
 }
 
 .comparison-card-header:hover {
-	background: #e0e7ef;
+	background: rgba(79,140,255,0.08);
 }
 
 .comparison-card-header .external-link {
@@ -411,12 +411,12 @@
 }
 
 .content-section {
-	background: #ffffff;
+	background: var(--background-secondary);
 	border-radius: 20px;
 	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 10px 10px -5px rgb(0 0 0 / 0.04);
 	margin-bottom: 38px;
 	overflow: hidden;
-	border: 1px solid #e2e8f0;
+	border: 1px solid var(--border-light);
 	transition: all 0.3s ease;
 }
 
@@ -426,9 +426,9 @@
 }
 
 .section-header {
-	background: #f8fafc;
+	background: var(--background-accent);
 	padding: 25px 30px;
-	border-bottom: 1px solid #e2e8f0;
+	border-bottom: 1px solid var(--border-light);
 	position: relative;
 }
 
@@ -452,7 +452,7 @@
 .section-title {
 	font-size: 1.4rem;
 	font-weight: 600;
-	color: #111827;
+	color: var(--text-primary);
 	margin: 0;
 	display: flex;
 	align-items: center;
@@ -479,9 +479,9 @@
 	align-items: center;
 	gap: 6px;
 	padding: 0.6rem 1rem;
-	border: 1px solid #cbd5e1;
-	background: #ffffff;
-	color: #6b7280;
+	border: 1px solid var(--border-light);
+	background: var(--background-secondary);
+	color: var(--text-secondary);
 	border-radius: 6px;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
@@ -490,9 +490,9 @@
 }
 
 .domain-tab:hover {
-	border-color: #1e40af;
-	color: #1e40af;
-	background: #f1f5f9;
+	border-color: var(--primary-color);
+	color: var(--primary-color);
+	background: rgba(79,140,255,0.06);
 }
 
 .domain-tab.active {
@@ -503,15 +503,15 @@
 
 /* 领域选项卡特定类型颜色样式 */
 .domain-tab[data-type="general"] {
-	background-color: #e3f2fd;
-	color: #1976d2;
-	border-color: #bbdefb;
+	background-color: rgba(25,118,210,0.12);
+	color: #64b5f6;
+	border-color: rgba(25,118,210,0.25);
 }
 
 .domain-tab[data-type="general"]:hover {
-	background-color: #bbdefb;
-	color: #1565c0;
-	border-color: #90caf9;
+	background-color: rgba(25,118,210,0.22);
+	color: #64b5f6;
+	border-color: rgba(25,118,210,0.35);
 }
 
 .domain-tab[data-type="general"].active {
@@ -521,15 +521,15 @@
 }
 
 .domain-tab[data-type="math"] {
-	background-color: #f3e5f5;
-	color: #7b1fa2;
-	border-color: #e1bee7;
+	background-color: rgba(123, 31, 162, 0.12);
+	color: #ce93d8;
+	border-color: rgba(123, 31, 162, 0.25);
 }
 
 .domain-tab[data-type="math"]:hover {
-	background-color: #e1bee7;
-	color: #6a1b9a;
-	border-color: #ce93d8;
+	background-color: rgba(123, 31, 162, 0.2);
+	color: #e1bee7;
+	border-color: rgba(123, 31, 162, 0.35);
 }
 
 .domain-tab[data-type="math"].active {
@@ -539,15 +539,15 @@
 }
 
 .domain-tab[data-type="code"] {
-	background-color: #e8f5e8;
-	color: #388e3c;
-	border-color: #c8e6c9;
+	background-color: rgba(56, 142, 60, 0.12);
+	color: #81c784;
+	border-color: rgba(56, 142, 60, 0.25);
 }
 
 .domain-tab[data-type="code"]:hover {
-	background-color: #c8e6c9;
-	color: #2e7d32;
-	border-color: #a5d6a7;
+	background-color: rgba(56, 142, 60, 0.2);
+	color: #a5d6a7;
+	border-color: rgba(56, 142, 60, 0.35);
 }
 
 .domain-tab[data-type="code"].active {
@@ -557,15 +557,15 @@
 }
 
 .domain-tab[data-type="reasoning"] {
-	background-color: #e8eaf6;
-	color: #3f51b5;
-	border-color: #c5cae9;
+	background-color: rgba(63, 81, 181, 0.12);
+	color: #9fa8da;
+	border-color: rgba(63, 81, 181, 0.25);
 }
 
 .domain-tab[data-type="reasoning"]:hover {
-	background-color: #c5cae9;
-	color: #303f9f;
-	border-color: #9fa8da;
+	background-color: rgba(63, 81, 181, 0.2);
+	color: #c5cae9;
+	border-color: rgba(63, 81, 181, 0.35);
 }
 
 .domain-tab[data-type="reasoning"].active {
@@ -593,7 +593,7 @@
 .chart-title {
 	font-size: 1.2rem;
 	font-weight: 600;
-	color: #1e40af;
+	color: var(--primary-light);
 	margin-top: 25px;
 	margin-bottom: 5px;
 	text-align: center;
@@ -627,12 +627,13 @@
 	width: 80%;
 	border-collapse: separate;
 	border-spacing: 0;
-	background-color: #fff;
+	background-color: var(--background-secondary);
 	border-radius: 12px;
 	overflow: hidden;
-	box-shadow: 0 2px 8px 0 rgba(30, 64, 175, 0.06);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 	margin: 0 auto;
 	margin-bottom: 50px;
+	color: var(--text-primary);
 }
 
 .heuristic-table th {
@@ -646,7 +647,7 @@
 }
 
 .heuristic-table tbody tr:hover {
-	background: #f1f5fa;
+	background: rgba(79, 140, 255, 0.08);
 }
 
 .triple-charts-container {
@@ -656,19 +657,19 @@
 }
 
 .chart-card {
-	background: #fff;
+	background: var(--background-secondary);
 	border-radius: 12px;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	border: 1px solid #e5e7eb;
+	border: 1px solid var(--border-light);
 }
 
 .chart-card.inner {
-	background: #fff;
+	background: var(--background-secondary);
 	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 	overflow: hidden;
-	border: 1px solid #e5e7eb;
+	border: 1px solid var(--border-light);
 }
 
 .card-header {
@@ -701,7 +702,8 @@
 .card-content {
 	padding: 24px;
 	transition: all 0.3s ease;
-	background: #f8f9fa;
+	background: var(--background-accent);
+	color: var(--text-primary);
 }
 
 .inner-cards-container {

@@ -11,6 +11,12 @@ import {
 	initHeroFillViewport,
 } from "./general.js";
 
+// Set Chart.js global defaults for dark theme
+if (typeof Chart !== "undefined") {
+	Chart.defaults.color = "#e8edf8";
+	Chart.defaults.borderColor = "rgba(255, 255, 255, 0.1)";
+}
+
 // —— Vue 应用（首页专用）——
 const { createApp, ref, computed, onMounted, watch, nextTick } = Vue;
 
@@ -786,17 +792,18 @@ const app = createApp({
 					},
 					scales: {
 						r: {
-							angleLines: { color: "#e3e8f0" },
-							grid: { color: "#e3e8f0" },
+							angleLines: { color: "rgba(255, 255, 255, 0.1)" },
+							grid: { color: "rgba(255, 255, 255, 0.1)" },
 							suggestedMin: 0,
 							suggestedMax: 100,
 							pointLabels: {
 								font: { size: 15, weight: "bold" },
-								color: "#1e293b",
+								color: "#e8edf8",
 							},
 							ticks: {
 								stepSize: 20,
-								color: "#64748b",
+								color: "#94a3c0",
+								backdropColor: "transparent",
 							},
 						},
 					},
@@ -892,17 +899,18 @@ const app = createApp({
 					},
 					scales: {
 						r: {
-							angleLines: { color: "#e3e8f0" },
-							grid: { color: "#e3e8f0" },
+							angleLines: { color: "rgba(255, 255, 255, 0.1)" },
+							grid: { color: "rgba(255, 255, 255, 0.1)" },
 							suggestedMin: 0,
 							suggestedMax: 100,
 							pointLabels: {
 								font: { size: 15, weight: "bold" },
-								color: "#1e293b",
+								color: "#e8edf8",
 							},
 							ticks: {
 								stepSize: 20,
-								color: "#64748b",
+								color: "#94a3c0",
+								backdropColor: "transparent",
 							},
 						},
 					},

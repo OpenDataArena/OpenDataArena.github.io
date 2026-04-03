@@ -2723,10 +2723,10 @@ if (appElement && document.getElementById("appPage")) {
                 })
                 .attr('rx', 4)
                 .attr('ry', 4)
-                .attr('fill', 'rgba(255, 255, 255, 0.85)')
-                .attr('stroke', 'rgba(0, 0, 0, 0.08)')
+                .attr('fill', 'rgba(10, 14, 26, 0.85)')
+                .attr('stroke', 'rgba(255, 255, 255, 0.1)')
                 .attr('stroke-width', 0.5)
-                .attr('filter', 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))');
+                .attr('filter', 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))');
 
             nodeElements.append('text')
                 .attr('dy', d => {
@@ -2742,7 +2742,7 @@ if (appElement && document.getElementById("appPage")) {
                     if (d.data.isLeaf) return '12px';
                     return '12px';
                 })
-                .attr('fill', '#1d1d1f')  // 使用深灰色文字，更易读
+                .attr('fill', '#e8edf8')  // 使用亮色文字，适配深色背景
                 .attr('font-weight', d => {
                     if (d.depth === 1) return 700;
                     if (d.data.isLeaf) return 600;

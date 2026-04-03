@@ -1,27 +1,30 @@
 :root {
-	--primary-color: #1e40af;
-	--primary-light: #3b82f6;
-	--primary-dark: #1e3a8a;
-	--accent-color: #2563eb;
-	--text-primary: #374151;
-	--text-secondary: #6b7280;
-	--text-light: #9ca3af;
-	--background-primary: #ffffff;
-	--background-secondary: #f8fafc;
-	--background-accent: #f1f5f9;
-	--border-light: #e2e8f0;
-	--border-medium: #cbd5e1;
-	--border-dark: #94a3b8;
-	--success-color: #10b981;
-	--warning-color: #f59e0b;
-	--error-color: #ef4444;
-	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-	--radius-sm: 6px;
-	--radius-md: 8px;
-	--radius-lg: 12px;
+	/* --- Dark theme palette (aligned with data-lineage) --- */
+	--primary-color: #4f8cff;
+	--primary-light: #6ba3ff;
+	--primary-dark: #3a6fd8;
+	--accent-color: #a78bfa;
+	--accent-green: #34d399;
+	--text-primary: #e8edf8;
+	--text-secondary: #94a3c0;
+	--text-light: #6b7a99;
+	--background-primary: #0a0e1a;
+	--background-secondary: #111827;
+	--background-accent: #1a2235;
+	--border-light: rgba(255, 255, 255, 0.07);
+	--border-medium: rgba(255, 255, 255, 0.12);
+	--border-dark: rgba(255, 255, 255, 0.2);
+	--success-color: #34d399;
+	--warning-color: #fbbf24;
+	--error-color: #f87171;
+	--glow: rgba(79, 140, 255, 0.15);
+	--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
 	--header-height: 64px;
 }
 
@@ -32,14 +35,70 @@
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-		sans-serif;
+	font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+		"PingFang SC", "Microsoft YaHei", sans-serif;
 	background: var(--background-primary);
 	color: var(--text-primary);
 	line-height: 1.6;
 	min-height: 100vh;
 	margin: 0;
 	padding: 0;
+	position: relative;
+}
+
+/* Grid texture overlay */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(79,140,255,0.03) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(79,140,255,0.03) 1px, transparent 1px);
+	background-size: 48px 48px;
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Radial glow */
+body::after {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(ellipse at 50% 0%, var(--glow), transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Ensure all content sits above background effects */
+body > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Headings use Syne */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Syne", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Monospace / data */
+code, pre, .mono {
+	font-family: "DM Mono", "Consolas", monospace;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 .header {
@@ -47,11 +106,11 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 32px;
-	background: #243866;
-	border-bottom: 20px;
+	background: rgba(10, 14, 26, 0.85);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--border-light);
 	min-height: 88px;
-	/* margin-bottom: 32px; */
-	/* padding-bottom: 10px; */
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 0;
@@ -60,25 +119,23 @@ body {
 
 /* Sticky state visual (on scroll) */
 .header.is-stuck {
-	box-shadow: var(--shadow-md);
-	background: rgba(36, 56, 102, 0.95);
-	backdrop-filter: saturate(180%) blur(8px);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+	background: rgba(10, 14, 26, 0.95);
+	backdrop-filter: saturate(180%) blur(12px);
 }
 
 .nav-left h1 {
-	/* font-size: 2rem; */
 	font-weight: 700;
-	color: #1039a2;
+	color: var(--primary-color);
 	margin: 0;
 	letter-spacing: 1px;
-	font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
-		"Microsoft YaHei", sans-serif;
+	font-family: "Syne", "DM Sans", "Segoe UI", sans-serif;
 }
 
 .header h1 {
 	font-size: 2.5rem;
 	font-weight: 700;
-	background: linear-gradient(to right, #00bfff, #000080);
+	background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -129,8 +186,7 @@ body {
 	padding: 0;
 	color: #ffffff !important;
 	letter-spacing: 0.03em;
-	font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
-		"Microsoft YaHei", sans-serif;
+	font-family: "Syne", "DM Sans", "Segoe UI", sans-serif;
 	background: none !important;
 	-webkit-background-clip: unset !important;
 	background-clip: unset !important;
@@ -193,19 +249,19 @@ body {
 	display: block;
 	font-size: 16px;
 	font-weight: 500;
-	color: #ffffff;
+	color: rgba(255, 255, 255, 0.85);
 	text-decoration: none;
 	padding: 8px 18px;
-	border-radius: 6px;
-	transition: background 0.18s, color 0.18s;
-	font-family: "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
-		"Microsoft YaHei", sans-serif;
+	border-radius: var(--radius-sm);
+	transition: all 0.2s ease;
+	font-family: "DM Sans", "Segoe UI", sans-serif;
 	letter-spacing: 0.5px;
 }
 
 .nav-item a:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(79, 140, 255, 0.12);
 	color: #ffffff;
+	box-shadow: 0 0 12px rgba(79, 140, 255, 0.1);
 }
 
 /* Loading and Error States */
@@ -215,12 +271,12 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.95);
+	background: rgba(10, 14, 26, 0.9);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 9999;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(8px);
 }
 .error-overlay {
 	position: fixed;
@@ -228,12 +284,12 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgba(10, 14, 26, 0.85);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 9999;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(8px);
 }
 
 /* --- FAB菜单样式优化 --- */
@@ -340,6 +396,7 @@ body {
 }
 .fab-main:hover {
 	background: var(--primary-dark);
+	box-shadow: 0 4px 20px rgba(79, 140, 255, 0.3);
 }
 
 .table-container {
@@ -364,10 +421,10 @@ body {
 .ranking-table {
 	width: 100%;
 	border-collapse: collapse;
-	background: var(--background-primary);
+	background: var(--background-secondary);
 }
 .ranking-table th {
-	background: var(--background-secondary);
+	background: var(--background-accent);
 	color: var(--text-primary);
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -393,10 +450,10 @@ body {
 	transition: all 0.2s ease;
 }
 .table tbody tr:hover {
-	background: var(--blue-50);
+	background: rgba(79, 140, 255, 0.08);
 }
 .ranking-table tbody tr:hover {
-	background-color: #f5f7fa !important;
+	background-color: rgba(79, 140, 255, 0.08) !important;
 }
 .table tbody tr:last-child td {
 	border-bottom: none;
@@ -406,8 +463,8 @@ body {
 }
 .ranking-table th.highlighted-col,
 .ranking-table td.highlighted-col {
-	background-color: #f5f7fa !important; /* Even lighter grey-blue */
-	color: var(--text-primary) !important; /* Dark text for readability */
+	background-color: rgba(79, 140, 255, 0.06) !important;
+	color: var(--text-primary) !important;
 }
 .ranking-table th.highlighted-col .sort-icon,
 .ranking-table th.highlighted-col .task-name,
@@ -428,19 +485,19 @@ body {
 }
 
 .table-row.base-row {
-	background-color: #f0f8ff;
+	background-color: rgba(79, 140, 255, 0.04);
 }
 
 .table-row.base-row:hover {
-	background-color: #e6f2ff;
+	background-color: rgba(79, 140, 255, 0.1);
 }
 
 .table-row.instruct-row {
-	background-color: #f0f8ff;
+	background-color: rgba(79, 140, 255, 0.04);
 }
 
 .table-row.instruct-row:hover {
-	background-color: #e6f2ff;
+	background-color: rgba(79, 140, 255, 0.1);
 }
 /* Rank Badge */
 .rank-badge {
@@ -463,13 +520,13 @@ body {
 
 .rank-badge.rank-1 {
 	background: #ffd700;
-	color: var(--text-primary);
+	color: #1a1a2e;
 	box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 .rank-badge.rank-2 {
 	background: #c0c0c0;
-	color: var(--text-primary);
+	color: #1a1a2e;
 	box-shadow: 0 4px 12px rgba(192, 192, 192, 0.4);
 }
 
@@ -520,7 +577,7 @@ body {
 
 .dataset-link {
 	font-weight: 600;
-	color: var(--primary-color);
+	color: var(--primary-light);
 	text-decoration: underline dotted;
 	word-break: break-all;
 }
@@ -533,9 +590,9 @@ body {
 /* 恢复affiliation全局样式 */
 .dataset-affiliation {
 	font-size: 1.05rem;
-	opacity: 0.95;
+	opacity: 0.85;
 	margin-bottom: 10px;
-	color: #222;
+	color: var(--text-secondary);
 	font-weight: 500;
 }
 
@@ -582,11 +639,12 @@ body {
 
 /* 页脚样式 */
 footer {
-	background-color: var(--background-secondary);
+	background-color: rgba(17, 24, 39, 0.8);
 	color: var(--text-primary);
 	border-top: 1px solid var(--border-light);
 	margin-top: 50px;
 	padding: 40px 0 20px 0;
+	backdrop-filter: blur(8px);
 }
 
 .footer-content {
@@ -624,7 +682,7 @@ footer {
 	text-decoration: none;
 	border: 1px solid var(--border-light);
 	border-radius: var(--radius-md);
-	background: var(--background-primary);
+	background: rgba(17, 24, 39, 0.6);
 	transition: all 0.3s ease;
 	font-size: 0.9rem;
 	font-weight: 500;
@@ -633,10 +691,10 @@ footer {
 
 .links-container a:hover {
 	color: var(--primary-color);
-	border-color: var(--primary-light);
-	background: var(--background-accent);
-	transform: translateY(-1px);
-	box-shadow: var(--shadow-md);
+	border-color: rgba(79, 140, 255, 0.3);
+	background: rgba(79, 140, 255, 0.08);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 16px rgba(79, 140, 255, 0.15);
 }
 
 .footer-copyright {
@@ -697,52 +755,52 @@ footer {
 }
 
 .tag-icon.tag-general {
-	background: #e3f2fd;
-	color: #1976d2;
-	border-color: #bbdefb;
+	background: rgba(25, 118, 210, 0.15);
+	color: #64b5f6;
+	border-color: rgba(25, 118, 210, 0.3);
 }
 
 .tag-icon.tag-math {
-	background: #f3e5f5;
-	color: #7b1fa2;
-	border-color: #e1bee7;
+	background: rgba(123, 31, 162, 0.15);
+	color: #ce93d8;
+	border-color: rgba(123, 31, 162, 0.3);
 }
 
 .tag-icon.tag-code {
-	background: #e8f5e8;
-	color: #388e3c;
-	border-color: #c8e6c9;
+	background: rgba(56, 142, 60, 0.15);
+	color: #81c784;
+	border-color: rgba(56, 142, 60, 0.3);
 }
 
 .tag-icon.tag-science {
-	background: #fff3e0;
-	color: #f57c00;
-	border-color: #ffcc02;
+	background: rgba(245, 124, 0, 0.15);
+	color: #ffb74d;
+	border-color: rgba(245, 124, 0, 0.3);
 }
 
 .tag-icon.tag-reasoning {
-	background: #e8eaf6;
-	color: #3f51b5;
-	border-color: #c5cae9;
+	background: rgba(63, 81, 181, 0.15);
+	color: #9fa8da;
+	border-color: rgba(63, 81, 181, 0.3);
 }
 
 .tag-icon.tag-spatial {
-	background: #fce4ec;
-	color: #c2185b;
-	border-color: #f8bbd0;
+	background: rgba(194, 24, 91, 0.15);
+	color: #f48fb1;
+	border-color: rgba(194, 24, 91, 0.3);
 }
 
 .tag-icon.tag-infographic {
-	background: #e0f2f1;
-	color: #00695c;
-	border-color: #b2dfdb;
+	background: rgba(0, 105, 92, 0.15);
+	color: #80cbc4;
+	border-color: rgba(0, 105, 92, 0.3);
 }
 
 .tag-icon:hover {
 	background: var(--primary-color);
 	color: white;
 	transform: scale(1.1);
-	box-shadow: var(--shadow-sm);
+	box-shadow: 0 0 8px var(--glow);
 }
 
 .tag-icon i {
@@ -766,7 +824,7 @@ footer {
 }
 
 .lang-toggle-btn:hover {
-	background: rgba(37, 99, 235, 0.06);
+	background: rgba(79, 140, 255, 0.12);
 }
 
 .nav-item {

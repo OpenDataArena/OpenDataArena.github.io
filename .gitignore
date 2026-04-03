@@ -15,8 +15,8 @@ data/mm/*.log
 data/mm/mm_old.json
 utils/
 deploy.sh
-server.py
 .bak/
+code/
 
 # Python
 __pycache__/
