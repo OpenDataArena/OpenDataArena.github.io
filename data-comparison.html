@@ -171,7 +171,7 @@
 								:title="langAriaLabel"
 								style="cursor: pointer">
 								<img
-									src="./icon/lang-blue.svg"
+									src="./icon/lang-black.svg"
 									class="lang-icon-img"
 									alt=""
 									aria-hidden="true" />
@@ -201,12 +201,12 @@
 			<div class="fab-menu">
 				<div class="fab-actions">
 					<div class="fab-action fab-back">
-						<a href="leaderboard.html" class="fab-icon" title="Back to Leaderboard"
+						<a href="leaderboard.html" class="fab-icon" :title="$t('all_back_to_leaderboard')"
 							><i class="fas fa-arrow-left"></i
 						></a>
-						<a href="leaderboard.html" class="fab-label-btn" title="Back to Leaderboard"
+						<a href="leaderboard.html" class="fab-label-btn" :title="$t('all_back_to_leaderboard')"
 							><i class="fas fa-arrow-left"></i
-							><span>{{ $t('all_back_to_leaderboard') }}</span></a
+							><span>{{ $t('all_back') }}</span></a
 						>
 					</div>
 					<div class="fab-action fab-feedback">
@@ -226,58 +226,36 @@
 			<div v-if="!loading && !error && llamaDataset" class="dataset-detail-container">
 				<div class="data-comparison-header comparison-hero">
 					<div class="comparison-hero-main">
-						<div class="comparison-hero-badge">{{ $t('comparison_workbench_badge') }}</div>
 						<h1 class="data-comparison-title">
-							<i class="fas fa-balance-scale"></i>{{ $t('comparison_title') }}
+							<i class="fas fa-balance-scale" style="font-size: 80%;"></i>{{ $t('comparison_title') }}
 						</h1>
 						<p class="comparison-hero-subtitle">{{ $t('comparison_subtitle_1') }}</p>
-						<p class="comparison-hero-note">{{ $t('comparison_focus_note') }}</p>
-						<div class="comparison-hero-pills">
-							<div class="comparison-hero-pill">
-								<i class="fas fa-layer-group"></i>
-								<span>{{ selectedDatasets.length }} {{ $t('comparison_num_selected') }}</span>
-							</div>
-							<div class="comparison-hero-pill">
-								<i class="fas fa-database"></i>
-								<span>{{ availableDatasets.length }} {{ $t('comparison_candidate_pool') }}</span>
-							</div>
-							<div class="comparison-hero-pill">
-								<i class="fas fa-brain"></i>
-								<span>{{ $t('comparison_llama_model') }} / {{ $t('comparison_qwen_model') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="comparison-hero-side">
-						<div class="comparison-focus-card">
-							<div class="comparison-focus-label">{{ $t('comparison_focus_dataset') }}</div>
-							<h2 class="comparison-focus-title">{{ getDisplayName(llamaDataset.name) }}</h2>
-							<div class="comparison-focus-meta">
-								<span>{{ llamaDataset.year || "—" }}</span>
-								<span>{{ llamaDataset.size || "—" }}</span>
-							</div>
-							<div class="comparison-focus-tags">
+						<div class="comparison-selection-row">
+							<div class="comparison-summary-title">{{ $t('comparison_selection_snapshot') }}</div>
+							<div v-if="selectedDatasets.length > 0" class="comparison-selection-chips">
 								<span
-									v-for="tag in getDatasetTags(llamaDataset)"
-									:key="tag"
-									class="tag-badge small hero-tag"
-									:data-type="tag.toLowerCase()">
-									<i :class="getTagIcon(tag)"></i>
-									{{ $t('all_' + tag.toLowerCase()) !== ('all_' + tag.toLowerCase()) ? $t('all_' + tag.toLowerCase()) : getTagDisplayName(tag) }}
+									v-for="(dsName, idx) in selectedDatasets"
+									:key="`selected-${dsName}`"
+									class="comparison-selection-chip"
+									:style="getDatasetChipStyle(idx)">
+									{{ getDisplayName(dsName) }}
 								</span>
 							</div>
+							<div v-else class="comparison-selection-empty">
+								{{ $t('comparison_selection_empty') }}
+							</div>
 						</div>
-						<div class="comparison-focus-note">{{ $t('comparison_subtitle_2') }}</div>
 					</div>
+					<aside class="comparison-panel comparison-summary-panel">
+						<div class="comparison-summary-stat">
+							<div class="comparison-summary-stat-label">{{ $t('comparison_candidate_pool') }}</div>
+							<div class="comparison-summary-stat-value">{{ availableDatasets.length }}</div>
+						</div>
+					</aside>
 				</div>
 
 				<div class="comparison-workbench">
 					<div class="compare-controls comparison-panel">
-						<div class="comparison-panel-head">
-							<div>
-								<div class="comparison-panel-kicker">{{ $t('comparison_select_datasets_to_compare') }}</div>
-								<p class="comparison-panel-note">{{ $t('comparison_picker_note') }}</p>
-							</div>
-						</div>
 						<div class="compare-selection">
 							<div class="compare-search-bar">
 								<input
@@ -296,6 +274,7 @@
 							</div>
 							<div class="compare-dropdown">
 								<label>{{ $t('comparison_select_datasets_to_compare') }}</label>
+								<div class="compare-dataset-list-wrap">
 								<div class="compare-dataset-list">
 									<div
 										v-for="ds in filteredDatasets"
@@ -322,6 +301,7 @@
 										</span>
 									</div>
 								</div>
+								</div>
 							</div>
 
 							<div class="compare-actions">
@@ -342,36 +322,6 @@
 							</div>
 						</div>
 					</div>
-
-					<aside class="comparison-panel comparison-summary-panel">
-						<div class="comparison-summary-head">
-							<div class="comparison-summary-title">{{ $t('comparison_selection_snapshot') }}</div>
-							<div class="comparison-summary-count">{{ selectedDatasets.length }}</div>
-						</div>
-						<div v-if="selectedDatasets.length > 0" class="comparison-selection-chips">
-							<span
-								v-for="(dsName, idx) in selectedDatasets"
-								:key="`selected-${dsName}`"
-								class="comparison-selection-chip"
-								:style="getDatasetChipStyle(idx)">
-								{{ getDisplayName(dsName) }}
-							</span>
-						</div>
-						<div v-else class="comparison-selection-empty">
-							{{ $t('comparison_selection_empty') }}
-						</div>
-						<div class="comparison-summary-grid">
-							<div class="comparison-summary-stat">
-								<div class="comparison-summary-stat-label">{{ $t('comparison_candidate_pool') }}</div>
-								<div class="comparison-summary-stat-value">{{ availableDatasets.length }}</div>
-							</div>
-							<div class="comparison-summary-stat">
-								<div class="comparison-summary-stat-label">{{ $t('comparison_model_scope') }}</div>
-								<div class="comparison-summary-stat-value">2</div>
-							</div>
-						</div>
-						<p class="comparison-summary-foot">{{ $t('comparison_ready_hint') }}</p>
-					</aside>
 				</div>
 
 				<!-- Comparison Dataset Cards-->
@@ -385,18 +335,41 @@
 							type="button"
 							class="comparison-card-header"
 							@click="toggleCardCollapse(idx)">
-							<div class="comparison-card-header-main">
-								<div class="comparison-card-label">{{ $t('comparison_dataset') }}</div>
-								<div class="comparison-card-title-row">
-									<h3 class="comparison-card-title">{{ getDisplayName(dsName) }}</h3>
-									<span class="comparison-card-index">{{ getCardOrdinal(idx) }}</span>
-								</div>
-								<div
-									v-if="getDatasetByName(dsName).affiliation"
-									class="dataset-affiliation">
-									<i class="fas fa-building"></i> {{ getDatasetByName(dsName).affiliation }}
-								</div>
-							</div>
+							<h3 class="comparison-card-title">
+								{{ getDisplayName(dsName) }}
+								<span class="comparison-card-links">
+									<a
+										v-if="getDatasetByName(dsName).link"
+										:href="getDatasetByName(dsName).link"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="external-link"
+										@click.stop>
+										<i class="fas fa-database"></i>
+										Hugging Face
+									</a>
+									<a
+										v-if="getDatasetByName(dsName).scored_link"
+										:href="getDatasetByName(dsName).scored_link"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="external-link"
+										@click.stop>
+										<i class="fas fa-pencil-square"></i>
+										{{ $t('comparison_scored_link') }}
+									</a>
+									<a
+										v-if="getDatasetByName(dsName).paper_link"
+										:href="getDatasetByName(dsName).paper_link"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="external-link"
+										@click.stop>
+										<i class="fas fa-file-alt"></i>
+										{{ $t('comparison_paper') }}
+									</a>
+								</span>
+							</h3>
 							<span class="comparison-card-toggle">
 								<i :class="cardCollapsed[idx] ? 'fas fa-chevron-down' : 'fas fa-chevron-up'"></i>
 							</span>
@@ -404,34 +377,10 @@
 						<div
 							v-show="!cardCollapsed[idx]"
 							class="comparison-card-body">
-							<div class="comparison-card-links">
-								<a
-									v-if="getDatasetByName(dsName).link"
-									:href="getDatasetByName(dsName).link"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="external-link">
-									<i class="fas fa-database"></i>
-									Hugging Face
-								</a>
-								<a
-									v-if="getDatasetByName(dsName).scored_link"
-									:href="getDatasetByName(dsName).scored_link"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="external-link">
-									<i class="fas fa-pencil-square"></i>
-									{{ $t('comparison_scored_link') }}
-								</a>
-								<a
-									v-if="getDatasetByName(dsName).paper_link"
-									:href="getDatasetByName(dsName).paper_link"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="external-link">
-									<i class="fas fa-file-alt"></i>
-									{{ $t('comparison_paper') }}
-								</a>
+							<div
+								v-if="getDatasetByName(dsName).affiliation"
+								class="dataset-affiliation">
+								<i class="fas fa-building"></i> {{ getDatasetByName(dsName).affiliation }}
 							</div>
 							<div class="dataset-basic-info">
 								<div class="info-item">

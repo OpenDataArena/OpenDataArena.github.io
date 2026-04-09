@@ -19,6 +19,7 @@ export const lang_all = {
 		all_contact_us: "Contact Us",
 		all_copyright: "© 2025 OpenDataArena. All rights reserved.",
 		all_feedback: "Feedback",
+		all_back: "Back",
 		all_back_to_home: "Back to Home",
 		all_back_to_leaderboard: "Back to Leaderboard",
 		all_loading: "Loading...",
@@ -53,6 +54,7 @@ export const lang_all = {
 		all_contact_us: "联系我们",
 		all_copyright: "© 2025 OpenDataArena 保留所有权利",
 		all_feedback: "反馈",
+		all_back: "返回",
 		all_back_to_home: "返回首页",
 		all_back_to_leaderboard: "返回排行榜",
 		all_loading: "加载中...",
@@ -379,7 +381,7 @@ export const lang_leaderboard = {
 		lb_hero_subtitle_llm:
 			"Track how text datasets change model capability across the Llama, Qwen and Qwen3 families.",
 		lb_hero_subtitle_mm:
-			"Track how multimodal datasets move reasoning, spatial and infographic capability in Qwen3-VL.",
+			"Track multimodal datasets' reasoning, spatial and infographic capabilities in Qwen3-VL.",
 		lb_hero_note:
 			"Use the workbench below to switch family, narrow dataset scale, filter by tag, and jump between the overall ranking and a benchmark-specific table.",
 		lb_stat_pool: "Dataset Pool",
@@ -473,22 +475,14 @@ export const lang_comparison = {
 		comparison_title: "Data Comparison",
 		comparison_subtitle_1:
 			"Compare datasets by model performance and multi-dimensional data scores — for both instruction and instruction–response data.",
-		comparison_subtitle_2: "Please select datasets to compare.",
-		comparison_workbench_badge: "Comparison Workbench",
-		comparison_focus_dataset: "Current Anchor Dataset",
-		comparison_focus_note:
-			"This page starts from the dataset you opened from the leaderboard, then expands into side-by-side comparisons.",
 		comparison_picker_note:
 			"Search by dataset name or tag, then build a side-by-side workbench.",
 		comparison_selection_snapshot: "Selection Snapshot",
 		comparison_selection_empty: "Search and add datasets to start comparison.",
 		comparison_candidate_pool: "Candidate Pool",
-		comparison_model_scope: "Model Scope",
-		comparison_ready_hint:
-			"Adjust the selection on the left, then update the charts and score panels below.",
 		comparison_search: "Search",
 		comparison_clear_all: "Clear All",
-		comparison_select_datasets: "Select datasets...",
+		comparison_select_datasets: "Search datasets...",
 		comparison_select_datasets_to_compare: "Select datasets to compare:",
 		comparison_update_comparison: "Update Comparison",
 		comparison_num_selected: "selected",
@@ -513,21 +507,13 @@ export const lang_comparison = {
 		comparison_title: "数据集对比",
 		comparison_subtitle_1:
 			"支持根据模型表现与多维数据评分对数据集进行对比，面向指令和指令–回复数据。",
-		comparison_subtitle_2: "请选择需要对比的数据集。",
-		comparison_workbench_badge: "对比工作台",
-		comparison_focus_dataset: "当前锚点数据集",
-		comparison_focus_note:
-			"当前页面会以你从排行榜进入的数据集为锚点，再扩展到多数据集并排对比。",
 		comparison_picker_note: "按名称或标签搜索，构建并排对比工作台。",
 		comparison_selection_snapshot: "当前选择",
 		comparison_selection_empty: "搜索并添加数据集后即可开始对比。",
 		comparison_candidate_pool: "候选集合",
-		comparison_model_scope: "模型范围",
-		comparison_ready_hint:
-			"在左侧调整选择后，点击更新即可同步下方图表与评分面板。",
 		comparison_search: "搜索",
 		comparison_clear_all: "清除",
-		comparison_select_datasets: "选择数据集...",
+		comparison_select_datasets: "搜索数据集...",
 		comparison_select_datasets_to_compare: "选择数据集进行对比：",
 		comparison_update_comparison: "更新",
 		comparison_num_selected: "已选择",

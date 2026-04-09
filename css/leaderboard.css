@@ -18,7 +18,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
 	gap: 24px;
-	padding: 30px;
+	padding: 30px 30px 16px;
 	border-radius: 34px;
 	background:
 		radial-gradient(circle at top left, rgba(37, 99, 235, 0.06), transparent 30%),
@@ -45,6 +45,7 @@
 	position: relative;
 	z-index: 1;
 	min-width: 0;
+	padding-bottom: 0;
 }
 
 .leaderboard-hero-badge {
@@ -78,8 +79,11 @@
 	font-weight: 800;
 	line-height: 1;
 	letter-spacing: -0.04em;
-	color: #0f172a;
+	color: var(--primary-color);
 	margin: 0 0 16px;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
 }
 
 .leaderboard-hero-subtitle {
@@ -127,6 +131,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	justify-content: center;
 }
 
 .leaderboard-stat-grid {
@@ -332,18 +337,9 @@
 	color: var(--primary-color, #3477eb);
 }
 
-/* 下划线指示器 */
+/* Tab underline indicator (hidden per design) */
 .ant-tabs-ink-bar {
-	position: absolute;
-	bottom: 6px;
-	height: 2px;
-	background: linear-gradient(90deg, #4f8cff, #8b5cf6);
-	border-radius: 999px;
-	pointer-events: none;
-}
-
-.ant-tabs-ink-bar-animated {
-	transition: left 0.3s, width 0.3s;
+	display: none;
 }
 
 .controls-section {
@@ -369,7 +365,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	justify-content: flex-end;
+	justify-content: center;
+}
+
+.control-row:first-child .model-switcher label {
+	vertical-align: top;
+	margin-bottom: 0;
+	text-decoration: none;
+}
+
+.control-row:first-child .model-switcher label:focus,
+.control-row:first-child .model-switcher label:focus-visible,
+.control-row:first-child .model-switcher label:active {
+	text-decoration: none;
 }
 
 /* 右上：Dataset Size Range 和 Search 的组合容器 */
@@ -386,6 +394,9 @@
 .size-range-search-wrapper .search-box-container {
 	display: flex;
 	flex-direction: column;
+}
+
+.size-range-search-wrapper .size-range-section {
 	justify-content: flex-end;
 }
 
@@ -415,7 +426,7 @@
 }
 
 .control-row:first-child .size-range-section label {
-	margin-bottom: -1rem;
+	margin-bottom: 0.5rem;
 	margin-top: 0.25rem;
 	line-height: 1;
 	margin-left: 0;
@@ -447,19 +458,27 @@
 .search-box-container {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 .controls-section > .model-switcher,
 .controls-section > .data-tag-buttons-section,
-.controls-section > .type-buttons-section,
-.size-range-search-wrapper .size-range-section,
-.size-range-search-wrapper .search-box-container {
+.controls-section > .type-buttons-section {
 	background: linear-gradient(180deg, var(--surface-card-soft-start), var(--surface-card-soft-end));
 	border: 1px solid rgba(0, 0, 0, 0.06);
 	border-radius: 22px;
 	padding: 18px;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* First-row size range + search: no outer card, only inner controls */
+.size-range-search-wrapper .size-range-section,
+.size-range-search-wrapper .search-box-container {
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	box-shadow: none;
 }
 
 .search-box-container .search-box {
@@ -526,7 +545,7 @@
 
 .size-slider-wrapper {
 	position: relative;
-	padding: 14px 6px 0px 6px;
+	padding: 8px 6px 6px 6px;
 }
 
 .size-slider-track {
@@ -534,7 +553,7 @@
 	height: 6px;
 	background-color: rgba(0, 0, 0, 0.08);
 	border-radius: 3px;
-	margin: 10px 0;
+	margin: 8px 0;
 }
 
 .size-slider-range {

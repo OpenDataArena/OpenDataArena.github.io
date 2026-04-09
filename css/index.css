@@ -6,9 +6,7 @@
 }
 
 .hero-section {
-	background:
-		radial-gradient(circle at top, rgba(37, 99, 235, 0.06), transparent 40%),
-		linear-gradient(180deg, var(--surface-hero-start), var(--surface-hero-end));
+	background: var(--nav-hero-surface);
 	padding: 48px 0 32px 0;
 	border-radius: 0;
 	box-shadow: none;
@@ -73,15 +71,7 @@
 }
 
 .hero-section::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background:
-		radial-gradient(circle at 12% 16%, rgba(37, 99, 235, 0.05), transparent 28%),
-		radial-gradient(circle at 88% 10%, rgba(234, 179, 8, 0.03), transparent 20%),
-		linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent 26%);
-	pointer-events: none;
-	z-index: 0;
+	display: none;
 }
 
 .home-visualization {
@@ -1148,13 +1138,19 @@
 .summary-leaderboard-flex-lineage .summary-leaderboard-header:hover,
 .summary-leaderboard-flex-lineage .summary-leaderboard-header:focus {
 	background: linear-gradient(180deg, rgba(241, 245, 249, 0.98), rgba(226, 232, 240, 0.96));
+	color: var(--primary-color);
 }
 
 .summary-leaderboard-flex-lineage .summary-leaderboard-title {
 	letter-spacing: 0.045em;
 }
 
+/* Match title text: default uses header text color, hover/focus blue with header */
 .summary-leaderboard-flex-lineage .summary-leaderboard-title i {
-	color: #2563eb;
+	color: currentColor;
+}
+
+.summary-leaderboard-flex-lineage .summary-leaderboard-header:hover .summary-leaderboard-title i,
+.summary-leaderboard-flex-lineage .summary-leaderboard-header:focus .summary-leaderboard-title i {
 	filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.18));
 }

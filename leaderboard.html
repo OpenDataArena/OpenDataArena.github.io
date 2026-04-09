@@ -169,7 +169,7 @@
 								:title="langAriaLabel"
 								style="cursor: pointer">
 								<img
-									src="./icon/lang-blue.svg"
+									src="./icon/lang-black.svg"
 									class="lang-icon-img"
 									alt=""
 									aria-hidden="true" />
@@ -199,12 +199,12 @@
 			<div class="fab-menu">
 				<div class="fab-actions">
 					<div class="fab-action fab-back">
-						<a href="index.html" class="fab-icon" title="Back to Home"
+						<a href="index.html" class="fab-icon" :title="$t('all_back_to_home')"
 							><i class="fas fa-arrow-left"></i
 						></a>
-						<a href="index.html" class="fab-label-btn" title="Back to Home"
+						<a href="index.html" class="fab-label-btn" :title="$t('all_back_to_home')"
 							><i class="fas fa-arrow-left"></i
-							><span>{{ $t('all_back_to_home') }}</span></a
+							><span>{{ $t('all_back') }}</span></a
 						>
 					</div>
 					<div class="fab-action fab-feedback">
@@ -225,19 +225,13 @@
 			<div class="main-container-lb" v-show="!loading">
 				<section class="leaderboard-hero">
 					<div class="leaderboard-hero-main">
-						<div class="leaderboard-hero-badge">{{ $t('lb_workbench_badge') }}</div>
-						<h1 class="leaderboard-hero-title">{{ $t('all_leaderboard') }}</h1>
+						<h1 class="leaderboard-hero-title">
+							<i class="fas fa-trophy" style="font-size: 75%;"></i>{{ $t('all_leaderboard') }}
+						</h1>
 						<p class="leaderboard-hero-subtitle">
 							{{ leaderboardType === 'llm' ? $t('lb_hero_subtitle_llm') : $t('lb_hero_subtitle_mm') }}
 						</p>
-						<p class="leaderboard-hero-note">{{ $t('lb_hero_note') }}</p>
 						<div class="leaderboard-hero-chip-row">
-							<span class="leaderboard-hero-chip primary">
-								{{ currentModelInfo ? $t(currentModelInfo.nameKey) : '' }}
-							</span>
-							<span class="leaderboard-hero-chip">
-								{{ selectedType ? ($t('all_' + selectedType.toLowerCase()) !== ('all_' + selectedType.toLowerCase()) ? $t('all_' + selectedType.toLowerCase()) : getTypeDisplayName(selectedType)) : $t('lb_scope_overall') }}
-							</span>
 							<span class="leaderboard-hero-chip" v-if="tagFilterMode === 'exclusive'">
 								{{ $t('lb_only') }}
 							</span>
@@ -246,38 +240,15 @@
 					<div class="leaderboard-hero-side">
 						<div class="leaderboard-stat-grid">
 							<div class="leaderboard-stat-card">
-								<div class="leaderboard-stat-label">{{ $t('lb_stat_pool') }}</div>
-								<div class="leaderboard-stat-value">{{ leaderboardDatasetPool }}</div>
-							</div>
-							<div class="leaderboard-stat-card">
-								<div class="leaderboard-stat-label">{{ $t('lb_stat_visible') }}</div>
-								<div class="leaderboard-stat-value">{{ leaderboardVisibleCount }}</div>
-							</div>
-							<div class="leaderboard-stat-card">
-								<div class="leaderboard-stat-label">{{ $t('lb_stat_baseline') }}</div>
-								<div class="leaderboard-stat-value compact">
-									{{ leaderboardBaselineMode === 'base' ? $t('lb_baseline_base') : (leaderboardBaselineMode === 'instruct' ? $t('lb_baseline_instruct') : $t('lb_baseline_thinking')) }}
-								</div>
-							</div>
-							<div class="leaderboard-stat-card">
 								<div class="leaderboard-stat-label">{{ $t('lb_stat_scope') }}</div>
 								<div class="leaderboard-stat-value compact">
 									{{ leaderboardType === 'llm' ? $t('lb_large_language_model') : $t('lb_multi_model') }}
 								</div>
 							</div>
-						</div>
-						<div class="leaderboard-tag-summary">
-							<div class="leaderboard-tag-summary-label">{{ $t('lb_dataset_tags') }}</div>
-							<div v-if="selectedTagSummary.length" class="leaderboard-tag-summary-list">
-								<span
-									v-for="tag in selectedTagSummary"
-									:key="`summary-${tag}`"
-									class="leaderboard-tag-summary-chip">
-									{{ $t('all_' + tag.toLowerCase()) !== ('all_' + tag.toLowerCase()) ? $t('all_' + tag.toLowerCase()) : getTagDisplayName(tag) }}
-								</span>
-								<span v-if="selectedTagOverflow > 0" class="leaderboard-tag-summary-chip subtle">+{{ selectedTagOverflow }}</span>
+							<div class="leaderboard-stat-card">
+								<div class="leaderboard-stat-label">{{ $t('lb_stat_pool') }}</div>
+								<div class="leaderboard-stat-value">{{ leaderboardDatasetPool }}</div>
 							</div>
-							<div v-else class="leaderboard-tag-summary-empty">{{ $t('lb_no_tag_filters') }}</div>
 						</div>
 					</div>
 				</section>

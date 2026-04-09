@@ -386,12 +386,14 @@ if (appElement && document.getElementById("appPage")) {
             target: {
                 primary: '#60a5fa',       // 亮天蓝
                 glow: 'rgba(96, 165, 250, 0.35)',
-                text: '#000000'           // 黑色文字
+                text: '#000000',          // 黑色文字
+                stroke: 'rgba(96, 165, 250, 0.5)'
             },
             intermediate: {
                 primary: '#34d399',       // 亮翡翠绿
                 glow: 'rgba(52, 211, 153, 0.3)',
-                text: '#000000'           // 黑色文字
+                text: '#000000',          // 黑色文字
+                stroke: 'rgba(52, 211, 153, 0.5)'
             },
             leaf: {
                 primary: '#fbbf24',       // 亮金黄
@@ -2653,10 +2655,12 @@ if (appElement && document.getElementById("appPage")) {
                     
                     // 目标节点（已勾选）：白色描边
                     if (isTargetEnabled) return '#ffffff';
-                    // 叶子节点：橙色描边
+                    // 叶子节点：金黄描边
                     if (d.data.nodeType === 'leaf') return nodeTypeColors.leaf.stroke;
-                    // 中间节点或未勾选的target：白色描边
-                    return 'rgba(15, 23, 42, 0.9)';
+                    // 中间节点：绿色描边
+                    if (d.data.nodeType === 'intermediate') return nodeTypeColors.intermediate.stroke;
+                    // 未勾选的target：蓝色描边
+                    return nodeTypeColors.target.stroke;
                 })
                 .attr('stroke-width', d => {
                     // 检查target是否被勾选
@@ -2723,20 +2727,22 @@ if (appElement && document.getElementById("appPage")) {
                 })
                 .attr('rx', 4)
                 .attr('ry', 4)
-                .attr('fill', 'rgba(10, 14, 26, 0.85)')
+                .attr('fill', 'rgba(248, 250, 252, 0.94)')
                 .attr('stroke', 'rgba(0, 0, 0, 0.08)')
                 .attr('stroke-width', 0.5)
-                .attr('filter', 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))');
+                .attr('filter', 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08))');
 
             nodeElements.append('text')
                 .attr('dy', d => {
-                    if (d.depth === 1) return 28;
-                    if (d.data.isLeaf) return 22;
-                    return 26;
+                    // dy points to rect center for dominant-baseline: central
+                    if (d.depth === 1) return 27;   // (28-10) + 18/2
+                    if (d.data.isLeaf) return 20;   // (22-10) + 16/2
+                    return 24;                       // (26-10) + 16/2
                 })
                 .attr('x', 0)
                 .attr('y', 0)
                 .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'central')
                 .attr('font-size', d => {
                     if (d.depth === 1) return '13px';
                     if (d.data.isLeaf) return '12px';
@@ -3200,11 +3206,11 @@ if (appElement && document.getElementById("appPage")) {
             html += '<div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);">';
             html += `<div class="legend-item">
                 <div class="legend-color" style="background: ${nodeTypeColors.intermediate.primary}; box-shadow: 0 0 8px ${nodeTypeColors.intermediate.glow};"></div>
-                <span style="font-size: 13px; color: #dbeafe;">${t('genealogy_intermediateDataset')}</span>
+                <span style="font-size: 13px; color: #334155;">${t('genealogy_intermediateDataset')}</span>
             </div>`;
             html += `<div class="legend-item">
                 <div class="legend-color" style="background: ${nodeTypeColors.leaf.primary}; border: 2px solid ${nodeTypeColors.leaf.stroke};"></div>
-                <span style="font-size: 13px; color: #dbeafe;">${t('genealogy_baseDataSource')}</span>
+                <span style="font-size: 13px; color: #334155;">${t('genealogy_baseDataSource')}</span>
             </div>`;
             html += '</div>';
 
@@ -3223,8 +3229,8 @@ if (appElement && document.getElementById("appPage")) {
                 </div>`;
             });
 
-            html += `<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, 0.08); font-size: 12px; color: #8fa0c5;">
-                <span style="font-weight: 600; color: #dbeafe;">${t('genealogy_currentDisplay')}</span> ${nodeCount}${t('genealogy_nodes')}
+            html += `<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, 0.08); font-size: 12px; color: #64748b;">
+                <span style="font-weight: 600; color: #334155;">${t('genealogy_currentDisplay')}</span> ${nodeCount}${t('genealogy_nodes')}
             </div>`;
 
             legend.innerHTML = html;

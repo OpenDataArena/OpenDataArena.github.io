@@ -790,26 +790,24 @@
 		padding: 22px;
 		border-radius: 24px;
 	}
-	.comparison-workbench {
-		grid-template-columns: 1fr;
-	}
 	.comparison-panel {
 		padding: 18px;
 		border-radius: 22px;
 	}
+	.comparison-panel.comparison-summary-panel {
+		padding-left: 24px;
+		padding-right: 0;
+	}
 	.data-comparison-title {
 		font-size: 2rem;
 	}
-	.comparison-hero-pills {
-		gap: 10px;
-	}
 	.comparison-summary-grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 	}
 
 	/* 控制面板整体堆叠显示 */
 	.compare-controls {
-		gap: 16px;
+		gap: 12px;
 	}
 	.compare-selection {
 		padding: 0;
@@ -871,8 +869,7 @@
 	.data-comparison-title {
 		font-size: 1.8rem;
 	}
-	.comparison-hero-subtitle,
-	.comparison-hero-note {
+	.comparison-hero-subtitle {
 		font-size: 0.98rem;
 	}
 	.comparison-card-title-row {
@@ -925,10 +922,6 @@
 	}
 	.comparison-hero {
 		padding: 18px;
-	}
-	.comparison-hero-pills {
-		flex-direction: column;
-		align-items: stretch;
 	}
 	.comparison-summary-grid {
 		grid-template-columns: 1fr;
@@ -1484,6 +1477,10 @@
 	/* 悬浮菜单：移动端仅展示图标按钮，隐藏带文案的长按钮 */
 	.fab-actions .fab-label-btn {
 		display: none;
+	}
+	/* Keep short Back label visible (otherwise the row looks empty when expanded) */
+	.fab-actions .fab-action.fab-back .fab-label-btn {
+		display: flex;
 	}
 	.fab-actions .fab-icon {
 		display: inline-flex;

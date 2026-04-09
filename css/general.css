@@ -3,6 +3,8 @@
 	--page-background-top: #f8fafc;
 	--page-background-mid: #f1f5f9;
 	--page-background-bottom: #e8eef6;
+	/* Opaque light gray: shared by header, index hero, and page fill */
+	--nav-hero-surface: #E9EFF8;
 	--page-grid-color: rgba(99, 130, 191, 0.05);
 	--page-haze-blue: rgba(59, 130, 246, 0.06);
 	--page-haze-gold: rgba(234, 179, 8, 0.04);
@@ -44,7 +46,7 @@
 	--radius-sm: 8px;
 	--radius-md: 12px;
 	--radius-lg: 16px;
-	--header-height: 64px;
+	--header-height: 88px;
 }
 
 * {
@@ -56,16 +58,7 @@
 body {
 	font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
 		"PingFang SC", "Microsoft YaHei", sans-serif;
-	background:
-		radial-gradient(circle at 14% 0%, var(--page-haze-blue), transparent 30%),
-		radial-gradient(circle at 84% 12%, var(--page-haze-gold), transparent 24%),
-		radial-gradient(circle at 50% 100%, var(--page-haze-mint), transparent 38%),
-		linear-gradient(
-			180deg,
-			var(--page-background-top) 0%,
-			var(--page-background-mid) 48%,
-			var(--page-background-bottom) 100%
-		);
+	background: var(--nav-hero-surface);
 	background-attachment: fixed;
 	color: var(--text-primary);
 	line-height: 1.6;
@@ -109,36 +102,10 @@ input[type="range"] {
 	accent-color: var(--primary-color);
 }
 
-/* Grid texture overlay */
-body::before {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background:
-		linear-gradient(var(--page-grid-color) 1px, transparent 1px),
-		linear-gradient(90deg, var(--page-grid-color) 1px, transparent 1px);
-	background-size: 56px 56px;
-	opacity: 0.35;
-	pointer-events: none;
-	z-index: 0;
-}
-
-/* Radial glow */
+/* Decorative overlays off so page matches solid nav / hero gray */
+body::before,
 body::after {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background:
-		radial-gradient(ellipse at 50% -8%, rgba(37, 99, 235, 0.04), transparent 42%),
-		radial-gradient(ellipse at 50% 0%, var(--glow), transparent 70%);
-	pointer-events: none;
-	z-index: 0;
+	display: none;
 }
 
 /* Ensure all content sits above background effects */
@@ -173,23 +140,23 @@ code, pre, .mono {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 32px;
-	background: linear-gradient(135deg, var(--header-surface-start), var(--header-surface-end));
-	backdrop-filter: blur(14px) saturate(150%);
-	-webkit-backdrop-filter: blur(14px) saturate(150%);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	background: var(--nav-hero-surface);
+	border-bottom: none;
 	min-height: 88px;
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 0;
 	z-index: 1300; /* above content & FAB (which uses 1200) */
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+	/* No drop shadow: avoids a dark band between header and index hero (same fill) */
+	box-shadow: none;
 }
 
 /* Sticky state visual (on scroll) */
 .header.is-stuck {
-	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-	background: linear-gradient(135deg, var(--header-surface-stuck-start), var(--header-surface-stuck-end));
-	backdrop-filter: saturate(180%) blur(14px);
+	box-shadow: none;
+	background: var(--nav-hero-surface);
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
 }
 
 .nav-left h1 {
@@ -235,7 +202,7 @@ code, pre, .mono {
 }
 
 .nav-logo {
-	height: 3em;
+	height: 4em;
 	flex-shrink: 0;
 }
 
@@ -443,8 +410,33 @@ code, pre, .mono {
 	opacity: 0;
 	pointer-events: none;
 	z-index: 2;
-	justify-content: flex-start;
-	gap: 0.7rem;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	column-gap: 0.7rem;
+}
+
+/* Icon flush left; label centered in the remaining pill width */
+.fab-label-btn > i {
+	justify-self: start;
+}
+
+.fab-label-btn > span {
+	justify-self: center;
+	width: 100%;
+	text-align: center;
+}
+
+/* FAB links: global a:hover / a:visited beat single-class rules and wash out icon/text on blue fill */
+a.fab-icon,
+a.fab-icon:hover,
+a.fab-icon:visited,
+a.fab-icon:focus-visible,
+a.fab-label-btn,
+a.fab-label-btn:hover,
+a.fab-label-btn:visited,
+a.fab-label-btn:focus-visible {
+	color: #fff;
 }
 
 .fab-action:hover .fab-label-btn {
@@ -464,6 +456,18 @@ code, pre, .mono {
 	position: relative;
 	width: 48px; /* 保持和 .fab-icon 一样的基准尺寸 */
 	height: 48px; /* 避免高度塌陷 */
+}
+
+/* Touch: no :hover — show fab-back text pill so it is not blank */
+@media (hover: none) and (pointer: coarse) {
+	.fab-action.fab-back .fab-label-btn {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.fab-action.fab-back .fab-icon {
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 .fab-main {
