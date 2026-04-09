@@ -97,6 +97,29 @@ const app = createApp({
 			return leaderboardType.value === 'mm' ? mmModels.value : llmModels.value;
 		});
 
+		const leaderboardDatasetPool = computed(() => {
+			return currentData.value.filter(
+				(item) => !isBaseModel(item) && !isInstructModel(item)
+			).length;
+		});
+
+		const leaderboardVisibleCount = computed(() => {
+			const source = selectedType.value ? detailedFilteredData.value : filteredData.value;
+			return source.filter((item) => !isBaseModel(item) && !isInstructModel(item)).length;
+		});
+
+		const leaderboardBaselineMode = computed(() => {
+			if (leaderboardType.value === "mm") {
+				return improvementType.value === "vs_instruct" ? "instruct" : "thinking";
+			}
+			return improvementType.value === "vs_instruct" ? "instruct" : "base";
+		});
+
+		const selectedTagSummary = computed(() => selectedTags.value.slice(0, 4));
+		const selectedTagOverflow = computed(() =>
+			Math.max(0, selectedTags.value.length - selectedTagSummary.value.length)
+		);
+
 		// 选择比较基准的函数
 		const selectBaseline = (dataset) => {
 			// Multi Model 模式下：
@@ -1679,6 +1702,11 @@ const app = createApp({
 			// data sources & computed
 			models,
 			currentData,
+			leaderboardDatasetPool,
+			leaderboardVisibleCount,
+			leaderboardBaselineMode,
+			selectedTagSummary,
+			selectedTagOverflow,
 			sortedData,
 			availableTags,
 			orderedTags,

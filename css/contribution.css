@@ -2,6 +2,12 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 2rem;
+	background: none;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
 }
 
 .guide-sections {
@@ -11,13 +17,13 @@
 }
 
 .guide-section {
-    background: var(--background-primary);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-sm);
-    min-width: 0;
-    overflow: hidden;
+	background: var(--background-primary);
+	padding: 2rem;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-light);
+	box-shadow: var(--shadow-sm);
+	min-width: 0;
+	overflow: hidden;
 }
 
 .section-content,
@@ -165,21 +171,21 @@
 
 /* 代码高亮样式 */
 .code-block code .comment {
-    color: #8b949e;
+    color: #64748b;
     font-style: italic;
 }
 
 .code-block code .keyword {
-    color: #ff7b72;
+    color: #dc2626;
     font-weight: 600;
 }
 
 .code-block code .string {
-    color: #a5d6ff;
+    color: #1d4ed8;
 }
 
 .code-block code .function {
-    color: #d2a8ff;
+    color: #7c3aed;
 }
 
 .code-header {

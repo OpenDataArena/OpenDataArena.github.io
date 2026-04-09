@@ -17,6 +17,7 @@ utils/
 deploy.sh
 .bak/
 code/
+.env
 
 # Python
 __pycache__/

@@ -11,10 +11,10 @@ import {
 	initHeroFillViewport,
 } from "./general.js";
 
-// Set Chart.js global defaults for dark theme
+// Set Chart.js global defaults for light theme
 if (typeof Chart !== "undefined") {
-	Chart.defaults.color = "#e8edf8";
-	Chart.defaults.borderColor = "rgba(255, 255, 255, 0.1)";
+	Chart.defaults.color = "#334155";
+	Chart.defaults.borderColor = "rgba(0, 0, 0, 0.08)";
 }
 
 // —— Vue 应用（首页专用）——
@@ -455,7 +455,7 @@ const app = createApp({
 			window.location.href = "data-comparison.html?id=87";
 		}
 		function goToDataLineage() {
-			window.location.href = "data-lineage/website/index.html?id=87";
+			window.location.href = "data-lineage/website/index.html?id=91";
 		}
 
 		// —— 模板引用的辅助：避免渲染期未定义 ——
@@ -792,17 +792,17 @@ const app = createApp({
 					},
 					scales: {
 						r: {
-							angleLines: { color: "rgba(255, 255, 255, 0.1)" },
-							grid: { color: "rgba(255, 255, 255, 0.1)" },
+							angleLines: { color: "rgba(0, 0, 0, 0.08)" },
+							grid: { color: "rgba(0, 0, 0, 0.08)" },
 							suggestedMin: 0,
 							suggestedMax: 100,
 							pointLabels: {
 								font: { size: 15, weight: "bold" },
-								color: "#e8edf8",
+								color: "#334155",
 							},
 							ticks: {
 								stepSize: 20,
-								color: "#94a3c0",
+								color: "#94a3b8",
 								backdropColor: "transparent",
 							},
 						},
@@ -899,17 +899,17 @@ const app = createApp({
 					},
 					scales: {
 						r: {
-							angleLines: { color: "rgba(255, 255, 255, 0.1)" },
-							grid: { color: "rgba(255, 255, 255, 0.1)" },
+							angleLines: { color: "rgba(0, 0, 0, 0.08)" },
+							grid: { color: "rgba(0, 0, 0, 0.08)" },
 							suggestedMin: 0,
 							suggestedMax: 100,
 							pointLabels: {
 								font: { size: 15, weight: "bold" },
-								color: "#e8edf8",
+								color: "#334155",
 							},
 							ticks: {
 								stepSize: 20,
-								color: "#94a3c0",
+								color: "#94a3b8",
 								backdropColor: "transparent",
 							},
 						},

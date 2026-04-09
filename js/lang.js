@@ -375,6 +375,25 @@ export const lang_index = {
 
 export const lang_leaderboard = {
 	en: {
+		lb_workbench_badge: "Leaderboard Workbench",
+		lb_hero_subtitle_llm:
+			"Track how text datasets change model capability across the Llama, Qwen and Qwen3 families.",
+		lb_hero_subtitle_mm:
+			"Track how multimodal datasets move reasoning, spatial and infographic capability in Qwen3-VL.",
+		lb_hero_note:
+			"Use the workbench below to switch family, narrow dataset scale, filter by tag, and jump between the overall ranking and a benchmark-specific table.",
+		lb_stat_pool: "Dataset Pool",
+		lb_stat_visible: "Visible Rows",
+		lb_stat_baseline: "Comparison Baseline",
+		lb_stat_scope: "Current Scope",
+		lb_baseline_base: "Base Model",
+		lb_baseline_instruct: "Instruct Model",
+		lb_baseline_thinking: "Thinking Baseline",
+		lb_scope_overall: "Overall",
+		lb_filter_panel_title: "Filters & Controls",
+		lb_filter_panel_note:
+			"Switch model family, tune the candidate set, and surface the exact slice you want to inspect.",
+		lb_no_tag_filters: "No tag filter applied",
 		lb_model_family: "Model Family",
 		lb_llama_family: "Llama-3.1 Family",
 		lb_qwen_family: "Qwen2.5 Family",
@@ -402,6 +421,25 @@ export const lang_leaderboard = {
 		lb_multi_model: "Multi Model",
 	},
 	zh: {
+		lb_workbench_badge: "排行榜工作台",
+		lb_hero_subtitle_llm:
+			"查看文本数据集在 Llama、Qwen 与 Qwen3 系列中的能力变化与相对价值。",
+		lb_hero_subtitle_mm:
+			"查看多模态数据集在 Qwen3-VL 上对推理、空间与信息图能力的影响。",
+		lb_hero_note:
+			"使用下方工作区切换模型系列、缩小数据规模、按标签过滤，并在总榜与细分基准榜之间快速切换。",
+		lb_stat_pool: "数据集池",
+		lb_stat_visible: "当前可见",
+		lb_stat_baseline: "对比基线",
+		lb_stat_scope: "当前视图",
+		lb_baseline_base: "Base 模型",
+		lb_baseline_instruct: "Instruct 模型",
+		lb_baseline_thinking: "Thinking 基线",
+		lb_scope_overall: "总览",
+		lb_filter_panel_title: "筛选与控制",
+		lb_filter_panel_note:
+			"切换模型系列、收窄候选集合，并快速定位你真正想看的那一段榜单。",
+		lb_no_tag_filters: "当前未启用标签过滤",
 		lb_model_family: "模型系列",
 		lb_llama_family: "Llama-3.1 系列",
 		lb_qwen_family: "Qwen2.5 系列",
@@ -432,10 +470,22 @@ export const lang_leaderboard = {
 
 export const lang_comparison = {
 	en: {
-		comparison_title: "OpenDataArena - Data Comparison",
+		comparison_title: "Data Comparison",
 		comparison_subtitle_1:
 			"Compare datasets by model performance and multi-dimensional data scores — for both instruction and instruction–response data.",
 		comparison_subtitle_2: "Please select datasets to compare.",
+		comparison_workbench_badge: "Comparison Workbench",
+		comparison_focus_dataset: "Current Anchor Dataset",
+		comparison_focus_note:
+			"This page starts from the dataset you opened from the leaderboard, then expands into side-by-side comparisons.",
+		comparison_picker_note:
+			"Search by dataset name or tag, then build a side-by-side workbench.",
+		comparison_selection_snapshot: "Selection Snapshot",
+		comparison_selection_empty: "Search and add datasets to start comparison.",
+		comparison_candidate_pool: "Candidate Pool",
+		comparison_model_scope: "Model Scope",
+		comparison_ready_hint:
+			"Adjust the selection on the left, then update the charts and score panels below.",
 		comparison_search: "Search",
 		comparison_clear_all: "Clear All",
 		comparison_select_datasets: "Select datasets...",
@@ -460,10 +510,21 @@ export const lang_comparison = {
 		comparison_average: "Average",
 	},
 	zh: {
-		comparison_title: "OpenDataArena - 数据集对比",
+		comparison_title: "数据集对比",
 		comparison_subtitle_1:
 			"支持根据模型表现与多维数据评分对数据集进行对比，面向指令和指令–回复数据。",
 		comparison_subtitle_2: "请选择需要对比的数据集。",
+		comparison_workbench_badge: "对比工作台",
+		comparison_focus_dataset: "当前锚点数据集",
+		comparison_focus_note:
+			"当前页面会以你从排行榜进入的数据集为锚点，再扩展到多数据集并排对比。",
+		comparison_picker_note: "按名称或标签搜索，构建并排对比工作台。",
+		comparison_selection_snapshot: "当前选择",
+		comparison_selection_empty: "搜索并添加数据集后即可开始对比。",
+		comparison_candidate_pool: "候选集合",
+		comparison_model_scope: "模型范围",
+		comparison_ready_hint:
+			"在左侧调整选择后，点击更新即可同步下方图表与评分面板。",
 		comparison_search: "搜索",
 		comparison_clear_all: "清除",
 		comparison_select_datasets: "选择数据集...",

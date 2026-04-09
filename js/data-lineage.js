@@ -384,20 +384,20 @@ if (appElement && document.getElementById("appPage")) {
         // 节点类型配色 - 高饱和度对比色
         const nodeTypeColors = {
             target: {
-                primary: '#ff3b30',       // 鲜红色
-                glow: 'rgba(255, 59, 48, 0.5)',
+                primary: '#60a5fa',       // 亮天蓝
+                glow: 'rgba(96, 165, 250, 0.35)',
                 text: '#000000'           // 黑色文字
             },
             intermediate: {
-                primary: '#34c759',       // 鲜绿色
-                glow: 'rgba(52, 199, 89, 0.5)',
+                primary: '#34d399',       // 亮翡翠绿
+                glow: 'rgba(52, 211, 153, 0.3)',
                 text: '#000000'           // 黑色文字
             },
             leaf: {
-                primary: '#ff9500',       // 鲜橙色
-                glow: 'rgba(255, 149, 0, 0.4)',
+                primary: '#fbbf24',       // 亮金黄
+                glow: 'rgba(251, 191, 36, 0.3)',
                 text: '#000000',          // 黑色文字
-                stroke: 'rgba(255, 149, 0, 0.6)'
+                stroke: 'rgba(251, 191, 36, 0.45)'
             }
         };
         let currentSvg = null;
@@ -768,7 +768,7 @@ if (appElement && document.getElementById("appPage")) {
                     .attr('class', 'home-link')
                     .attr('stroke', d => {
                         const alpha = Math.max(0.08, (d.confidence || 0.3) * 0.3);
-                        return `rgba(255, 255, 255, ${alpha})`;
+                        return `rgba(0, 0, 0, ${alpha})`;
                     })
                     .attr('stroke-width', d => 0.5 + (d.confidence || 0.3) * 1.5)
                     .attr('stroke-opacity', 0.3);
@@ -784,7 +784,7 @@ if (appElement && document.getElementById("appPage")) {
                     .attr('r', d => d.size)
                     .attr('fill', d => d.color)
                     .attr('opacity', d => d.opacity || 0.5)
-                    .attr('stroke', 'rgba(255, 255, 255, 0.5)')
+                    .attr('stroke', 'rgba(0, 0, 0, 0.2)')
                     .attr('stroke-width', d => d.isCentral ? 2 : 1)
                     .attr('filter', d => `drop-shadow(0 0 6px ${d.color}20)`);
 
@@ -793,7 +793,7 @@ if (appElement && document.getElementById("appPage")) {
                     .attr('dy', d => d.size + 15)
                     .attr('text-anchor', 'middle')
                     .attr('font-size', d => d.isCentral ? '11px' : '8px')
-                    .attr('fill', 'rgba(255, 255, 255, 0.4)')
+                    .attr('fill', 'rgba(0, 0, 0, 0.55)')
                     .attr('font-weight', 500)
                     .attr('pointer-events', 'none')
                     .text(d => {
@@ -944,7 +944,7 @@ if (appElement && document.getElementById("appPage")) {
                 .enter()
                 .append('line')
                 .attr('class', 'home-link')
-                .attr('stroke', 'rgba(255, 255, 255, 0.15)')
+                .attr('stroke', 'rgba(0, 0, 0, 0.1)')
                 .attr('stroke-width', 1.5)
                 .attr('stroke-opacity', 0.3);
 
@@ -962,7 +962,7 @@ if (appElement && document.getElementById("appPage")) {
                 .attr('r', d => d.size)
                 .attr('fill', d => d.color)
                 .attr('opacity', d => d.isCentral ? 0.5 : 0.3)
-                .attr('stroke', 'rgba(255, 255, 255, 0.5)')
+                .attr('stroke', 'rgba(0, 0, 0, 0.2)')
                 .attr('stroke-width', d => d.isCentral ? 3 : 2);
 
             simulation.nodes(nodes).on('tick', ticked);
@@ -2211,7 +2211,7 @@ if (appElement && document.getElementById("appPage")) {
             
             bgGradient.append('stop')
                 .attr('offset', '100%')
-                .attr('stop-color', 'rgba(255, 255, 255, 0)')
+                .attr('stop-color', 'rgba(0, 0, 0, 0)')
                 .attr('stop-opacity', 0);
 
             // 添加背景矩形
@@ -2656,7 +2656,7 @@ if (appElement && document.getElementById("appPage")) {
                     // 叶子节点：橙色描边
                     if (d.data.nodeType === 'leaf') return nodeTypeColors.leaf.stroke;
                     // 中间节点或未勾选的target：白色描边
-                    return 'rgba(255, 255, 255, 0.9)';
+                    return 'rgba(15, 23, 42, 0.9)';
                 })
                 .attr('stroke-width', d => {
                     // 检查target是否被勾选
@@ -2724,7 +2724,7 @@ if (appElement && document.getElementById("appPage")) {
                 .attr('rx', 4)
                 .attr('ry', 4)
                 .attr('fill', 'rgba(10, 14, 26, 0.85)')
-                .attr('stroke', 'rgba(255, 255, 255, 0.1)')
+                .attr('stroke', 'rgba(0, 0, 0, 0.08)')
                 .attr('stroke-width', 0.5)
                 .attr('filter', 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))');
 
@@ -2742,7 +2742,7 @@ if (appElement && document.getElementById("appPage")) {
                     if (d.data.isLeaf) return '12px';
                     return '12px';
                 })
-                .attr('fill', '#e8edf8')  // 使用亮色文字，适配深色背景
+                .attr('fill', '#334155')  // 使用深色文字，适配浅色背景
                 .attr('font-weight', d => {
                     if (d.depth === 1) return 700;
                     if (d.data.isLeaf) return 600;
@@ -3195,20 +3195,20 @@ if (appElement && document.getElementById("appPage")) {
             if (!legend) return;
             legend.style.display = 'block';
 
-            let html = `<div style="font-weight: 600; margin-bottom: 12px; color: #1d1d1f; font-size: 14px;">${t('genealogy_legendTitle')}</div>`;
+            let html = `<div style="font-weight: 700; margin-bottom: 12px; color: #0f172a; font-size: 14px; letter-spacing: 0.01em;">${t('genealogy_legendTitle')}</div>`;
 
-            html += '<div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(0, 0, 0, 0.06);">';
+            html += '<div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);">';
             html += `<div class="legend-item">
                 <div class="legend-color" style="background: ${nodeTypeColors.intermediate.primary}; box-shadow: 0 0 8px ${nodeTypeColors.intermediate.glow};"></div>
-                <span style="font-size: 13px;">${t('genealogy_intermediateDataset')}</span>
+                <span style="font-size: 13px; color: #dbeafe;">${t('genealogy_intermediateDataset')}</span>
             </div>`;
             html += `<div class="legend-item">
                 <div class="legend-color" style="background: ${nodeTypeColors.leaf.primary}; border: 2px solid ${nodeTypeColors.leaf.stroke};"></div>
-                <span style="font-size: 13px;">${t('genealogy_baseDataSource')}</span>
+                <span style="font-size: 13px; color: #dbeafe;">${t('genealogy_baseDataSource')}</span>
             </div>`;
             html += '</div>';
 
-            html += `<div style="font-size: 13px; color: #86868b; margin-bottom: 8px; font-weight: 500;">${t('genealogy_targetDatasetsLabel')}</div>`;
+            html += `<div style="font-size: 12px; color: #8fa0c5; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.03em;">${t('genealogy_targetDatasetsLabel')}</div>`;
             // 只显示已启用的target
             const enabledTargets = window.enabledTargets ? Array.from(window.enabledTargets) : (window.originalTargets || roots.map(r => r.targetName));
             enabledTargets.forEach((targetName, index) => {
@@ -3219,12 +3219,12 @@ if (appElement && document.getElementById("appPage")) {
                 const color = root ? root.color : (originalRoot ? originalRoot.color : targetColors[index % targetColors.length]);
                 html += `<div class="legend-item">
                     <div class="legend-color" style="background: ${color}; box-shadow: 0 0 8px ${color}40;"></div>
-                    <span style="font-size: 13px;">${targetName}</span>
+                    <span style="font-size: 13px; color: #0f172a;">${targetName}</span>
                 </div>`;
             });
 
-            html += `<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 12px; color: #86868b;">
-                <span style="font-weight: 500;">${t('genealogy_currentDisplay')}</span> ${nodeCount}${t('genealogy_nodes')}
+            html += `<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, 0.08); font-size: 12px; color: #8fa0c5;">
+                <span style="font-weight: 600; color: #dbeafe;">${t('genealogy_currentDisplay')}</span> ${nodeCount}${t('genealogy_nodes')}
             </div>`;
 
             legend.innerHTML = html;
@@ -3641,6 +3641,9 @@ if (appElement && document.getElementById("appPage")) {
             });
         }
         
+        const LINEAGE_API_BASE = (window.LINEAGE_API_BASE || "").replace(/\/$/, "");
+        const getLineageApiUrl = (path) => `${LINEAGE_API_BASE}${path}`;
+
         // 全局变量：跟踪API是否可用
         let apiServerAvailable = false;
         let apiCheckPromise = null;
@@ -3659,7 +3662,7 @@ if (appElement && document.getElementById("appPage")) {
                     const controller = new AbortController();
                     const timeoutId = setTimeout(() => controller.abort(), 2000); // 2秒超时
                     
-                    const response = await fetch('http://localhost:8003/api/health', {
+                    const response = await fetch(getLineageApiUrl('/api/health'), {
                         method: 'GET',
                         signal: controller.signal
                     });
@@ -3744,7 +3747,7 @@ if (appElement && document.getElementById("appPage")) {
                 };
                 
                 // 调用API（异步，不阻塞）
-                const response = await fetch('http://localhost:8003/api/summarize-sources', {
+                const response = await fetch(getLineageApiUrl('/api/summarize-sources'), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -4334,7 +4337,7 @@ if (appElement && document.getElementById("appPage")) {
                 const targetName = await loadTargetFromId('91');
                 
                 if (!targetName) {
-                    errorDiv.textContent = t('genealogy_targetNotFound', {targets: 'ID: 87'});
+                    errorDiv.textContent = t('genealogy_targetNotFound', {targets: 'ID: 91'});
                     errorDiv.style.display = 'block';
                     loadingDiv.style.display = 'none';
                     return;

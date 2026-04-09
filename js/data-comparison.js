@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	initI18nForIndex();
 });
 
-// Set Chart.js global defaults for dark theme
+// Set Chart.js global defaults for light theme
 if (typeof Chart !== "undefined") {
-	Chart.defaults.color = "#e8edf8";
-	Chart.defaults.borderColor = "rgba(255, 255, 255, 0.1)";
+	Chart.defaults.color = "#334155";
+	Chart.defaults.borderColor = "rgba(0, 0, 0, 0.08)";
 	Chart.defaults.scale.ticks.backdropColor = "transparent";
 }
 
@@ -203,8 +203,10 @@ const app = createApp({
 		/* ------------------------------------------------------------------------------------- */
 
 		// 方法：获取卡片样式（背景色、白字、无边框）
+		const getCardRgb = (idx) => chartColorBase[idx % chartColorBase.length].rgb;
+
 		const getCardStyle = (idx) => {
-			const rgb = chartColorBase[idx % chartColorBase.length].rgb;
+			const rgb = getCardRgb(idx);
 			return {
 				background: `rgba(${rgb}, 1)`,
 				color: "#fff",
@@ -215,6 +217,28 @@ const app = createApp({
 
 		//方法：header同body
 		const getCardHeaderStyle = (idx) => getCardStyle(idx);
+
+		const getDatasetCardStyle = (idx) => {
+			const rgb = getCardRgb(idx);
+			return {
+				"--comparison-accent": `rgb(${rgb})`,
+				"--comparison-accent-soft": `rgba(${rgb}, 0.16)`,
+				"--comparison-accent-muted": `rgba(${rgb}, 0.08)`,
+				"--comparison-accent-line": `rgba(${rgb}, 0.32)`,
+			};
+		};
+
+		const getDatasetChipStyle = (idx) => {
+			const rgb = getCardRgb(idx);
+			return {
+				background: `rgba(${rgb}, 0.14)`,
+				border: `1px solid rgba(${rgb}, 0.28)`,
+				color: "#334155",
+				boxShadow: "inset 0 1px 0 rgba(0,0,0,0.02)",
+			};
+		};
+
+		const getCardOrdinal = (idx) => String(idx + 1).padStart(2, "0");
 
 		// 方法：主卡片
 		const toggleMainCardCollapse = () => {
@@ -535,7 +559,7 @@ const app = createApp({
 							max: 10,
 							ticks: {
 								stepSize: 2,
-								color: "#94a3c0",
+								color: "#94a3b8",
 								callback: function (value) {
 									return [0, 2, 4, 6, 8, 10].includes(value) ? value : "";
 								},
@@ -549,16 +573,16 @@ const app = createApp({
 									weight: "600",
 									family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 								},
-								color: "#e8edf8",
+								color: "#334155",
 								padding: 20,
 								centerPointLabels: false,
 								display: true,
 							},
 							grid: {
-								color: "rgba(255, 255, 255, 0.1)",
+								color: "rgba(0, 0, 0, 0.08)",
 							},
 							angleLines: {
-								color: "rgba(255, 255, 255, 0.1)",
+								color: "rgba(0, 0, 0, 0.08)",
 							},
 						},
 					},
@@ -572,7 +596,7 @@ const app = createApp({
 							max: 1,
 							ticks: {
 								stepSize: 0.2,
-								color: "#94a3c0",
+								color: "#94a3b8",
 								callback: function (value) {
 									return [0.0, 0.2, 0.4, 0.6, 0.8, 1.0].includes(
 										Number(value.toFixed(1))
@@ -590,16 +614,16 @@ const app = createApp({
 									weight: "600",
 									family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 								},
-								color: "#e8edf8",
+								color: "#334155",
 								padding: 20,
 								centerPointLabels: false,
 								display: true,
 							},
 							grid: {
-								color: "rgba(255, 255, 255, 0.1)",
+								color: "rgba(0, 0, 0, 0.08)",
 							},
 							angleLines: {
-								color: "rgba(255, 255, 255, 0.1)",
+								color: "rgba(0, 0, 0, 0.08)",
 							},
 						},
 					},
@@ -622,7 +646,7 @@ const app = createApp({
 								labels: {
 									padding: 20,
 									usePointStyle: true,
-									color: "#e8edf8",
+									color: "#334155",
 									font: {
 										size: 12,
 										weight: "500",
@@ -633,7 +657,7 @@ const app = createApp({
 								display: datasets.length === 1, // 只有单个数据集时显示
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -649,10 +673,10 @@ const app = createApp({
 								beginAtZero: true,
 								max: 100,
 								grid: {
-									color: "rgba(255, 255, 255, 0.1)",
+									color: "rgba(0, 0, 0, 0.08)",
 								},
 								angleLines: {
-									color: "rgba(255, 255, 255, 0.1)",
+									color: "rgba(0, 0, 0, 0.08)",
 								},
 								pointLabels: {
 									font: {
@@ -660,14 +684,14 @@ const app = createApp({
 										weight: "600",
 										family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 									},
-									color: "#e8edf8",
+									color: "#334155",
 									padding: 20,
 									centerPointLabels: false,
 									display: true,
 								},
 								ticks: {
 									stepSize: 20,
-									color: "#94a3c0",
+									color: "#94a3b8",
 									backdrop: {
 										color: "transparent",
 									},
@@ -985,7 +1009,7 @@ const app = createApp({
 								display: qData.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1007,7 +1031,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1022,7 +1046,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1099,7 +1123,7 @@ const app = createApp({
 								display: qaData.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1121,7 +1145,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1136,7 +1160,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1254,7 +1278,7 @@ const app = createApp({
 								display: openQ.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: { size: 12, weight: "600" },
 								formatter: (value) => value.toFixed(1),
 								offset: 8,
@@ -1340,7 +1364,7 @@ const app = createApp({
 								display: relQA.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: { size: 12, weight: "600" },
 								formatter: (value) => value.toFixed(1),
 								offset: 8,
@@ -1491,7 +1515,7 @@ const app = createApp({
 								display: deitaQ.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1513,7 +1537,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1528,7 +1552,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1619,7 +1643,7 @@ const app = createApp({
 								display: dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1641,7 +1665,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1656,7 +1680,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1793,7 +1817,7 @@ const app = createApp({
 								display: deitaQualityData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1815,7 +1839,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1830,7 +1854,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -1906,7 +1930,7 @@ const app = createApp({
 								display: ifdData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -1928,7 +1952,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -1943,7 +1967,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -2019,7 +2043,7 @@ const app = createApp({
 								display: rewardModelData.dataArr.length === 1,
 								align: "end",
 								anchor: "end",
-								color: "#e8edf8",
+								color: "#334155",
 								font: {
 									size: 12,
 									weight: "600",
@@ -2041,7 +2065,7 @@ const app = createApp({
 									},
 								},
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: { font: { size: 12 } },
 							},
@@ -2056,7 +2080,7 @@ const app = createApp({
 								},
 								beginAtZero: true,
 								grid: {
-									color: "rgba(255, 255, 255, 0.08)",
+									color: "rgba(0, 0, 0, 0.07)",
 								},
 								ticks: {
 									font: { size: 12 },
@@ -2259,6 +2283,9 @@ const app = createApp({
 			// dataset card
 			getCardStyle,
 			getCardHeaderStyle,
+			getDatasetCardStyle,
+			getDatasetChipStyle,
+			getCardOrdinal,
 			cardCollapsed,
 			mainCardCollapsed,
 			chartColorBase,
