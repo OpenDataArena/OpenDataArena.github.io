@@ -26,3 +26,20 @@ __pycache__/
 .vscode/
 CLAUDE.md
 TODO.md
+
+# Legacy site source — moved to `main` branch / `legacy-snapshot-pre-redirect` tag after redirect cutover
+/css/
+/js/
+/vendor/
+/data/
+/data-lineage/
+/icon/
+/img/
+/server.py
+/test.css
+/env.example
+/leaderboard.html
+/data-comparison.html
+/tools.html
+/contribution.html
+/configurations.html
